@@ -229,7 +229,7 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
-  <img src="brand-assets/ipek-pyramid.JPG" alt="Ipek Tarakçı alle Piramidi di Giza — Antika Travels" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;" />
+  <div class="hero-img-placeholder"></div>
   <div class="hero-bg"></div>
   <div class="hero-content">
     <p class="hero-label" data-it="Viaggi Archeologici di Lusso · Gruppi Esclusivi" data-en="Luxury Archaeological Journeys · Exclusive Groups" data-tr="Lüks Arkeolojik Seyahatler · Özel Gruplar">Viaggi Archeologici di Lusso · Gruppi Esclusivi</p>
@@ -455,11 +455,19 @@
 <!-- ═══ CHI È IPEK ═══ -->
 <section id="ipek" class="py-24 px-6 bg-ivory">
   <div class="max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-      <div class="reveal">
-        <img src="brand-assets/ipek-desert.JPG" alt="Ipek Tarakçı — Fondatrice Antika Travels" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:2px;" />
+    <div class="grid md:grid-cols-5 gap-10 items-center">
+      <!-- Foto colonna sinistra: 2 immagini impilate -->
+      <div class="md:col-span-2 reveal">
+        <div class="grid grid-cols-2 gap-3">
+          <img src="brand-assets/ipek-desert.JPG" alt="Ipek Tarakçı nel deserto" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:2px;grid-row:1/3;" />
+          <div class="flex flex-col gap-3">
+            <img src="brand-assets/ipek-pyramid.JPG" alt="Ipek alle Piramidi di Giza" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 40%;border-radius:2px;" />
+            <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;border-radius:2px;" />
+          </div>
+        </div>
       </div>
-      <div class="reveal">
+      <!-- Testo colonna destra -->
+      <div class="md:col-span-3 reveal">
         <p class="section-label" data-it="Chi guida i viaggi" data-en="Who leads the journeys" data-tr="Yolculukları kim yönetir">Chi guida i viaggi</p>
         <h2 class="section-title mb-6" data-it="Ipek Tarakçı, Archeologa." data-en="Ipek Tarakçı, Archaeologist." data-tr="Ipek Tarakçı, Arkeolog.">Ipek Tarakçı, Archeologa.</h2>
         <p class="text-sm leading-relaxed mb-5 font-light" style="color:#7A7068;" data-it="Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in archeologia, Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi." data-en="Born in Turkey, based in Rome, in love with Egypt. With a degree in archaeology, Ipek has spent years studying the civilizations she now brings to life for her groups." data-tr="Türkiye'de doğdu, Roma'da yaşıyor, Mısır'a aşık. Arkeoloji mezunu Ipek, bugün grupları için hayata geçirdiği medeniyetleri yıllarca inceledi.">Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in archeologia, Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi.</p>
