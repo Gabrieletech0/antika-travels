@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antika Travels — Archaeological Journeys</title>
+  <meta name="description" content="Viaggi archeologici su misura in Egitto, Turchia e Italia. Gruppi esclusivi guidati da un'archeologa. Tour di lusso per chi vuole scoprire la storia dall'interno." />
+
+  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
+  <!-- SOSTITUISCI: GTM-XXXXXXX con il tuo ID da https://tagmanager.google.com -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+  <!-- ═══ FACEBOOK PIXEL ═══ -->
+  <!-- SOSTITUISCI: PIXEL_ID con il tuo Pixel ID da Meta Business Suite -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+  <!-- ═══ GOOGLE ANALYTICS 4 ═══ -->
+  <!-- SOSTITUISCI: G-XXXXXXXXXX con il tuo Measurement ID da https://analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?v=3"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#F7F3EE',
+            sand: '#E8D5B7',
+            stone: '#D4C4A8',
+            gold: '#C9A84C',
+            'gold-dark': '#8B6914',
+            ink: '#0F0E0C',
+            'ink-soft': '#2A2520',
+            mist: '#7A7068',
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #F7F3EE; color: #0F0E0C; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+    /* Grain texture */
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
+    nav.scrolled { background: rgba(247,243,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 2.5rem; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
+    nav.scrolled .logo { color: #0F0E0C; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+    nav.scrolled .nav-link { color: #7A7068; }
+    .nav-link:hover { color: #C9A84C; }
+    nav.scrolled .nav-link:hover { color: #C9A84C; }
+    .nav-cta { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; border: 1px solid rgba(201,168,76,0.6); color: #C9A84C; text-decoration: none; transition: all 0.3s; border-radius: 1px; }
+    .nav-cta:hover { background: #C9A84C; color: #0F0E0C; }
+
+    /* Lang buttons */
+    .lang-btn { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,238,0.5); background: transparent; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    nav.scrolled .lang-btn { color: #7A7068; border-color: rgba(0,0,0,0.15); }
+    .lang-btn.active, .lang-btn:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    /* Hero */
+    .hero { position: relative; height: 100vh; min-height: 700px; background: #0F0E0C; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,14,12,0.3) 0%, rgba(15,14,12,0.15) 40%, rgba(15,14,12,0.7) 100%); z-index: 1; }
+    .hero-img-placeholder { position: absolute; inset: 0; background: linear-gradient(135deg, #1A1510 0%, #2A2018 30%, #3A2D1C 60%, #1A1510 100%); }
+    /* Pattern egiziano decorativo */
+    .hero-img-placeholder::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 41px); }
+    .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 0 2.5rem 5rem; max-width: 900px; }
+    .hero-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; margin-bottom: 1.5rem; font-weight: 400; }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; line-height: 0.95; color: #F7F3EE; margin-bottom: 2rem; letter-spacing: -0.01em; }
+    .hero-title em { font-style: italic; color: #C9A84C; }
+    .hero-sub { font-size: 0.85rem; color: rgba(247,243,238,0.65); line-height: 1.8; max-width: 480px; font-weight: 300; margin-bottom: 3rem; letter-spacing: 0.02em; }
+    .hero-scroll { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(247,243,238,0.4); display: flex; align-items: center; gap: 1rem; }
+    .hero-scroll::after { content: ''; width: 40px; height: 1px; background: rgba(247,243,238,0.3); }
+
+    /* Divider ornamentale */
+    .ornament { display: flex; align-items: center; gap: 1.5rem; }
+    .ornament::before, .ornament::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent); }
+    .ornament-symbol { color: #C9A84C; font-size: 1rem; opacity: 0.6; }
+
+    /* Sections */
+    .section-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; margin-bottom: 1rem; font-weight: 400; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: #0F0E0C; }
+    .section-title.light { color: #F7F3EE; }
+
+    /* Destination cards */
+    .tour-card:hover { border-color: rgba(201,168,76,0.4) !important; background: rgba(247,243,238,0.07) !important; }
+    .dest-card { position: relative; overflow: hidden; cursor: pointer; }
+    .dest-card .dest-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; transition: transform 0.7s ease; display: block; }
+    .dest-card:hover .dest-img { transform: scale(1.04); }
+    .dest-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,14,12,0.85) 0%, rgba(15,14,12,0.2) 50%, transparent 100%); }
+    .dest-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; }
+    .dest-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: #F7F3EE; line-height: 1; margin-bottom: 0.5rem; }
+    .dest-tag { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C9A84C; }
+
+    /* Placeholder immagine destinazione */
+    .dest-img-placeholder { width: 100%; aspect-ratio: 3/4; display: block; }
+    .egypt-placeholder { background: linear-gradient(160deg, #2A1F0F 0%, #4A3520 40%, #6B4C2A 70%, #8B6340 100%); }
+    .turkey-placeholder { background: linear-gradient(160deg, #0F1F2A 0%, #1A3545 40%, #2A5568 70%, #3A7A8A 100%); }
+    .rome-placeholder { background: linear-gradient(160deg, #1A1210 0%, #3A2820 40%, #5A4030 70%, #7A5840 100%); }
+
+    /* Value props */
+    .value-card { border-top: 1px solid rgba(201,168,76,0.25); padding-top: 2rem; }
+    .value-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 1rem; }
+    .value-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.75rem; color: #0F0E0C; }
+    .value-desc { font-size: 0.82rem; line-height: 1.8; color: #7A7068; font-weight: 300; }
+
+    /* How it works */
+    .step { display: flex; gap: 2rem; align-items: flex-start; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(201,168,76,0.3); line-height: 1; flex-shrink: 0; width: 60px; }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.5rem; color: #F7F3EE; }
+    .step-desc { font-size: 0.82rem; line-height: 1.8; color: rgba(247,243,238,0.55); font-weight: 300; }
+
+    /* Buttons */
+    .btn-primary { display: inline-block; padding: 1rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.3s; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .btn-primary:hover { background: #8B6914; color: #F7F3EE; }
+    .btn-outline { display: inline-block; padding: 1rem 2.5rem; border: 1px solid #C9A84C; color: #C9A84C; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 400; transition: all 0.3s; background: transparent; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .btn-outline:hover { background: #C9A84C; color: #0F0E0C; }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; background: #25D366; color: #fff; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: background 0.3s; font-family: 'DM Sans', sans-serif; }
+    .btn-wa:hover { background: #1EBD5A; }
+
+    /* Form */
+    .form-input { width: 100%; background: rgba(247,243,238,0.06); border: 1px solid rgba(201,168,76,0.2); padding: 1rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #F7F3EE; outline: none; transition: border-color 0.3s; }
+    .form-input:focus { border-color: rgba(201,168,76,0.6); }
+    .form-input::placeholder { color: rgba(247,243,238,0.3); }
+    .form-input option { background: #1A1510; }
+    .form-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.5); margin-bottom: 0.5rem; display: block; }
+
+    /* Newsletter */
+    .nl-input { background: rgba(247,243,238,0.08); border: 1px solid rgba(201,168,76,0.2); padding: 0.875rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #F7F3EE; outline: none; transition: border-color 0.3s; width: 100%; }
+    .nl-input:focus { border-color: #C9A84C; }
+    .nl-input::placeholder { color: rgba(247,243,238,0.3); }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: #C9A84C; color: #0F0E0C; padding: 0.75rem 2rem; font-size: 0.8rem; font-family: 'DM Sans', sans-serif; z-index: 600; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); white-space: nowrap; font-weight: 500; letter-spacing: 0.05em; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Exit popup */
+    .exit-popup-backdrop { position: fixed; inset: 0; background: rgba(15,14,12,0.8); backdrop-filter: blur(8px); z-index: 700; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
+    .exit-popup-backdrop.open { opacity: 1; pointer-events: all; }
+    .exit-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%) scale(0.96); z-index: 701; width: 92%; max-width: 500px; background: #1A1510; border: 1px solid rgba(201,168,76,0.2); padding: 3rem 2.5rem; text-align: center; transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), opacity 0.3s ease; opacity: 0; pointer-events: none; }
+    .exit-popup.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: all; }
+    .exit-popup-close { position: absolute; top: 1rem; right: 1rem; width: 30px; height: 30px; background: transparent; border: 1px solid rgba(201,168,76,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #7A7068; transition: all 0.2s; }
+    .exit-popup-close:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Blockquote testimoniale */
+    blockquote { border-left: 2px solid #C9A84C; padding-left: 1.5rem; }
+
+    @media (max-width: 768px) {
+      .hero-content { padding: 0 1.5rem 4rem; }
+      nav { padding: 1.25rem 1.5rem; }
+      nav.scrolled { padding: 0.875rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ═══ EXIT-INTENT POPUP ═══ -->
+<div id="exit-popup-backdrop" class="exit-popup-backdrop"></div>
+<div id="exit-popup" class="exit-popup">
+  <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
+  <p class="section-label" data-it="Prima di andare" data-en="Before you leave" data-tr="Ayrılmadan önce">Prima di andare</p>
+  <h3 class="font-display font-light mb-3" style="font-size:1.8rem; color:#F7F3EE; line-height:1.2;" data-it="I posti sono limitati. I viaggi no." data-en="Seats are limited. The journeys are not." data-tr="Yerler sınırlı. Yolculuklar değil.">I posti sono limitati. I viaggi no.</h3>
+  <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.55); line-height:1.8;" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati." data-en="Subscribe to receive new itineraries and available spots in advance — before they are assigned." data-tr="Yeni güzergahları ve müsait yerleri önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati.</p>
+  <form onsubmit="handleExitNewsletter(event)" class="flex flex-col gap-3">
+    <input type="email" name="email" placeholder="La tua email" class="nl-input" style="text-align:center;" required />
+    <button type="submit" class="btn-primary" style="width:100%; text-align:center;" data-it="Voglio sapere in anticipo" data-en="I want to know in advance" data-tr="Önceden bilmek istiyorum">Voglio sapere in anticipo</button>
+  </form>
+  <p class="text-xs mt-4 font-light" style="color:rgba(247,243,238,0.3); letter-spacing:0.05em;" data-it="Nessuno spam. Solo itinerari." data-en="No spam. Only itineraries." data-tr="Spam yok. Sadece güzergahlar.">Nessuno spam. Solo itinerari.</p>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <div class="flex items-center justify-between">
+    <a href="#" class="logo" id="logo-link">Antika Travels</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#destinazioni" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="#tour" class="nav-link" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
+      <a href="#come-funziona" class="nav-link" data-it="Come funziona" data-en="How it works" data-tr="Nasıl çalışır">Come funziona</a>
+      <a href="#ipek" class="nav-link" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <div class="flex items-center gap-1 ml-2">
+        <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Richiedi un viaggio" data-en="Request a journey" data-tr="Seyahat talep et">Richiedi un viaggio</a>
+    </div>
+    <!-- Mobile menu -->
+    <div class="flex md:hidden items-center gap-3">
+      <div class="flex items-center gap-1">
+        <button class="lang-btn active" id="btn-it-m" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr-m" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta text-xs" data-it="Richiedi" data-en="Request" data-tr="Talep et">Richiedi</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-img-placeholder"></div>
+  <!-- SOSTITUISCI con: <img src="brand-assets/hero.jpg" alt="Antika Travels" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"> -->
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-label" data-it="Viaggi Archeologici di Lusso · Gruppi Esclusivi" data-en="Luxury Archaeological Journeys · Exclusive Groups" data-tr="Lüks Arkeolojik Seyahatler · Özel Gruplar">Viaggi Archeologici di Lusso · Gruppi Esclusivi</p>
+    <h1 class="hero-title">
+      <span data-it="Dove la storia" data-en="Where history" data-tr="Tarihin">Dove la storia</span><br>
+      <em data-it="ti appartiene." data-en="belongs to you." data-tr="sana ait olduğu yer.">ti appartiene.</em>
+    </h1>
+    <p class="hero-sub" data-it="Itinerari su misura in Egitto, Turchia e Italia. Guidati da un'archeologa. Per chi non si accontenta di guardare." data-en="Bespoke itineraries in Egypt, Turkey and Italy. Led by an archaeologist. For those who refuse to merely observe." data-tr="Mısır, Türkiye ve İtalya'da özel güzergahlar. Bir arkeolog tarafından yönetilir. Sadece bakmakla yetinmeyenler için.">Itinerari su misura in Egitto, Turchia e Italia. Guidati da un'archeologa. Per chi non si accontenta di guardare.</p>
+    <div class="hero-scroll" data-it="Scopri i viaggi" data-en="Discover the journeys" data-tr="Seyahatleri keşfet">Scopri i viaggi</div>
+  </div>
+</section>
+
+<!-- ═══ VALUE PROPS ═══ -->
+<section class="py-24 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <p class="section-label" data-it="Perché Antika Travels" data-en="Why Antika Travels" data-tr="Neden Antika Travels">Perché Antika Travels</p>
+      <h2 class="section-title" data-it="Non è un tour. È un'immersione." data-en="Not a tour. An immersion." data-tr="Bir tur değil. Bir keşif.">Non è un tour. È un'immersione.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="value-card reveal">
+        <div class="value-num">01</div>
+        <h3 class="value-title" data-it="Guidata da un'Archeologa" data-en="Led by an Archaeologist" data-tr="Bir Arkeolog Tarafından">Guidata da un'Archeologa</h3>
+        <p class="value-desc" data-it="Ipek Tarakçı è laureata in archeologia. Non legge le didascalie — conosce le storie che non sono scritte da nessuna parte. Ogni sito diventa un racconto vivo." data-en="Ipek Tarakçı holds a degree in archaeology. She doesn't read captions — she knows the stories written nowhere. Every site becomes a living narrative." data-tr="Ipek Tarakçı arkeoloji mezunudur. Etiketleri okumaz — hiçbir yerde yazılı olmayan hikayeleri bilir. Her yer canlı bir anlatıya dönüşür.">Ipek Tarakçı è laureata in archeologia. Non legge le didascalie — conosce le storie che non sono scritte da nessuna parte. Ogni sito diventa un racconto vivo.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">02</div>
+        <h3 class="value-title" data-it="Gruppi di Massimo 10 Persone" data-en="Groups of Maximum 10" data-tr="Maksimum 10 Kişilik Gruplar">Gruppi di Massimo 10 Persone</h3>
+        <p class="value-desc" data-it="Il lusso vero è lo spazio. Nessuna folla, nessun megafono, nessuna fretta. Solo il gruppo giusto, nel posto giusto, nel momento giusto." data-en="True luxury is space. No crowds, no megaphones, no rush. Just the right group, in the right place, at the right moment." data-tr="Gerçek lüks alandır. Kalabalık yok, megafon yok, acele yok. Sadece doğru grup, doğru yerde, doğru anda.">Il lusso vero è lo spazio. Nessuna folla, nessun megafono, nessuna fretta. Solo il gruppo giusto, nel posto giusto, nel momento giusto.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">03</div>
+        <h3 class="value-title" data-it="Itinerari su Misura" data-en="Bespoke Itineraries" data-tr="Özel Güzergahlar">Itinerari su Misura</h3>
+        <p class="value-desc" data-it="Ogni viaggio nasce da una conversazione. Interessi, ritmi, preferenze — costruiamo l'itinerario intorno a te, non il contrario." data-en="Every journey begins with a conversation. Interests, pace, preferences — we build the itinerary around you, not the other way around." data-tr="Her yolculuk bir konuşmayla başlar. İlgi alanları, tempo, tercihler — güzergahı senin etrafında inşa ediyoruz, tam tersi değil.">Ogni viaggio nasce da una conversazione. Interessi, ritmi, preferenze — costruiamo l'itinerario intorno a te, non il contrario.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament mx-6 md:mx-auto" style="max-width:80rem;"><span class="ornament-symbol">☽</span></div>
+
+<!-- ═══ DESTINAZIONI ═══ -->
+<section id="destinazioni" class="py-24 px-6 bg-ivory">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal mb-14">
+      <p class="section-label" data-it="Le nostre destinazioni" data-en="Our destinations" data-tr="Destinasyonlarımız">Le nostre destinazioni</p>
+      <h2 class="section-title" data-it="Tre civiltà. Un unico filo." data-en="Three civilisations. One thread." data-tr="Üç medeniyet. Tek bir iplik.">Tre civiltà. Un unico filo.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <!-- EGITTO -->
+      <div class="dest-card reveal" onclick="trackEvent('ViewContent',{content_name:'Egitto',content_type:'destination'})">
+        <div class="egypt-placeholder dest-img-placeholder"></div>
+        <!-- SOSTITUISCI: <img src="brand-assets/egitto.jpg" alt="Egitto" class="dest-img"> -->
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-tag mb-2" data-it="Valle dei Re · Luxor · Il Cairo" data-en="Valley of the Kings · Luxor · Cairo" data-tr="Krallar Vadisi · Luksor · Kahire">Valle dei Re · Luxor · Il Cairo</div>
+          <div class="dest-name" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</div>
+          <p class="text-xs font-light mt-2" style="color:rgba(247,243,238,0.6);" data-it="Dove le pietre parlano ancora." data-en="Where the stones still speak." data-tr="Taşların hâlâ konuştuğu yer.">Dove le pietre parlano ancora.</p>
+        </div>
+      </div>
+      <!-- TURCHIA -->
+      <div class="dest-card reveal" onclick="trackEvent('ViewContent',{content_name:'Turchia',content_type:'destination'})">
+        <div class="turkey-placeholder dest-img-placeholder" style="aspect-ratio:3/4;"></div>
+        <!-- SOSTITUISCI: <img src="brand-assets/turchia.jpg" alt="Turchia" class="dest-img"> -->
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-tag mb-2" data-it="Efeso · Cappadocia · Istanbul" data-en="Ephesus · Cappadocia · Istanbul" data-tr="Efes · Kapadokya · İstanbul">Efeso · Cappadocia · Istanbul</div>
+          <div class="dest-name" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</div>
+          <p class="text-xs font-light mt-2" style="color:rgba(247,243,238,0.6);" data-it="Dove Oriente e Occidente si sono incontrati." data-en="Where East and West have met." data-tr="Doğu ile Batı'nın buluştuğu yer.">Dove Oriente e Occidente si sono incontrati.</p>
+        </div>
+      </div>
+      <!-- ITALIA/ROMA -->
+      <div class="dest-card reveal" onclick="trackEvent('ViewContent',{content_name:'Italia',content_type:'destination'})">
+        <div class="rome-placeholder dest-img-placeholder" style="aspect-ratio:3/4;"></div>
+        <!-- SOSTITUISCI: <img src="brand-assets/roma.jpg" alt="Roma" class="dest-img"> -->
+        <div class="dest-overlay"></div>
+        <div class="dest-content">
+          <div class="dest-tag mb-2" data-it="Roma · Pompei · Paestum" data-en="Rome · Pompeii · Paestum" data-tr="Roma · Pompei · Paestum">Roma · Pompei · Paestum</div>
+          <div class="dest-name" data-it="Italia" data-en="Italy" data-tr="İtalya">Italia</div>
+          <p class="text-xs font-light mt-2" style="color:rgba(247,243,238,0.6);" data-it="Dove l'antico è ancora vivo sotto i tuoi piedi." data-en="Where the ancient is still alive beneath your feet." data-tr="Kadimin ayaklarının altında hâlâ yaşadığı yer.">Dove l'antico è ancora vivo sotto i tuoi piedi.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="#richiedi" class="btn-outline" data-it="Progetta il tuo itinerario" data-en="Design your itinerary" data-tr="Güzergahınızı tasarlayın">Progetta il tuo itinerario</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TOUR ═══ -->
+<section id="tour" class="py-24 px-6" style="background:#151210;">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal mb-4">
+      <p class="section-label" data-it="Itinerari selezionati" data-en="Curated itineraries" data-tr="Seçili güzergahlar">Itinerari selezionati</p>
+      <h2 class="section-title light" data-it="I nostri viaggi." data-en="Our journeys." data-tr="Yolculuklarımız.">I nostri viaggi.</h2>
+    </div>
+    <p class="text-sm mb-16 reveal" style="color:rgba(247,243,238,0.5); max-width:500px; line-height:1.9; font-weight:300;" data-it="Ogni itinerario è una traccia di partenza. Il viaggio reale nasce dalla conversazione." data-en="Every itinerary is a starting point. The real journey begins from conversation." data-tr="Her güzergah bir başlangıç noktasıdır. Gerçek yolculuk sohbetle başlar.">Ogni itinerario è una traccia di partenza. Il viaggio reale nasce dalla conversazione.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Tour 1: Egitto -->
+      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+        <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+          <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="10 giorni" data-en="10 days" data-tr="10 gün">10 giorni</span>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="I Faraoni del Nilo" data-en="The Pharaohs of the Nile" data-tr="Nil'in Firavunları">I Faraoni del Nilo</h3>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto antico con accesso a siti normalmente chiusi al pubblico, visite al tramonto e incontri con egittologi locali." data-en="Cairo, Saqqara, Luxor, Valley of the Kings, Abu Simbel. Ten days in ancient Egypt with access to sites normally closed to the public, sunset visits and meetings with local Egyptologists." data-tr="Kahire, Sakkara, Luksor, Krallar Vadisi, Ebu Simbel. Kamuya kapalı alanlara erişim, gün batımı ziyaretleri ve yerel Mısırbilimcilerle buluşmalarla eski Mısır'da on gün.">Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto antico con accesso a siti normalmente chiusi al pubblico, visite al tramonto e incontri con egittologi locali.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
+          <div>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 4.800</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+          </div>
+          <a href="#richiedi" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
+        </div>
+      </div>
+
+      <!-- Tour 2: Turchia Egea -->
+      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+        <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+          <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="8 giorni" data-en="8 days" data-tr="8 gün">8 giorni</span>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="Le Città dell'Egeo" data-en="Cities of the Aegean" data-tr="Ege'nin Şehirleri">Le Città dell'Egeo</h3>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Efeso, Pergamo, Afrodisia, Mileto. Il grande arco delle città greche sull'Egeo, con accesso alle aree di scavo attive e sessioni private con gli archeologi sul campo." data-en="Ephesus, Pergamon, Aphrodisias, Miletus. The great arc of Greek cities on the Aegean, with access to active excavation areas and private sessions with archaeologists in the field." data-tr="Efes, Bergama, Afrodisias, Milet. Ege kıyısındaki Yunan şehirlerinin büyük yayı, aktif kazı alanlarına erişim ve sahada arkeologlarla özel oturumlar.">Efeso, Pergamo, Afrodisia, Mileto. Il grande arco delle città greche sull'Egeo, con accesso alle aree di scavo attive e sessioni private con gli archeologi sul campo.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
+          <div>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 3.600</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+          </div>
+          <a href="#richiedi" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
+        </div>
+      </div>
+
+      <!-- Tour 3: Sicilia Magna Grecia -->
+      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+        <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+          <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Italia · Sicilia" data-en="Italy · Sicily" data-tr="İtalya · Sicilya">Italia · Sicilia</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="7 giorni" data-en="7 days" data-tr="7 gün">7 giorni</span>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="Magna Graecia" data-en="Magna Graecia" data-tr="Magna Graecia">Magna Graecia</h3>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Agrigento, Selinunte, Siracusa, Segesta. La Sicilia greca prima dell'alba dei turisti, tra templi intatti e musei con aperture esclusive al mattino presto." data-en="Agrigento, Selinunte, Syracuse, Segesta. Greek Sicily before the tourists arrive, among intact temples and museums with exclusive early-morning openings." data-tr="Agrigento, Selinunte, Sirakuza, Segesta. Turistler gelmeden önce Yunan Sicilya'sı; bozulmamış tapınaklar ve sabah erken saatlere özel müze açılışları.">Agrigento, Selinunte, Siracusa, Segesta. La Sicilia greca prima dell'alba dei turisti, tra templi intatti e musei con aperture esclusive al mattino presto.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
+          <div>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 3.200</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+          </div>
+          <a href="#richiedi" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
+        </div>
+      </div>
+
+      <!-- Tour 4: Anatolia -->
+      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+        <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
+          <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Turchia · Anatolia" data-en="Turkey · Anatolia" data-tr="Türkiye · Anadolu">Turchia · Anatolia</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="9 giorni" data-en="9 days" data-tr="9 gün">9 giorni</span>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="Anatolia Sacra" data-en="Sacred Anatolia" data-tr="Kutsal Anadolu">Anatolia Sacra</h3>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Göbekli Tepe, Çatalhöyük, Konya, Capadocia. Dalle origini della civiltà alle civiltà anatoliche medievali — un viaggio attraverso diecimila anni di storia ininterrotta." data-en="Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. From the origins of civilization to medieval Anatolian cultures — a journey through ten thousand years of uninterrupted history." data-tr="Göbekli Tepe, Çatalhöyük, Konya, Kapadokya. Uygarlığın başlangıcından Orta Çağ Anadolu kültürlerine — on bin yıllık kesintisiz tarihin içinde bir yolculuk.">Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. Dalle origini della civiltà alle civiltà anatoliche medievali — un viaggio attraverso diecimila anni di storia ininterrotta.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
+          <div>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 4.200</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+          </div>
+          <a href="#richiedi" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Nota gruppi -->
+    <div class="reveal mt-12 text-center">
+      <p style="font-size:0.72rem; color:rgba(247,243,238,0.3); letter-spacing:0.1em; font-weight:300;" data-it="Tutti i viaggi sono progettati per gruppi esclusivi di massimo 10 persone. I prezzi variano in base alla composizione del gruppo e alla personalizzazione del percorso." data-en="All journeys are designed for exclusive groups of up to 10 people. Prices vary based on group size and itinerary customisation." data-tr="Tüm yolculuklar en fazla 10 kişilik özel gruplar için tasarlanmıştır. Fiyatlar grup büyüklüğüne ve güzergah kişiselleştirmesine göre değişir.">Tutti i viaggi sono progettati per gruppi esclusivi di massimo 10 persone. I prezzi variano in base alla composizione del gruppo e alla personalizzazione del percorso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COME FUNZIONA ═══ -->
+<section id="come-funziona" class="py-24 px-6" style="background:#0F0E0C;">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal mb-16">
+      <p class="section-label" data-it="Il processo" data-en="The process" data-tr="Süreç">Il processo</p>
+      <h2 class="section-title light" data-it="Come nasce un viaggio Antika." data-en="How an Antika journey is born." data-tr="Bir Antika yolculuğu nasıl doğar.">Come nasce un viaggio Antika.</h2>
+    </div>
+    <div class="flex flex-col gap-12">
+      <div class="step reveal">
+        <div class="step-num">I</div>
+        <div>
+          <h3 class="step-title" data-it="La conversazione" data-en="The conversation" data-tr="Konuşma">La conversazione</h3>
+          <p class="step-desc" data-it="Compila il modulo o scrivici su WhatsApp. Ci racconti cosa ti affascina, quante persone siete, le date indicative. In 24 ore ti rispondiamo personalmente — non con un'email automatica." data-en="Fill in the form or write to us on WhatsApp. Tell us what fascinates you, how many you are, approximate dates. Within 24 hours we reply personally — not with an automated email." data-tr="Formu doldurun veya WhatsApp'tan yazın. Sizi büyüleyen şeyi, kaç kişi olduğunuzu, tahmini tarihleri anlatın. 24 saat içinde kişisel olarak yanıt veriyoruz — otomatik e-posta değil.">Compila il modulo o scrivici su WhatsApp. Ci racconti cosa ti affascina, quante persone siete, le date indicative. In 24 ore ti rispondiamo personalmente — non con un'email automatica.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">II</div>
+        <div>
+          <h3 class="step-title" data-it="L'itinerario su misura" data-en="The bespoke itinerary" data-tr="Özel güzergah">L'itinerario su misura</h3>
+          <p class="step-desc" data-it="Costruiamo l'itinerario attorno ai tuoi interessi — non il contrario. Ogni giorno ha un ritmo, una logica, un momento che non dimenticherai. Il preventivo è dettagliato e senza sorprese." data-en="We build the itinerary around your interests — not the other way around. Every day has a rhythm, a logic, a moment you won't forget. The quote is detailed and without surprises." data-tr="Güzergahı ilgi alanlarınızın etrafında inşa ediyoruz — tam tersi değil. Her günün bir ritmi, bir mantığı, unutamayacağınız bir anı var. Fiyat teklifi detaylı ve sürprizsiz.">Costruiamo l'itinerario attorno ai tuoi interessi — non il contrario. Ogni giorno ha un ritmo, una logica, un momento che non dimenticherai. Il preventivo è dettagliato e senza sorprese.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">III</div>
+        <div>
+          <h3 class="step-title" data-it="Il viaggio" data-en="The journey" data-tr="Yolculuk">Il viaggio</h3>
+          <p class="step-desc" data-it="Un deposito del 30% conferma il tuo posto. Il restante viene saldato prima della partenza. Ipek gestisce ogni dettaglio logistico — tu pensi solo a essere presente." data-en="A 30% deposit confirms your spot. The remainder is paid before departure. Ipek handles every logistical detail — you just focus on being present." data-tr="%30 depozito yerinizi onaylar. Kalan tutar hareket öncesi ödenir. Ipek her lojistik detayı yönetir — siz sadece orada olmaya odaklanın.">Un deposito del 30% conferma il tuo posto. Il restante viene saldato prima della partenza. Ipek gestisce ogni dettaglio logistico — tu pensi solo a essere presente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHI È IPEK ═══ -->
+<section id="ipek" class="py-24 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <!-- SOSTITUISCI: <img src="brand-assets/ipek-portrait.jpg" alt="Ipek Tarakçı" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;"> -->
+        <div style="width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,#1A1510 0%,#2A2018 40%,#3A2D1C 100%);display:flex;align-items:flex-end;padding:2rem;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(201,168,76,0.4);font-style:italic;">Ipek Tarakçı · Egitto</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="section-label" data-it="Chi guida i viaggi" data-en="Who leads the journeys" data-tr="Yolculukları kim yönetir">Chi guida i viaggi</p>
+        <h2 class="section-title mb-6" data-it="Ipek Tarakçı, Archeologa." data-en="Ipek Tarakçı, Archaeologist." data-tr="Ipek Tarakçı, Arkeolog.">Ipek Tarakçı, Archeologa.</h2>
+        <p class="text-sm leading-relaxed mb-5 font-light" style="color:#7A7068;" data-it="Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in archeologia, Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi." data-en="Born in Turkey, based in Rome, in love with Egypt. With a degree in archaeology, Ipek has spent years studying the civilizations she now brings to life for her groups." data-tr="Türkiye'de doğdu, Roma'da yaşıyor, Mısır'a aşık. Arkeoloji mezunu Ipek, bugün grupları için hayata geçirdiği medeniyetleri yıllarca inceledi.">Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in archeologia, Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi.</p>
+        <p class="text-sm leading-relaxed mb-8 font-light" style="color:#7A7068;" data-it="Non è una guida turistica. È la persona che ti ferma davanti a un rilievo che tutti ignorano e ti spiega, in silenzio, una storia che non leggerai su nessuna guida." data-en="She's not a tour guide. She's the person who stops you in front of a relief everyone ignores and explains, quietly, a story you won't find in any guidebook." data-tr="O bir turist rehberi değil. Herkesin görmezden geldiği bir kabartmanın önünde sizi durduran ve hiçbir rehberde bulamayacağınız bir hikayeyi sessizce anlatan kişidir.">Non è una guida turistica. È la persona che ti ferma davanti a un rilievo che tutti ignorano e ti spiega, in silenzio, una storia che non leggerai su nessuna guida.</p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="#richiedi" class="btn-primary" data-it="Viaggia con Ipek" data-en="Travel with Ipek" data-tr="Ipek ile seyahat et">Viaggia con Ipek</a>
+          <a href="https://www.instagram.com/ipekinrome/" target="_blank" class="btn-outline" data-it="Seguila su Instagram" data-en="Follow on Instagram" data-tr="Instagram'da takip et">Seguila su Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIANZE ═══ -->
+<section class="py-20 px-6" style="background:#1A1510;">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <p class="section-label" data-it="Chi ha viaggiato con noi" data-en="Who has travelled with us" data-tr="Bizimle seyahat edenler">Chi ha viaggiato con noi</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10">
+      <blockquote class="reveal">
+        <p class="font-display font-light text-xl italic mb-4" style="color:#F7F3EE; line-height:1.5;" data-it="&ldquo;Ho visitato l'Egitto tre volte. Con Ipek ho capito per la prima volta cosa stavo guardando.&rdquo;" data-en="&ldquo;I had visited Egypt three times. With Ipek, I finally understood what I was looking at.&rdquo;" data-tr="&ldquo;Mısır'ı üç kez ziyaret ettim. Ipek ile ne baktığımı ilk kez anladım.&rdquo;">&ldquo;Ho visitato l'Egitto tre volte. Con Ipek ho capito per la prima volta cosa stavo guardando.&rdquo;</p>
+        <footer style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C;">— S.K. · Istanbul, 2025</footer>
+      </blockquote>
+      <blockquote class="reveal">
+        <p class="font-display font-light text-xl italic mb-4" style="color:#F7F3EE; line-height:1.5;" data-it="&ldquo;Roma la conoscevo. Ma camminare con lei dentro il Foro Romano è stata un'altra cosa completamente.&rdquo;" data-en="&ldquo;I thought I knew Rome. Walking through the Forum with her was something else entirely.&rdquo;" data-tr="&ldquo;Roma'yı bildiğimi sanıyordum. Onunla Forum Romanum'da yürümek bambaşka bir şeydi.&rdquo;">&ldquo;Roma la conoscevo. Ma camminare con lei dentro il Foro Romano è stata un'altra cosa completamente.&rdquo;</p>
+        <footer style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C;">— M.T. · Ankara, 2025</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FORM RICHIESTA VIAGGIO ═══ -->
+<section id="richiedi" class="py-24 px-6" style="background:#0F0E0C;">
+  <div class="max-w-2xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <p class="section-label" data-it="Inizia il tuo viaggio" data-en="Begin your journey" data-tr="Yolculuğunuzu başlatın">Inizia il tuo viaggio</p>
+      <h2 class="section-title light mb-4" data-it="Raccontaci dove vuoi andare." data-en="Tell us where you want to go." data-tr="Nereye gitmek istediğinizi anlatın.">Raccontaci dove vuoi andare.</h2>
+      <p class="text-sm font-light" style="color:rgba(247,243,238,0.45);" data-it="Rispondiamo entro 24 ore. Personalmente." data-en="We respond within 24 hours. Personally." data-tr="24 saat içinde kişisel olarak yanıt veriyoruz.">Rispondiamo entro 24 ore. Personalmente.</p>
+    </div>
+
+    <form id="request-form" onsubmit="handleRequest(event)" class="reveal flex flex-col gap-5">
+      <div class="grid md:grid-cols-2 gap-5">
+        <div>
+          <label class="form-label" data-it="Nome e cognome" data-en="Full name" data-tr="Ad ve soyad">Nome e cognome</label>
+          <input type="text" name="nome" class="form-input" required />
+        </div>
+        <div>
+          <label class="form-label" data-it="Email" data-en="Email" data-tr="E-posta">Email</label>
+          <input type="email" name="email" class="form-input" required />
+        </div>
+      </div>
+      <div>
+        <label class="form-label" data-it="Destinazione di interesse" data-en="Destination of interest" data-tr="İlgilenilen destinasyon">Destinazione di interesse</label>
+        <select name="destinazione" class="form-input" style="cursor:pointer;">
+          <option value="" data-it="Seleziona..." data-en="Select..." data-tr="Seçin...">Seleziona...</option>
+          <option value="egitto" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</option>
+          <option value="turchia" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</option>
+          <option value="italia" data-it="Italia / Roma" data-en="Italy / Rome" data-tr="İtalya / Roma">Italia / Roma</option>
+          <option value="combinato" data-it="Combinato" data-en="Combined" data-tr="Kombine">Combinato</option>
+        </select>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div>
+          <label class="form-label" data-it="Numero di partecipanti" data-en="Number of participants" data-tr="Katılımcı sayısı">Numero di partecipanti</label>
+          <select name="persone" class="form-input" style="cursor:pointer;">
+            <option value="1-2">1–2</option>
+            <option value="3-5">3–5</option>
+            <option value="6-10">6–10</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" data-it="Periodo indicativo" data-en="Approximate period" data-tr="Tahmini dönem">Periodo indicativo</label>
+          <input type="text" name="periodo" class="form-input" placeholder="es. Aprile 2026" />
+        </div>
+      </div>
+      <div>
+        <label class="form-label" data-it="Raccontaci di più (interessi, aspettative, richieste speciali)" data-en="Tell us more (interests, expectations, special requests)" data-tr="Bize daha fazlasını anlatın (ilgi alanları, beklentiler, özel istekler)">Raccontaci di più</label>
+        <textarea name="messaggio" rows="4" class="form-input" style="resize:vertical;"></textarea>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 mt-2">
+        <button type="submit" class="btn-primary" style="flex:1; text-align:center;" data-it="Invia la richiesta" data-en="Send request" data-tr="Talebi gönder">Invia la richiesta</button>
+        <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Ipek%2C%20vorrei%20informazioni%20su%20un%20viaggio%20Antika%20Travels" target="_blank" class="btn-wa" onclick="trackEvent('InitiateCheckout',{content_name:'WhatsApp Contact',currency:'EUR',value:0})" data-it="Oppure scrivici su WhatsApp" data-en="Or write on WhatsApp" data-tr="Ya da WhatsApp'tan yazın">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-it="WhatsApp" data-en="WhatsApp" data-tr="WhatsApp">WhatsApp</span>
+        </a>
+      </div>
+    </form>
+    <div id="request-success" style="display:none;" class="text-center py-8">
+      <p class="font-display font-light text-2xl mb-3" style="color:#C9A84C;" data-it="Grazie. Ti risponderemo presto." data-en="Thank you. We'll be in touch shortly." data-tr="Teşekkürler. Yakında yanıt vereceğiz.">Grazie. Ti risponderemo presto.</p>
+      <p class="text-sm font-light" style="color:rgba(247,243,238,0.5);" data-it="Controlla la tua email nelle prossime 24 ore." data-en="Check your email within the next 24 hours." data-tr="Önümüzdeki 24 saat içinde e-postanızı kontrol edin.">Controlla la tua email nelle prossime 24 ore.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="py-20 px-6" style="background:#1A1510; border-top:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Rimani aggiornato" data-en="Stay informed" data-tr="Güncel kalın">Rimani aggiornato</p>
+    <h2 class="font-display font-light mb-4" style="font-size:2rem; color:#F7F3EE;" data-it="I nuovi itinerari. Prima di tutti." data-en="New itineraries. Before anyone else." data-tr="Yeni güzergahlar. Herkesten önce.">I nuovi itinerari. Prima di tutti.</h2>
+    <p class="text-sm font-light mb-8" style="color:rgba(247,243,238,0.45);" data-it="Nessuno spam. Solo i nuovi viaggi, i posti disponibili e qualche storia dall'archeologia." data-en="No spam. Only new journeys, available spots and a few stories from archaeology." data-tr="Spam yok. Sadece yeni yolculuklar, müsait yerler ve arkeolojiden bazı hikayeler.">Nessuno spam. Solo i nuovi viaggi, i posti disponibili e qualche storia dall'archeologia.</p>
+    <form id="nl-form" onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3">
+      <input type="email" name="email" placeholder="La tua email" class="nl-input" required />
+      <button type="submit" class="btn-primary whitespace-nowrap" data-it="Iscriviti" data-en="Subscribe" data-tr="Abone ol">Iscriviti</button>
+    </form>
+    <div id="nl-success" style="display:none; color:#C9A84C; font-size:0.9rem; margin-top:1rem;" data-it="✓ Perfetto. Ti teniamo aggiornato." data-en="✓ Perfect. We'll keep you informed." data-tr="✓ Mükemmel. Sizi bilgilendireceğiz.">✓ Perfetto. Ti teniamo aggiornato.</div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="px-6 py-12" style="background:#0A0908; border-top:1px solid rgba(201,168,76,0.08);">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+    <div>
+      <div class="font-display text-xl font-light tracking-widest uppercase mb-2" style="color:#F7F3EE; letter-spacing:0.25em;">Antika Travels</div>
+      <p class="text-xs font-light" style="color:#5A5248; letter-spacing:0.05em;" data-it="Viaggi Archeologici su Misura" data-en="Bespoke Archaeological Journeys" data-tr="Özel Arkeolojik Seyahatler">Viaggi Archeologici su Misura</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-6 text-xs" style="color:#5A5248; letter-spacing:0.1em; text-transform:uppercase;">
+      <a href="#destinazioni" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="#ipek" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <a href="#richiedi" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Contatti" data-en="Contact" data-tr="İletişim">Contatti</a>
+      <a href="https://www.instagram.com/ipekinrome/" target="_blank" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors">Instagram</a>
+    </div>
+    <p style="font-size:0.65rem; color:#3A3530;" class="font-light">© 2026 Antika Travels</p>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<script>
+  // ═══ TRACKING ═══
+  function trackEvent(name, params) {
+    params = params || {};
+    if (typeof fbq === 'function') fbq('track', name, params);
+    if (typeof gtag === 'function') gtag('event', name, params);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...params });
+  }
+
+  // ═══ NAV SCROLL ═══
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // ═══ REVEAL ANIMATIONS ═══
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ═══ BREVO SERVERLESS ═══
+  function sendToBrevo(nome, email, source) {
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ nome, email, source })
+    })
+    .then(r => { if (r.ok) console.log('[Brevo] OK:', email); else console.warn('[Brevo] Err:', r.status); })
+    .catch(err => console.warn('[Brevo] Network:', err));
+  }
+
+  // ═══ NEWSLETTER ═══
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const subs = JSON.parse(localStorage.getItem('at_subs') || '[]');
+    subs.push({ email, date: new Date().toISOString(), source: 'newsletter-form' });
+    localStorage.setItem('at_subs', JSON.stringify(subs));
+    localStorage.setItem('at_subscribed', '1');
+    sendToBrevo('', email, 'newsletter-form');
+    trackEvent('Lead', { content_name: 'Newsletter', currency: 'EUR', value: 0 });
+    e.target.style.display = 'none';
+    document.getElementById('nl-success').style.display = 'block';
+    showToast('✓ Iscrizione confermata');
+  }
+
+  // ═══ REQUEST FORM ═══
+  function handleRequest(e) {
+    e.preventDefault();
+    const f = e.target;
+    const nome = f.nome.value;
+    const email = f.email.value;
+    const dest = f.destinazione.value;
+    const persone = f.persone.value;
+    const periodo = f.periodo.value;
+    const msg = f.messaggio.value;
+    // Salva localmente
+    const reqs = JSON.parse(localStorage.getItem('at_requests') || '[]');
+    reqs.push({ nome, email, dest, persone, periodo, msg, date: new Date().toISOString() });
+    localStorage.setItem('at_requests', JSON.stringify(reqs));
+    // Track
+    trackEvent('Lead', { content_name: 'Journey Request', content_category: dest, currency: 'EUR', value: 0 });
+    trackEvent('InitiateCheckout', { content_name: dest, currency: 'EUR', value: 0, num_items: parseInt(persone) });
+    // Manda su WhatsApp (+ Brevo)
+    sendToBrevo(nome, email, 'request-form');
+    const waMsg = encodeURIComponent(`🏛 Nuova richiesta viaggio Antika Travels:\nNome: ${nome}\nEmail: ${email}\nDestinazione: ${dest}\nPersone: ${persone}\nPeriodo: ${periodo}\nMessaggio: ${msg}`);
+    // SOSTITUISCI: 39XXXXXXXXXX con il numero WhatsApp di Ipek
+    setTimeout(() => window.open(`https://wa.me/39XXXXXXXXXX?text=${waMsg}`, '_blank'), 400);
+    f.style.display = 'none';
+    document.getElementById('request-success').style.display = 'block';
+    showToast('✓ Richiesta inviata!');
+  }
+
+  // ═══ EXIT-INTENT POPUP ═══
+  let exitPopupShown = false;
+  function showExitPopup() {
+    if (exitPopupShown || localStorage.getItem('at_subscribed') || sessionStorage.getItem('at_exit_closed')) return;
+    exitPopupShown = true;
+    document.getElementById('exit-popup-backdrop').classList.add('open');
+    document.getElementById('exit-popup').classList.add('open');
+    trackEvent('ExitIntentShown');
+  }
+  function closeExitPopup() {
+    document.getElementById('exit-popup-backdrop').classList.remove('open');
+    document.getElementById('exit-popup').classList.remove('open');
+    sessionStorage.setItem('at_exit_closed', '1');
+  }
+  document.addEventListener('mouseout', e => { if (e.clientY < 5 && !e.relatedTarget) showExitPopup(); });
+  setTimeout(() => { if (window.innerWidth < 768) showExitPopup(); }, 45000);
+  document.getElementById('exit-popup-backdrop').addEventListener('click', closeExitPopup);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeExitPopup(); });
+
+  function handleExitNewsletter(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const subs = JSON.parse(localStorage.getItem('at_subs') || '[]');
+    subs.push({ email, date: new Date().toISOString(), source: 'exit-popup' });
+    localStorage.setItem('at_subs', JSON.stringify(subs));
+    localStorage.setItem('at_subscribed', '1');
+    sendToBrevo('', email, 'exit-popup');
+    trackEvent('Lead', { content_name: 'Exit Popup', currency: 'EUR', value: 0 });
+    closeExitPopup();
+    showToast('✓ Iscrizione confermata');
+  }
+
+  // ═══ TOAST ═══
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ═══ LINGUA ═══
+  let currentLang = 'it';
+  function setLang(lang) {
+    currentLang = lang;
+    ['it','en','tr'].forEach(l => {
+      document.querySelectorAll(`#btn-${l}, #btn-${l}-m`).forEach(b => b?.classList.toggle('active', l === lang));
+    });
+    document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = el.getAttribute(`data-${lang}`) || el.placeholder;
+      else el.innerHTML = el.getAttribute(`data-${lang}`);
+    });
+  }
+</script>
+</body>
+</html>
