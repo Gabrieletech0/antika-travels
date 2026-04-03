@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?v=3"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -99,6 +100,14 @@
 
     /* Destination cards */
     .tour-card:hover { border-color: rgba(201,168,76,0.4) !important; background: rgba(247,243,238,0.07) !important; }
+    .tour-card { transform-style: preserve-3d; transition: border-color 0.3s, background 0.3s, transform 0.15s ease-out; }
+
+    /* 3D Artifact section */
+    .artifact-section { position: relative; height: 50vh; min-height: 400px; background: #0A0908; overflow: hidden; }
+    .artifact-section canvas { display: block; width: 100%; height: 100%; }
+    .artifact-label { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; pointer-events: none; }
+    .artifact-label p { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.4); font-family: 'DM Sans', sans-serif; }
+    .artifact-label h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; color: rgba(247,243,238,0.25); margin-top: 0.5rem; font-style: italic; }
     .dest-card { position: relative; overflow: hidden; cursor: pointer; }
     .dest-card .dest-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; transition: transform 0.7s ease; display: block; }
     .dest-card:hover .dest-img { transform: scale(1.04); }
@@ -261,7 +270,14 @@
   </div>
 </section>
 
-<div class="ornament mx-6 md:mx-auto" style="max-width:80rem;"><span class="ornament-symbol">☽</span></div>
+<!-- ═══ 3D ARTIFACT ═══ -->
+<section class="artifact-section" id="artifact-3d">
+  <canvas id="artifact-canvas"></canvas>
+  <div class="artifact-label">
+    <p data-it="Esplora il passato" data-en="Explore the past" data-tr="Geçmişi keşfet">Esplora il passato</p>
+    <h3 data-it="Dove il tempo si ferma" data-en="Where time stands still" data-tr="Zamanın durduğu yer">Dove il tempo si ferma</h3>
+  </div>
+</section>
 
 <!-- ═══ DESTINAZIONI ═══ -->
 <section id="destinazioni" class="py-24 px-6 bg-ivory">
@@ -699,6 +715,114 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 3000);
   }
+
+  // ═══ 3D ARTIFACT (Three.js) ═══
+  (function() {
+    const canvas = document.getElementById('artifact-canvas');
+    const section = document.getElementById('artifact-3d');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x0A0908, 1);
+
+    // Gold wireframe material
+    const goldMat = new THREE.MeshBasicMaterial({ color: 0xC9A84C, wireframe: true, transparent: true, opacity: 0.35 });
+    const goldMatSolid = new THREE.MeshBasicMaterial({ color: 0xC9A84C, wireframe: true, transparent: true, opacity: 0.12 });
+
+    // Main group
+    const group = new THREE.Group();
+
+    // Pyramid (tetrahedron)
+    const pyramidGeo = new THREE.TetrahedronGeometry(1.2, 0);
+    const pyramid = new THREE.Mesh(pyramidGeo, goldMat);
+    group.add(pyramid);
+
+    // Inner icosahedron (rotating opposite)
+    const icoGeo = new THREE.IcosahedronGeometry(0.7, 0);
+    const ico = new THREE.Mesh(icoGeo, goldMatSolid);
+    group.add(ico);
+
+    // Outer dodecahedron
+    const dodGeo = new THREE.DodecahedronGeometry(1.8, 0);
+    const dod = new THREE.Mesh(dodGeo, new THREE.MeshBasicMaterial({ color: 0xC9A84C, wireframe: true, transparent: true, opacity: 0.08 }));
+    group.add(dod);
+
+    scene.add(group);
+
+    // Floating particles
+    const particleCount = 60;
+    const particleGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 8;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 6;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 5;
+    }
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particleMat = new THREE.PointsMaterial({ color: 0xC9A84C, size: 0.015, transparent: true, opacity: 0.5 });
+    const particles = new THREE.Points(particleGeo, particleMat);
+    scene.add(particles);
+
+    // Mouse tracking
+    let mouseX = 0, mouseY = 0;
+    section.addEventListener('mousemove', e => {
+      const rect = section.getBoundingClientRect();
+      mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    });
+
+    // Animation
+    let time = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      time += 0.003;
+
+      pyramid.rotation.y = time * 0.8;
+      pyramid.rotation.x = Math.sin(time * 0.5) * 0.3;
+
+      ico.rotation.y = -time * 1.2;
+      ico.rotation.z = time * 0.6;
+
+      dod.rotation.y = time * 0.15;
+      dod.rotation.x = time * 0.1;
+
+      particles.rotation.y = time * 0.05;
+
+      // Mouse influence
+      group.rotation.y += (mouseX * 0.3 - group.rotation.y) * 0.02;
+      group.rotation.x += (-mouseY * 0.2 - group.rotation.x) * 0.02;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Resize
+    window.addEventListener('resize', () => {
+      const w = section.clientWidth, h = section.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+  })();
+
+  // ═══ 3D TILT — TOUR CARDS ═══
+  document.querySelectorAll('.tour-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 6}deg) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)';
+    });
+  });
 
   // ═══ LINGUA ═══
   let currentLang = 'it';
