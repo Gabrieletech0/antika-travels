@@ -122,6 +122,13 @@
     .turkey-placeholder { background: linear-gradient(160deg, #0F1F2A 0%, #1A3545 40%, #2A5568 70%, #3A7A8A 100%); }
     .rome-placeholder { background: linear-gradient(160deg, #1A1210 0%, #3A2820 40%, #5A4030 70%, #7A5840 100%); }
 
+    /* Ipek photo hover effects */
+    .ipek-photo { overflow: hidden; border-radius: 2px; position: relative; }
+    .ipek-photo img { transition: transform 0.6s ease, filter 0.6s ease; display: block; }
+    .ipek-photo:hover img { transform: scale(1.06); filter: brightness(1.08); }
+    .ipek-photo::after { content: ''; position: absolute; inset: 0; border: 1px solid transparent; transition: border-color 0.4s; pointer-events: none; }
+    .ipek-photo:hover::after { border-color: rgba(201,168,76,0.4); }
+
     /* Value props */
     .value-card { border-top: 1px solid rgba(201,168,76,0.25); padding-top: 2rem; }
     .value-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 1rem; }
@@ -459,10 +466,16 @@
       <!-- Foto colonna sinistra: 2 immagini impilate -->
       <div class="md:col-span-2 reveal">
         <div class="grid grid-cols-2 gap-3">
-          <img src="brand-assets/ipek-desert.JPG" alt="Ipek Tarakçı nel deserto" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:2px;grid-row:1/3;" />
+          <div class="ipek-photo" style="grid-row:1/3;">
+            <img src="brand-assets/ipek-desert.JPG" alt="Ipek Tarakçı nel deserto" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          </div>
           <div class="flex flex-col gap-3">
-            <img src="brand-assets/ipek-pyramid.JPG" alt="Ipek alle Piramidi di Giza" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 40%;border-radius:2px;" />
-            <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;border-radius:2px;" />
+            <div class="ipek-photo">
+              <img src="brand-assets/ipek-pyramid.JPG" alt="Ipek alle Piramidi di Giza" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 40%;" />
+            </div>
+            <div class="ipek-photo">
+              <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;" />
+            </div>
           </div>
         </div>
       </div>
@@ -470,8 +483,9 @@
       <div class="md:col-span-3 reveal">
         <p class="section-label" data-it="Chi guida i viaggi" data-en="Who leads the journeys" data-tr="Yolculukları kim yönetir">Chi guida i viaggi</p>
         <h2 class="section-title mb-6" data-it="Ipek Tarakçı, Archeologa." data-en="Ipek Tarakçı, Archaeologist." data-tr="Ipek Tarakçı, Arkeolog.">Ipek Tarakçı, Archeologa.</h2>
-        <p class="text-sm leading-relaxed mb-5 font-light" style="color:#7A7068;" data-it="Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in archeologia, Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi." data-en="Born in Turkey, based in Rome, in love with Egypt. With a degree in archaeology, Ipek has spent years studying the civilizations she now brings to life for her groups." data-tr="Türkiye'de doğdu, Roma'da yaşıyor, Mısır'a aşık. Arkeoloji mezunu Ipek, bugün grupları için hayata geçirdiği medeniyetleri yıllarca inceledi.">Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in archeologia, Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi.</p>
-        <p class="text-sm leading-relaxed mb-8 font-light" style="color:#7A7068;" data-it="Non è una guida turistica. È la persona che ti ferma davanti a un rilievo che tutti ignorano e ti spiega, in silenzio, una storia che non leggerai su nessuna guida." data-en="She's not a tour guide. She's the person who stops you in front of a relief everyone ignores and explains, quietly, a story you won't find in any guidebook." data-tr="O bir turist rehberi değil. Herkesin görmezden geldiği bir kabartmanın önünde sizi durduran ve hiçbir rehberde bulamayacağınız bir hikayeyi sessizce anlatan kişidir.">Non è una guida turistica. È la persona che ti ferma davanti a un rilievo che tutti ignorano e ti spiega, in silenzio, una storia che non leggerai su nessuna guida.</p>
+        <p class="text-sm leading-relaxed mb-5 font-light" style="color:#7A7068;" data-it="Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in Archeologia e in Turismo, con una magistrale in Cultural Heritage — Middle East &amp; Africa, e attualmente impegnata in un secondo percorso magistrale. Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi." data-en="Born in Turkey, based in Rome, in love with Egypt. With degrees in Archaeology and Tourism, a Master's in Cultural Heritage — Middle East &amp; Africa, and currently pursuing a second Master's degree. Ipek has spent years studying the civilizations she now brings to life for her groups." data-tr="Türkiye'de doğdu, Roma'da yaşıyor, Mısır'a aşık. Arkeoloji ve Turizm lisans dereceleri, Kültürel Miras — Orta Doğu &amp; Afrika yüksek lisansı ve şu anda ikinci bir yüksek lisans programında. Ipek, bugün grupları için hayata geçirdiği medeniyetleri yıllarca inceledi.">Nata in Turchia, basata a Roma, innamorata dell'Egitto. Laureata in Archeologia e in Turismo, con una magistrale in Cultural Heritage — Middle East &amp; Africa, e attualmente impegnata in un secondo percorso magistrale. Ipek ha trascorso anni a studiare le civiltà che oggi porta in vita per i suoi gruppi.</p>
+        <p class="text-sm leading-relaxed mb-4 font-light" style="color:#7A7068;" data-it="Non è una guida turistica. È la persona che ti ferma davanti a un rilievo che tutti ignorano e ti spiega, in silenzio, una storia che non leggerai su nessuna guida." data-en="She's not a tour guide. She's the person who stops you in front of a relief everyone ignores and explains, quietly, a story you won't find in any guidebook." data-tr="O bir turist rehberi değil. Herkesin görmezden geldiği bir kabartmanın önünde sizi durduran ve hiçbir rehberde bulamayacağınız bir hikayeyi sessizce anlatan kişidir.">Non è una guida turistica. È la persona che ti ferma davanti a un rilievo che tutti ignorano e ti spiega, in silenzio, una storia che non leggerai su nessuna guida.</p>
+        <p class="text-xs mb-8 font-light italic" style="color:#C9A84C; letter-spacing:0.03em;" data-it="Pianista nel tempo libero. Perché anche le mani che toccano i geroglifici sanno leggere uno spartito." data-en="A pianist in her spare time. Because the hands that touch hieroglyphics can also read a score." data-tr="Boş zamanlarında piyanist. Çünkü hiyerogliflere dokunan eller bir notayı da okuyabilir.">Pianista nel tempo libero. Perché anche le mani che toccano i geroglifici sanno leggere uno spartito.</p>
         <div class="flex gap-4 flex-wrap">
           <a href="#richiedi" class="btn-primary" data-it="Viaggia con Ipek" data-en="Travel with Ipek" data-tr="Ipek ile seyahat et">Viaggia con Ipek</a>
           <a href="https://www.instagram.com/ipekinrome/" target="_blank" class="btn-outline" data-it="Seguila su Instagram" data-en="Follow on Instagram" data-tr="Instagram'da takip et">Seguila su Instagram</a>
