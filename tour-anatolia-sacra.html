@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anatolia Sacra — Antika Travels</title>
+  <meta name="description" content="Tour archeologico di 9 giorni in Anatolia: Göbekli Tepe, Çatalhöyük, Cappadocia. Gruppi esclusivi di massimo 10 persone guidati da un'archeologa attraverso 10.000 anni di civiltà." />
+
+  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- ═══ FACEBOOK PIXEL ═══ -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- ═══ GOOGLE ANALYTICS 4 ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?v=3"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#F7F3EE', sand:'#E8D5B7', stone:'#D4C4A8', gold:'#C9A84C', 'gold-dark':'#8B6914', ink:'#0F0E0C', 'ink-soft':'#2A2520', mist:'#7A7068' },
+          fontFamily: { display:['Cormorant Garamond','serif'], body:['DM Sans','sans-serif'] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #F7F3EE; color: #0F0E0C; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
+    nav.scrolled { background: rgba(247,243,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 2.5rem; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
+    nav.scrolled .logo { color: #0F0E0C; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+    nav.scrolled .nav-link { color: #7A7068; }
+    .nav-link:hover, nav.scrolled .nav-link:hover { color: #C9A84C; }
+    .nav-cta { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; border: 1px solid rgba(201,168,76,0.6); color: #C9A84C; text-decoration: none; transition: all 0.3s; border-radius: 1px; }
+    .nav-cta:hover { background: #C9A84C; color: #0F0E0C; }
+    .lang-btn { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,238,0.5); background: transparent; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    nav.scrolled .lang-btn { color: #7A7068; border-color: rgba(0,0,0,0.15); }
+    .lang-btn.active, .lang-btn:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    /* Shared */
+    .section-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; margin-bottom: 1rem; font-weight: 400; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: #0F0E0C; }
+    .section-title.light { color: #F7F3EE; }
+    .btn-primary { display: inline-block; padding: 0.85rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 1px; }
+    .btn-primary:hover { background: #8B6914; color: #F7F3EE; }
+    .btn-outline { display: inline-block; padding: 0.85rem 2.5rem; border: 1px solid rgba(201,168,76,0.5); color: #C9A84C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: #25D366; color: #fff; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-radius: 1px; transition: background 0.3s; font-family: 'DM Sans', sans-serif; }
+    .btn-wa:hover { background: #1DA851; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .form-label { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,238,0.4); margin-bottom: 0.5rem; }
+    .form-input { width: 100%; padding: 0.75rem 1rem; background: rgba(247,243,238,0.06); border: 1px solid rgba(201,168,76,0.15); color: #F7F3EE; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; }
+    .form-input:focus { border-color: #C9A84C; }
+    .nl-input { padding: 0.75rem 1rem; background: rgba(15,14,12,0.06); border: 1px solid rgba(201,168,76,0.2); color: #0F0E0C; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; flex: 1; }
+    .nl-input:focus { border-color: #C9A84C; }
+    .toast { position: fixed; bottom: 2rem; left: 2rem; background: #C9A84C; color: #0F0E0C; padding: 0.8rem 1.5rem; font-size: 0.8rem; font-weight: 500; border-radius: 2px; transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 500; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .exit-popup-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 300; }
+    .exit-popup-backdrop.open { display: block; }
+    .exit-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.9); background: #1A1510; border: 1px solid rgba(201,168,76,0.2); padding: 3rem; max-width: 440px; width: 90%; z-index: 301; text-align: center; transition: transform 0.3s; }
+    .exit-popup.open { display: block; transform: translate(-50%,-50%) scale(1); }
+    .exit-popup-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: rgba(247,243,238,0.4); font-size: 1.5rem; cursor: pointer; }
+
+    /* ═══ ANATOLIAN / NEOLITHIC CULTURAL DECORATIONS ═══ */
+    .hero-tour { position: relative; height: 100vh; min-height: 700px; overflow: hidden; }
+    .hero-tour img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-tour-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,21,16,0.25) 0%, rgba(26,21,16,0.15) 40%, rgba(90,69,53,0.85) 100%); z-index: 1; }
+    /* Concentric spiral pattern overlay — references Göbekli Tepe carvings */
+    .hero-tour-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 60 m0,-8 a8,8 0 1,1 0,16 a8,8 0 1,1 0,-16 m0,-8 a16,16 0 1,1 0,32 a16,16 0 1,1 0,-32 m0,-8 a24,24 0 1,1 0,48 a24,24 0 1,1 0,-48 m0,-8 a32,32 0 1,1 0,64 a32,32 0 1,1 0,-64' fill='none' stroke='%23C9A84C' stroke-width='0.5' opacity='0.6'/%3E%3C/svg%3E");
+      background-size: 120px 120px;
+      opacity: 0.03;
+      pointer-events: none;
+    }
+    .hero-tour-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 0 2.5rem 5rem; max-width: 800px; }
+
+    /* Hittite sun disc divider */
+    .divider-anatolian { display: flex; align-items: center; justify-content: center; padding: 2rem 0; }
+    .divider-anatolian::before, .divider-anatolian::after { content: ''; flex: 1; max-width: 200px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent); }
+    .divider-anatolian svg { margin: 0 1.5rem; opacity: 0.4; }
+
+    /* Day card with zigzag/dot border accent */
+    .day-card {
+      border-left: 3px solid transparent;
+      border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='12' viewBox='0 0 3 12'%3E%3Ccircle cx='1.5' cy='2' r='1' fill='%23C9A84C' opacity='0.35'/%3E%3Ccircle cx='1.5' cy='8' r='1' fill='%23C9A84C' opacity='0.15'/%3E%3C/svg%3E") 12 repeat;
+      padding-left: 2rem;
+      position: relative;
+    }
+    .day-card::before { content: ''; position: absolute; left: -6px; top: 0; width: 9px; height: 9px; background: #C9A84C; border-radius: 50%; opacity: 0.5; }
+    .day-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.5rem; }
+    .day-location { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: #0F0E0C; margin-bottom: 0.75rem; }
+    .day-desc { font-size: 0.85rem; color: #7A7068; line-height: 1.85; font-weight: 300; }
+    .day-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; transition: transform 0.6s ease; }
+    .day-photo:hover { transform: scale(1.03); }
+    .day-photo-wrap { overflow: hidden; border-radius: 2px; }
+
+    /* Facts strip */
+    .fact-item { text-align: center; }
+    .fact-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A7068; margin-bottom: 0.35rem; }
+    .fact-value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: #0F0E0C; }
+
+    /* Highlight cards */
+    .highlight-card { padding: 2rem; border-top: 2px solid rgba(201,168,76,0.3); }
+    .highlight-icon { color: #C9A84C; margin-bottom: 1rem; }
+    .highlight-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .highlight-desc { font-size: 0.8rem; color: #7A7068; line-height: 1.8; font-weight: 300; }
+
+    /* Include list */
+    .include-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.82rem; color: rgba(247,243,238,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 0.5rem; }
+    .include-check { color: #C9A84C; flex-shrink: 0; margin-top: 0.2rem; }
+    .exclude-x { color: rgba(247,243,238,0.25); flex-shrink: 0; margin-top: 0.2rem; }
+
+    /* Other tours */
+    .other-tour { background: rgba(247,243,238,0.04); border: 1px solid rgba(201,168,76,0.12); padding: 2rem; transition: border-color 0.3s, background 0.3s; text-decoration: none; display: block; }
+    .other-tour:hover { border-color: rgba(201,168,76,0.4); background: rgba(247,243,238,0.07); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .hero-tour-content { padding: 0 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ═══ EXIT-INTENT POPUP ═══ -->
+<div id="exit-popup-backdrop" class="exit-popup-backdrop"></div>
+<div id="exit-popup" class="exit-popup">
+  <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
+  <p class="section-label" data-it="Prima di andare" data-en="Before you leave" data-tr="Ayrılmadan önce">Prima di andare</p>
+  <h3 class="font-display font-light mb-3" style="font-size:1.8rem; color:#F7F3EE; line-height:1.2;" data-it="I posti sono limitati. I viaggi no." data-en="Seats are limited. The journeys are not." data-tr="Yerler sınırlı. Yolculuklar değil.">I posti sono limitati. I viaggi no.</h3>
+  <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.55);" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari." data-en="Subscribe to receive new itineraries in advance." data-tr="Yeni güzergahları önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari.</p>
+  <form onsubmit="handleExitNewsletter(event)" class="flex flex-col gap-3">
+    <input type="email" name="email" placeholder="La tua email" class="nl-input" style="text-align:center;" required />
+    <button type="submit" class="btn-primary" style="width:100%;" data-it="Voglio sapere in anticipo" data-en="I want to know in advance" data-tr="Önceden bilmek istiyorum">Voglio sapere in anticipo</button>
+  </form>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="logo">Antika Travels</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html#destinazioni" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#tour" class="nav-link" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
+      <a href="index.html#ipek" class="nav-link" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <div class="flex items-center gap-1 ml-2">
+        <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota ora" data-en="Book now" data-tr="Şimdi rezerve et">Prenota ora</a>
+    </div>
+    <div class="flex md:hidden items-center gap-3">
+      <div class="flex items-center gap-1">
+        <button class="lang-btn active" id="btn-it-m" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr-m" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota" data-en="Book" data-tr="Rezerve">Prenota</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero-tour">
+  <img src="brand-assets/tour/anatolia-hero.jpg" alt="Paesaggio della Cappadocia" loading="eager" />
+  <div class="hero-tour-overlay"></div>
+  <div class="hero-tour-content">
+    <p class="section-label" style="color:#C9A84C;" data-it="Anatolia · 9 Giorni" data-en="Anatolia · 9 Days" data-tr="Anadolu · 9 Gün">Anatolia · 9 Giorni</p>
+    <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,7vw,6rem); font-weight:300; line-height:0.95; color:#F7F3EE; margin-bottom:1.5rem;">
+      <span data-it="Anatolia" data-en="Sacred" data-tr="Kutsal">Anatolia</span><br>
+      <em style="color:#C9A84C;" data-it="Sacra." data-en="Anatolia." data-tr="Anadolu.">Sacra.</em>
+    </h1>
+    <p style="font-size:0.85rem; color:rgba(247,243,238,0.6); line-height:1.8; max-width:500px; font-weight:300;" data-it="Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. Nove giorni attraverso 10.000 anni di civiltà — dove l'umanità ha iniziato a costruire." data-en="Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. Nine days across 10,000 years of civilization — where humanity first learned to build." data-tr="Göbekli Tepe, Çatalhöyük, Konya, Kapadokya. İnsanlığın inşa etmeye başladığı yerde — 10.000 yıllık uygarlığa dokuz günlük yolculuk.">Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. Nove giorni attraverso 10.000 anni di civiltà — dove l'umanità ha iniziato a costruire.</p>
+  </div>
+</section>
+
+<!-- ═══ FACTS STRIP ═══ -->
+<section class="py-8 px-6" style="background:#0F0E0C; border-bottom:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
+    <div class="fact-item"><p class="fact-label" data-it="Durata" data-en="Duration" data-tr="Süre">Durata</p><p class="fact-value" style="color:#F7F3EE;">9 <span style="font-family:'DM Sans'; font-size:0.7rem; font-weight:300; letter-spacing:0.1em;" data-it="giorni" data-en="days" data-tr="gün">giorni</span></p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Gruppo" data-en="Group" data-tr="Grup">Gruppo</p><p class="fact-value" style="color:#F7F3EE;">Max 10</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Da" data-en="From" data-tr="Başlangıç">Da</p><p class="fact-value" style="color:#C9A84C;">€ 4.200</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Stagione" data-en="Season" data-tr="Sezon">Stagione</p><p class="fact-value" style="color:#F7F3EE;" data-it="Apr — Giu / Set — Nov" data-en="Apr — Jun / Sep — Nov" data-tr="Nis — Haz / Eyl — Kas">Apr — Giu / Set — Nov</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Difficoltà" data-en="Difficulty" data-tr="Zorluk">Difficoltà</p><p class="fact-value" style="color:#F7F3EE;" data-it="Moderato" data-en="Moderate" data-tr="Orta">Moderato</p></div>
+  </div>
+</section>
+
+<!-- ═══ ANATOLIAN DIVIDER ═══ -->
+<div class="divider-anatolian">
+  <!-- Hittite-style sun disc: circle with radiating short lines -->
+  <svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="20" r="6" stroke="#C9A84C" stroke-width="1"/>
+    <circle cx="40" cy="20" r="3" fill="#C9A84C" opacity="0.3"/>
+    <!-- Radiating lines -->
+    <line x1="40" y1="12" x2="40" y2="6" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="40" y1="28" x2="40" y2="34" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="32" y1="20" x2="26" y2="20" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="48" y1="20" x2="54" y2="20" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="34.34" y1="14.34" x2="30.1" y2="10.1" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="45.66" y1="25.66" x2="49.9" y2="29.9" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="45.66" y1="14.34" x2="49.9" y2="10.1" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="34.34" y1="25.66" x2="30.1" y2="29.9" stroke="#C9A84C" stroke-width="0.8"/>
+    <!-- Extra intermediate rays -->
+    <line x1="36.5" y1="12.5" x2="34.5" y2="7.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="43.5" y1="12.5" x2="45.5" y2="7.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="36.5" y1="27.5" x2="34.5" y2="32.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="43.5" y1="27.5" x2="45.5" y2="32.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="32.5" y1="16.5" x2="27.5" y2="14.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="47.5" y1="16.5" x2="52.5" y2="14.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="32.5" y1="23.5" x2="27.5" y2="25.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="47.5" y1="23.5" x2="52.5" y2="25.5" stroke="#C9A84C" stroke-width="0.6"/>
+  </svg>
+</div>
+
+<!-- ═══ ITINERARIO GIORNO PER GIORNO ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-16">
+      <p class="section-label" data-it="L'itinerario completo" data-en="The complete itinerary" data-tr="Tam güzergah">L'itinerario completo</p>
+      <h2 class="section-title" data-it="Nove giorni. Diecimila anni." data-en="Nine days. Ten thousand years." data-tr="Dokuz gün. On bin yıl.">Nove giorni. Diecimila anni.</h2>
+    </div>
+
+    <!-- Giorno I -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">I</div>
+        <h3 class="day-location" data-it="Istanbul → Şanlıurfa — Il varco verso il Neolitico" data-en="Istanbul → Şanlıurfa — Gateway to the Neolithic" data-tr="İstanbul → Şanlıurfa — Neolitik'e geçiş">Istanbul → Şanlıurfa — Il varco verso il Neolitico</h3>
+        <p class="day-desc" data-it="Volo interno da Istanbul a Şanlıurfa, la città dei profeti. Pomeriggio al Museo Archeologico di Şanlıurfa, dove la statua più antica del mondo — l'Uomo di Urfa — attende in silenzio da 11.000 anni. Visita a Balıklıgöl, il lago sacro con le carpe leggendarie, nel cuore della vecchia città." data-en="Domestic flight from Istanbul to Şanlıurfa, the city of prophets. Afternoon at the Şanlıurfa Archaeological Museum, where the oldest statue in the world — the Urfa Man — has waited in silence for 11,000 years. Visit to Balıklıgöl, the sacred pool with its legendary carp, in the heart of the old city." data-tr="İstanbul'dan Şanlıurfa'ya iç hat uçuşu, peygamberler şehri. Öğleden sonra Şanlıurfa Arkeoloji Müzesi'nde — dünyanın en eski heykeli Urfa Adamı 11.000 yıldır sessizce bekliyor. Eski şehrin kalbindeki efsanevi balıklarıyla Balıklıgöl ziyareti.">Volo interno da Istanbul a Şanlıurfa, la città dei profeti. Pomeriggio al Museo Archeologico di Şanlıurfa, dove la statua più antica del mondo — l'Uomo di Urfa — attende in silenzio da 11.000 anni. Visita a Balıklıgöl, il lago sacro con le carpe leggendarie, nel cuore della vecchia città.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/anatolia-hero.jpg" alt="Şanlıurfa — Museo e Balıklıgöl" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno II -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/anatolia-gobekli.jpg" alt="Göbekli Tepe — pilastri a T" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">II</div>
+        <h3 class="day-location" data-it="Göbekli Tepe — Il tempio più antico del mondo" data-en="Göbekli Tepe — The oldest temple on Earth" data-tr="Göbekli Tepe — Dünyanın en eski tapınağı">Göbekli Tepe — Il tempio più antico del mondo</h3>
+        <p class="day-desc" data-it="Giornata intera dedicata a Göbekli Tepe con un archeologo specialista del sito. I pilastri a T scolpiti 11.600 anni fa — seimila anni prima di Stonehenge, quattromila prima delle piramidi. Esplorazione dei recinti circolari, dei bassorilievi di animali e dei simboli che ancora sfidano ogni interpretazione. Tramonto sulla piana mesopotamica." data-en="Full day dedicated to Göbekli Tepe with an on-site specialist archaeologist. The T-shaped pillars carved 11,600 years ago — six thousand years before Stonehenge, four thousand before the pyramids. Exploration of the circular enclosures, animal bas-reliefs, and symbols that still defy interpretation. Sunset over the Mesopotamian plain." data-tr="Göbekli Tepe'ye adanmış tam gün, sahada uzman arkeoloğuyla birlikte. 11.600 yıl önce oyulmuş T-biçimli sütunlar — Stonehenge'den altı bin, piramitlerden dört bin yıl önce. Dairesel alanların, hayvan kabartmalarının ve hâlâ yoruma meydan okuyan sembollerin keşfi. Mezopotamya ovasında gün batımı.">Giornata intera dedicata a Göbekli Tepe con un archeologo specialista del sito. I pilastri a T scolpiti 11.600 anni fa — seimila anni prima di Stonehenge, quattromila prima delle piramidi. Esplorazione dei recinti circolari, dei bassorilievi di animali e dei simboli che ancora sfidano ogni interpretazione. Tramonto sulla piana mesopotamica.</p>
+      </div>
+    </div>
+
+    <!-- Giorno III -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">III</div>
+        <h3 class="day-location" data-it="Göbekli Tepe → Diyarbakır — Mura nere e minareti" data-en="Göbekli Tepe → Diyarbakır — Black walls and minarets" data-tr="Göbekli Tepe → Diyarbakır — Kara surlar ve minareler">Göbekli Tepe → Diyarbakır — Mura nere e minareti</h3>
+        <p class="day-desc" data-it="Trasferimento verso Diyarbakır lungo la valle dell'alto Tigri. Le mura di basalto nero della città — seconde per lunghezza solo alla Grande Muraglia — raccontano millenni di conquiste e resistenze. Visita alla Ulu Cami, la Grande Moschea, una delle più antiche dell'Islam, e passeggiata nei vicoli della città vecchia tra caravanserragli e chiese siriache." data-en="Transfer to Diyarbakır along the upper Tigris valley. The city's black basalt walls — second in length only to the Great Wall — tell millennia of conquest and resistance. Visit to the Ulu Cami, the Great Mosque, one of the oldest in Islam, and a walk through the old city's alleys among caravanserais and Syriac churches." data-tr="Yukarı Dicle vadisi boyunca Diyarbakır'a transfer. Şehrin siyah bazalt surları — uzunlukta yalnızca Çin Seddi'nden sonra ikinci — binlerce yıllık fetih ve direnişi anlatır. İslam'ın en eski camilerinden Ulu Cami ziyareti ve kervansaraylar ile Süryani kiliseleri arasında eski şehir sokaklarında yürüyüş.">Trasferimento verso Diyarbakır lungo la valle dell'alto Tigri. Le mura di basalto nero della città — seconde per lunghezza solo alla Grande Muraglia — raccontano millenni di conquiste e resistenze. Visita alla Ulu Cami, la Grande Moschea, una delle più antiche dell'Islam, e passeggiata nei vicoli della città vecchia tra caravanserragli e chiese siriache.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/anatolia-gobekli.jpg" alt="Diyarbakır — Mura di basalto" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno IV -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/anatolia-konya.jpg" alt="Çatalhöyük — Insediamento neolitico" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">IV</div>
+        <h3 class="day-location" data-it="Diyarbakır → Çatalhöyük — La prima città dell'umanità" data-en="Diyarbakır → Çatalhöyük — Humanity's first city" data-tr="Diyarbakır → Çatalhöyük — İnsanlığın ilk şehri">Diyarbakır → Çatalhöyük — La prima città dell'umanità</h3>
+        <p class="day-desc" data-it="Lungo trasferimento attraverso l'altopiano anatolico — un paesaggio di steppe e vulcani dormienti che non è cambiato da millenni. Arrivo a Çatalhöyük, patrimonio UNESCO: il più grande insediamento neolitico conosciuto, dove 9.000 anni fa ottomila persone vivevano in case senza strade, entrando dai tetti. Prima visita al sito e al centro visitatori." data-en="Long transfer across the Anatolian plateau — a landscape of steppe and dormant volcanoes unchanged for millennia. Arrival at Çatalhöyük, a UNESCO site: the largest known Neolithic settlement, where 9,000 years ago eight thousand people lived in houses without streets, entering through rooftops. First visit to the site and visitor centre." data-tr="Anadolu platosu boyunca uzun transfer — binlerce yıldır değişmemiş bozkır ve uyuyan yanardağ manzarası. UNESCO Dünya Mirası Çatalhöyük'e varış: bilinen en büyük Neolitik yerleşim, 9.000 yıl önce sekiz bin kişinin sokaksız evlerde çatılardan girerek yaşadığı yer. Siteye ve ziyaretçi merkezine ilk ziyaret.">Lungo trasferimento attraverso l'altopiano anatolico — un paesaggio di steppe e vulcani dormienti che non è cambiato da millenni. Arrivo a Çatalhöyük, patrimonio UNESCO: il più grande insediamento neolitico conosciuto, dove 9.000 anni fa ottomila persone vivevano in case senza strade, entrando dai tetti. Prima visita al sito e al centro visitatori.</p>
+      </div>
+    </div>
+
+    <!-- Giorno V -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">V</div>
+        <h3 class="day-location" data-it="Çatalhöyük — Scavi, ricostruzioni, misteri" data-en="Çatalhöyük — Excavations, reconstructions, mysteries" data-tr="Çatalhöyük — Kazılar, rekonstrüksiyonlar, gizemler">Çatalhöyük — Scavi, ricostruzioni, misteri</h3>
+        <p class="day-desc" data-it="Giornata intera negli scavi di Çatalhöyük. Esplorazione delle aree di scavo protette dove gli strati abitativi si sovrappongono per millenni. Le ricostruzioni a grandezza naturale delle case neolitiche — i murali di caccia, le sepolture sotto i pavimenti, le figurine della Dea Madre. Visita al museo del sito con i reperti originali." data-en="Full day at the Çatalhöyük excavations. Exploration of protected dig areas where habitation layers overlap across millennia. Life-size reconstructions of Neolithic houses — the hunting murals, burials beneath the floors, the Mother Goddess figurines. Visit to the on-site museum with original artefacts." data-tr="Çatalhöyük kazılarında tam gün. Binlerce yıl boyunca üst üste binen yaşam katmanlarının bulunduğu korumalı kazı alanlarının keşfi. Neolitik evlerin gerçek boyutlu rekonstrüksiyonları — av duvar resimleri, zemin altı gömüleri, Ana Tanrıça figürinleri. Orijinal eserlerin bulunduğu site müzesini ziyaret.">Giornata intera negli scavi di Çatalhöyük. Esplorazione delle aree di scavo protette dove gli strati abitativi si sovrappongono per millenni. Le ricostruzioni a grandezza naturale delle case neolitiche — i murali di caccia, le sepolture sotto i pavimenti, le figurine della Dea Madre. Visita al museo del sito con i reperti originali.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/anatolia-konya.jpg" alt="Çatalhöyük — Scavi archeologici" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno VI -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/anatolia-konya.jpg" alt="Konya — Museo Mevlana" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">VI</div>
+        <h3 class="day-location" data-it="Çatalhöyük → Konya — Il mistico e l'antico" data-en="Çatalhöyük → Konya — The mystic and the ancient" data-tr="Çatalhöyük → Konya — Mistik ve kadim">Çatalhöyük → Konya — Il mistico e l'antico</h3>
+        <p class="day-desc" data-it="Breve trasferimento a Konya, città santa dei dervisci rotanti. Il Museo Mevlana, dove riposa Rumi — il poeta sufi che otto secoli fa scrisse che ciò che cerchi ti sta cercando. La Moschea Alaeddin sulla collina più antica della città, tra resti selgiuchidi e giardini di rose. Sera libera nel bazar coperto." data-en="Short transfer to Konya, holy city of the whirling dervishes. The Mevlana Museum, where Rumi rests — the Sufi poet who eight centuries ago wrote that what you seek is seeking you. The Alaeddin Mosque on the city's oldest hill, among Seljuk remains and rose gardens. Free evening in the covered bazaar." data-tr="Semazen şehrinin kutsal kenti Konya'ya kısa transfer. Rumi'nin yattığı Mevlana Müzesi — sekiz yüzyıl önce aradığın şeyin seni aradığını yazan sufi şair. Selçuklu kalıntıları ve gül bahçeleri arasında şehrin en eski tepesindeki Alaeddin Camii. Kapalı çarşıda serbest akşam.">Breve trasferimento a Konya, città santa dei dervisci rotanti. Il Museo Mevlana, dove riposa Rumi — il poeta sufi che otto secoli fa scrisse che ciò che cerchi ti sta cercando. La Moschea Alaeddin sulla collina più antica della città, tra resti selgiuchidi e giardini di rose. Sera libera nel bazar coperto.</p>
+      </div>
+    </div>
+
+    <!-- Giorno VII -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">VII</div>
+        <h3 class="day-location" data-it="Konya → Cappadocia — La valle scavata nel tempo" data-en="Konya → Cappadocia — The valley carved by time" data-tr="Konya → Kapadokya — Zamanın oyduğu vadi">Konya → Cappadocia — La valle scavata nel tempo</h3>
+        <p class="day-desc" data-it="Trasferimento verso la Cappadocia attraverso il paesaggio lunare dell'altopiano. Trekking nella Valle di Ihlara — un canyon profondo 100 metri scavato dal fiume Melendiz, con chiese rupestri bizantine nascoste tra le pareti di tufo. Quattordici chilometri di sentiero lungo il fiume, tra affreschi medievali e silenzio assoluto. Arrivo nel villaggio di Göreme." data-en="Transfer to Cappadocia through the lunar landscape of the plateau. Trek through the Ihlara Valley — a 100-metre-deep canyon carved by the Melendiz River, with Byzantine rock churches hidden in the tuff walls. Fourteen kilometres of riverside trail, among medieval frescoes and absolute silence. Arrival in the village of Göreme." data-tr="Platonun ay manzarası boyunca Kapadokya'ya transfer. Ihlara Vadisi'nde trekking — Melendiz Nehri'nin oyduğu 100 metre derinliğindeki kanyon, tüf duvarlarına gizlenmiş Bizans kaya kiliseleriyle. Nehir boyunca on dört kilometre patika, ortaçağ freskleri ve mutlak sessizlik arasında. Göreme köyüne varış.">Trasferimento verso la Cappadocia attraverso il paesaggio lunare dell'altopiano. Trekking nella Valle di Ihlara — un canyon profondo 100 metri scavato dal fiume Melendiz, con chiese rupestri bizantine nascoste tra le pareti di tufo. Quattordici chilometri di sentiero lungo il fiume, tra affreschi medievali e silenzio assoluto. Arrivo nel villaggio di Göreme.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/anatolia-ihlara.jpg" alt="Valle di Ihlara — Trekking" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno VIII -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/anatolia-goreme.jpg" alt="Göreme — Chiese rupestri" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">VIII</div>
+        <h3 class="day-location" data-it="Cappadocia — Sotto la superficie" data-en="Cappadocia — Beneath the surface" data-tr="Kapadokya — Yüzeyin altında">Cappadocia — Sotto la superficie</h3>
+        <p class="day-desc" data-it="Discesa nella città sotterranea di Derinkuyu — otto livelli scavati nel tufo dove intere comunità vivevano in segreto. Poi le chiese rupestri del Museo a Cielo Aperto di Göreme, con affreschi bizantini del X e XI secolo perfettamente conservati nelle grotte. Pomeriggio tra i camini delle fate nella Valle di Devrent e la vista panoramica dalla fortezza di Uçhisar." data-en="Descent into the underground city of Derinkuyu — eight levels carved into tuff where entire communities lived in secrecy. Then the rock churches of the Göreme Open-Air Museum, with 10th and 11th century Byzantine frescoes perfectly preserved in caves. Afternoon among the fairy chimneys of Devrent Valley and the panoramic view from Uçhisar fortress." data-tr="Derinkuyu yeraltı şehrine iniş — tüm toplulukların gizlice yaşadığı tüf içine oyulmuş sekiz kat. Ardından mağaralarda mükemmel korunmuş 10. ve 11. yüzyıl Bizans freskleriyle Göreme Açık Hava Müzesi'nin kaya kiliseleri. Öğleden sonra Devrent Vadisi'nin peri bacaları ve Uçhisar kalesinden panoramik manzara.">Discesa nella città sotterranea di Derinkuyu — otto livelli scavati nel tufo dove intere comunità vivevano in segreto. Poi le chiese rupestri del Museo a Cielo Aperto di Göreme, con affreschi bizantini del X e XI secolo perfettamente conservati nelle grotte. Pomeriggio tra i camini delle fate nella Valle di Devrent e la vista panoramica dalla fortezza di Uçhisar.</p>
+      </div>
+    </div>
+
+    <!-- Giorno IX -->
+    <div class="reveal mb-8">
+      <div class="day-card">
+        <div class="day-num">IX</div>
+        <h3 class="day-location" data-it="Cappadocia — Mongolfiera all'alba, partenza" data-en="Cappadocia — Hot air balloon at dawn, departure" data-tr="Kapadokya — Şafakta balon, dönüş">Cappadocia — Mongolfiera all'alba, partenza</h3>
+        <p class="day-desc" data-it="Sveglia prima dell'alba per il volo in mongolfiera sulla Cappadocia — centinaia di palloni che si alzano nel silenzio sopra i camini delle fate, le valli e i villaggi scavati nella roccia. Un'esperienza che chiude il viaggio come un punto esclamativo sospeso nel cielo. Colazione in hotel, trasferimento all'aeroporto di Kayseri e volo di rientro." data-en="Wake before dawn for a hot air balloon flight over Cappadocia — hundreds of balloons rising in silence above the fairy chimneys, valleys and rock-carved villages. An experience that closes the journey like an exclamation mark suspended in the sky. Breakfast at the hotel, transfer to Kayseri airport and return flight." data-tr="Kapadokya üzerinde sıcak hava balonu uçuşu için şafaktan önce uyanış — peri bacaları, vadiler ve kayaya oyulmuş köylerin üzerinde sessizce yükselen yüzlerce balon. Yolculuğu gökyüzüne asılmış bir ünlem işareti gibi kapatan bir deneyim. Otelde kahvaltı, Kayseri havalimanına transfer ve dönüş uçuşu.">Sveglia prima dell'alba per il volo in mongolfiera sulla Cappadocia — centinaia di palloni che si alzano nel silenzio sopra i camini delle fate, le valli e i villaggi scavati nella roccia. Un'esperienza che chiude il viaggio come un punto esclamativo sospeso nel cielo. Colazione in hotel, trasferimento all'aeroporto di Kayseri e volo di rientro.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ANATOLIAN DIVIDER ═══ -->
+<div class="divider-anatolian">
+  <svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="20" r="6" stroke="#C9A84C" stroke-width="1"/>
+    <circle cx="40" cy="20" r="3" fill="#C9A84C" opacity="0.3"/>
+    <line x1="40" y1="12" x2="40" y2="6" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="40" y1="28" x2="40" y2="34" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="32" y1="20" x2="26" y2="20" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="48" y1="20" x2="54" y2="20" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="34.34" y1="14.34" x2="30.1" y2="10.1" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="45.66" y1="25.66" x2="49.9" y2="29.9" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="45.66" y1="14.34" x2="49.9" y2="10.1" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="34.34" y1="25.66" x2="30.1" y2="29.9" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="36.5" y1="12.5" x2="34.5" y2="7.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="43.5" y1="12.5" x2="45.5" y2="7.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="36.5" y1="27.5" x2="34.5" y2="32.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="43.5" y1="27.5" x2="45.5" y2="32.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="32.5" y1="16.5" x2="27.5" y2="14.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="47.5" y1="16.5" x2="52.5" y2="14.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="32.5" y1="23.5" x2="27.5" y2="25.5" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="47.5" y1="23.5" x2="52.5" y2="25.5" stroke="#C9A84C" stroke-width="0.6"/>
+  </svg>
+</div>
+
+<!-- ═══ HIGHLIGHTS ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-14">
+      <p class="section-label" data-it="Perché questo viaggio" data-en="Why this journey" data-tr="Neden bu yolculuk">Perché questo viaggio</p>
+      <h2 class="section-title" data-it="Cosa rende unico questo itinerario." data-en="What makes this itinerary unique." data-tr="Bu güzergahı benzersiz kılan ne.">Cosa rende unico questo itinerario.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 class="highlight-title" data-it="Il tempio più antico della storia" data-en="The oldest temple in human history" data-tr="İnsanlık tarihinin en eski tapınağı">Il tempio più antico della storia</h3>
+        <p class="highlight-desc" data-it="Göbekli Tepe ha riscritto i libri di storia. Un santuario costruito da cacciatori-raccoglitori 11.600 anni fa — prima dell'agricoltura, prima della ceramica, prima di tutto ciò che credevamo di sapere." data-en="Göbekli Tepe rewrote the history books. A sanctuary built by hunter-gatherers 11,600 years ago — before agriculture, before pottery, before everything we thought we knew." data-tr="Göbekli Tepe tarih kitaplarını yeniden yazdı. 11.600 yıl önce avcı-toplayıcılar tarafından inşa edilmiş bir tapınak — tarımdan önce, çömlekçilikten önce, bildiğimizi sandığımız her şeyden önce.">Göbekli Tepe ha riscritto i libri di storia. Un santuario costruito da cacciatori-raccoglitori 11.600 anni fa — prima dell'agricoltura, prima della ceramica, prima di tutto ciò che credevamo di sapere.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3 class="highlight-title" data-it="10.000 anni in nove giorni" data-en="10,000 years in nine days" data-tr="Dokuz günde 10.000 yıl">10.000 anni in nove giorni</h3>
+        <p class="highlight-desc" data-it="Dal Neolitico ai dervisci rotanti, dalle prime città dell'umanità alle chiese scavate nella roccia. Un itinerario che attraversa ogni strato della civiltà anatolica senza mai perdere il filo." data-en="From the Neolithic to the whirling dervishes, from humanity's first cities to churches carved into rock. An itinerary that traverses every layer of Anatolian civilization without ever losing the thread." data-tr="Neolitik'ten semazen dervişlerine, insanlığın ilk şehirlerinden kayaya oyulmuş kiliselere. Anadolu uygarlığının her katmanını ipi hiç kaybetmeden geçen bir güzergah.">Dal Neolitico ai dervisci rotanti, dalle prime città dell'umanità alle chiese scavate nella roccia. Un itinerario che attraversa ogni strato della civiltà anatolica senza mai perdere il filo.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2c-4 4-8 7.5-8 12a8 8 0 0016 0c0-4.5-4-8-8-12z"/></svg></div>
+        <h3 class="highlight-title" data-it="Mongolfiera sulla Cappadocia" data-en="Hot air balloon over Cappadocia" data-tr="Kapadokya üzerinde balon">Mongolfiera sulla Cappadocia</h3>
+        <p class="highlight-desc" data-it="Centinaia di palloni all'alba sopra un paesaggio lunare. Un'esperienza che non ha bisogno di parole — e che chiude il viaggio nel modo più poetico possibile." data-en="Hundreds of balloons at dawn above a lunar landscape. An experience that needs no words — and closes the journey in the most poetic way possible." data-tr="Ay manzarası üzerinde şafakta yüzlerce balon. Kelimelere ihtiyaç duymayan bir deneyim — ve yolculuğu mümkün olan en şiirsel şekilde kapatan.">Centinaia di palloni all'alba sopra un paesaggio lunare. Un'esperienza che non ha bisogno di parole — e che chiude il viaggio nel modo più poetico possibile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COSA INCLUDE ═══ -->
+<section class="py-20 px-6" style="background:#0F0E0C;">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="section-label" data-it="Dettagli pratici" data-en="Practical details" data-tr="Pratik detaylar">Dettagli pratici</p>
+      <h2 class="section-title light" data-it="Cosa include il viaggio." data-en="What the journey includes." data-tr="Yolculuk neleri içerir.">Cosa include il viaggio.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 reveal">
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C; margin-bottom:1.5rem;" data-it="Include" data-en="Included" data-tr="Dahil">Include</h3>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Volo interno Istanbul — Şanlıurfa" data-en="Domestic flight Istanbul — Şanlıurfa" data-tr="İstanbul — Şanlıurfa iç hat uçuşu">Volo interno Istanbul — Şanlıurfa</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Minibus privato per tutti i trasferimenti terrestri" data-en="Private minibus for all ground transfers" data-tr="Tüm kara transferleri için özel minibüs">Minibus privato per tutti i trasferimenti terrestri</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="8 notti in boutique hotel e cave hotel (camera doppia)" data-en="8 nights in boutique and cave hotels (double room)" data-tr="Butik ve kaya otellerinde 8 gece (çift kişilik oda)">8 notti in boutique hotel e cave hotel (camera doppia)</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Guida archeologa per l'intero viaggio" data-en="Archaeologist guide for the entire journey" data-tr="Tüm yolculuk boyunca arkeolog rehber">Guida archeologa per l'intero viaggio</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Archeologo specialista a Göbekli Tepe" data-en="Specialist archaeologist at Göbekli Tepe" data-tr="Göbekli Tepe'de uzman arkeolog">Archeologo specialista a Göbekli Tepe</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti gli ingressi ai siti e musei" data-en="All site and museum entries" data-tr="Tüm alan ve müze girişleri">Tutti gli ingressi ai siti e musei</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Colazione giornaliera + 4 cene" data-en="Daily breakfast + 4 dinners" data-tr="Günlük kahvaltı + 4 akşam yemeği">Colazione giornaliera + 4 cene</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Volo in mongolfiera sulla Cappadocia" data-en="Hot air balloon flight over Cappadocia" data-tr="Kapadokya üzerinde sıcak hava balonu uçuşu">Volo in mongolfiera sulla Cappadocia</span></div>
+      </div>
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(247,243,238,0.3); margin-bottom:1.5rem;" data-it="Non include" data-en="Not included" data-tr="Dahil değil">Non include</h3>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Volo internazionale (andata e ritorno)" data-en="International flights (round trip)" data-tr="Uluslararası uçuşlar (gidiş-dönüş)">Volo internazionale (andata e ritorno)</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Volo interno Kayseri — Istanbul (ritorno)" data-en="Domestic flight Kayseri — Istanbul (return)" data-tr="Kayseri — İstanbul iç hat uçuşu (dönüş)">Volo interno Kayseri — Istanbul (ritorno)</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Pranzi e cene non menzionate" data-en="Lunches and unspecified dinners" data-tr="Öğle yemekleri ve belirtilmeyen akşam yemekleri">Pranzi e cene non menzionate</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Spese personali e mance" data-en="Personal expenses and tips" data-tr="Kişisel harcamalar ve bahşişler">Spese personali e mance</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Assicurazione viaggio" data-en="Travel insurance" data-tr="Seyahat sigortası">Assicurazione viaggio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PREZZO + CTA ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Prezzo" data-en="Price" data-tr="Fiyat">Prezzo</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,6vw,4.5rem); font-weight:300; color:#C9A84C; margin-bottom:0.5rem;">€ 4.200</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); margin-bottom:2.5rem;" data-it="per persona, base camera doppia" data-en="per person, double room basis" data-tr="kişi başı, çift kişilik oda bazında">per persona, base camera doppia</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#richiedi" class="btn-primary" data-it="Richiedi questo viaggio" data-en="Request this journey" data-tr="Bu yolculuğu talep et">Richiedi questo viaggio</a>
+      <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Ipek%2C%20vorrei%20informazioni%20sul%20tour%20Anatolia%20Sacra" target="_blank" class="btn-wa">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <p style="font-size:0.65rem; color:rgba(247,243,238,0.25); margin-top:2rem; line-height:1.8;" data-it="Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta." data-en="Price varies based on group size and itinerary customization. Single supplement available on request." data-tr="Fiyat, grup büyüklüğüne ve güzergah kişiselleştirmesine göre değişir. Tek kişilik oda ek ücreti talep üzerine mevcuttur.">Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta.</p>
+  </div>
+</section>
+
+<!-- ═══ FORM RICHIESTA ═══ -->
+<section id="richiedi" class="py-24 px-6" style="background:#0F0E0C;">
+  <div class="max-w-xl mx-auto reveal">
+    <p class="section-label" data-it="Inizia da qui" data-en="Start here" data-tr="Buradan başlayın">Inizia da qui</p>
+    <h2 class="section-title light mb-8" data-it="Richiedi questo viaggio." data-en="Request this journey." data-tr="Bu yolculuğu talep edin.">Richiedi questo viaggio.</h2>
+    <form id="request-form" onsubmit="handleRequest(event)" class="flex flex-col gap-5">
+      <input type="hidden" name="tour" value="anatolia-sacra" />
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Nome" data-en="Name" data-tr="İsim">Nome</label><input type="text" name="nome" class="form-input" required /></div>
+        <div><label class="form-label">Email</label><input type="email" name="email" class="form-input" required /></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Persone" data-en="People" data-tr="Kişi sayısı">Persone</label><select name="persone" class="form-input"><option>2</option><option>3-4</option><option>5-6</option><option>7-10</option></select></div>
+        <div><label class="form-label" data-it="Periodo preferito" data-en="Preferred period" data-tr="Tercih edilen dönem">Periodo preferito</label><input type="text" name="periodo" class="form-input" placeholder="es. Maggio 2026" /></div>
+      </div>
+      <div><label class="form-label" data-it="Note o richieste speciali" data-en="Notes or special requests" data-tr="Notlar veya özel istekler">Note o richieste speciali</label><textarea name="messaggio" rows="3" class="form-input" style="resize:vertical;"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%; text-align:center;" data-it="Invia la richiesta" data-en="Send request" data-tr="Talebi gönder">Invia la richiesta</button>
+    </form>
+    <div id="request-success" style="display:none;" class="text-center py-8">
+      <p class="font-display font-light text-2xl mb-3" style="color:#C9A84C;" data-it="Grazie. Ti risponderemo presto." data-en="Thank you. We'll be in touch shortly." data-tr="Teşekkürler. Yakında yanıt vereceğiz.">Grazie. Ti risponderemo presto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ALTRI TOUR ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-12 text-center">
+      <p class="section-label" data-it="Scopri gli altri itinerari" data-en="Discover other itineraries" data-tr="Diğer güzergahları keşfet">Scopri gli altri itinerari</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <a href="tour-faraoni-del-nilo.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Egitto · 10 giorni" data-en="Egypt · 10 days" data-tr="Mısır · 10 gün">Egitto · 10 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="I Faraoni del Nilo" data-en="The Pharaohs of the Nile" data-tr="Nil'in Firavunları">I Faraoni del Nilo</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 4.800 / persona" data-en="From € 4,800 / person" data-tr="Kişi başı € 4.800'den">Da € 4.800 / persona</p>
+      </a>
+      <a href="tour-citta-egeo.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Turchia · 8 giorni" data-en="Turkey · 8 days" data-tr="Türkiye · 8 gün">Turchia · 8 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="Le Città dell'Egeo" data-en="Cities of the Aegean" data-tr="Ege'nin Şehirleri">Le Città dell'Egeo</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 3.600 / persona" data-en="From € 3,600 / person" data-tr="Kişi başı € 3.600'den">Da € 3.600 / persona</p>
+      </a>
+      <a href="tour-magna-graecia.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Sicilia · 7 giorni" data-en="Sicily · 7 days" data-tr="Sicilya · 7 gün">Sicilia · 7 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;">Magna Graecia</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 3.200 / persona" data-en="From € 3,200 / person" data-tr="Kişi başı € 3.200'den">Da € 3.200 / persona</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="py-20 px-6" style="background:#1A1510; border-top:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Rimani aggiornato" data-en="Stay informed" data-tr="Güncel kalın">Rimani aggiornato</p>
+    <h2 class="font-display font-light mb-4" style="font-size:2rem; color:#F7F3EE;" data-it="I nuovi itinerari. Prima di tutti." data-en="New itineraries. Before anyone else." data-tr="Yeni güzergahlar. Herkesten önce.">I nuovi itinerari. Prima di tutti.</h2>
+    <form id="nl-form" onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3">
+      <input type="email" name="email" placeholder="La tua email" class="nl-input" required />
+      <button type="submit" class="btn-primary whitespace-nowrap" data-it="Iscriviti" data-en="Subscribe" data-tr="Abone ol">Iscriviti</button>
+    </form>
+    <div id="nl-success" style="display:none; color:#C9A84C; font-size:0.9rem; margin-top:1rem;">&#10003;</div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="px-6 py-12" style="background:#0A0908; border-top:1px solid rgba(201,168,76,0.08);">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+    <div>
+      <a href="index.html" style="text-decoration:none;"><div class="font-display text-xl font-light tracking-widest uppercase mb-2" style="color:#F7F3EE; letter-spacing:0.25em;">Antika Travels</div></a>
+      <p class="text-xs font-light" style="color:#5A5248; letter-spacing:0.05em;" data-it="Viaggi Archeologici su Misura" data-en="Bespoke Archaeological Journeys" data-tr="Özel Arkeolojik Seyahatler">Viaggi Archeologici su Misura</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-6 text-xs" style="color:#5A5248; letter-spacing:0.1em; text-transform:uppercase;">
+      <a href="index.html#destinazioni" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#ipek" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <a href="https://www.instagram.com/ipekinrome/" target="_blank" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors">Instagram</a>
+    </div>
+    <p style="font-size:0.65rem; color:#3A3530;" class="font-light">&copy; 2026 Antika Travels</p>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  // ═══ TRACKING ═══
+  function trackEvent(name, params) {
+    params = params || {};
+    if (typeof fbq === 'function') fbq('track', name, params);
+    if (typeof gtag === 'function') gtag('event', name, params);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...params });
+  }
+  trackEvent('ViewContent', { content_name: 'Tour — Anatolia Sacra', content_type: 'tour_page' });
+
+  // ═══ NAV SCROLL ═══
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 80); });
+
+  // ═══ REVEAL ═══
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ═══ BREVO ═══
+  function sendToBrevo(nome, email, source) {
+    fetch('/api/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ nome, email, source }) })
+    .then(r => { if (r.ok) console.log('[Brevo] OK'); }).catch(err => console.warn('[Brevo]', err));
+  }
+
+  // ═══ NEWSLETTER ═══
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    localStorage.setItem('at_subscribed', '1');
+    sendToBrevo('', email, 'newsletter-tour-anatolia');
+    trackEvent('Lead', { content_name: 'Newsletter Tour Anatolia' });
+    e.target.style.display = 'none';
+    document.getElementById('nl-success').style.display = 'block';
+    showToast('✓ Iscrizione confermata');
+  }
+
+  // ═══ REQUEST FORM ═══
+  function handleRequest(e) {
+    e.preventDefault();
+    const f = e.target;
+    const nome = f.nome.value, email = f.email.value, persone = f.persone.value, periodo = f.periodo.value, msg = f.messaggio.value;
+    trackEvent('Lead', { content_name: 'Tour Request — Anatolia Sacra', content_category: 'Anatolia' });
+    trackEvent('InitiateCheckout', { content_name: 'Anatolia Sacra', currency: 'EUR', value: 4200, num_items: parseInt(persone) });
+    sendToBrevo(nome, email, 'tour-anatolia-sacra');
+    const waMsg = encodeURIComponent(`🏛 Richiesta tour — Anatolia Sacra\nNome: ${nome}\nEmail: ${email}\nPersone: ${persone}\nPeriodo: ${periodo}\nNote: ${msg}`);
+    setTimeout(() => window.open(`https://wa.me/39XXXXXXXXXX?text=${waMsg}`, '_blank'), 400);
+    f.style.display = 'none';
+    document.getElementById('request-success').style.display = 'block';
+    showToast('✓ Richiesta inviata!');
+  }
+
+  // ═══ EXIT-INTENT ═══
+  let exitPopupShown = false;
+  function showExitPopup() { if (exitPopupShown || localStorage.getItem('at_subscribed') || sessionStorage.getItem('at_exit_closed')) return; exitPopupShown = true; document.getElementById('exit-popup-backdrop').classList.add('open'); document.getElementById('exit-popup').classList.add('open'); trackEvent('ExitIntentShown'); }
+  function closeExitPopup() { document.getElementById('exit-popup-backdrop').classList.remove('open'); document.getElementById('exit-popup').classList.remove('open'); sessionStorage.setItem('at_exit_closed', '1'); }
+  document.addEventListener('mouseout', e => { if (e.clientY < 5 && !e.relatedTarget) showExitPopup(); });
+  setTimeout(() => { if (window.innerWidth < 768) showExitPopup(); }, 45000);
+  document.getElementById('exit-popup-backdrop').addEventListener('click', closeExitPopup);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeExitPopup(); });
+  function handleExitNewsletter(e) { e.preventDefault(); const email = e.target.email.value; localStorage.setItem('at_subscribed', '1'); sendToBrevo('', email, 'exit-popup-tour-anatolia'); trackEvent('Lead', { content_name: 'Exit Popup Tour Anatolia' }); closeExitPopup(); showToast('✓ Iscrizione confermata'); }
+
+  // ═══ TOAST ═══
+  function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
+
+  // ═══ LINGUA ═══
+  let currentLang = 'it';
+  function setLang(lang) {
+    currentLang = lang;
+    ['it','en','tr'].forEach(l => { document.querySelectorAll(`#btn-${l}, #btn-${l}-m`).forEach(b => b?.classList.toggle('active', l === lang)); });
+    document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = el.getAttribute(`data-${lang}`) || el.placeholder;
+      else el.innerHTML = el.getAttribute(`data-${lang}`);
+    });
+  }
+</script>
+</body>
+</html>

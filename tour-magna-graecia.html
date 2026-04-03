@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magna Graecia — Antika Travels</title>
+  <meta name="description" content="Tour archeologico di 7 giorni in Sicilia: Segesta, Selinunte, Agrigento, Siracusa. Templi dorici, luce mediterranea e mare. Gruppi esclusivi di massimo 10 persone guidati da un'archeologa." />
+
+  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- ═══ FACEBOOK PIXEL ═══ -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- ═══ GOOGLE ANALYTICS 4 ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?v=3"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#F7F3EE', sand:'#E8D5B7', stone:'#D4C4A8', gold:'#C9A84C', 'gold-dark':'#8B6914', ink:'#0F0E0C', 'ink-soft':'#2A2520', mist:'#7A7068' },
+          fontFamily: { display:['Cormorant Garamond','serif'], body:['DM Sans','sans-serif'] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #F7F3EE; color: #0F0E0C; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
+    nav.scrolled { background: rgba(247,243,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 2.5rem; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
+    nav.scrolled .logo { color: #0F0E0C; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+    nav.scrolled .nav-link { color: #7A7068; }
+    .nav-link:hover, nav.scrolled .nav-link:hover { color: #C9A84C; }
+    .nav-cta { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; border: 1px solid rgba(201,168,76,0.6); color: #C9A84C; text-decoration: none; transition: all 0.3s; border-radius: 1px; }
+    .nav-cta:hover { background: #C9A84C; color: #0F0E0C; }
+    .lang-btn { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,238,0.5); background: transparent; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    nav.scrolled .lang-btn { color: #7A7068; border-color: rgba(0,0,0,0.15); }
+    .lang-btn.active, .lang-btn:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    /* Shared */
+    .section-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; margin-bottom: 1rem; font-weight: 400; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: #0F0E0C; }
+    .section-title.light { color: #F7F3EE; }
+    .btn-primary { display: inline-block; padding: 0.85rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 1px; }
+    .btn-primary:hover { background: #8B6914; color: #F7F3EE; }
+    .btn-outline { display: inline-block; padding: 0.85rem 2.5rem; border: 1px solid rgba(201,168,76,0.5); color: #C9A84C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: #25D366; color: #fff; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-radius: 1px; transition: background 0.3s; font-family: 'DM Sans', sans-serif; }
+    .btn-wa:hover { background: #1DA851; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .form-label { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,238,0.4); margin-bottom: 0.5rem; }
+    .form-input { width: 100%; padding: 0.75rem 1rem; background: rgba(247,243,238,0.06); border: 1px solid rgba(201,168,76,0.15); color: #F7F3EE; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; }
+    .form-input:focus { border-color: #C9A84C; }
+    .nl-input { padding: 0.75rem 1rem; background: rgba(15,14,12,0.06); border: 1px solid rgba(201,168,76,0.2); color: #0F0E0C; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; flex: 1; }
+    .nl-input:focus { border-color: #C9A84C; }
+    .toast { position: fixed; bottom: 2rem; left: 2rem; background: #C9A84C; color: #0F0E0C; padding: 0.8rem 1.5rem; font-size: 0.8rem; font-weight: 500; border-radius: 2px; transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 500; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .exit-popup-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 300; }
+    .exit-popup-backdrop.open { display: block; }
+    .exit-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.9); background: #1A1210; border: 1px solid rgba(201,168,76,0.2); padding: 3rem; max-width: 440px; width: 90%; z-index: 301; text-align: center; transition: transform 0.3s; }
+    .exit-popup.open { display: block; transform: translate(-50%,-50%) scale(1); }
+    .exit-popup-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: rgba(247,243,238,0.4); font-size: 1.5rem; cursor: pointer; }
+
+    /* ═══ GREEK-SICILIAN CULTURAL DECORATIONS ═══ */
+    .hero-tour { position: relative; height: 100vh; min-height: 700px; overflow: hidden; }
+    .hero-tour img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-tour-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,18,16,0.25) 0%, rgba(26,18,16,0.15) 40%, rgba(26,18,16,0.85) 100%); z-index: 1; }
+    /* Doric column fluting pattern overlay — subtle vertical stripes */
+    .hero-tour-overlay::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(201,168,76,0.03) 28px, rgba(201,168,76,0.05) 30px, rgba(201,168,76,0.03) 32px, transparent 32px); pointer-events: none; }
+    .hero-tour-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 0 2.5rem 5rem; max-width: 800px; }
+
+    /* Greek palmette / anthemion divider */
+    .divider-greek { display: flex; align-items: center; justify-content: center; padding: 2rem 0; }
+    .divider-greek::before, .divider-greek::after { content: ''; flex: 1; max-width: 200px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent); }
+    .divider-greek svg { margin: 0 1.5rem; opacity: 0.4; }
+
+    /* Day card with Greek diamond border accent */
+    .day-card { border-left: 3px solid rgba(201,168,76,0.15); padding-left: 2rem; position: relative; }
+    .day-card::before { content: ''; position: absolute; left: -7px; top: 0; width: 11px; height: 11px; background: #C9A84C; opacity: 0.5; transform: rotate(45deg); }
+    .day-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.5rem; }
+    .day-location { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: #0F0E0C; margin-bottom: 0.75rem; }
+    .day-desc { font-size: 0.85rem; color: #7A7068; line-height: 1.85; font-weight: 300; }
+    .day-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; transition: transform 0.6s ease; }
+    .day-photo:hover { transform: scale(1.03); }
+    .day-photo-wrap { overflow: hidden; border-radius: 2px; }
+
+    /* Facts strip */
+    .fact-item { text-align: center; }
+    .fact-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A7068; margin-bottom: 0.35rem; }
+    .fact-value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: #0F0E0C; }
+
+    /* Highlight cards */
+    .highlight-card { padding: 2rem; border-top: 2px solid rgba(201,168,76,0.3); }
+    .highlight-icon { color: #C9A84C; margin-bottom: 1rem; }
+    .highlight-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .highlight-desc { font-size: 0.8rem; color: #7A7068; line-height: 1.8; font-weight: 300; }
+
+    /* Include list */
+    .include-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.82rem; color: rgba(247,243,238,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 0.5rem; }
+    .include-check { color: #C9A84C; flex-shrink: 0; margin-top: 0.2rem; }
+    .exclude-x { color: rgba(247,243,238,0.25); flex-shrink: 0; margin-top: 0.2rem; }
+
+    /* Other tours */
+    .other-tour { background: rgba(247,243,238,0.04); border: 1px solid rgba(201,168,76,0.12); padding: 2rem; transition: border-color 0.3s, background 0.3s; text-decoration: none; display: block; }
+    .other-tour:hover { border-color: rgba(201,168,76,0.4); background: rgba(247,243,238,0.07); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .hero-tour-content { padding: 0 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ═══ EXIT-INTENT POPUP ═══ -->
+<div id="exit-popup-backdrop" class="exit-popup-backdrop"></div>
+<div id="exit-popup" class="exit-popup">
+  <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
+  <p class="section-label" data-it="Prima di andare" data-en="Before you leave" data-tr="Ayrılmadan önce">Prima di andare</p>
+  <h3 class="font-display font-light mb-3" style="font-size:1.8rem; color:#F7F3EE; line-height:1.2;" data-it="I posti sono limitati. I viaggi no." data-en="Seats are limited. The journeys are not." data-tr="Yerler sınırlı. Yolculuklar değil.">I posti sono limitati. I viaggi no.</h3>
+  <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.55);" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari." data-en="Subscribe to receive new itineraries in advance." data-tr="Yeni güzergahları önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari.</p>
+  <form onsubmit="handleExitNewsletter(event)" class="flex flex-col gap-3">
+    <input type="email" name="email" placeholder="La tua email" class="nl-input" style="text-align:center;" required />
+    <button type="submit" class="btn-primary" style="width:100%;" data-it="Voglio sapere in anticipo" data-en="I want to know in advance" data-tr="Önceden bilmek istiyorum">Voglio sapere in anticipo</button>
+  </form>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="logo">Antika Travels</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html#destinazioni" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#tour" class="nav-link" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
+      <a href="index.html#ipek" class="nav-link" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <div class="flex items-center gap-1 ml-2">
+        <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota ora" data-en="Book now" data-tr="Şimdi rezerve et">Prenota ora</a>
+    </div>
+    <div class="flex md:hidden items-center gap-3">
+      <div class="flex items-center gap-1">
+        <button class="lang-btn active" id="btn-it-m" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr-m" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota" data-en="Book" data-tr="Rezerve">Prenota</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero-tour">
+  <img src="brand-assets/tour/sicily-hero.jpg" alt="Tempio dorico di Segesta, Sicilia" loading="eager" />
+  <div class="hero-tour-overlay"></div>
+  <div class="hero-tour-content">
+    <p class="section-label" style="color:#C9A84C;" data-it="Sicilia · 7 Giorni" data-en="Sicily · 7 Days" data-tr="Sicilya · 7 Gün">Sicilia · 7 Giorni</p>
+    <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,7vw,6rem); font-weight:300; line-height:0.95; color:#F7F3EE; margin-bottom:1.5rem;">
+      <span data-it="Magna" data-en="Magna" data-tr="Magna">Magna</span><br>
+      <em style="color:#C9A84C;" data-it="Graecia." data-en="Graecia." data-tr="Graecia.">Graecia.</em>
+    </h1>
+    <p style="font-size:0.85rem; color:rgba(247,243,238,0.6); line-height:1.8; max-width:500px; font-weight:300;" data-it="Segesta, Selinunte, Agrigento, Siracusa. Sette giorni tra i templi dorici della Sicilia greca, dove la pietra dorata incontra il mare." data-en="Segesta, Selinunte, Agrigento, Syracuse. Seven days among the Doric temples of Greek Sicily, where golden stone meets the sea." data-tr="Segesta, Selinunte, Agrigento, Sirakuza. Yunan Sicilya'sının Dor tapınakları arasında yedi gün — altın rengi taşın denizle buluştuğu yer.">Segesta, Selinunte, Agrigento, Siracusa. Sette giorni tra i templi dorici della Sicilia greca, dove la pietra dorata incontra il mare.</p>
+  </div>
+</section>
+
+<!-- ═══ FACTS STRIP ═══ -->
+<section class="py-8 px-6" style="background:#0F0E0C; border-bottom:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
+    <div class="fact-item"><p class="fact-label" data-it="Durata" data-en="Duration" data-tr="Süre">Durata</p><p class="fact-value" style="color:#F7F3EE;">7 <span style="font-family:'DM Sans'; font-size:0.7rem; font-weight:300; letter-spacing:0.1em;" data-it="giorni" data-en="days" data-tr="gün">giorni</span></p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Gruppo" data-en="Group" data-tr="Grup">Gruppo</p><p class="fact-value" style="color:#F7F3EE;">Max 10</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Da" data-en="From" data-tr="Başlangıç">Da</p><p class="fact-value" style="color:#C9A84C;">€ 3.200</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Stagione" data-en="Season" data-tr="Sezon">Stagione</p><p class="fact-value" style="color:#F7F3EE;" data-it="Apr — Giu / Set — Ott" data-en="Apr — Jun / Sep — Oct" data-tr="Nis — Haz / Eyl — Eki">Apr — Giu / Set — Ott</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Difficoltà" data-en="Difficulty" data-tr="Zorluk">Difficoltà</p><p class="fact-value" style="color:#F7F3EE;" data-it="Facile" data-en="Easy" data-tr="Kolay">Facile</p></div>
+  </div>
+</section>
+
+<!-- ═══ GREEK PALMETTE DIVIDER ═══ -->
+<div class="divider-greek">
+  <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Palmette / anthemion ornament -->
+    <path d="M45 4 C45 4, 42 14, 35 20" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 48 14, 55 20" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 39 12, 30 16" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 51 12, 60 16" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 37 9, 26 11" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 53 9, 64 11" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 V2" stroke="#C9A84C" stroke-width="0.8"/>
+    <!-- Scroll volutes at base -->
+    <path d="M38 24 C34 24, 32 22, 32 20 C32 18, 34 17, 36 18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M52 24 C56 24, 58 22, 58 20 C58 18, 56 17, 54 18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <line x1="38" y1="24" x2="52" y2="24" stroke="#C9A84C" stroke-width="0.8"/>
+    <!-- Base line -->
+    <line x1="36" y1="28" x2="54" y2="28" stroke="#C9A84C" stroke-width="0.6" opacity="0.5"/>
+  </svg>
+</div>
+
+<!-- ═══ ITINERARIO GIORNO PER GIORNO ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-16">
+      <p class="section-label" data-it="L'itinerario completo" data-en="The complete itinerary" data-tr="Tam güzergah">L'itinerario completo</p>
+      <h2 class="section-title" data-it="Sette giorni. Venticinque secoli." data-en="Seven days. Twenty-five centuries." data-tr="Yedi gün. Yirmi beş yüzyıl.">Sette giorni. Venticinque secoli.</h2>
+    </div>
+
+    <!-- Giorno I: Palermo → Segesta -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">I</div>
+        <h3 class="day-location" data-it="Palermo → Segesta — Il tempio sulla collina" data-en="Palermo → Segesta — The temple on the hill" data-tr="Palermo → Segesta — Tepedeki tapınak">Palermo → Segesta — Il tempio sulla collina</h3>
+        <p class="day-desc" data-it="Arrivo a Palermo e partenza verso ovest. A Segesta, il tempio dorico sorge solitario su una collina battuta dal vento — trentasei colonne perfette, mai completate, sospese tra cielo e grano. Salita al teatro greco, affacciato sul golfo di Castellammare: uno dei panorami più intensi della Sicilia. Sera in agriturismo tra gli ulivi." data-en="Arrival in Palermo and departure westward. At Segesta, the Doric temple stands alone on a windswept hill — thirty-six perfect columns, never completed, suspended between sky and wheat. Ascent to the Greek theatre, overlooking the Gulf of Castellammare: one of Sicily's most powerful panoramas. Evening at a farmhouse among olive groves." data-tr="Palermo'ya varış ve batıya hareket. Segesta'da Dor tapınağı, rüzgarlı bir tepede yalnız yükselir — otuz altı mükemmel sütun, hiç tamamlanmamış, gök ile buğday arasında asılı. Castellammare Körfezi'ne bakan Yunan tiyatrosuna tırmanış: Sicilya'nın en etkileyici manzaralarından biri. Zeytin ağaçları arasında çiftlikte akşam.">Arrivo a Palermo e partenza verso ovest. A Segesta, il tempio dorico sorge solitario su una collina battuta dal vento — trentasei colonne perfette, mai completate, sospese tra cielo e grano. Salita al teatro greco, affacciato sul golfo di Castellammare: uno dei panorami più intensi della Sicilia. Sera in agriturismo tra gli ulivi.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/sicily-segesta.jpg" alt="Tempio dorico di Segesta" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno II: Segesta → Selinunte -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/sicily-selinunte.jpg" alt="Parco archeologico di Selinunte" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">II</div>
+        <h3 class="day-location" data-it="Selinunte — Templi sul mare" data-en="Selinunte — Temples by the sea" data-tr="Selinunte — Deniz kıyısındaki tapınaklar">Selinunte — Templi sul mare</h3>
+        <p class="day-desc" data-it="Il più grande parco archeologico d'Europa. I templi di Selinunte si affacciano direttamente sul Mediterraneo — colonne doriche contro l'azzurro infinito. Esplorazione della collina orientale con i Templi E, F e G, poi l'acropoli con le mura e i quartieri residenziali. Al tramonto, il Tempio di Hera si accende di terracotta: un colore che nessuna fotografia riesce a catturare." data-en="The largest archaeological park in Europe. The temples of Selinunte face directly onto the Mediterranean — Doric columns against infinite blue. Exploration of the eastern hill with Temples E, F and G, then the acropolis with its walls and residential quarters. At sunset, the Temple of Hera blazes terracotta: a colour no photograph can capture." data-tr="Avrupa'nın en büyük arkeoloji parkı. Selinunte tapınakları doğrudan Akdeniz'e bakar — sonsuz maviye karşı Dor sütunları. Doğu tepesinde E, F ve G Tapınakları'nın keşfi, ardından surları ve yerleşim alanlarıyla akropolis. Gün batımında Hera Tapınağı terrakota rengiyle yanar: hiçbir fotoğrafın yakalayamadığı bir renk.">Il più grande parco archeologico d'Europa. I templi di Selinunte si affacciano direttamente sul Mediterraneo — colonne doriche contro l'azzurro infinito. Esplorazione della collina orientale con i Templi E, F e G, poi l'acropoli con le mura e i quartieri residenziali. Al tramonto, il Tempio di Hera si accende di terracotta: un colore che nessuna fotografia riesce a catturare.</p>
+      </div>
+    </div>
+
+    <!-- Giorno III: Selinunte — Cave di Cusa -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">III</div>
+        <h3 class="day-location" data-it="Selinunte — Cave di Cusa e giornata di mare" data-en="Selinunte — Cave di Cusa and a day by the sea" data-tr="Selinunte — Cave di Cusa ve deniz günü">Selinunte — Cave di Cusa e giornata di mare</h3>
+        <p class="day-desc" data-it="Mattina alle Cave di Cusa, le antiche cave dove i greci tagliavano i tamburi delle colonne. I blocchi sono ancora lì, abbandonati nel 409 a.C. quando i Cartaginesi attaccarono — il tempo si è fermato. Pomeriggio libero: la spiaggia di Marinella è a pochi passi dai templi. Bagno nel Mediterraneo con le rovine all'orizzonte." data-en="Morning at Cave di Cusa, the ancient quarries where the Greeks cut their column drums. The blocks are still there, abandoned in 409 BC when the Carthaginians attacked — time stopped. Free afternoon: Marinella beach is steps from the temples. A swim in the Mediterranean with ruins on the horizon." data-tr="Sabah Cave di Cusa'da — Yunanlıların sütun tamburlarını kestiği antik taş ocakları. Bloklar hâlâ orada, MÖ 409'da Kartacalılar saldırdığında terk edilmiş — zaman durmuş. Serbest öğleden sonra: Marinella plajı tapınaklardan birkaç adım uzakta. Ufukta kalıntılarla Akdeniz'de yüzme.">Mattina alle Cave di Cusa, le antiche cave dove i greci tagliavano i tamburi delle colonne. I blocchi sono ancora lì, abbandonati nel 409 a.C. quando i Cartaginesi attaccarono — il tempo si è fermato. Pomeriggio libero: la spiaggia di Marinella è a pochi passi dai templi. Bagno nel Mediterraneo con le rovine all'orizzonte.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/sicily-selinunte.jpg" alt="Cave di Cusa e costa di Selinunte" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno IV: Selinunte → Agrigento -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/sicily-agrigento.jpg" alt="Valle dei Templi, Agrigento" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">IV</div>
+        <h3 class="day-location" data-it="Agrigento — La Valle dei Templi al tramonto" data-en="Agrigento — The Valley of Temples at sunset" data-tr="Agrigento — Gün batımında Tapınaklar Vadisi">Agrigento — La Valle dei Templi al tramonto</h3>
+        <p class="day-desc" data-it="Trasferimento ad Agrigento lungo la costa meridionale. Nel tardo pomeriggio, ingresso alla Valle dei Templi — il sito archeologico più emozionante della Sicilia. Il Tempio della Concordia, uno dei templi greci meglio conservati al mondo, si staglia contro il cielo che vira dal dorato al rosso. Passeggiata serale tra mandorli e olivi millenari, con i templi illuminati. Cena in terrazza con vista sulla valle." data-en="Transfer to Agrigento along the southern coast. In the late afternoon, entrance to the Valley of Temples — Sicily's most breathtaking archaeological site. The Temple of Concordia, one of the best-preserved Greek temples in the world, stands against a sky turning from gold to red. Evening stroll among almond trees and ancient olive groves, with the temples illuminated. Dinner on a terrace overlooking the valley." data-tr="Güney kıyısı boyunca Agrigento'ya transfer. İkindi vakti Tapınaklar Vadisi'ne giriş — Sicilya'nın en nefes kesici arkeolojik alanı. Dünyada en iyi korunmuş Yunan tapınaklarından biri olan Concordia Tapınağı, altından kırmızıya dönen gökyüzüne karşı yükselir. Aydınlatılmış tapınaklarla badem ağaçları ve asırlık zeytin bahçeleri arasında akşam yürüyüşü. Vadiye bakan terasta akşam yemeği.">Trasferimento ad Agrigento lungo la costa meridionale. Nel tardo pomeriggio, ingresso alla Valle dei Templi — il sito archeologico più emozionante della Sicilia. Il Tempio della Concordia, uno dei templi greci meglio conservati al mondo, si staglia contro il cielo che vira dal dorato al rosso. Passeggiata serale tra mandorli e olivi millenari, con i templi illuminati. Cena in terrazza con vista sulla valle.</p>
+      </div>
+    </div>
+
+    <!-- Giorno V: Agrigento -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">V</div>
+        <h3 class="day-location" data-it="Agrigento — Kolymbethra e Museo Archeologico" data-en="Agrigento — Kolymbethra and the Archaeological Museum" data-tr="Agrigento — Kolymbethra ve Arkeoloji Müzesi">Agrigento — Kolymbethra e Museo Archeologico</h3>
+        <p class="day-desc" data-it="Mattina al Giardino della Kolymbethra, un paradiso nascosto nella valle: agrumeti, melograni e fichi d'India nel cuore del parco archeologico. Poi il Museo Archeologico Regionale — il Telamone ricostruito del Tempio di Zeus, alto otto metri, e la collezione di vasi attici che raccontano miti ancora vivi. Pomeriggio libero per perdersi tra le strade della città vecchia." data-en="Morning at the Garden of Kolymbethra, a hidden paradise in the valley: citrus groves, pomegranates and prickly pears in the heart of the archaeological park. Then the Regional Archaeological Museum — the reconstructed Telamon from the Temple of Zeus, eight metres tall, and the Attic vase collection telling myths still alive today. Free afternoon to wander the old town streets." data-tr="Sabah Kolymbethra Bahçesi'nde — vadinin kalbinde gizli bir cennet: arkeolojik parkın ortasında turunçgiller, narlar ve frenk incirleri. Ardından Bölgesel Arkeoloji Müzesi — Zeus Tapınağı'ndan sekiz metre yüksekliğindeki yeniden yapılmış Telamon ve hâlâ yaşayan mitleri anlatan Attik vazo koleksiyonu. Eski şehir sokaklarında kaybolmak için serbest öğleden sonra.">Mattina al Giardino della Kolymbethra, un paradiso nascosto nella valle: agrumeti, melograni e fichi d'India nel cuore del parco archeologico. Poi il Museo Archeologico Regionale — il Telamone ricostruito del Tempio di Zeus, alto otto metri, e la collezione di vasi attici che raccontano miti ancora vivi. Pomeriggio libero per perdersi tra le strade della città vecchia.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/sicily-agrigento.jpg" alt="Giardino della Kolymbethra, Agrigento" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno VI: Agrigento → Siracusa -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/sicily-siracusa.jpg" alt="Teatro Greco di Siracusa" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">VI</div>
+        <h3 class="day-location" data-it="Siracusa — Parco Neapolis e Teatro Greco" data-en="Syracuse — Neapolis Park and the Greek Theatre" data-tr="Sirakuza — Neapolis Parkı ve Yunan Tiyatrosu">Siracusa — Parco Neapolis e Teatro Greco</h3>
+        <p class="day-desc" data-it="Trasferimento a Siracusa, la città che Cicerone chiamò la più bella di tutte le città greche. Il Parco della Neapolis: il Teatro Greco scavato nella roccia viva, dove ancora oggi si rappresentano le tragedie classiche. L'Orecchio di Dionisio, la grotta dall'acustica impossibile. L'Anfiteatro Romano. Passeggiata nel quartiere della Neapolis al crepuscolo, quando la pietra bianca prende la luce dell'ultima ora." data-en="Transfer to Syracuse, the city Cicero called the most beautiful of all Greek cities. The Neapolis Park: the Greek Theatre carved into living rock, where classical tragedies are still performed today. The Ear of Dionysius, the cave with impossible acoustics. The Roman Amphitheatre. A walk through the Neapolis quarter at dusk, when the white stone catches the last hour's light." data-tr="Cicero'nun tüm Yunan şehirlerinin en güzeli dediği Sirakuza'ya transfer. Neapolis Parkı: canlı kayaya oyulmuş ve bugün hâlâ klasik trajedilerin sahnelendiği Yunan Tiyatrosu. İmkânsız akustiğiyle Dionysos'un Kulağı. Roma Amfitiyatrosu. Alacakaranlıkta Neapolis mahallesinde yürüyüş — beyaz taşın son saatin ışığını yakaladığı an.">Trasferimento a Siracusa, la città che Cicerone chiamò la più bella di tutte le città greche. Il Parco della Neapolis: il Teatro Greco scavato nella roccia viva, dove ancora oggi si rappresentano le tragedie classiche. L'Orecchio di Dionisio, la grotta dall'acustica impossibile. L'Anfiteatro Romano. Passeggiata nel quartiere della Neapolis al crepuscolo, quando la pietra bianca prende la luce dell'ultima ora.</p>
+      </div>
+    </div>
+
+    <!-- Giorno VII: Siracusa — Ortigia e partenza -->
+    <div class="reveal mb-8">
+      <div class="day-card">
+        <div class="day-num">VII</div>
+        <h3 class="day-location" data-it="Ortigia — L'isola dove finisce il viaggio" data-en="Ortigia — The island where the journey ends" data-tr="Ortigia — Yolculuğun sona erdiği ada">Ortigia — L'isola dove finisce il viaggio</h3>
+        <p class="day-desc" data-it="Mattina a Ortigia, il cuore antico di Siracusa. Il Tempio di Apollo, il più antico tempio dorico di Sicilia. Il Duomo, costruito intorno alle colonne di un tempio di Atena — la sovrapposizione perfetta tra mondo greco e mondo cristiano. La Fonte Aretusa, dove cresce il papiro come nell'antico Egitto. Pranzo in riva al mare. Trasferimento in aeroporto e partenza. Un viaggio finisce, ma la Magna Graecia resta." data-en="Morning in Ortigia, the ancient heart of Syracuse. The Temple of Apollo, Sicily's oldest Doric temple. The Cathedral, built around the columns of a temple to Athena — the perfect layering of Greek and Christian worlds. The Fountain of Arethusa, where papyrus grows as in ancient Egypt. Lunch by the sea. Airport transfer and departure. A journey ends, but Magna Graecia remains." data-tr="Sabah Sirakuza'nın antik kalbi Ortigia'da. Sicilya'nın en eski Dor tapınağı Apollo Tapınağı. Bir Athena tapınağının sütunları etrafına inşa edilmiş Katedral — Yunan ve Hristiyan dünyalarının mükemmel katmanlaşması. Antik Mısır'daki gibi papirüs yetişen Aretusa Çeşmesi. Deniz kenarında öğle yemeği. Havalimanına transfer ve kalkış. Bir yolculuk biter ama Magna Graecia kalır.">Mattina a Ortigia, il cuore antico di Siracusa. Il Tempio di Apollo, il più antico tempio dorico di Sicilia. Il Duomo, costruito intorno alle colonne di un tempio di Atena — la sovrapposizione perfetta tra mondo greco e mondo cristiano. La Fonte Aretusa, dove cresce il papiro come nell'antico Egitto. Pranzo in riva al mare. Trasferimento in aeroporto e partenza. Un viaggio finisce, ma la Magna Graecia resta.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ GREEK PALMETTE DIVIDER ═══ -->
+<div class="divider-greek">
+  <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M45 4 C45 4, 42 14, 35 20" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 48 14, 55 20" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 39 12, 30 16" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 51 12, 60 16" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 37 9, 26 11" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 C45 4, 53 9, 64 11" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 4 V2" stroke="#C9A84C" stroke-width="0.8"/>
+    <path d="M38 24 C34 24, 32 22, 32 20 C32 18, 34 17, 36 18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M52 24 C56 24, 58 22, 58 20 C58 18, 56 17, 54 18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <line x1="38" y1="24" x2="52" y2="24" stroke="#C9A84C" stroke-width="0.8"/>
+    <line x1="36" y1="28" x2="54" y2="28" stroke="#C9A84C" stroke-width="0.6" opacity="0.5"/>
+  </svg>
+</div>
+
+<!-- ═══ HIGHLIGHTS ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-14">
+      <p class="section-label" data-it="Perché questo viaggio" data-en="Why this journey" data-tr="Neden bu yolculuk">Perché questo viaggio</p>
+      <h2 class="section-title" data-it="Cosa rende unico questo itinerario." data-en="What makes this itinerary unique." data-tr="Bu güzergahı benzersiz kılan ne.">Cosa rende unico questo itinerario.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2 C12 2, 14 8, 14 12 C14 16, 12 22, 12 22"/><path d="M12 2 C12 2, 10 8, 10 12 C10 16, 12 22, 12 22"/><path d="M2 12 h20"/></svg></div>
+        <h3 class="highlight-title" data-it="Luce mediterranea" data-en="Mediterranean light" data-tr="Akdeniz ışığı">Luce mediterranea</h3>
+        <p class="highlight-desc" data-it="La Sicilia ha una luce che non esiste altrove. I templi dorici cambiano colore ogni ora — dall'ocra del mattino al rosso acceso del tramonto. Abbiamo calibrato ogni giornata per vivere i siti nella luce migliore." data-en="Sicily has a light that exists nowhere else. The Doric temples change colour every hour — from morning ochre to the blazing red of sunset. We've calibrated each day to experience the sites in their finest light." data-tr="Sicilya'nın başka hiçbir yerde olmayan bir ışığı var. Dor tapınakları her saat renk değiştirir — sabahın okrasından gün batımının kızıl alevine. Her günü, alanları en güzel ışıklarında deneyimlemek için ayarladık.">La Sicilia ha una luce che non esiste altrove. I templi dorici cambiano colore ogni ora — dall'ocra del mattino al rosso acceso del tramonto. Abbiamo calibrato ogni giornata per vivere i siti nella luce migliore.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3 class="highlight-title" data-it="Archeologia e mare" data-en="Archaeology and the sea" data-tr="Arkeoloji ve deniz">Archeologia e mare</h3>
+        <p class="highlight-desc" data-it="In Sicilia i templi guardano il mare. Questo itinerario alterna giornate di esplorazione archeologica con momenti di spiaggia e costa — perché la Magna Graecia era una civiltà del Mediterraneo." data-en="In Sicily the temples face the sea. This itinerary alternates archaeological exploration with beach and coastal moments — because Magna Graecia was a Mediterranean civilisation." data-tr="Sicilya'da tapınaklar denize bakar. Bu güzergah arkeolojik keşif günlerini plaj ve kıyı anlarıyla birleştirir — çünkü Magna Graecia bir Akdeniz uygarlığıydı.">In Sicilia i templi guardano il mare. Questo itinerario alterna giornate di esplorazione archeologica con momenti di spiaggia e costa — perché la Magna Graecia era una civiltà del Mediterraneo.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg></div>
+        <h3 class="highlight-title" data-it="Agriturismi autentici" data-en="Authentic farmhouses" data-tr="Otantik çiftlik evleri">Agriturismi autentici</h3>
+        <p class="highlight-desc" data-it="Niente hotel anonimi. Dormirete in agriturismi e dimore storiche selezionate — tra vigneti, uliveti e giardini di agrumi. Cucina locale, prodotti a chilometro zero, silenzio." data-en="No anonymous hotels. You'll sleep in handpicked farmhouses and historic residences — among vineyards, olive groves and citrus gardens. Local cuisine, zero-kilometre produce, silence." data-tr="Anonim oteller yok. Üzüm bağları, zeytin bahçeleri ve turunçgil bahçeleri arasında — özenle seçilmiş çiftlik evleri ve tarihi konaklarda kalacaksınız. Yerel mutfak, sıfır kilometre ürünler, sessizlik.">Niente hotel anonimi. Dormirete in agriturismi e dimore storiche selezionate — tra vigneti, uliveti e giardini di agrumi. Cucina locale, prodotti a chilometro zero, silenzio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COSA INCLUDE ═══ -->
+<section class="py-20 px-6" style="background:#0F0E0C;">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="section-label" data-it="Dettagli pratici" data-en="Practical details" data-tr="Pratik detaylar">Dettagli pratici</p>
+      <h2 class="section-title light" data-it="Cosa include il viaggio." data-en="What the journey includes." data-tr="Yolculuk neleri içerir.">Cosa include il viaggio.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 reveal">
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C; margin-bottom:1.5rem;" data-it="Include" data-en="Included" data-tr="Dahil">Include</h3>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="6 notti in agriturismi e dimore storiche (camera doppia)" data-en="6 nights in farmhouses and historic residences (double room)" data-tr="Çiftlik evleri ve tarihi konaklarda 6 gece (çift kişilik oda)">6 notti in agriturismi e dimore storiche (camera doppia)</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti i trasferimenti in minivan privato" data-en="All transfers by private minivan" data-tr="Özel minibüsle tüm transferler">Tutti i trasferimenti in minivan privato</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Guida archeologa per l'intero viaggio" data-en="Archaeologist guide for the entire journey" data-tr="Tüm yolculuk boyunca arkeolog rehber">Guida archeologa per l'intero viaggio</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti gli ingressi ai siti e musei" data-en="All site and museum entries" data-tr="Tüm alan ve müze girişleri">Tutti gli ingressi ai siti e musei</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Colazione giornaliera + 4 cene in agriturismo" data-en="Daily breakfast + 4 farmhouse dinners" data-tr="Günlük kahvaltı + 4 çiftlik akşam yemeği">Colazione giornaliera + 4 cene in agriturismo</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Degustazione vini e prodotti locali" data-en="Wine and local product tastings" data-tr="Şarap ve yerel ürün tadımları">Degustazione vini e prodotti locali</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Visita serale alla Valle dei Templi illuminata" data-en="Evening visit to the illuminated Valley of Temples" data-tr="Aydınlatılmış Tapınaklar Vadisi'ne akşam ziyareti">Visita serale alla Valle dei Templi illuminata</span></div>
+      </div>
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(247,243,238,0.3); margin-bottom:1.5rem;" data-it="Non include" data-en="Not included" data-tr="Dahil değil">Non include</h3>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Voli per/da Palermo e da Catania (o Palermo)" data-en="Flights to/from Palermo and from Catania (or Palermo)" data-tr="Palermo'ya/Palermo'dan ve Catania'dan (veya Palermo'dan) uçuşlar">Voli per/da Palermo e da Catania (o Palermo)</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Pranzi e cene non menzionate" data-en="Lunches and unspecified dinners" data-tr="Öğle yemekleri ve belirtilmeyen akşam yemekleri">Pranzi e cene non menzionate</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Spese personali e mance" data-en="Personal expenses and tips" data-tr="Kişisel harcamalar ve bahşişler">Spese personali e mance</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Assicurazione viaggio" data-en="Travel insurance" data-tr="Seyahat sigortası">Assicurazione viaggio</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Bevande extra durante i pasti" data-en="Extra drinks during meals" data-tr="Yemekler sırasında ekstra içecekler">Bevande extra durante i pasti</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PREZZO + CTA ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Prezzo" data-en="Price" data-tr="Fiyat">Prezzo</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,6vw,4.5rem); font-weight:300; color:#C9A84C; margin-bottom:0.5rem;">€ 3.200</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); margin-bottom:2.5rem;" data-it="per persona, base camera doppia" data-en="per person, double room basis" data-tr="kişi başı, çift kişilik oda bazında">per persona, base camera doppia</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#richiedi" class="btn-primary" data-it="Richiedi questo viaggio" data-en="Request this journey" data-tr="Bu yolculuğu talep et">Richiedi questo viaggio</a>
+      <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Ipek%2C%20vorrei%20informazioni%20sul%20tour%20Magna%20Graecia" target="_blank" class="btn-wa">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <p style="font-size:0.65rem; color:rgba(247,243,238,0.25); margin-top:2rem; line-height:1.8;" data-it="Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta." data-en="Price varies based on group size and itinerary customization. Single supplement available on request." data-tr="Fiyat, grup büyüklüğüne ve güzergah kişiselleştirmesine göre değişir. Tek kişilik oda ek ücreti talep üzerine mevcuttur.">Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta.</p>
+  </div>
+</section>
+
+<!-- ═══ FORM RICHIESTA ═══ -->
+<section id="richiedi" class="py-24 px-6" style="background:#0F0E0C;">
+  <div class="max-w-xl mx-auto reveal">
+    <p class="section-label" data-it="Inizia da qui" data-en="Start here" data-tr="Buradan başlayın">Inizia da qui</p>
+    <h2 class="section-title light mb-8" data-it="Richiedi questo viaggio." data-en="Request this journey." data-tr="Bu yolculuğu talep edin.">Richiedi questo viaggio.</h2>
+    <form id="request-form" onsubmit="handleRequest(event)" class="flex flex-col gap-5">
+      <input type="hidden" name="tour" value="magna-graecia" />
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Nome" data-en="Name" data-tr="İsim">Nome</label><input type="text" name="nome" class="form-input" required /></div>
+        <div><label class="form-label">Email</label><input type="email" name="email" class="form-input" required /></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Persone" data-en="People" data-tr="Kişi sayısı">Persone</label><select name="persone" class="form-input"><option>2</option><option>3-4</option><option>5-6</option><option>7-10</option></select></div>
+        <div><label class="form-label" data-it="Periodo preferito" data-en="Preferred period" data-tr="Tercih edilen dönem">Periodo preferito</label><input type="text" name="periodo" class="form-input" placeholder="es. Maggio 2026" /></div>
+      </div>
+      <div><label class="form-label" data-it="Note o richieste speciali" data-en="Notes or special requests" data-tr="Notlar veya özel istekler">Note o richieste speciali</label><textarea name="messaggio" rows="3" class="form-input" style="resize:vertical;"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%; text-align:center;" data-it="Invia la richiesta" data-en="Send request" data-tr="Talebi gönder">Invia la richiesta</button>
+    </form>
+    <div id="request-success" style="display:none;" class="text-center py-8">
+      <p class="font-display font-light text-2xl mb-3" style="color:#C9A84C;" data-it="Grazie. Ti risponderemo presto." data-en="Thank you. We'll be in touch shortly." data-tr="Teşekkürler. Yakında yanıt vereceğiz.">Grazie. Ti risponderemo presto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ALTRI TOUR ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-12 text-center">
+      <p class="section-label" data-it="Scopri gli altri itinerari" data-en="Discover other itineraries" data-tr="Diğer güzergahları keşfet">Scopri gli altri itinerari</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <a href="tour-faraoni-del-nilo.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Egitto · 10 giorni" data-en="Egypt · 10 days" data-tr="Mısır · 10 gün">Egitto · 10 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="I Faraoni del Nilo" data-en="The Pharaohs of the Nile" data-tr="Nil'in Firavunları">I Faraoni del Nilo</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 4.800 / persona" data-en="From € 4,800 / person" data-tr="Kişi başı € 4.800'den">Da € 4.800 / persona</p>
+      </a>
+      <a href="tour-citta-egeo.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Turchia · 8 giorni" data-en="Turkey · 8 days" data-tr="Türkiye · 8 gün">Turchia · 8 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="Le Città dell'Egeo" data-en="Cities of the Aegean" data-tr="Ege'nin Şehirleri">Le Città dell'Egeo</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 3.600 / persona" data-en="From € 3,600 / person" data-tr="Kişi başı € 3.600'den">Da € 3.600 / persona</p>
+      </a>
+      <a href="tour-anatolia-sacra.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Anatolia · 9 giorni" data-en="Anatolia · 9 days" data-tr="Anadolu · 9 gün">Anatolia · 9 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="Anatolia Sacra" data-en="Sacred Anatolia" data-tr="Kutsal Anadolu">Anatolia Sacra</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 4.200 / persona" data-en="From € 4,200 / person" data-tr="Kişi başı € 4.200'den">Da € 4.200 / persona</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="py-20 px-6" style="background:#1A1510; border-top:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Rimani aggiornato" data-en="Stay informed" data-tr="Güncel kalın">Rimani aggiornato</p>
+    <h2 class="font-display font-light mb-4" style="font-size:2rem; color:#F7F3EE;" data-it="I nuovi itinerari. Prima di tutti." data-en="New itineraries. Before anyone else." data-tr="Yeni güzergahlar. Herkesten önce.">I nuovi itinerari. Prima di tutti.</h2>
+    <form id="nl-form" onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3">
+      <input type="email" name="email" placeholder="La tua email" class="nl-input" required />
+      <button type="submit" class="btn-primary whitespace-nowrap" data-it="Iscriviti" data-en="Subscribe" data-tr="Abone ol">Iscriviti</button>
+    </form>
+    <div id="nl-success" style="display:none; color:#C9A84C; font-size:0.9rem; margin-top:1rem;">&#10003;</div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="px-6 py-12" style="background:#0A0908; border-top:1px solid rgba(201,168,76,0.08);">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+    <div>
+      <a href="index.html" style="text-decoration:none;"><div class="font-display text-xl font-light tracking-widest uppercase mb-2" style="color:#F7F3EE; letter-spacing:0.25em;">Antika Travels</div></a>
+      <p class="text-xs font-light" style="color:#5A5248; letter-spacing:0.05em;" data-it="Viaggi Archeologici su Misura" data-en="Bespoke Archaeological Journeys" data-tr="Özel Arkeolojik Seyahatler">Viaggi Archeologici su Misura</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-6 text-xs" style="color:#5A5248; letter-spacing:0.1em; text-transform:uppercase;">
+      <a href="index.html#destinazioni" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#ipek" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <a href="https://www.instagram.com/ipekinrome/" target="_blank" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors">Instagram</a>
+    </div>
+    <p style="font-size:0.65rem; color:#3A3530;" class="font-light">&copy; 2026 Antika Travels</p>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  // ═══ TRACKING ═══
+  function trackEvent(name, params) {
+    params = params || {};
+    if (typeof fbq === 'function') fbq('track', name, params);
+    if (typeof gtag === 'function') gtag('event', name, params);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...params });
+  }
+  trackEvent('ViewContent', { content_name: 'Tour — Magna Graecia', content_type: 'tour_page' });
+
+  // ═══ NAV SCROLL ═══
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 80); });
+
+  // ═══ REVEAL ═══
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ═══ BREVO ═══
+  function sendToBrevo(nome, email, source) {
+    fetch('/api/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ nome, email, source }) })
+    .then(r => { if (r.ok) console.log('[Brevo] OK'); }).catch(err => console.warn('[Brevo]', err));
+  }
+
+  // ═══ NEWSLETTER ═══
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    localStorage.setItem('at_subscribed', '1');
+    sendToBrevo('', email, 'newsletter-tour-sicilia');
+    trackEvent('Lead', { content_name: 'Newsletter Tour Sicilia' });
+    e.target.style.display = 'none';
+    document.getElementById('nl-success').style.display = 'block';
+    showToast('✓ Iscrizione confermata');
+  }
+
+  // ═══ REQUEST FORM ═══
+  function handleRequest(e) {
+    e.preventDefault();
+    const f = e.target;
+    const nome = f.nome.value, email = f.email.value, persone = f.persone.value, periodo = f.periodo.value, msg = f.messaggio.value;
+    trackEvent('Lead', { content_name: 'Tour Request — Magna Graecia', content_category: 'Sicilia' });
+    trackEvent('InitiateCheckout', { content_name: 'Magna Graecia', currency: 'EUR', value: 3200, num_items: parseInt(persone) });
+    sendToBrevo(nome, email, 'tour-magna-graecia');
+    const waMsg = encodeURIComponent(`🏛 Richiesta tour — Magna Graecia\nNome: ${nome}\nEmail: ${email}\nPersone: ${persone}\nPeriodo: ${periodo}\nNote: ${msg}`);
+    setTimeout(() => window.open(`https://wa.me/39XXXXXXXXXX?text=${waMsg}`, '_blank'), 400);
+    f.style.display = 'none';
+    document.getElementById('request-success').style.display = 'block';
+    showToast('✓ Richiesta inviata!');
+  }
+
+  // ═══ EXIT-INTENT ═══
+  let exitPopupShown = false;
+  function showExitPopup() { if (exitPopupShown || localStorage.getItem('at_subscribed') || sessionStorage.getItem('at_exit_closed')) return; exitPopupShown = true; document.getElementById('exit-popup-backdrop').classList.add('open'); document.getElementById('exit-popup').classList.add('open'); trackEvent('ExitIntentShown'); }
+  function closeExitPopup() { document.getElementById('exit-popup-backdrop').classList.remove('open'); document.getElementById('exit-popup').classList.remove('open'); sessionStorage.setItem('at_exit_closed', '1'); }
+  document.addEventListener('mouseout', e => { if (e.clientY < 5 && !e.relatedTarget) showExitPopup(); });
+  setTimeout(() => { if (window.innerWidth < 768) showExitPopup(); }, 45000);
+  document.getElementById('exit-popup-backdrop').addEventListener('click', closeExitPopup);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeExitPopup(); });
+  function handleExitNewsletter(e) { e.preventDefault(); const email = e.target.email.value; localStorage.setItem('at_subscribed', '1'); sendToBrevo('', email, 'exit-popup-tour-sicilia'); trackEvent('Lead', { content_name: 'Exit Popup Tour Sicilia' }); closeExitPopup(); showToast('✓ Iscrizione confermata'); }
+
+  // ═══ TOAST ═══
+  function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
+
+  // ═══ LINGUA ═══
+  let currentLang = 'it';
+  function setLang(lang) {
+    currentLang = lang;
+    ['it','en','tr'].forEach(l => { document.querySelectorAll(`#btn-${l}, #btn-${l}-m`).forEach(b => b?.classList.toggle('active', l === lang)); });
+    document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = el.getAttribute(`data-${lang}`) || el.placeholder;
+      else el.innerHTML = el.getAttribute(`data-${lang}`);
+    });
+  }
+</script>
+</body>
+</html>

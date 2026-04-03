@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Città dell'Egeo — Antika Travels</title>
+  <meta name="description" content="Tour archeologico di 8 giorni nella Turchia egea: Efeso, Pergamo, Afrodisia, Mileto. Gruppi esclusivi di massimo 10 persone guidati da un'archeologa." />
+
+  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- ═══ FACEBOOK PIXEL ═══ -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- ═══ GOOGLE ANALYTICS 4 ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?v=3"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#F7F3EE', sand:'#E8D5B7', stone:'#D4C4A8', gold:'#C9A84C', 'gold-dark':'#8B6914', ink:'#0F0E0C', 'ink-soft':'#2A2520', mist:'#7A7068' },
+          fontFamily: { display:['Cormorant Garamond','serif'], body:['DM Sans','sans-serif'] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #F7F3EE; color: #0F0E0C; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
+    nav.scrolled { background: rgba(247,243,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 2.5rem; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
+    nav.scrolled .logo { color: #0F0E0C; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+    nav.scrolled .nav-link { color: #7A7068; }
+    .nav-link:hover, nav.scrolled .nav-link:hover { color: #C9A84C; }
+    .nav-cta { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; border: 1px solid rgba(201,168,76,0.6); color: #C9A84C; text-decoration: none; transition: all 0.3s; border-radius: 1px; }
+    .nav-cta:hover { background: #C9A84C; color: #0F0E0C; }
+    .lang-btn { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,238,0.5); background: transparent; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    nav.scrolled .lang-btn { color: #7A7068; border-color: rgba(0,0,0,0.15); }
+    .lang-btn.active, .lang-btn:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    /* Shared */
+    .section-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; margin-bottom: 1rem; font-weight: 400; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: #0F0E0C; }
+    .section-title.light { color: #F7F3EE; }
+    .btn-primary { display: inline-block; padding: 0.85rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 1px; }
+    .btn-primary:hover { background: #8B6914; color: #F7F3EE; }
+    .btn-outline { display: inline-block; padding: 0.85rem 2.5rem; border: 1px solid rgba(201,168,76,0.5); color: #C9A84C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: #25D366; color: #fff; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-radius: 1px; transition: background 0.3s; font-family: 'DM Sans', sans-serif; }
+    .btn-wa:hover { background: #1DA851; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .form-label { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,238,0.4); margin-bottom: 0.5rem; }
+    .form-input { width: 100%; padding: 0.75rem 1rem; background: rgba(247,243,238,0.06); border: 1px solid rgba(201,168,76,0.15); color: #F7F3EE; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; }
+    .form-input:focus { border-color: #C9A84C; }
+    .nl-input { padding: 0.75rem 1rem; background: rgba(15,14,12,0.06); border: 1px solid rgba(201,168,76,0.2); color: #0F0E0C; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; flex: 1; }
+    .nl-input:focus { border-color: #C9A84C; }
+    .toast { position: fixed; bottom: 2rem; left: 2rem; background: #C9A84C; color: #0F0E0C; padding: 0.8rem 1.5rem; font-size: 0.8rem; font-weight: 500; border-radius: 2px; transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 500; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .exit-popup-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 300; }
+    .exit-popup-backdrop.open { display: block; }
+    .exit-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.9); background: #1A1510; border: 1px solid rgba(201,168,76,0.2); padding: 3rem; max-width: 440px; width: 90%; z-index: 301; text-align: center; transition: transform 0.3s; }
+    .exit-popup.open { display: block; transform: translate(-50%,-50%) scale(1); }
+    .exit-popup-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: rgba(247,243,238,0.4); font-size: 1.5rem; cursor: pointer; }
+
+    /* ═══ GREEK CULTURAL DECORATIONS ═══ */
+    .hero-tour { position: relative; height: 100vh; min-height: 700px; overflow: hidden; }
+    .hero-tour img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-tour-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,31,42,0.25) 0%, rgba(15,31,42,0.15) 40%, rgba(15,31,42,0.85) 100%); z-index: 1; }
+    /* Greek meander / key pattern overlay */
+    .hero-tour-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M0 0h15v15H0zM15 0v15h15V0zM30 0h15v15H30zM45 0v15h15V0zM0 15h15v15H0zM15 15h15v30H15zM45 15h15v15H45zM0 30h15v15H0zM30 30h30v15H30zM0 45h15v15H0zM30 45h15v15H30zM45 45h15v15H45z' fill='none' stroke='rgba(201,168,76,0.04)' stroke-width='0.5'/%3E%3C/svg%3E");
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-tour-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 0 2.5rem 5rem; max-width: 800px; }
+
+    /* Greek wave divider */
+    .divider-greek { display: flex; align-items: center; justify-content: center; padding: 2rem 0; }
+    .divider-greek::before, .divider-greek::after { content: ''; flex: 1; max-width: 200px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent); }
+    .divider-greek svg { margin: 0 1.5rem; opacity: 0.4; }
+
+    /* Day card with Greek border accent */
+    .day-card { border-left: 3px solid rgba(201,168,76,0.2); padding-left: 2rem; position: relative; }
+    .day-card::before { content: ''; position: absolute; left: -6px; top: 0; width: 9px; height: 9px; background: #C9A84C; border-radius: 50%; opacity: 0.5; }
+    .day-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.5rem; }
+    .day-location { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: #0F0E0C; margin-bottom: 0.75rem; }
+    .day-desc { font-size: 0.85rem; color: #7A7068; line-height: 1.85; font-weight: 300; }
+    .day-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; transition: transform 0.6s ease; }
+    .day-photo:hover { transform: scale(1.03); }
+    .day-photo-wrap { overflow: hidden; border-radius: 2px; }
+
+    /* Facts strip */
+    .fact-item { text-align: center; }
+    .fact-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A7068; margin-bottom: 0.35rem; }
+    .fact-value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: #0F0E0C; }
+
+    /* Highlight cards */
+    .highlight-card { padding: 2rem; border-top: 2px solid rgba(201,168,76,0.3); }
+    .highlight-icon { color: #C9A84C; margin-bottom: 1rem; }
+    .highlight-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .highlight-desc { font-size: 0.8rem; color: #7A7068; line-height: 1.8; font-weight: 300; }
+
+    /* Include list */
+    .include-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.82rem; color: rgba(247,243,238,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 0.5rem; }
+    .include-check { color: #C9A84C; flex-shrink: 0; margin-top: 0.2rem; }
+    .exclude-x { color: rgba(247,243,238,0.25); flex-shrink: 0; margin-top: 0.2rem; }
+
+    /* Other tours */
+    .other-tour { background: rgba(247,243,238,0.04); border: 1px solid rgba(201,168,76,0.12); padding: 2rem; transition: border-color 0.3s, background 0.3s; text-decoration: none; display: block; }
+    .other-tour:hover { border-color: rgba(201,168,76,0.4); background: rgba(247,243,238,0.07); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .hero-tour-content { padding: 0 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ═══ EXIT-INTENT POPUP ═══ -->
+<div id="exit-popup-backdrop" class="exit-popup-backdrop"></div>
+<div id="exit-popup" class="exit-popup">
+  <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
+  <p class="section-label" data-it="Prima di andare" data-en="Before you leave" data-tr="Ayrılmadan önce">Prima di andare</p>
+  <h3 class="font-display font-light mb-3" style="font-size:1.8rem; color:#F7F3EE; line-height:1.2;" data-it="I posti sono limitati. I viaggi no." data-en="Seats are limited. The journeys are not." data-tr="Yerler sınırlı. Yolculuklar değil.">I posti sono limitati. I viaggi no.</h3>
+  <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.55);" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari." data-en="Subscribe to receive new itineraries in advance." data-tr="Yeni güzergahları önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari.</p>
+  <form onsubmit="handleExitNewsletter(event)" class="flex flex-col gap-3">
+    <input type="email" name="email" placeholder="La tua email" class="nl-input" style="text-align:center;" required />
+    <button type="submit" class="btn-primary" style="width:100%;" data-it="Voglio sapere in anticipo" data-en="I want to know in advance" data-tr="Önceden bilmek istiyorum">Voglio sapere in anticipo</button>
+  </form>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="logo">Antika Travels</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html#destinazioni" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#tour" class="nav-link" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
+      <a href="index.html#ipek" class="nav-link" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <div class="flex items-center gap-1 ml-2">
+        <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota ora" data-en="Book now" data-tr="Şimdi rezerve et">Prenota ora</a>
+    </div>
+    <div class="flex md:hidden items-center gap-3">
+      <div class="flex items-center gap-1">
+        <button class="lang-btn active" id="btn-it-m" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr-m" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota" data-en="Book" data-tr="Rezerve">Prenota</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero-tour">
+  <img src="brand-assets/turkey-ephesus.jpg" alt="Biblioteca di Celso, Efeso" loading="eager" />
+  <div class="hero-tour-overlay"></div>
+  <div class="hero-tour-content">
+    <p class="section-label" style="color:#C9A84C;" data-it="Turchia · 8 Giorni" data-en="Turkey · 8 Days" data-tr="Türkiye · 8 Gün">Turchia · 8 Giorni</p>
+    <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,7vw,6rem); font-weight:300; line-height:0.95; color:#F7F3EE; margin-bottom:1.5rem;">
+      <span data-it="Le Città" data-en="Cities of" data-tr="Ege'nin">Le Città</span><br>
+      <em style="color:#C9A84C;" data-it="dell'Egeo." data-en="the Aegean." data-tr="Şehirleri.">dell'Egeo.</em>
+    </h1>
+    <p style="font-size:0.85rem; color:rgba(247,243,238,0.6); line-height:1.8; max-width:500px; font-weight:300;" data-it="Efeso, Pergamo, Afrodisia, Mileto. Otto giorni tra le città greco-romane che inventarono la civiltà." data-en="Ephesus, Pergamon, Aphrodisias, Miletus. Eight days among the Greco-Roman cities that invented civilization." data-tr="Efes, Bergama, Afrodisias, Milet. Medeniyeti icat eden Greko-Romen şehirlerinde sekiz gün.">Efeso, Pergamo, Afrodisia, Mileto. Otto giorni tra le città greco-romane che inventarono la civiltà.</p>
+  </div>
+</section>
+
+<!-- ═══ FACTS STRIP ═══ -->
+<section class="py-8 px-6" style="background:#0F1F2A; border-bottom:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
+    <div class="fact-item"><p class="fact-label" data-it="Durata" data-en="Duration" data-tr="Süre">Durata</p><p class="fact-value" style="color:#F7F3EE;">8 <span style="font-family:'DM Sans'; font-size:0.7rem; font-weight:300; letter-spacing:0.1em;" data-it="giorni" data-en="days" data-tr="gün">giorni</span></p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Gruppo" data-en="Group" data-tr="Grup">Gruppo</p><p class="fact-value" style="color:#F7F3EE;">Max 10</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Da" data-en="From" data-tr="Başlangıç">Da</p><p class="fact-value" style="color:#C9A84C;">€ 3.600</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Stagione" data-en="Season" data-tr="Sezon">Stagione</p><p class="fact-value" style="color:#F7F3EE;" data-it="Mar — Giu / Set — Nov" data-en="Mar — Jun / Sep — Nov" data-tr="Mar — Haz / Eyl — Kas">Mar — Giu / Set — Nov</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Difficoltà" data-en="Difficulty" data-tr="Zorluk">Difficoltà</p><p class="fact-value" style="color:#F7F3EE;" data-it="Facile — Moderato" data-en="Easy — Moderate" data-tr="Kolay — Orta">Facile — Moderato</p></div>
+  </div>
+</section>
+
+<!-- ═══ GREEK WAVE DIVIDER ═══ -->
+<div class="divider-greek">
+  <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 12 C8 4, 16 4, 25 12 C33 20, 41 20, 50 12 C58 4, 66 4, 75 12 C83 20, 91 20, 100 12" stroke="#C9A84C" stroke-width="1" fill="none"/>
+    <path d="M0 16 C8 8, 16 8, 25 16 C33 24, 41 24, 50 16 C58 8, 66 8, 75 16 C83 24, 91 24, 100 16" stroke="#C9A84C" stroke-width="0.6" fill="none" opacity="0.5"/>
+    <path d="M0 8 C8 0, 16 0, 25 8 C33 16, 41 16, 50 8 C58 0, 66 0, 75 8 C83 16, 91 16, 100 8" stroke="#C9A84C" stroke-width="0.6" fill="none" opacity="0.5"/>
+  </svg>
+</div>
+
+<!-- ═══ ITINERARIO GIORNO PER GIORNO ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-16">
+      <p class="section-label" data-it="L'itinerario completo" data-en="The complete itinerary" data-tr="Tam güzergah">L'itinerario completo</p>
+      <h2 class="section-title" data-it="Otto giorni. Duemila anni di pietra." data-en="Eight days. Two thousand years of stone." data-tr="Sekiz gün. İki bin yıllık taş.">Otto giorni. Duemila anni di pietra.</h2>
+    </div>
+
+    <!-- Giorno I -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">I</div>
+        <h3 class="day-location" data-it="Izmir → Efeso — La Biblioteca di Celso" data-en="Izmir → Ephesus — The Library of Celsus" data-tr="İzmir → Efes — Celsus Kütüphanesi">Izmir → Efeso — La Biblioteca di Celso</h3>
+        <p class="day-desc" data-it="Arrivo a Izmir e trasferimento a Selçuk. Primo incontro con Efeso nel pomeriggio: la facciata della Biblioteca di Celso appare tra i cipressi come una promessa mantenuta dal II secolo. Passeggiata lungo la Via dei Cureti fino al Grande Teatro, dove venticinquemila spettatori ascoltavano le voci della democrazia. La luce del tramonto scolpisce il marmo come duemila anni fa." data-en="Arrival in Izmir and transfer to Selçuk. First encounter with Ephesus in the afternoon: the facade of the Library of Celsus appears among the cypresses like a promise kept since the 2nd century. Walk along the Street of Curetes to the Great Theatre, where twenty-five thousand spectators listened to the voices of democracy. The sunset light sculpts the marble as it did two thousand years ago." data-tr="İzmir'e varış ve Selçuk'a transfer. Öğleden sonra Efes ile ilk karşılaşma: Celsus Kütüphanesi'nin cephesi servilerin arasından 2. yüzyıldan beri tutulmuş bir söz gibi belirir. Kuretler Caddesi boyunca Büyük Tiyatro'ya yürüyüş — yirmi beş bin seyircinin demokrasinin seslerini dinlediği yer. Gün batımı ışığı, iki bin yıl önceki gibi mermeri yontar.">Arrivo a Izmir e trasferimento a Selçuk. Primo incontro con Efeso nel pomeriggio: la facciata della Biblioteca di Celso appare tra i cipressi come una promessa mantenuta dal II secolo. Passeggiata lungo la Via dei Cureti fino al Grande Teatro, dove venticinquemila spettatori ascoltavano le voci della democrazia. La luce del tramonto scolpisce il marmo come duemila anni fa.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/turkey-ephesus.jpg" alt="Biblioteca di Celso, Efeso" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno II -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/aegean-theater.jpg" alt="Case a Terrazza, Efeso" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">II</div>
+        <h3 class="day-location" data-it="Efeso — Le Case a Terrazza e Artemide" data-en="Ephesus — The Terrace Houses and Artemis" data-tr="Efes — Yamaç Evler ve Artemis">Efeso — Le Case a Terrazza e Artemide</h3>
+        <p class="day-desc" data-it="Mattina nelle Case a Terrazza — le ville dei patrizi romani con mosaici, affreschi e sistemi di riscaldamento intatti. Qui la vita quotidiana dell'élite di duemila anni fa diventa tangibile. Pomeriggio sul sito del Tempio di Artemide, una delle Sette Meraviglie del mondo antico: resta una colonna solitaria, ma l'immaginazione completa il resto. Visita al Museo di Efeso a Selçuk." data-en="Morning in the Terrace Houses — Roman patrician villas with intact mosaics, frescoes and heating systems. Here the daily life of the elite from two thousand years ago becomes tangible. Afternoon at the site of the Temple of Artemis, one of the Seven Wonders of the ancient world: a lone column remains, but imagination completes the rest. Visit to the Ephesus Museum in Selçuk." data-tr="Sabah Yamaç Evler'de — sağlam mozaikler, freskler ve ısıtma sistemleriyle Roma soylularının villaları. Burada iki bin yıl önceki seçkinlerin günlük yaşamı somutlaşır. Öğleden sonra antik dünyanın Yedi Harikası'ndan biri olan Artemis Tapınağı alanında: geriye tek bir sütun kaldı ama hayal gücü gerisini tamamlar. Selçuk'ta Efes Müzesi ziyareti.">Mattina nelle Case a Terrazza — le ville dei patrizi romani con mosaici, affreschi e sistemi di riscaldamento intatti. Qui la vita quotidiana dell'élite di duemila anni fa diventa tangibile. Pomeriggio sul sito del Tempio di Artemide, una delle Sette Meraviglie del mondo antico: resta una colonna solitaria, ma l'immaginazione completa il resto. Visita al Museo di Efeso a Selçuk.</p>
+      </div>
+    </div>
+
+    <!-- Giorno III -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">III</div>
+        <h3 class="day-location" data-it="Efeso → Pergamo — L'Acropoli e l'Asclepeion" data-en="Ephesus → Pergamon — The Acropolis and the Asclepeion" data-tr="Efes → Bergama — Akropolis ve Asklepieion">Efeso → Pergamo — L'Acropoli e l'Asclepeion</h3>
+        <p class="day-desc" data-it="Trasferimento verso nord lungo la costa egea. Arrivo a Bergama e salita all'Acropoli di Pergamo — la città che sfidò Atene nella cultura e Roma nel potere. Il teatro più vertiginoso dell'antichità scende lungo il pendio come una ferita nella montagna. Pomeriggio all'Asclepeion, il centro di guarigione sacra dove la medicina si intrecciava con la fede. Qui Galeno mosse i primi passi." data-en="Transfer north along the Aegean coast. Arrival in Bergama and ascent to the Acropolis of Pergamon — the city that challenged Athens in culture and Rome in power. Antiquity's most vertiginous theatre descends along the slope like a wound in the mountain. Afternoon at the Asclepeion, the sacred healing center where medicine intertwined with faith. Here Galen took his first steps." data-tr="Ege kıyısı boyunca kuzeye transfer. Bergama'ya varış ve Pergamon Akropolisi'ne çıkış — kültürde Atina'ya, güçte Roma'ya meydan okuyan şehir. Antik çağın en baş döndürücü tiyatrosu yamaç boyunca dağdaki bir yara gibi iner. Öğleden sonra tıbbın inançla iç içe geçtiği kutsal şifa merkezi Asklepieion'da. Galenos burada ilk adımlarını attı.">Trasferimento verso nord lungo la costa egea. Arrivo a Bergama e salita all'Acropoli di Pergamo — la città che sfidò Atene nella cultura e Roma nel potere. Il teatro più vertiginoso dell'antichità scende lungo il pendio come una ferita nella montagna. Pomeriggio all'Asclepeion, il centro di guarigione sacra dove la medicina si intrecciava con la fede. Qui Galeno mosse i primi passi.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/aegean-pergamon.jpg" alt="Acropoli di Pergamo" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno IV -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/aegean-pergamon.jpg" alt="Basilica Rossa, Pergamo" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">IV</div>
+        <h3 class="day-location" data-it="Pergamo — Il Museo e la Basilica Rossa" data-en="Pergamon — The Museum and the Red Basilica" data-tr="Bergama — Müze ve Kızıl Bazilika">Pergamo — Il Museo e la Basilica Rossa</h3>
+        <p class="day-desc" data-it="Mattina al Museo Archeologico di Bergama, dove i frammenti dell'Altare di Zeus raccontano la battaglia tra dei e giganti. Poi la Basilica Rossa — un tempio egizio dedicato a Serapide, trasformato in chiesa bizantina, una delle Sette Chiese dell'Apocalisse di Giovanni. Pomeriggio libero nel borgo di Bergama: vicoli ottomani, bazar coperto, il profumo del tè nero sui bracieri." data-en="Morning at the Bergama Archaeological Museum, where fragments of the Altar of Zeus tell the battle between gods and giants. Then the Red Basilica — an Egyptian temple dedicated to Serapis, transformed into a Byzantine church, one of the Seven Churches of the Apocalypse of John. Free afternoon in the town of Bergama: Ottoman alleyways, covered bazaar, the scent of black tea on braziers." data-tr="Sabah Bergama Arkeoloji Müzesi'nde — Zeus Sunağı'nın parçaları tanrılar ve devler arasındaki savaşı anlatır. Ardından Kızıl Bazilika — Serapis'e adanmış bir Mısır tapınağı, Bizans kilisesine dönüştürülmüş, Yuhanna'nın Vahiy'indeki Yedi Kilise'den biri. Bergama kasabasında serbest öğleden sonra: Osmanlı sokakları, kapalı çarşı, mangalların üzerinde siyah çay kokusu.">Mattina al Museo Archeologico di Bergama, dove i frammenti dell'Altare di Zeus raccontano la battaglia tra dei e giganti. Poi la Basilica Rossa — un tempio egizio dedicato a Serapide, trasformato in chiesa bizantina, una delle Sette Chiese dell'Apocalisse di Giovanni. Pomeriggio libero nel borgo di Bergama: vicoli ottomani, bazar coperto, il profumo del tè nero sui bracieri.</p>
+      </div>
+    </div>
+
+    <!-- Giorno V -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">V</div>
+        <h3 class="day-location" data-it="Pergamo → Afrodisia — Lo Stadio e il Tetrapilo" data-en="Pergamon → Aphrodisias — The Stadium and the Tetrapylon" data-tr="Bergama → Afrodisias — Stadyum ve Tetrapylon">Pergamo → Afrodisia — Lo Stadio e il Tetrapilo</h3>
+        <p class="day-desc" data-it="Lungo trasferimento verso sud attraverso l'entroterra anatolico — colline di ulivi, pianure di cotone, villaggi dove il tempo ha un ritmo diverso. Arrivo ad Afrodisia nel tardo pomeriggio. Lo Stadio appare per primo: trentamila posti perfettamente conservati, il più grande e intatto del mondo antico. Poi il Tetrapilo, porta cerimoniale che incornicia il cielo come un quadro di marmo. Cena in un villaggio vicino, sotto le stelle." data-en="Long transfer south through the Anatolian hinterland — olive hills, cotton plains, villages where time flows differently. Arrival in Aphrodisias in the late afternoon. The Stadium appears first: thirty thousand perfectly preserved seats, the largest and most intact in the ancient world. Then the Tetrapylon, a ceremonial gateway that frames the sky like a marble painting. Dinner in a nearby village, under the stars." data-tr="Anadolu iç kesimlerinden güneye uzun transfer — zeytin tepeleri, pamuk ovaları, zamanın farklı aktığı köyler. Öğleden sonra geç saatlerde Afrodisias'a varış. İlk Stadyum görünür: otuz bin mükemmel korunmuş koltuk, antik dünyanın en büyük ve en sağlam stadyumu. Ardından Tetrapylon — gökyüzünü mermer bir tablo gibi çerçeveleyen törensel kapı. Yakın bir köyde yıldızların altında akşam yemeği.">Lungo trasferimento verso sud attraverso l'entroterra anatolico — colline di ulivi, pianure di cotone, villaggi dove il tempo ha un ritmo diverso. Arrivo ad Afrodisia nel tardo pomeriggio. Lo Stadio appare per primo: trentamila posti perfettamente conservati, il più grande e intatto del mondo antico. Poi il Tetrapilo, porta cerimoniale che incornicia il cielo come un quadro di marmo. Cena in un villaggio vicino, sotto le stelle.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/aegean-aphrodisias.jpg" alt="Stadio di Afrodisia" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno VI -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/aegean-aphrodisias.jpg" alt="Sebasteion, Afrodisia" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">VI</div>
+        <h3 class="day-location" data-it="Afrodisia — Il Museo e il Sebasteion" data-en="Aphrodisias — The Museum and the Sebasteion" data-tr="Afrodisias — Müze ve Sebasteion">Afrodisia — Il Museo e il Sebasteion</h3>
+        <p class="day-desc" data-it="Giornata intera dedicata ad Afrodisia, la città di Afrodite. Il Museo, uno dei più belli della Turchia, custodisce sculture di una perfezione che toglie il fiato — la Scuola di Afrodisia era celebre in tutto l'Impero. Il Sebasteion, tempio dedicato agli imperatori, con rilievi che raccontano miti e propaganda in una sintesi unica. Visita agli scavi attivi con l'équipe archeologica: qui la storia si scrive ancora oggi, un frammento alla volta." data-en="Full day dedicated to Aphrodisias, the city of Aphrodite. The Museum, one of Turkey's finest, houses sculptures of breathtaking perfection — the School of Aphrodisias was celebrated across the Empire. The Sebasteion, a temple dedicated to emperors, with reliefs narrating myths and propaganda in a unique synthesis. Visit to active excavations with the archaeological team: here history is still being written, one fragment at a time." data-tr="Afrodit'in şehri Afrodisias'a adanmış tam gün. Türkiye'nin en güzellerinden biri olan Müze, nefes kesen mükemmellikte heykeller barındırır — Afrodisias Okulu İmparatorluk çapında ünlüydü. İmparatorlara adanmış tapınak Sebasteion, eşsiz bir sentezde mitleri ve propagandayı anlatan kabartmalarıyla. Arkeoloji ekibiyle aktif kazı alanlarını ziyaret: burada tarih hâlâ yazılıyor, bir parça bir parça.">Giornata intera dedicata ad Afrodisia, la città di Afrodite. Il Museo, uno dei più belli della Turchia, custodisce sculture di una perfezione che toglie il fiato — la Scuola di Afrodisia era celebre in tutto l'Impero. Il Sebasteion, tempio dedicato agli imperatori, con rilievi che raccontano miti e propaganda in una sintesi unica. Visita agli scavi attivi con l'équipe archeologica: qui la storia si scrive ancora oggi, un frammento alla volta.</p>
+      </div>
+    </div>
+
+    <!-- Giorno VII -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">VII</div>
+        <h3 class="day-location" data-it="Afrodisia → Mileto — Il Teatro e le Terme" data-en="Aphrodisias → Miletus — The Theatre and the Baths" data-tr="Afrodisias → Milet — Tiyatro ve Hamamlar">Afrodisia → Mileto — Il Teatro e le Terme</h3>
+        <p class="day-desc" data-it="Trasferimento verso la costa. Mileto, la città dei filosofi: qui nacquero Talete, Anassimandro, Anassimene — qui il pensiero occidentale cominciò a porsi le domande che ancora ci poniamo. Il Grande Teatro, affacciato sulla pianura dove un tempo c'era il mare. Le Terme di Faustina, tra le più lussuose dell'Asia Minore, con mosaici e vasche che raccontano il piacere romano. Sera sulla costa egea, tra il profumo dei pini e il suono del mare." data-en="Transfer to the coast. Miletus, the city of philosophers: here Thales, Anaximander, Anaximenes were born — here Western thought began asking the questions we still ask today. The Great Theatre, overlooking the plain where the sea once lay. The Baths of Faustina, among the most luxurious in Asia Minor, with mosaics and pools that tell of Roman pleasure. Evening on the Aegean coast, amid the scent of pines and the sound of the sea." data-tr="Sahile transfer. Filozofların şehri Milet: Thales, Anaksimandros, Anaksimenes burada doğdu — Batı düşüncesi hâlâ sorduğumuz soruları burada sormaya başladı. Bir zamanlar denizin olduğu ovaya bakan Büyük Tiyatro. Küçük Asya'nın en lüks hamamlarından Faustina Hamamları — Roma zevkini anlatan mozaikler ve havuzlarla. Çam kokusunun ve deniz sesinin arasında Ege kıyısında akşam.">Trasferimento verso la costa. Mileto, la città dei filosofi: qui nacquero Talete, Anassimandro, Anassimene — qui il pensiero occidentale cominciò a porsi le domande che ancora ci poniamo. Il Grande Teatro, affacciato sulla pianura dove un tempo c'era il mare. Le Terme di Faustina, tra le più lussuose dell'Asia Minore, con mosaici e vasche che raccontano il piacere romano. Sera sulla costa egea, tra il profumo dei pini e il suono del mare.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/aegean-miletus.jpg" alt="Teatro di Mileto" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno VIII -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/aegean-miletus.jpg" alt="Tempio di Apollo, Didyma" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">VIII</div>
+        <h3 class="day-location" data-it="Mileto → Didyma — Il Tempio di Apollo e la partenza" data-en="Miletus → Didyma — The Temple of Apollo and departure" data-tr="Milet → Didim — Apollo Tapınağı ve ayrılış">Mileto → Didyma — Il Tempio di Apollo e la partenza</h3>
+        <p class="day-desc" data-it="Ultima mattina al Tempio di Apollo a Didyma — l'oracolo rivale di Delfi. Colonne alte diciannove metri che sfiorano il cielo egeo, una scalinata sacra che scendeva verso la sorgente dove la Pizia pronunciava i suoi responsi. Un luogo dove il confine tra uomini e dei si assottigliava fino a scomparire. Trasferimento a Izmir e partenza. Un viaggio finisce, ma le pietre continuano a parlare." data-en="Final morning at the Temple of Apollo in Didyma — the oracle that rivaled Delphi. Columns nineteen meters tall brushing the Aegean sky, a sacred stairway that descended to the spring where the Pythia delivered her prophecies. A place where the boundary between men and gods thinned to nothing. Transfer to Izmir and departure. A journey ends, but the stones keep speaking." data-tr="Son sabah Didim'de Apollo Tapınağı'nda — Delfi'ye rakip olan kehanet merkezi. Ege göğüne dokunan on dokuz metre yüksekliğinde sütunlar, Pythia'nın kehanetlerini sunduğu kaynağa inen kutsal merdiven. İnsanlar ve tanrılar arasındaki sınırın yok olduğu bir yer. İzmir'e transfer ve ayrılış. Bir yolculuk biter ama taşlar konuşmaya devam eder.">Ultima mattina al Tempio di Apollo a Didyma — l'oracolo rivale di Delfi. Colonne alte diciannove metri che sfiorano il cielo egeo, una scalinata sacra che scendeva verso la sorgente dove la Pizia pronunciava i suoi responsi. Un luogo dove il confine tra uomini e dei si assottigliava fino a scomparire. Trasferimento a Izmir e partenza. Un viaggio finisce, ma le pietre continuano a parlare.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ GREEK WAVE DIVIDER ═══ -->
+<div class="divider-greek">
+  <svg width="100" height="24" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 12 C8 4, 16 4, 25 12 C33 20, 41 20, 50 12 C58 4, 66 4, 75 12 C83 20, 91 20, 100 12" stroke="#C9A84C" stroke-width="1" fill="none"/>
+    <path d="M0 16 C8 8, 16 8, 25 16 C33 24, 41 24, 50 16 C58 8, 66 8, 75 16 C83 24, 91 24, 100 16" stroke="#C9A84C" stroke-width="0.6" fill="none" opacity="0.5"/>
+    <path d="M0 8 C8 0, 16 0, 25 8 C33 16, 41 16, 50 8 C58 0, 66 0, 75 8 C83 16, 91 16, 100 8" stroke="#C9A84C" stroke-width="0.6" fill="none" opacity="0.5"/>
+  </svg>
+</div>
+
+<!-- ═══ HIGHLIGHTS ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-14">
+      <p class="section-label" data-it="Perché questo viaggio" data-en="Why this journey" data-tr="Neden bu yolculuk">Perché questo viaggio</p>
+      <h2 class="section-title" data-it="Cosa rende unico questo itinerario." data-en="What makes this itinerary unique." data-tr="Bu güzergahı benzersiz kılan ne.">Cosa rende unico questo itinerario.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 21h18M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></div>
+        <h3 class="highlight-title" data-it="Architettura teatrale greca" data-en="Greek theatre architecture" data-tr="Yunan tiyatro mimarisi">Architettura teatrale greca</h3>
+        <p class="highlight-desc" data-it="Tre dei teatri antichi meglio conservati del Mediterraneo: Efeso, Pergamo e Mileto. Ogni acustica, ogni gradino racconta un modo diverso di concepire lo spettacolo e la democrazia." data-en="Three of the best-preserved ancient theatres in the Mediterranean: Ephesus, Pergamon and Miletus. Every acoustic, every step tells a different way of conceiving spectacle and democracy." data-tr="Akdeniz'in en iyi korunmuş üç antik tiyatrosu: Efes, Bergama ve Milet. Her akustik, her basamak gösteri ve demokrasiyi farklı bir şekilde kavratan bir hikaye anlatır.">Tre dei teatri antichi meglio conservati del Mediterraneo: Efeso, Pergamo e Mileto. Ogni acustica, ogni gradino racconta un modo diverso di concepire lo spettacolo e la democrazia.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3 class="highlight-title" data-it="La guarigione sacra all'Asclepeion" data-en="Sacred healing at the Asclepeion" data-tr="Asklepieion'da kutsal şifa">La guarigione sacra all'Asclepeion</h3>
+        <p class="highlight-desc" data-it="A Pergamo, dove la medicina moderna nacque dalla fede. Il centro di cura dove Galeno studiò, con tunnel sacri, biblioteche mediche e rituali di guarigione che anticiparono la psicoterapia." data-en="In Pergamon, where modern medicine was born from faith. The healing center where Galen studied, with sacred tunnels, medical libraries and healing rituals that anticipated psychotherapy." data-tr="Modern tıbbın inançtan doğduğu Bergama'da. Galenos'un çalıştığı şifa merkezi — kutsal tüneller, tıp kütüphaneleri ve psikoterapiyi önceleyen iyileştirme ritüelleriyle.">A Pergamo, dove la medicina moderna nacque dalla fede. Il centro di cura dove Galeno studiò, con tunnel sacri, biblioteche mediche e rituali di guarigione che anticiparono la psicoterapia.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+        <h3 class="highlight-title" data-it="Scavi archeologici attivi" data-en="Active archaeological excavations" data-tr="Aktif arkeolojik kazılar">Scavi archeologici attivi</h3>
+        <p class="highlight-desc" data-it="Ad Afrodisia gli scavi non si sono mai fermati. Con permessi speciali, visitiamo le aree dove gli archeologi stanno ancora portando alla luce sculture, iscrizioni e storie sepolte da secoli." data-en="At Aphrodisias, excavations have never stopped. With special permits, we visit areas where archaeologists are still unearthing sculptures, inscriptions and stories buried for centuries." data-tr="Afrodisias'ta kazılar hiç durmadı. Özel izinlerle, arkeologların hâlâ yüzyıllardır gömülü heykelleri, yazıtları ve hikayeleri gün yüzüne çıkardığı alanları ziyaret ediyoruz.">Ad Afrodisia gli scavi non si sono mai fermati. Con permessi speciali, visitiamo le aree dove gli archeologi stanno ancora portando alla luce sculture, iscrizioni e storie sepolte da secoli.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COSA INCLUDE ═══ -->
+<section class="py-20 px-6" style="background:#0F0E0C;">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="section-label" data-it="Dettagli pratici" data-en="Practical details" data-tr="Pratik detaylar">Dettagli pratici</p>
+      <h2 class="section-title light" data-it="Cosa include il viaggio." data-en="What the journey includes." data-tr="Yolculuk neleri içerir.">Cosa include il viaggio.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 reveal">
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C; margin-bottom:1.5rem;" data-it="Include" data-en="Included" data-tr="Dahil">Include</h3>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti i trasporti interni (minibus privato)" data-en="All domestic transport (private minibus)" data-tr="Tüm iç ulaşım (özel minibüs)">Tutti i trasporti interni (minibus privato)</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="7 notti in hotel boutique (camera doppia)" data-en="7 nights in boutique hotels (double room)" data-tr="Butik otellerde 7 gece (çift kişilik oda)">7 notti in hotel boutique (camera doppia)</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti i trasferimenti e trasporti locali" data-en="All transfers and local transportation" data-tr="Tüm transferler ve yerel ulaşım">Tutti i trasferimenti e trasporti locali</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Guida archeologa per l'intero viaggio" data-en="Archaeologist guide for the entire journey" data-tr="Tüm yolculuk boyunca arkeolog rehber">Guida archeologa per l'intero viaggio</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti gli ingressi ai siti e musei" data-en="All site and museum entries" data-tr="Tüm alan ve müze girişleri">Tutti gli ingressi ai siti e musei</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Colazione giornaliera + 4 cene" data-en="Daily breakfast + 4 dinners" data-tr="Günlük kahvaltı + 4 akşam yemeği">Colazione giornaliera + 4 cene</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Permessi speciali per scavi attivi" data-en="Special permits for active excavation sites" data-tr="Aktif kazı alanları için özel izinler">Permessi speciali per scavi attivi</span></div>
+      </div>
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(247,243,238,0.3); margin-bottom:1.5rem;" data-it="Non include" data-en="Not included" data-tr="Dahil değil">Non include</h3>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Volo internazionale (andata e ritorno per Izmir)" data-en="International flights (round trip to Izmir)" data-tr="Uluslararası uçuşlar (İzmir'e gidiş-dönüş)">Volo internazionale (andata e ritorno per Izmir)</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Pranzi e cene non menzionate" data-en="Lunches and unspecified dinners" data-tr="Öğle yemekleri ve belirtilmeyen akşam yemekleri">Pranzi e cene non menzionate</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Spese personali e mance" data-en="Personal expenses and tips" data-tr="Kişisel harcamalar ve bahşişler">Spese personali e mance</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Assicurazione viaggio" data-en="Travel insurance" data-tr="Seyahat sigortası">Assicurazione viaggio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PREZZO + CTA ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Prezzo" data-en="Price" data-tr="Fiyat">Prezzo</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,6vw,4.5rem); font-weight:300; color:#C9A84C; margin-bottom:0.5rem;">€ 3.600</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); margin-bottom:2.5rem;" data-it="per persona, base camera doppia" data-en="per person, double room basis" data-tr="kişi başı, çift kişilik oda bazında">per persona, base camera doppia</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#richiedi" class="btn-primary" data-it="Richiedi questo viaggio" data-en="Request this journey" data-tr="Bu yolculuğu talep et">Richiedi questo viaggio</a>
+      <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Ipek%2C%20vorrei%20informazioni%20sul%20tour%20Le%20Citt%C3%A0%20dell%27Egeo" target="_blank" class="btn-wa">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <p style="font-size:0.65rem; color:rgba(247,243,238,0.25); margin-top:2rem; line-height:1.8;" data-it="Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta." data-en="Price varies based on group size and itinerary customization. Single supplement available on request." data-tr="Fiyat, grup büyüklüğüne ve güzergah kişiselleştirmesine göre değişir. Tek kişilik oda ek ücreti talep üzerine mevcuttur.">Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta.</p>
+  </div>
+</section>
+
+<!-- ═══ FORM RICHIESTA ═══ -->
+<section id="richiedi" class="py-24 px-6" style="background:#0F0E0C;">
+  <div class="max-w-xl mx-auto reveal">
+    <p class="section-label" data-it="Inizia da qui" data-en="Start here" data-tr="Buradan başlayın">Inizia da qui</p>
+    <h2 class="section-title light mb-8" data-it="Richiedi questo viaggio." data-en="Request this journey." data-tr="Bu yolculuğu talep edin.">Richiedi questo viaggio.</h2>
+    <form id="request-form" onsubmit="handleRequest(event)" class="flex flex-col gap-5">
+      <input type="hidden" name="tour" value="citta-egeo" />
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Nome" data-en="Name" data-tr="İsim">Nome</label><input type="text" name="nome" class="form-input" required /></div>
+        <div><label class="form-label">Email</label><input type="email" name="email" class="form-input" required /></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Persone" data-en="People" data-tr="Kişi sayısı">Persone</label><select name="persone" class="form-input"><option>2</option><option>3-4</option><option>5-6</option><option>7-10</option></select></div>
+        <div><label class="form-label" data-it="Periodo preferito" data-en="Preferred period" data-tr="Tercih edilen dönem">Periodo preferito</label><input type="text" name="periodo" class="form-input" placeholder="es. Aprile 2026" /></div>
+      </div>
+      <div><label class="form-label" data-it="Note o richieste speciali" data-en="Notes or special requests" data-tr="Notlar veya özel istekler">Note o richieste speciali</label><textarea name="messaggio" rows="3" class="form-input" style="resize:vertical;"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%; text-align:center;" data-it="Invia la richiesta" data-en="Send request" data-tr="Talebi gönder">Invia la richiesta</button>
+    </form>
+    <div id="request-success" style="display:none;" class="text-center py-8">
+      <p class="font-display font-light text-2xl mb-3" style="color:#C9A84C;" data-it="Grazie. Ti risponderemo presto." data-en="Thank you. We'll be in touch shortly." data-tr="Teşekkürler. Yakında yanıt vereceğiz.">Grazie. Ti risponderemo presto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ALTRI TOUR ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-12 text-center">
+      <p class="section-label" data-it="Scopri gli altri itinerari" data-en="Discover other itineraries" data-tr="Diğer güzergahları keşfet">Scopri gli altri itinerari</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <a href="tour-faraoni-del-nilo.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Egitto · 10 giorni" data-en="Egypt · 10 days" data-tr="Mısır · 10 gün">Egitto · 10 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="I Faraoni del Nilo" data-en="The Pharaohs of the Nile" data-tr="Nil'in Firavunları">I Faraoni del Nilo</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 4.800 / persona" data-en="From € 4,800 / person" data-tr="Kişi başı € 4.800'den">Da € 4.800 / persona</p>
+      </a>
+      <a href="tour-magna-graecia.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Sicilia · 7 giorni" data-en="Sicily · 7 days" data-tr="Sicilya · 7 gün">Sicilia · 7 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;">Magna Graecia</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 3.200 / persona" data-en="From € 3,200 / person" data-tr="Kişi başı € 3.200'den">Da € 3.200 / persona</p>
+      </a>
+      <a href="tour-anatolia-sacra.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Anatolia · 9 giorni" data-en="Anatolia · 9 days" data-tr="Anadolu · 9 gün">Anatolia · 9 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="Anatolia Sacra" data-en="Sacred Anatolia" data-tr="Kutsal Anadolu">Anatolia Sacra</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 4.200 / persona" data-en="From € 4,200 / person" data-tr="Kişi başı € 4.200'den">Da € 4.200 / persona</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="py-20 px-6" style="background:#1A1510; border-top:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Rimani aggiornato" data-en="Stay informed" data-tr="Güncel kalın">Rimani aggiornato</p>
+    <h2 class="font-display font-light mb-4" style="font-size:2rem; color:#F7F3EE;" data-it="I nuovi itinerari. Prima di tutti." data-en="New itineraries. Before anyone else." data-tr="Yeni güzergahlar. Herkesten önce.">I nuovi itinerari. Prima di tutti.</h2>
+    <form id="nl-form" onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3">
+      <input type="email" name="email" placeholder="La tua email" class="nl-input" required />
+      <button type="submit" class="btn-primary whitespace-nowrap" data-it="Iscriviti" data-en="Subscribe" data-tr="Abone ol">Iscriviti</button>
+    </form>
+    <div id="nl-success" style="display:none; color:#C9A84C; font-size:0.9rem; margin-top:1rem;">✓</div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="px-6 py-12" style="background:#0A0908; border-top:1px solid rgba(201,168,76,0.08);">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+    <div>
+      <a href="index.html" style="text-decoration:none;"><div class="font-display text-xl font-light tracking-widest uppercase mb-2" style="color:#F7F3EE; letter-spacing:0.25em;">Antika Travels</div></a>
+      <p class="text-xs font-light" style="color:#5A5248; letter-spacing:0.05em;" data-it="Viaggi Archeologici su Misura" data-en="Bespoke Archaeological Journeys" data-tr="Özel Arkeolojik Seyahatler">Viaggi Archeologici su Misura</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-6 text-xs" style="color:#5A5248; letter-spacing:0.1em; text-transform:uppercase;">
+      <a href="index.html#destinazioni" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#ipek" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <a href="https://www.instagram.com/ipekinrome/" target="_blank" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors">Instagram</a>
+    </div>
+    <p style="font-size:0.65rem; color:#3A3530;" class="font-light">© 2026 Antika Travels</p>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  // ═══ TRACKING ═══
+  function trackEvent(name, params) {
+    params = params || {};
+    if (typeof fbq === 'function') fbq('track', name, params);
+    if (typeof gtag === 'function') gtag('event', name, params);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...params });
+  }
+  trackEvent('ViewContent', { content_name: 'Tour — Le Città dell\'Egeo', content_type: 'tour_page' });
+
+  // ═══ NAV SCROLL ═══
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 80); });
+
+  // ═══ REVEAL ═══
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ═══ BREVO ═══
+  function sendToBrevo(nome, email, source) {
+    fetch('/api/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ nome, email, source }) })
+    .then(r => { if (r.ok) console.log('[Brevo] OK'); }).catch(err => console.warn('[Brevo]', err));
+  }
+
+  // ═══ NEWSLETTER ═══
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    localStorage.setItem('at_subscribed', '1');
+    sendToBrevo('', email, 'newsletter-tour-egeo');
+    trackEvent('Lead', { content_name: 'Newsletter Tour Egeo' });
+    e.target.style.display = 'none';
+    document.getElementById('nl-success').style.display = 'block';
+    showToast('✓ Iscrizione confermata');
+  }
+
+  // ═══ REQUEST FORM ═══
+  function handleRequest(e) {
+    e.preventDefault();
+    const f = e.target;
+    const nome = f.nome.value, email = f.email.value, persone = f.persone.value, periodo = f.periodo.value, msg = f.messaggio.value;
+    trackEvent('Lead', { content_name: 'Tour Request — Le Città dell\'Egeo', content_category: 'Turchia' });
+    trackEvent('InitiateCheckout', { content_name: 'Le Città dell\'Egeo', currency: 'EUR', value: 3600, num_items: parseInt(persone) });
+    sendToBrevo(nome, email, 'tour-citta-egeo');
+    const waMsg = encodeURIComponent(`🏛 Richiesta tour — Le Città dell'Egeo\nNome: ${nome}\nEmail: ${email}\nPersone: ${persone}\nPeriodo: ${periodo}\nNote: ${msg}`);
+    setTimeout(() => window.open(`https://wa.me/39XXXXXXXXXX?text=${waMsg}`, '_blank'), 400);
+    f.style.display = 'none';
+    document.getElementById('request-success').style.display = 'block';
+    showToast('✓ Richiesta inviata!');
+  }
+
+  // ═══ EXIT-INTENT ═══
+  let exitPopupShown = false;
+  function showExitPopup() { if (exitPopupShown || localStorage.getItem('at_subscribed') || sessionStorage.getItem('at_exit_closed')) return; exitPopupShown = true; document.getElementById('exit-popup-backdrop').classList.add('open'); document.getElementById('exit-popup').classList.add('open'); trackEvent('ExitIntentShown'); }
+  function closeExitPopup() { document.getElementById('exit-popup-backdrop').classList.remove('open'); document.getElementById('exit-popup').classList.remove('open'); sessionStorage.setItem('at_exit_closed', '1'); }
+  document.addEventListener('mouseout', e => { if (e.clientY < 5 && !e.relatedTarget) showExitPopup(); });
+  setTimeout(() => { if (window.innerWidth < 768) showExitPopup(); }, 45000);
+  document.getElementById('exit-popup-backdrop').addEventListener('click', closeExitPopup);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeExitPopup(); });
+  function handleExitNewsletter(e) { e.preventDefault(); const email = e.target.email.value; localStorage.setItem('at_subscribed', '1'); sendToBrevo('', email, 'exit-popup-tour-egeo'); trackEvent('Lead', { content_name: 'Exit Popup Tour Egeo' }); closeExitPopup(); showToast('✓ Iscrizione confermata'); }
+
+  // ═══ TOAST ═══
+  function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
+
+  // ═══ LINGUA ═══
+  let currentLang = 'it';
+  function setLang(lang) {
+    currentLang = lang;
+    ['it','en','tr'].forEach(l => { document.querySelectorAll(`#btn-${l}, #btn-${l}-m`).forEach(b => b?.classList.toggle('active', l === lang)); });
+    document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = el.getAttribute(`data-${lang}`) || el.placeholder;
+      else el.innerHTML = el.getAttribute(`data-${lang}`);
+    });
+  }
+</script>
+</body>
+</html>

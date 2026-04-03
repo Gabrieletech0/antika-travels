@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Faraoni del Nilo — Antika Travels</title>
+  <meta name="description" content="Tour archeologico di 10 giorni in Egitto: Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Gruppi esclusivi di massimo 10 persone guidati da un'archeologa." />
+
+  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- ═══ FACEBOOK PIXEL ═══ -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- ═══ GOOGLE ANALYTICS 4 ═══ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?v=3"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ivory:'#F7F3EE', sand:'#E8D5B7', stone:'#D4C4A8', gold:'#C9A84C', 'gold-dark':'#8B6914', ink:'#0F0E0C', 'ink-soft':'#2A2520', mist:'#7A7068' },
+          fontFamily: { display:['Cormorant Garamond','serif'], body:['DM Sans','sans-serif'] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #F7F3EE; color: #0F0E0C; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
+    nav.scrolled { background: rgba(247,243,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 2.5rem; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
+    nav.scrolled .logo { color: #0F0E0C; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+    nav.scrolled .nav-link { color: #7A7068; }
+    .nav-link:hover, nav.scrolled .nav-link:hover { color: #C9A84C; }
+    .nav-cta { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; border: 1px solid rgba(201,168,76,0.6); color: #C9A84C; text-decoration: none; transition: all 0.3s; border-radius: 1px; }
+    .nav-cta:hover { background: #C9A84C; color: #0F0E0C; }
+    .lang-btn { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,238,0.5); background: transparent; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    nav.scrolled .lang-btn { color: #7A7068; border-color: rgba(0,0,0,0.15); }
+    .lang-btn.active, .lang-btn:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    /* Shared */
+    .section-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; margin-bottom: 1rem; font-weight: 400; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: #0F0E0C; }
+    .section-title.light { color: #F7F3EE; }
+    .btn-primary { display: inline-block; padding: 0.85rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 1px; }
+    .btn-primary:hover { background: #8B6914; color: #F7F3EE; }
+    .btn-outline { display: inline-block; padding: 0.85rem 2.5rem; border: 1px solid rgba(201,168,76,0.5); color: #C9A84C; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: #25D366; color: #fff; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-radius: 1px; transition: background 0.3s; font-family: 'DM Sans', sans-serif; }
+    .btn-wa:hover { background: #1DA851; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .form-label { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,238,0.4); margin-bottom: 0.5rem; }
+    .form-input { width: 100%; padding: 0.75rem 1rem; background: rgba(247,243,238,0.06); border: 1px solid rgba(201,168,76,0.15); color: #F7F3EE; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; }
+    .form-input:focus { border-color: #C9A84C; }
+    .nl-input { padding: 0.75rem 1rem; background: rgba(15,14,12,0.06); border: 1px solid rgba(201,168,76,0.2); color: #0F0E0C; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.3s; border-radius: 1px; flex: 1; }
+    .nl-input:focus { border-color: #C9A84C; }
+    .toast { position: fixed; bottom: 2rem; left: 2rem; background: #C9A84C; color: #0F0E0C; padding: 0.8rem 1.5rem; font-size: 0.8rem; font-weight: 500; border-radius: 2px; transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 500; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .exit-popup-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 300; }
+    .exit-popup-backdrop.open { display: block; }
+    .exit-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.9); background: #1A1510; border: 1px solid rgba(201,168,76,0.2); padding: 3rem; max-width: 440px; width: 90%; z-index: 301; text-align: center; transition: transform 0.3s; }
+    .exit-popup.open { display: block; transform: translate(-50%,-50%) scale(1); }
+    .exit-popup-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: rgba(247,243,238,0.4); font-size: 1.5rem; cursor: pointer; }
+
+    /* ═══ EGYPTIAN CULTURAL DECORATIONS ═══ */
+    .hero-tour { position: relative; height: 100vh; min-height: 700px; overflow: hidden; }
+    .hero-tour img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-tour-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,14,12,0.25) 0%, rgba(15,14,12,0.15) 40%, rgba(15,14,12,0.8) 100%); z-index: 1; }
+    /* Egyptian grid pattern overlay */
+    .hero-tour-overlay::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(201,168,76,0.04) 50px, rgba(201,168,76,0.04) 51px), repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(201,168,76,0.04) 50px, rgba(201,168,76,0.04) 51px); pointer-events: none; }
+    .hero-tour-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 0 2.5rem 5rem; max-width: 800px; }
+
+    /* Winged sun disc divider */
+    .divider-egyptian { display: flex; align-items: center; justify-content: center; padding: 2rem 0; }
+    .divider-egyptian::before, .divider-egyptian::after { content: ''; flex: 1; max-width: 200px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent); }
+    .divider-egyptian svg { margin: 0 1.5rem; opacity: 0.4; }
+
+    /* Day card with Egyptian border accent */
+    .day-card { border-left: 3px solid rgba(201,168,76,0.15); padding-left: 2rem; position: relative; }
+    .day-card::before { content: ''; position: absolute; left: -6px; top: 0; width: 9px; height: 9px; background: #C9A84C; border-radius: 50%; opacity: 0.5; }
+    .day-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.5rem; }
+    .day-location { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: #0F0E0C; margin-bottom: 0.75rem; }
+    .day-desc { font-size: 0.85rem; color: #7A7068; line-height: 1.85; font-weight: 300; }
+    .day-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; transition: transform 0.6s ease; }
+    .day-photo:hover { transform: scale(1.03); }
+    .day-photo-wrap { overflow: hidden; border-radius: 2px; }
+
+    /* Facts strip */
+    .fact-item { text-align: center; }
+    .fact-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A7068; margin-bottom: 0.35rem; }
+    .fact-value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: #0F0E0C; }
+
+    /* Highlight cards */
+    .highlight-card { padding: 2rem; border-top: 2px solid rgba(201,168,76,0.3); }
+    .highlight-icon { color: #C9A84C; margin-bottom: 1rem; }
+    .highlight-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .highlight-desc { font-size: 0.8rem; color: #7A7068; line-height: 1.8; font-weight: 300; }
+
+    /* Include list */
+    .include-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.82rem; color: rgba(247,243,238,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 0.5rem; }
+    .include-check { color: #C9A84C; flex-shrink: 0; margin-top: 0.2rem; }
+    .exclude-x { color: rgba(247,243,238,0.25); flex-shrink: 0; margin-top: 0.2rem; }
+
+    /* Other tours */
+    .other-tour { background: rgba(247,243,238,0.04); border: 1px solid rgba(201,168,76,0.12); padding: 2rem; transition: border-color 0.3s, background 0.3s; text-decoration: none; display: block; }
+    .other-tour:hover { border-color: rgba(201,168,76,0.4); background: rgba(247,243,238,0.07); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .hero-tour-content { padding: 0 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ═══ EXIT-INTENT POPUP ═══ -->
+<div id="exit-popup-backdrop" class="exit-popup-backdrop"></div>
+<div id="exit-popup" class="exit-popup">
+  <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
+  <p class="section-label" data-it="Prima di andare" data-en="Before you leave" data-tr="Ayrılmadan önce">Prima di andare</p>
+  <h3 class="font-display font-light mb-3" style="font-size:1.8rem; color:#F7F3EE; line-height:1.2;" data-it="I posti sono limitati. I viaggi no." data-en="Seats are limited. The journeys are not." data-tr="Yerler sınırlı. Yolculuklar değil.">I posti sono limitati. I viaggi no.</h3>
+  <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.55);" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari." data-en="Subscribe to receive new itineraries in advance." data-tr="Yeni güzergahları önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari.</p>
+  <form onsubmit="handleExitNewsletter(event)" class="flex flex-col gap-3">
+    <input type="email" name="email" placeholder="La tua email" class="nl-input" style="text-align:center;" required />
+    <button type="submit" class="btn-primary" style="width:100%;" data-it="Voglio sapere in anticipo" data-en="I want to know in advance" data-tr="Önceden bilmek istiyorum">Voglio sapere in anticipo</button>
+  </form>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="logo">Antika Travels</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html#destinazioni" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#tour" class="nav-link" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
+      <a href="index.html#ipek" class="nav-link" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <div class="flex items-center gap-1 ml-2">
+        <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota ora" data-en="Book now" data-tr="Şimdi rezerve et">Prenota ora</a>
+    </div>
+    <div class="flex md:hidden items-center gap-3">
+      <div class="flex items-center gap-1">
+        <button class="lang-btn active" id="btn-it-m" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr-m" onclick="setLang('tr')">TR</button>
+      </div>
+      <a href="#richiedi" class="nav-cta" data-it="Prenota" data-en="Book" data-tr="Rezerve">Prenota</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero-tour">
+  <img src="brand-assets/tour/egypt-hero.jpg" alt="Piramidi di Giza" loading="eager" />
+  <div class="hero-tour-overlay"></div>
+  <div class="hero-tour-content">
+    <p class="section-label" style="color:#C9A84C;" data-it="Egitto · 10 Giorni" data-en="Egypt · 10 Days" data-tr="Mısır · 10 Gün">Egitto · 10 Giorni</p>
+    <h1 style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,7vw,6rem); font-weight:300; line-height:0.95; color:#F7F3EE; margin-bottom:1.5rem;">
+      <span data-it="I Faraoni" data-en="The Pharaohs" data-tr="Nil'in">I Faraoni</span><br>
+      <em style="color:#C9A84C;" data-it="del Nilo." data-en="of the Nile." data-tr="Firavunları.">del Nilo.</em>
+    </h1>
+    <p style="font-size:0.85rem; color:rgba(247,243,238,0.6); line-height:1.8; max-width:500px; font-weight:300;" data-it="Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto che i turisti non vedono." data-en="Cairo, Saqqara, Luxor, Valley of the Kings, Abu Simbel. Ten days in an Egypt tourists never see." data-tr="Kahire, Sakkara, Luksor, Krallar Vadisi, Ebu Simbel. Turistlerin göremediği Mısır'da on gün.">Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto che i turisti non vedono.</p>
+  </div>
+</section>
+
+<!-- ═══ FACTS STRIP ═══ -->
+<section class="py-8 px-6" style="background:#0F0E0C; border-bottom:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
+    <div class="fact-item"><p class="fact-label" data-it="Durata" data-en="Duration" data-tr="Süre">Durata</p><p class="fact-value" style="color:#F7F3EE;">10 <span style="font-family:'DM Sans'; font-size:0.7rem; font-weight:300; letter-spacing:0.1em;" data-it="giorni" data-en="days" data-tr="gün">giorni</span></p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Gruppo" data-en="Group" data-tr="Grup">Gruppo</p><p class="fact-value" style="color:#F7F3EE;">Max 10</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Da" data-en="From" data-tr="Başlangıç">Da</p><p class="fact-value" style="color:#C9A84C;">€ 4.800</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Stagione" data-en="Season" data-tr="Sezon">Stagione</p><p class="fact-value" style="color:#F7F3EE;" data-it="Ott — Apr" data-en="Oct — Apr" data-tr="Eki — Nis">Ott — Apr</p></div>
+    <div class="fact-item"><p class="fact-label" data-it="Difficoltà" data-en="Difficulty" data-tr="Zorluk">Difficoltà</p><p class="fact-value" style="color:#F7F3EE;" data-it="Facile" data-en="Easy" data-tr="Kolay">Facile</p></div>
+  </div>
+</section>
+
+<!-- ═══ EGYPTIAN DIVIDER ═══ -->
+<div class="divider-egyptian">
+  <svg width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="12" r="5" stroke="#C9A84C" stroke-width="1"/>
+    <path d="M35 12 C30 6, 15 4, 2 10" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M35 12 C30 18, 15 20, 2 14" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 12 C50 6, 65 4, 78 10" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 12 C50 18, 65 20, 78 14" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+  </svg>
+</div>
+
+<!-- ═══ ITINERARIO GIORNO PER GIORNO ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-16">
+      <p class="section-label" data-it="L'itinerario completo" data-en="The complete itinerary" data-tr="Tam güzergah">L'itinerario completo</p>
+      <h2 class="section-title" data-it="Dieci giorni. Cinquemila anni." data-en="Ten days. Five thousand years." data-tr="On gün. Beş bin yıl.">Dieci giorni. Cinquemila anni.</h2>
+    </div>
+
+    <!-- Giorno 1 -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">I</div>
+        <h3 class="day-location" data-it="Cairo — La porta dell'Egitto" data-en="Cairo — The gateway to Egypt" data-tr="Kahire — Mısır'ın kapısı">Cairo — La porta dell'Egitto</h3>
+        <p class="day-desc" data-it="Arrivo al Cairo e trasferimento in hotel. Pomeriggio al Museo Egizio, tra i tesori di Tutankhamon e le mummie reali. Sera nella Cittadella di Saladino con vista sulla città, poi passeggiata nel souk di Khan el-Khalili." data-en="Arrival in Cairo and hotel transfer. Afternoon at the Egyptian Museum, among Tutankhamun's treasures and royal mummies. Evening at the Citadel of Saladin overlooking the city, then a walk through Khan el-Khalili souk." data-tr="Kahire'ye varış ve otele transfer. Öğleden sonra Mısır Müzesi'nde Tutankhamun hazineleri ve kraliyet mumyaları arasında. Akşam şehre bakan Selahaddin Kalesi, ardından Han el-Halili çarşısında yürüyüş.">Arrivo al Cairo e trasferimento in hotel. Pomeriggio al Museo Egizio, tra i tesori di Tutankhamon e le mummie reali. Sera nella Cittadella di Saladino con vista sulla città, poi passeggiata nel souk di Khan el-Khalili.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/egypt-cairo.jpg" alt="Cairo — Museo Egizio" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno 2 -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/egypt-hero.jpg" alt="Piramidi di Giza" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">II</div>
+        <h3 class="day-location" data-it="Giza — Le ultime meraviglie" data-en="Giza — The last wonders" data-tr="Giza — Son harikalar">Giza — Le ultime meraviglie</h3>
+        <p class="day-desc" data-it="Mattina presto alle Piramidi di Giza prima dei turisti. Esplorazione della Grande Piramide di Cheope, la Sfinge e il Tempio della Valle. Sera: visita privata alle piramidi illuminate — un privilegio riservato a pochi." data-en="Early morning at the Giza Pyramids before tourists arrive. Exploration of the Great Pyramid of Cheops, the Sphinx and the Valley Temple. Evening: private visit to the illuminated pyramids — a privilege reserved for few." data-tr="Turistler gelmeden sabah erken Giza Piramitleri'nde. Keops Büyük Piramidi, Sfenks ve Vadi Tapınağı'nın keşfi. Akşam: aydınlatılmış piramitlere özel ziyaret — az kişiye ayrılmış bir ayrıcalık.">Mattina presto alle Piramidi di Giza prima dei turisti. Esplorazione della Grande Piramide di Cheope, la Sfinge e il Tempio della Valle. Sera: visita privata alle piramidi illuminate — un privilegio riservato a pochi.</p>
+      </div>
+    </div>
+
+    <!-- Giorno 3 -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">III</div>
+        <h3 class="day-location" data-it="Saqqara — Dove tutto ebbe inizio" data-en="Saqqara — Where it all began" data-tr="Sakkara — Her şeyin başladığı yer">Saqqara — Dove tutto ebbe inizio</h3>
+        <p class="day-desc" data-it="La Piramide a Gradoni di Djoser, la prima struttura monumentale in pietra dell'umanità. Discesa nel Serapeum, il labirinto sotterraneo dei tori sacri. Visita alle tombe decorate con scene di vita quotidiana di 4.000 anni fa." data-en="The Step Pyramid of Djoser, humanity's first monumental stone structure. Descent into the Serapeum, the underground labyrinth of sacred bulls. Visit to tombs decorated with scenes of daily life from 4,000 years ago." data-tr="İnsanlığın ilk anıtsal taş yapısı Djoser Basamak Piramidi. Kutsal boğaların yeraltı labirenti Serapeum'a iniş. 4.000 yıl önceki günlük yaşam sahneleriyle süslenmiş mezarları ziyaret.">La Piramide a Gradoni di Djoser, la prima struttura monumentale in pietra dell'umanità. Discesa nel Serapeum, il labirinto sotterraneo dei tori sacri. Visita alle tombe decorate con scene di vita quotidiana di 4.000 anni fa.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/egypt-saqqara.jpg" alt="Piramide a gradoni di Saqqara" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno 4-5: Luxor -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/egypt-karnak.jpg" alt="Tempio di Karnak" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">IV — V</div>
+        <h3 class="day-location" data-it="Luxor — La capitale dei faraoni" data-en="Luxor — The capital of pharaohs" data-tr="Luksor — Firavunların başkenti">Luxor — La capitale dei faraoni</h3>
+        <p class="day-desc" data-it="Volo da Cairo a Luxor. Pomeriggio nel Tempio di Karnak al tramonto — la luce dorata tra le colonne della Sala Ipostila è uno spettacolo che non si dimentica. Il giorno seguente, il Tempio di Luxor e una passeggiata lungo il Nilo al crepuscolo." data-en="Flight from Cairo to Luxor. Afternoon at Karnak Temple at sunset — the golden light between the Hypostyle Hall columns is an unforgettable sight. The following day, Luxor Temple and a Nile promenade at dusk." data-tr="Kahire'den Luksor'a uçuş. Gün batımında Karnak Tapınağı'nda öğleden sonra — Hipostil Salon sütunları arasındaki altın ışık unutulmaz bir manzara. Ertesi gün, Luksor Tapınağı ve alacakaranlıkta Nil kıyısında yürüyüş.">Volo da Cairo a Luxor. Pomeriggio nel Tempio di Karnak al tramonto — la luce dorata tra le colonne della Sala Ipostila è uno spettacolo che non si dimentica. Il giorno seguente, il Tempio di Luxor e una passeggiata lungo il Nilo al crepuscolo.</p>
+      </div>
+    </div>
+
+    <!-- Giorno 6-7: Sponda Ovest -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-3 day-card">
+        <div class="day-num">VI — VII</div>
+        <h3 class="day-location" data-it="Sponda Ovest — La città dei morti" data-en="West Bank — The city of the dead" data-tr="Batı Yakası — Ölüler şehri">Sponda Ovest — La città dei morti</h3>
+        <p class="day-desc" data-it="Due giorni sulla sponda occidentale del Nilo. La Valle dei Re, dove riposano i faraoni del Nuovo Regno — incluse tombe normalmente chiuse al pubblico. Il Tempio di Hatshepsut, la regina-faraone. Il villaggio operaio di Deir el-Medina, dove vivevano gli artigiani che costruirono le tombe. La Valle delle Regine." data-en="Two days on the Nile's west bank. The Valley of the Kings, where New Kingdom pharaohs rest — including tombs normally closed to the public. Hatshepsut's Temple, the queen-pharaoh. The workers' village of Deir el-Medina, where the artisans who built the tombs lived. The Valley of the Queens." data-tr="Nil'in batı yakasında iki gün. Yeni Krallık firavunlarının yattığı Krallar Vadisi — normalde halka kapalı mezarlar dahil. Kraliçe-firavun Hatşepsut Tapınağı. Mezarları inşa eden zanaatkarların yaşadığı Deir el-Medina işçi köyü. Kraliçeler Vadisi.">Due giorni sulla sponda occidentale del Nilo. La Valle dei Re, dove riposano i faraoni del Nuovo Regno — incluse tombe normalmente chiuse al pubblico. Il Tempio di Hatshepsut, la regina-faraone. Il villaggio operaio di Deir el-Medina, dove vivevano gli artigiani che costruirono le tombe. La Valle delle Regine.</p>
+      </div>
+      <div class="md:col-span-2 day-photo-wrap">
+        <img src="brand-assets/tour/egypt-valley-kings.jpg" alt="Valle dei Re" class="day-photo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Giorno 8-9: Abu Simbel -->
+    <div class="grid md:grid-cols-5 gap-10 items-center mb-16 reveal">
+      <div class="md:col-span-2 day-photo-wrap order-2 md:order-1">
+        <img src="brand-assets/tour/egypt-abu-simbel.jpg" alt="Abu Simbel" class="day-photo" loading="lazy" />
+      </div>
+      <div class="md:col-span-3 day-card order-1 md:order-2">
+        <div class="day-num">VIII — IX</div>
+        <h3 class="day-location" data-it="Abu Simbel — Il trionfo di Ramses" data-en="Abu Simbel — The triumph of Ramses" data-tr="Ebu Simbel — Ramses'in zaferi">Abu Simbel — Il trionfo di Ramses</h3>
+        <p class="day-desc" data-it="Volo ad Abu Simbel. I quattro colossi di Ramses II emergono dalla montagna come sentinelle eterne. Il tempio di Nefertari accanto, dedicato alla donna che il faraone amava più di ogni conquista. Alba davanti ai templi — il sole illumina il sancta sanctorum come tremila anni fa. Giornata libera sul Lago Nasser." data-en="Flight to Abu Simbel. The four colossi of Ramses II emerge from the mountain like eternal sentinels. Nefertari's temple beside it, dedicated to the woman the pharaoh loved more than any conquest. Dawn before the temples — the sun illuminates the inner sanctum as it did three thousand years ago. Free day on Lake Nasser." data-tr="Ebu Simbel'e uçuş. Ramses II'nin dört devasa heykeli dağdan ebedi nöbetçiler gibi yükselir. Yanındaki Nefertari tapınağı, firavunun her fetihten çok sevdiği kadına adanmış. Tapınakların önünde şafak — güneş üç bin yıl önceki gibi kutsal odayı aydınlatır. Nasır Gölü'nde serbest gün.">Volo ad Abu Simbel. I quattro colossi di Ramses II emergono dalla montagna come sentinelle eterne. Il tempio di Nefertari accanto, dedicato alla donna che il faraone amava più di ogni conquista. Alba davanti ai templi — il sole illumina il sancta sanctorum come tremila anni fa. Giornata libera sul Lago Nasser.</p>
+      </div>
+    </div>
+
+    <!-- Giorno 10 -->
+    <div class="reveal mb-8">
+      <div class="day-card">
+        <div class="day-num">X</div>
+        <h3 class="day-location" data-it="Cairo — Arrivederci, per ora" data-en="Cairo — Farewell, for now" data-tr="Kahire — Şimdilik hoşça kal">Cairo — Arrivederci, per ora</h3>
+        <p class="day-desc" data-it="Ritorno al Cairo. Mattina libera per esplorare, fare acquisti o semplicemente sedersi in un caffè e guardare la città scorrere. Trasferimento in aeroporto. Un viaggio finisce, ma la storia continua." data-en="Return to Cairo. Free morning to explore, shop, or simply sit in a cafe and watch the city flow by. Airport transfer. A journey ends, but the story continues." data-tr="Kahire'ye dönüş. Keşfetmek, alışveriş yapmak veya bir kafede oturup şehri izlemek için serbest sabah. Havalimanına transfer. Bir yolculuk biter ama hikaye devam eder.">Ritorno al Cairo. Mattina libera per esplorare, fare acquisti o semplicemente sedersi in un caffè e guardare la città scorrere. Trasferimento in aeroporto. Un viaggio finisce, ma la storia continua.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ EGYPTIAN DIVIDER ═══ -->
+<div class="divider-egyptian">
+  <svg width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="12" r="5" stroke="#C9A84C" stroke-width="1"/>
+    <path d="M35 12 C30 6, 15 4, 2 10" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M35 12 C30 18, 15 20, 2 14" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 12 C50 6, 65 4, 78 10" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <path d="M45 12 C50 18, 65 20, 78 14" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+  </svg>
+</div>
+
+<!-- ═══ HIGHLIGHTS ═══ -->
+<section class="py-20 px-6 bg-ivory">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-14">
+      <p class="section-label" data-it="Perché questo viaggio" data-en="Why this journey" data-tr="Neden bu yolculuk">Perché questo viaggio</p>
+      <h2 class="section-title" data-it="Cosa rende unico questo itinerario." data-en="What makes this itinerary unique." data-tr="Bu güzergahı benzersiz kılan ne.">Cosa rende unico questo itinerario.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M13 12H3"/></svg></div>
+        <h3 class="highlight-title" data-it="Accesso esclusivo" data-en="Exclusive access" data-tr="Özel erişim">Accesso esclusivo</h3>
+        <p class="highlight-desc" data-it="Tombe nella Valle dei Re normalmente chiuse al pubblico. Visite serali alle piramidi. Aree di scavo attive con permessi speciali." data-en="Tombs in the Valley of the Kings normally closed to the public. Evening visits to the pyramids. Active excavation areas with special permits." data-tr="Normalde halka kapalı Krallar Vadisi'ndeki mezarlar. Piramitlere akşam ziyaretleri. Özel izinlerle aktif kazı alanları.">Tombe nella Valle dei Re normalmente chiuse al pubblico. Visite serali alle piramidi. Aree di scavo attive con permessi speciali.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3 class="highlight-title" data-it="Guida archeologa" data-en="Archaeologist guide" data-tr="Arkeolog rehber">Guida archeologa</h3>
+        <p class="highlight-desc" data-it="Ipek non legge le didascalie. Racconta le storie che non trovi in nessuna guida — quelle che conosce solo chi ha studiato per anni." data-en="Ipek doesn't read captions. She tells stories you won't find in any guidebook — the ones only years of study reveal." data-tr="Ipek etiketleri okumaz. Hiçbir rehberde bulamayacağınız hikayeleri anlatır — sadece yılların çalışmasıyla ortaya çıkanları.">Ipek non legge le didascalie. Racconta le storie che non trovi in nessuna guida — quelle che conosce solo chi ha studiato per anni.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="highlight-icon"><svg width="28" height="28" fill="none" stroke="#C9A84C" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg></div>
+        <h3 class="highlight-title" data-it="Hotel di charme" data-en="Boutique hotels" data-tr="Butik oteller">Hotel di charme</h3>
+        <p class="highlight-desc" data-it="Boutique hotel selezionati per posizione e atmosfera. Niente catene — strutture locali con carattere, vista e silenzio." data-en="Boutique hotels selected for location and atmosphere. No chains — local properties with character, views and quiet." data-tr="Konum ve atmosfer için seçilmiş butik oteller. Zincir yok — karakteri, manzarası ve sessizliği olan yerel tesisler.">Boutique hotel selezionati per posizione e atmosfera. Niente catene — strutture locali con carattere, vista e silenzio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COSA INCLUDE ═══ -->
+<section class="py-20 px-6" style="background:#0F0E0C;">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="section-label" data-it="Dettagli pratici" data-en="Practical details" data-tr="Pratik detaylar">Dettagli pratici</p>
+      <h2 class="section-title light" data-it="Cosa include il viaggio." data-en="What the journey includes." data-tr="Yolculuk neleri içerir.">Cosa include il viaggio.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 reveal">
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C; margin-bottom:1.5rem;" data-it="Include" data-en="Included" data-tr="Dahil">Include</h3>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Voli interni (Cairo — Luxor — Abu Simbel — Cairo)" data-en="Domestic flights (Cairo — Luxor — Abu Simbel — Cairo)" data-tr="İç hat uçuşları (Kahire — Luksor — Ebu Simbel — Kahire)">Voli interni (Cairo — Luxor — Abu Simbel — Cairo)</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="9 notti in hotel boutique (camera doppia)" data-en="9 nights in boutique hotels (double room)" data-tr="Butik otellerde 9 gece (çift kişilik oda)">9 notti in hotel boutique (camera doppia)</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti i trasferimenti e trasporti locali" data-en="All transfers and local transportation" data-tr="Tüm transferler ve yerel ulaşım">Tutti i trasferimenti e trasporti locali</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Guida archeologa per l'intero viaggio" data-en="Archaeologist guide for the entire journey" data-tr="Tüm yolculuk boyunca arkeolog rehber">Guida archeologa per l'intero viaggio</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Tutti gli ingressi ai siti e musei" data-en="All site and museum entries" data-tr="Tüm alan ve müze girişleri">Tutti gli ingressi ai siti e musei</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Colazione giornaliera + 5 cene" data-en="Daily breakfast + 5 dinners" data-tr="Günlük kahvaltı + 5 akşam yemeği">Colazione giornaliera + 5 cene</span></div>
+        <div class="include-item"><span class="include-check">&#10003;</span><span data-it="Permessi speciali per accessi esclusivi" data-en="Special permits for exclusive access" data-tr="Özel erişim için özel izinler">Permessi speciali per accessi esclusivi</span></div>
+      </div>
+      <div>
+        <h3 style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(247,243,238,0.3); margin-bottom:1.5rem;" data-it="Non include" data-en="Not included" data-tr="Dahil değil">Non include</h3>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Volo internazionale (andata e ritorno)" data-en="International flights (round trip)" data-tr="Uluslararası uçuşlar (gidiş-dönüş)">Volo internazionale (andata e ritorno)</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Visto egiziano (ottenibile all'arrivo, ~25 USD)" data-en="Egyptian visa (obtainable on arrival, ~25 USD)" data-tr="Mısır vizesi (varışta alınabilir, ~25 USD)">Visto egiziano (ottenibile all'arrivo, ~25 USD)</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Pranzi e cene non menzionate" data-en="Lunches and unspecified dinners" data-tr="Öğle yemekleri ve belirtilmeyen akşam yemekleri">Pranzi e cene non menzionate</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Spese personali e mance" data-en="Personal expenses and tips" data-tr="Kişisel harcamalar ve bahşişler">Spese personali e mance</span></div>
+        <div class="include-item"><span class="exclude-x">&#10007;</span><span data-it="Assicurazione viaggio" data-en="Travel insurance" data-tr="Seyahat sigortası">Assicurazione viaggio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PREZZO + CTA ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Prezzo" data-en="Price" data-tr="Fiyat">Prezzo</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,6vw,4.5rem); font-weight:300; color:#C9A84C; margin-bottom:0.5rem;">€ 4.800</p>
+    <p style="font-size:0.7rem; color:rgba(247,243,238,0.35); margin-bottom:2.5rem;" data-it="per persona, base camera doppia" data-en="per person, double room basis" data-tr="kişi başı, çift kişilik oda bazında">per persona, base camera doppia</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#richiedi" class="btn-primary" data-it="Richiedi questo viaggio" data-en="Request this journey" data-tr="Bu yolculuğu talep et">Richiedi questo viaggio</a>
+      <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Ipek%2C%20vorrei%20informazioni%20sul%20tour%20I%20Faraoni%20del%20Nilo" target="_blank" class="btn-wa">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <p style="font-size:0.65rem; color:rgba(247,243,238,0.25); margin-top:2rem; line-height:1.8;" data-it="Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta." data-en="Price varies based on group size and itinerary customization. Single supplement available on request." data-tr="Fiyat, grup büyüklüğüne ve güzergah kişiselleştirmesine göre değişir. Tek kişilik oda ek ücreti talep üzerine mevcuttur.">Il prezzo varia in base alla composizione del gruppo e alla personalizzazione dell'itinerario. Supplemento singola disponibile su richiesta.</p>
+  </div>
+</section>
+
+<!-- ═══ FORM RICHIESTA ═══ -->
+<section id="richiedi" class="py-24 px-6" style="background:#0F0E0C;">
+  <div class="max-w-xl mx-auto reveal">
+    <p class="section-label" data-it="Inizia da qui" data-en="Start here" data-tr="Buradan başlayın">Inizia da qui</p>
+    <h2 class="section-title light mb-8" data-it="Richiedi questo viaggio." data-en="Request this journey." data-tr="Bu yolculuğu talep edin.">Richiedi questo viaggio.</h2>
+    <form id="request-form" onsubmit="handleRequest(event)" class="flex flex-col gap-5">
+      <input type="hidden" name="tour" value="faraoni-del-nilo" />
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Nome" data-en="Name" data-tr="İsim">Nome</label><input type="text" name="nome" class="form-input" required /></div>
+        <div><label class="form-label">Email</label><input type="email" name="email" class="form-input" required /></div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div><label class="form-label" data-it="Persone" data-en="People" data-tr="Kişi sayısı">Persone</label><select name="persone" class="form-input"><option>2</option><option>3-4</option><option>5-6</option><option>7-10</option></select></div>
+        <div><label class="form-label" data-it="Periodo preferito" data-en="Preferred period" data-tr="Tercih edilen dönem">Periodo preferito</label><input type="text" name="periodo" class="form-input" placeholder="es. Ottobre 2026" /></div>
+      </div>
+      <div><label class="form-label" data-it="Note o richieste speciali" data-en="Notes or special requests" data-tr="Notlar veya özel istekler">Note o richieste speciali</label><textarea name="messaggio" rows="3" class="form-input" style="resize:vertical;"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%; text-align:center;" data-it="Invia la richiesta" data-en="Send request" data-tr="Talebi gönder">Invia la richiesta</button>
+    </form>
+    <div id="request-success" style="display:none;" class="text-center py-8">
+      <p class="font-display font-light text-2xl mb-3" style="color:#C9A84C;" data-it="Grazie. Ti risponderemo presto." data-en="Thank you. We'll be in touch shortly." data-tr="Teşekkürler. Yakında yanıt vereceğiz.">Grazie. Ti risponderemo presto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ALTRI TOUR ═══ -->
+<section class="py-20 px-6" style="background:#151210;">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal mb-12 text-center">
+      <p class="section-label" data-it="Scopri gli altri itinerari" data-en="Discover other itineraries" data-tr="Diğer güzergahları keşfet">Scopri gli altri itinerari</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <a href="tour-citta-egeo.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Turchia · 8 giorni" data-en="Turkey · 8 days" data-tr="Türkiye · 8 gün">Turchia · 8 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="Le Città dell'Egeo" data-en="Cities of the Aegean" data-tr="Ege'nin Şehirleri">Le Città dell'Egeo</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 3.600 / persona" data-en="From € 3,600 / person" data-tr="Kişi başı € 3.600'den">Da € 3.600 / persona</p>
+      </a>
+      <a href="tour-magna-graecia.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Sicilia · 7 giorni" data-en="Sicily · 7 days" data-tr="Sicilya · 7 gün">Sicilia · 7 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;">Magna Graecia</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 3.200 / persona" data-en="From € 3,200 / person" data-tr="Kişi başı € 3.200'den">Da € 3.200 / persona</p>
+      </a>
+      <a href="tour-anatolia-sacra.html" class="other-tour">
+        <span style="font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:#C9A84C;" data-it="Anatolia · 9 giorni" data-en="Anatolia · 9 days" data-tr="Anadolu · 9 gün">Anatolia · 9 giorni</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#F7F3EE; margin:0.75rem 0 0.5rem;" data-it="Anatolia Sacra" data-en="Sacred Anatolia" data-tr="Kutsal Anadolu">Anatolia Sacra</h3>
+        <p style="font-size:0.75rem; color:rgba(247,243,238,0.4); font-weight:300;" data-it="Da € 4.200 / persona" data-en="From € 4,200 / person" data-tr="Kişi başı € 4.200'den">Da € 4.200 / persona</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="py-20 px-6" style="background:#1A1510; border-top:1px solid rgba(201,168,76,0.1);">
+  <div class="max-w-xl mx-auto text-center reveal">
+    <p class="section-label" data-it="Rimani aggiornato" data-en="Stay informed" data-tr="Güncel kalın">Rimani aggiornato</p>
+    <h2 class="font-display font-light mb-4" style="font-size:2rem; color:#F7F3EE;" data-it="I nuovi itinerari. Prima di tutti." data-en="New itineraries. Before anyone else." data-tr="Yeni güzergahlar. Herkesten önce.">I nuovi itinerari. Prima di tutti.</h2>
+    <form id="nl-form" onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3">
+      <input type="email" name="email" placeholder="La tua email" class="nl-input" required />
+      <button type="submit" class="btn-primary whitespace-nowrap" data-it="Iscriviti" data-en="Subscribe" data-tr="Abone ol">Iscriviti</button>
+    </form>
+    <div id="nl-success" style="display:none; color:#C9A84C; font-size:0.9rem; margin-top:1rem;">✓</div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="px-6 py-12" style="background:#0A0908; border-top:1px solid rgba(201,168,76,0.08);">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+    <div>
+      <a href="index.html" style="text-decoration:none;"><div class="font-display text-xl font-light tracking-widest uppercase mb-2" style="color:#F7F3EE; letter-spacing:0.25em;">Antika Travels</div></a>
+      <p class="text-xs font-light" style="color:#5A5248; letter-spacing:0.05em;" data-it="Viaggi Archeologici su Misura" data-en="Bespoke Archaeological Journeys" data-tr="Özel Arkeolojik Seyahatler">Viaggi Archeologici su Misura</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-6 text-xs" style="color:#5A5248; letter-spacing:0.1em; text-transform:uppercase;">
+      <a href="index.html#destinazioni" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="index.html#ipek" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+      <a href="https://www.instagram.com/ipekinrome/" target="_blank" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors">Instagram</a>
+    </div>
+    <p style="font-size:0.65rem; color:#3A3530;" class="font-light">© 2026 Antika Travels</p>
+  </div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  // ═══ TRACKING ═══
+  function trackEvent(name, params) {
+    params = params || {};
+    if (typeof fbq === 'function') fbq('track', name, params);
+    if (typeof gtag === 'function') gtag('event', name, params);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...params });
+  }
+  trackEvent('ViewContent', { content_name: 'Tour — I Faraoni del Nilo', content_type: 'tour_page' });
+
+  // ═══ NAV SCROLL ═══
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 80); });
+
+  // ═══ REVEAL ═══
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ═══ BREVO ═══
+  function sendToBrevo(nome, email, source) {
+    fetch('/api/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ nome, email, source }) })
+    .then(r => { if (r.ok) console.log('[Brevo] OK'); }).catch(err => console.warn('[Brevo]', err));
+  }
+
+  // ═══ NEWSLETTER ═══
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    localStorage.setItem('at_subscribed', '1');
+    sendToBrevo('', email, 'newsletter-tour-egitto');
+    trackEvent('Lead', { content_name: 'Newsletter Tour Egitto' });
+    e.target.style.display = 'none';
+    document.getElementById('nl-success').style.display = 'block';
+    showToast('✓ Iscrizione confermata');
+  }
+
+  // ═══ REQUEST FORM ═══
+  function handleRequest(e) {
+    e.preventDefault();
+    const f = e.target;
+    const nome = f.nome.value, email = f.email.value, persone = f.persone.value, periodo = f.periodo.value, msg = f.messaggio.value;
+    trackEvent('Lead', { content_name: 'Tour Request — Faraoni del Nilo', content_category: 'Egitto' });
+    trackEvent('InitiateCheckout', { content_name: 'I Faraoni del Nilo', currency: 'EUR', value: 4800, num_items: parseInt(persone) });
+    sendToBrevo(nome, email, 'tour-faraoni-del-nilo');
+    const waMsg = encodeURIComponent(`🏛 Richiesta tour — I Faraoni del Nilo\nNome: ${nome}\nEmail: ${email}\nPersone: ${persone}\nPeriodo: ${periodo}\nNote: ${msg}`);
+    setTimeout(() => window.open(`https://wa.me/39XXXXXXXXXX?text=${waMsg}`, '_blank'), 400);
+    f.style.display = 'none';
+    document.getElementById('request-success').style.display = 'block';
+    showToast('✓ Richiesta inviata!');
+  }
+
+  // ═══ EXIT-INTENT ═══
+  let exitPopupShown = false;
+  function showExitPopup() { if (exitPopupShown || localStorage.getItem('at_subscribed') || sessionStorage.getItem('at_exit_closed')) return; exitPopupShown = true; document.getElementById('exit-popup-backdrop').classList.add('open'); document.getElementById('exit-popup').classList.add('open'); trackEvent('ExitIntentShown'); }
+  function closeExitPopup() { document.getElementById('exit-popup-backdrop').classList.remove('open'); document.getElementById('exit-popup').classList.remove('open'); sessionStorage.setItem('at_exit_closed', '1'); }
+  document.addEventListener('mouseout', e => { if (e.clientY < 5 && !e.relatedTarget) showExitPopup(); });
+  setTimeout(() => { if (window.innerWidth < 768) showExitPopup(); }, 45000);
+  document.getElementById('exit-popup-backdrop').addEventListener('click', closeExitPopup);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeExitPopup(); });
+  function handleExitNewsletter(e) { e.preventDefault(); const email = e.target.email.value; localStorage.setItem('at_subscribed', '1'); sendToBrevo('', email, 'exit-popup-tour-egitto'); trackEvent('Lead', { content_name: 'Exit Popup Tour Egitto' }); closeExitPopup(); showToast('✓ Iscrizione confermata'); }
+
+  // ═══ TOAST ═══
+  function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
+
+  // ═══ LINGUA ═══
+  let currentLang = 'it';
+  function setLang(lang) {
+    currentLang = lang;
+    ['it','en','tr'].forEach(l => { document.querySelectorAll(`#btn-${l}, #btn-${l}-m`).forEach(b => b?.classList.toggle('active', l === lang)); });
+    document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = el.getAttribute(`data-${lang}`) || el.placeholder;
+      else el.innerHTML = el.getAttribute(`data-${lang}`);
+    });
+  }
+</script>
+</body>
+</html>
