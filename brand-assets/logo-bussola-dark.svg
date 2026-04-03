@@ -1,0 +1,14 @@
+<svg width="500" height="90" viewBox="0 0 500 90" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="90" fill="#0F0E0C"/>
+  <circle cx="40" cy="45" r="28" fill="none" stroke="#C9A84C" stroke-width="0.7"/>
+  <circle cx="40" cy="45" r="22" fill="none" stroke="#C9A84C" stroke-width="0.3" opacity="0.3"/>
+  <circle cx="40" cy="45" r="1.5" fill="#C9A84C" opacity="0.3"/>
+  <path d="M40 17 L43 38 L40 34 L37 38 Z" fill="#C9A84C" opacity="0.75"/>
+  <path d="M40 73 L43 52 L40 56 L37 52 Z" fill="#C9A84C" opacity="0.18"/>
+  <path d="M68 45 L47 42 L51 45 L47 48 Z" fill="#C9A84C" opacity="0.18"/>
+  <path d="M12 45 L33 42 L29 45 L33 48 Z" fill="#C9A84C" opacity="0.18"/>
+  <text x="40" y="12" text-anchor="middle" font-family="serif" font-size="5.5" fill="#C9A84C" opacity="0.6">N</text>
+  <line x1="82" y1="18" x2="82" y2="72" stroke="#C9A84C" stroke-width="0.4" opacity="0.2"/>
+  <text x="102" y="42" font-family="serif" font-weight="500" font-size="24" fill="#F7F3EE" letter-spacing="7">ANTIKA</text>
+  <text x="102" y="60" font-family="sans-serif" font-weight="300" font-size="7.5" fill="#C9A84C" letter-spacing="5">TRAVELS</text>
+</svg>
