@@ -561,6 +561,7 @@
   // ═══ LINGUA ═══
   let currentLang = 'it';
   function setLang(lang) {
+    localStorage.setItem('antiqora_lang', lang);
     currentLang = lang;
     ['it','en','tr'].forEach(l => { document.querySelectorAll(`#btn-${l}, #btn-${l}-m`).forEach(b => b?.classList.toggle('active', l === lang)); });
     document.querySelectorAll(`[data-${lang}]`).forEach(el => {
@@ -568,6 +569,12 @@
       else el.innerHTML = el.getAttribute(`data-${lang}`);
     });
   }
+
+  // Ripristina lingua salvata al caricamento pagina
+  (function() {
+    const saved = localStorage.getItem('antiqora_lang');
+    if (saved && saved !== 'it') setLang(saved);
+  })();
 </script>
 </body>
 </html>
