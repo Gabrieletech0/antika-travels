@@ -317,15 +317,17 @@
 
 <!-- Preloader — sincronizzazione perfetta v3 -->
 <script>
-  var heroVideo = document.querySelector('.hero-video video');
   var preloaderEl = document.getElementById('preloader');
 
   if (sessionStorage.getItem('antika-visited')) {
+    // Visite successive: rimuovi preloader, avvia video quando DOM pronto
     preloaderEl.remove();
-    if (heroVideo) heroVideo.play();
+    document.addEventListener('DOMContentLoaded', function() {
+      var v = document.getElementById('hero-vid');
+      if (v) v.play();
+    });
   } else {
     sessionStorage.setItem('antika-visited', '1');
-    if (heroVideo) { heroVideo.pause(); heroVideo.currentTime = 0; }
 
     var ptl = gsap.timeline();
 
@@ -358,10 +360,11 @@
     ptl.to(preloaderEl, { background: 'transparent', duration: 2, ease: 'power1.out' }, 5.5);
     // Luce sfuma lentamente
     ptl.to('#preloader-glow', { opacity: 0, duration: 2, ease: 'power2.in' }, 7.0);
-    // Rimuovi preloader e avvia video — sincronizzato: parte SOLO quando preloader finisce
+    // Rimuovi preloader e avvia video — parte SOLO quando preloader finisce
     ptl.add(function() {
       if (preloaderEl) preloaderEl.remove();
-      if (heroVideo) { heroVideo.currentTime = 0; heroVideo.play(); }
+      var v = document.getElementById('hero-vid');
+      if (v) { v.currentTime = 0; v.play(); }
     });
   }
 </script>
@@ -421,7 +424,7 @@
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
   <div class="hero-video">
-    <video autoplay muted loop playsinline preload="metadata">
+    <video muted loop playsinline preload="metadata" id="hero-vid">
       <source src="brand-assets/video antika travel.mp4" type="video/mp4">
     </video>
   </div>
