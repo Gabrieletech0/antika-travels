@@ -146,10 +146,46 @@
     .value-desc { font-size: 0.82rem; line-height: 1.8; color: #7A7068; font-weight: 300; }
 
     /* How it works */
-    .step { display: flex; gap: 2rem; align-items: flex-start; }
-    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(201,168,76,0.3); line-height: 1; flex-shrink: 0; width: 60px; }
-    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.5rem; color: #F7F3EE; }
-    .step-desc { font-size: 0.82rem; line-height: 1.8; color: rgba(247,243,238,0.8); font-weight: 300; }
+    #come-funziona { position: relative; overflow: hidden; }
+    #come-funziona::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 15% 80%, rgba(201,168,76,0.04) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    /* SVG map pattern overlay */
+    #come-funziona::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cellipse cx='300' cy='300' rx='250' ry='180' fill='none' stroke='rgba(201,168,76,0.04)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='200' ry='140' fill='none' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='150' ry='100' fill='none' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='100' ry='60' fill='none' stroke='rgba(201,168,76,0.02)' stroke-width='1'/%3E%3Cline x1='50' y1='300' x2='550' y2='300' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3Cline x1='300' y1='120' x2='300' y2='480' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: 500px 500px;
+      background-position: right -100px center;
+      background-repeat: no-repeat;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .process-timeline { position: relative; display: flex; flex-direction: column; gap: 0; }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 29px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4) 15%, rgba(201,168,76,0.4) 85%, transparent);
+    }
+    .step { display: flex; gap: 2.5rem; align-items: flex-start; padding: 2.5rem 0; position: relative; }
+    .step:not(:last-child) { border-bottom: none; }
+    .step-marker { position: relative; flex-shrink: 0; width: 60px; display: flex; flex-direction: column; align-items: center; }
+    .step-dot { width: 12px; height: 12px; border-radius: 50%; background: #C9A84C; margin-top: 8px; box-shadow: 0 0 12px rgba(201,168,76,0.4); flex-shrink: 0; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 0.6rem; font-weight: 400; color: rgba(201,168,76,0.5); letter-spacing: 0.2em; margin-top: 0.4rem; text-transform: uppercase; }
+    .step-body { padding-top: 0; }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 0.6rem; color: #F7F3EE; letter-spacing: 0.01em; }
+    .step-desc { font-size: 0.82rem; line-height: 1.9; color: rgba(247,243,238,0.7); font-weight: 300; max-width: 520px; }
 
     /* Buttons */
     .btn-primary { display: inline-block; padding: 1rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.3s; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
@@ -207,8 +243,9 @@
       .brand-statement-tagline { font-size: 0.8rem; padding: 0 1rem; }
       .tour-card { padding: 1.5rem !important; }
       .dest-name { font-size: 1.5rem; }
-      .step { flex-direction: column; gap: 0.75rem; }
+      .step { flex-direction: row; gap: 1.5rem; }
       .step-num { width: auto; }
+      .process-timeline::before { left: 23px; }
       .form-input, .nl-input { font-size: 16px; } /* previene zoom iOS */
       .btn-primary, .btn-outline { font-size: 0.65rem; padding: 0.875rem 1.5rem; white-space: nowrap; }
       .btn-wa { font-size: 0.65rem; padding: 0.875rem 1.25rem; }
@@ -591,26 +628,35 @@
   <div class="max-w-4xl mx-auto">
     <div class="reveal mb-16">
       <p class="section-label" data-it="Il processo" data-en="The process" data-tr="Süreç">Il processo</p>
-      <h2 class="section-title light" data-it="Come nasce un viaggio Antika." data-en="How an Antika journey is born." data-tr="Bir Antika yolculuğu nasıl doğar.">Come nasce un viaggio Antika.</h2>
+      <h2 class="section-title light" data-it="Come nasce un viaggio Antiqora." data-en="How an Antiqora journey is born." data-tr="Bir Antiqora yolculuğu nasıl doğar.">Come nasce un viaggio Antiqora.</h2>
     </div>
-    <div class="flex flex-col gap-12">
+    <div class="process-timeline">
       <div class="step reveal">
-        <div class="step-num">I</div>
-        <div>
+        <div class="step-marker">
+          <div class="step-dot"></div>
+          <div class="step-num">I</div>
+        </div>
+        <div class="step-body">
           <h3 class="step-title" data-it="La conversazione" data-en="The conversation" data-tr="Konuşma">La conversazione</h3>
           <p class="step-desc" data-it="Compila il modulo o scrivici su WhatsApp. Ci racconti cosa ti affascina, quante persone siete, le date indicative. In 24 ore ti rispondiamo personalmente — non con un'email automatica." data-en="Fill in the form or write to us on WhatsApp. Tell us what fascinates you, how many you are, approximate dates. Within 24 hours we reply personally — not with an automated email." data-tr="Formu doldurun veya WhatsApp'tan yazın. Sizi büyüleyen şeyi, kaç kişi olduğunuzu, tahmini tarihleri anlatın. 24 saat içinde kişisel olarak yanıt veriyoruz — otomatik e-posta değil.">Compila il modulo o scrivici su WhatsApp. Ci racconti cosa ti affascina, quante persone siete, le date indicative. In 24 ore ti rispondiamo personalmente — non con un'email automatica.</p>
         </div>
       </div>
       <div class="step reveal">
-        <div class="step-num">II</div>
-        <div>
+        <div class="step-marker">
+          <div class="step-dot"></div>
+          <div class="step-num">II</div>
+        </div>
+        <div class="step-body">
           <h3 class="step-title" data-it="L'itinerario su misura" data-en="The bespoke itinerary" data-tr="Özel güzergah">L'itinerario su misura</h3>
           <p class="step-desc" data-it="Costruiamo l'itinerario attorno ai tuoi interessi — non il contrario. Ogni giorno ha un ritmo, una logica, un momento che non dimenticherai. Il preventivo è dettagliato e senza sorprese." data-en="We build the itinerary around your interests — not the other way around. Every day has a rhythm, a logic, a moment you won't forget. The quote is detailed and without surprises." data-tr="Güzergahı ilgi alanlarınızın etrafında inşa ediyoruz — tam tersi değil. Her günün bir ritmi, bir mantığı, unutamayacağınız bir anı var. Fiyat teklifi detaylı ve sürprizsiz.">Costruiamo l'itinerario attorno ai tuoi interessi — non il contrario. Ogni giorno ha un ritmo, una logica, un momento che non dimenticherai. Il preventivo è dettagliato e senza sorprese.</p>
         </div>
       </div>
       <div class="step reveal">
-        <div class="step-num">III</div>
-        <div>
+        <div class="step-marker">
+          <div class="step-dot"></div>
+          <div class="step-num">III</div>
+        </div>
+        <div class="step-body">
           <h3 class="step-title" data-it="Il viaggio" data-en="The journey" data-tr="Yolculuk">Il viaggio</h3>
           <p class="step-desc" data-it="Un deposito del 30% conferma il tuo posto. Il restante viene saldato prima della partenza. Ipek gestisce ogni dettaglio logistico — tu pensi solo a essere presente." data-en="A 30% deposit confirms your spot. The remainder is paid before departure. Ipek handles every logistical detail — you just focus on being present." data-tr="%30 depozito yerinizi onaylar. Kalan tutar hareket öncesi ödenir. Ipek her lojistik detayı yönetir — siz sadece orada olmaya odaklanın.">Un deposito del 30% conferma il tuo posto. Il restante viene saldato prima della partenza. Ipek gestisce ogni dettaglio logistico — tu pensi solo a essere presente.</p>
         </div>
@@ -724,7 +770,7 @@
       </div>
       <div class="flex flex-col sm:flex-row gap-4 mt-2">
         <button type="submit" class="btn-primary" style="flex:1; text-align:center;" data-it="Invia la richiesta" data-en="Send request" data-tr="Talebi gönder">Invia la richiesta</button>
-        <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Ipek%2C%20vorrei%20informazioni%20su%20un%20viaggio%20Antika%20Travels" target="_blank" class="btn-wa" onclick="trackEvent('InitiateCheckout',{content_name:'WhatsApp Contact',currency:'EUR',value:0})" data-it="Oppure scrivici su WhatsApp" data-en="Or write on WhatsApp" data-tr="Ya da WhatsApp'tan yazın">
+        <a href="https://wa.me/39XXXXXXXXXX?text=Ciao%20Ipek%2C%20vorrei%20informazioni%20su%20un%20viaggio%20Antiqora%20Travel" target="_blank" class="btn-wa" onclick="trackEvent('InitiateCheckout',{content_name:'WhatsApp Contact',currency:'EUR',value:0})" data-it="Oppure scrivici su WhatsApp" data-en="Or write on WhatsApp" data-tr="Ya da WhatsApp'tan yazın">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           <span data-it="WhatsApp" data-en="WhatsApp" data-tr="WhatsApp">WhatsApp</span>
         </a>
