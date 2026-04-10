@@ -919,8 +919,11 @@
 
   // ═══ EXIT-INTENT POPUP ═══
   let exitPopupShown = false;
+  let exitPopupReady = false;
+  // Popup attivo solo dopo 30s di navigazione — non prima
+  setTimeout(() => { exitPopupReady = true; }, 30000);
   function showExitPopup() {
-    if (exitPopupShown || localStorage.getItem('at_subscribed') || sessionStorage.getItem('at_exit_closed')) return;
+    if (!exitPopupReady || exitPopupShown || localStorage.getItem('at_subscribed') || sessionStorage.getItem('at_exit_closed')) return;
     exitPopupShown = true;
     document.getElementById('exit-popup-backdrop').classList.add('open');
     document.getElementById('exit-popup').classList.add('open');
@@ -932,7 +935,7 @@
     sessionStorage.setItem('at_exit_closed', '1');
   }
   document.addEventListener('mouseout', e => { if (e.clientY < 5 && !e.relatedTarget) showExitPopup(); });
-  setTimeout(() => { if (window.innerWidth < 768) showExitPopup(); }, 45000);
+  setTimeout(() => { if (window.innerWidth < 768) showExitPopup(); }, 60000);
   document.getElementById('exit-popup-backdrop').addEventListener('click', closeExitPopup);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeExitPopup(); });
 
