@@ -327,7 +327,7 @@
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
   <div class="hero-video">
-    <video autoplay muted loop playsinline preload="auto" id="hero-vid">
+    <video autoplay muted loop playsinline preload="auto" id="hero-vid" poster="brand-assets/tour/egypt-hero.jpg">
       <source src="brand-assets/video antika travel.mp4" type="video/mp4">
     </video>
   </div>
@@ -1024,7 +1024,21 @@
   heroTl.to('.hero-bg', { opacity: 0.9, ease: 'none' }, 0);
   heroTl.to('.hero-content', { yPercent: -25, opacity: 0, ease: 'power1.in' }, 0);
 
-  // ─── 5. (preloader spostato in script separato sopra) ───
+  // ─── 5. Video fallback — se autoplay fallisce, riprova al primo touch ───
+  (function() {
+    var v = document.getElementById('hero-vid');
+    if (!v) return;
+    var played = false;
+    function tryPlay() {
+      if (played) return;
+      v.play().then(function() { played = true; }).catch(function() {});
+    }
+    // Riprova dopo 2s se non sta andando
+    setTimeout(function() { if (v.paused) tryPlay(); }, 2000);
+    // Al primo touch/click dell'utente
+    document.addEventListener('touchstart', tryPlay, { once: true });
+    document.addEventListener('click', tryPlay, { once: true });
+  })();
 
   // ─── 6. IntersectionObserver — REVEAL ROBUSTO per tutti gli elementi ───
   const revealObserver = new IntersectionObserver((entries) => {
