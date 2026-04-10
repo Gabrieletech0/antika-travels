@@ -28,7 +28,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
   <link rel="preload" as="video" href="brand-assets/video antika travel.mp4" />
 
   <script>
@@ -1098,7 +1098,8 @@
   });
 
   // ═══ GSAP SISTEMA AVANZATO ═══
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.registerPlugin(ScrollTrigger);
+  if (typeof SplitText !== 'undefined') gsap.registerPlugin(SplitText);
 
   // ─── 1. Cursore custom con lag elastico ───
   const dot = document.getElementById('cursor-dot');
@@ -1247,7 +1248,7 @@
   });
 
   // ═══ LINGUA ═══
-  let currentLang = 'it';
+  var currentLang = 'it';
   function setLang(lang) {
     currentLang = lang;
     ['it','en','tr'].forEach(l => {
