@@ -331,35 +331,30 @@
 
     var ptl = gsap.timeline();
 
-    // ─── ATTO 1: 0–2s Schermo nero → logo ───
-    ptl.to('#intro-content', { opacity: 1, duration: 0.8, ease: 'power2.out' }, 0.0);
-    ptl.to('#intro-line', { width: '40px', duration: 0.6, ease: 'power2.out' }, 0.4);
-    ptl.to('#intro-sub', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.7);
+    // ─── ATTO 1: 0–0.8s Schermo nero → logo (veloce) ───
+    ptl.to('#intro-content', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.0);
+    ptl.to('#intro-line', { width: '40px', duration: 0.4, ease: 'power2.out' }, 0.2);
+    ptl.to('#intro-sub', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.4);
 
-    // ─── ATTO 2: 2–3.6s Logo sfuma → porte appaiono ───
-    ptl.to('#intro-content', { opacity: 0, scale: 0.95, duration: 0.6, ease: 'power2.in' }, 2.0);
-    ptl.to('#preloader-doors', { opacity: 1, duration: 0.6, ease: 'power2.out' }, 2.4);
-    ptl.to('#preloader-intro', { opacity: 0, duration: 0.3 }, 2.6);
-    ptl.to('#preloader-glow', { opacity: 1, width: '6px', duration: 0.5 }, 2.8);
-    ptl.to('#preloader-glow', { width: '10px', opacity: 0.7, duration: 0.3, yoyo: true, repeat: 1, ease: 'sine.inOut' }, 3.0);
+    // ─── ATTO 2: 0.8–1.8s Logo sfuma → porte appaiono ───
+    ptl.to('#intro-content', { opacity: 0, scale: 0.95, duration: 0.4, ease: 'power2.in' }, 0.8);
+    ptl.to('#preloader-doors', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 1.0);
+    ptl.to('#preloader-intro', { opacity: 0, duration: 0.2 }, 1.1);
+    ptl.to('#preloader-glow', { opacity: 1, width: '6px', duration: 0.4 }, 1.3);
+    ptl.to('#preloader-glow', { width: '10px', opacity: 0.7, duration: 0.2, yoyo: true, repeat: 1, ease: 'sine.inOut' }, 1.5);
 
-    // ─── ATTO 3: Attraversamento porte (fade + scale) ───
-    // Luce dalla fessura si intensifica
-    ptl.to('#preloader-glow', { width: '120px', filter: 'blur(30px)', opacity: 1, duration: 1, ease: 'power2.in' }, 3.6);
-    // Le porte scalano verso di te — effetto "attraversamento"
+    // ─── ATTO 3: 1.8s+ Attraversamento porte (fade + scale) ───
+    ptl.to('#preloader-glow', { width: '120px', filter: 'blur(30px)', opacity: 1, duration: 0.8, ease: 'power2.in' }, 1.8);
     ptl.to('#preloader-doors', {
-      scale: 3, opacity: 0, duration: 3.5, ease: 'power2.in',
+      scale: 3, opacity: 0, duration: 3, ease: 'power2.in',
       transformOrigin: '50% 50%'
-    }, 4.2);
-    // Luce esplode e riempie lo schermo
+    }, 2.2);
     ptl.to('#preloader-glow', {
       width: '250vw', height: '250vh', filter: 'blur(80px)', opacity: 0.7,
-      duration: 2, ease: 'power2.out'
-    }, 5.5);
-    // Sfondo nero diventa trasparente — il sito appare dietro la luce
-    ptl.to(preloaderEl, { background: 'transparent', duration: 2, ease: 'power1.out' }, 5.5);
-    // Luce sfuma lentamente
-    ptl.to('#preloader-glow', { opacity: 0, duration: 2, ease: 'power2.in' }, 7.0);
+      duration: 1.5, ease: 'power2.out'
+    }, 3.5);
+    ptl.to(preloaderEl, { background: 'transparent', duration: 1.5, ease: 'power1.out' }, 3.5);
+    ptl.to('#preloader-glow', { opacity: 0, duration: 1.5, ease: 'power2.in' }, 4.5);
     // Rimuovi preloader e avvia video — parte SOLO quando preloader finisce
     ptl.add(function() {
       if (preloaderEl) preloaderEl.remove();
