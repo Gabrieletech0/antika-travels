@@ -70,8 +70,9 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
     nav.scrolled { background: rgba(30,27,24,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 0.5rem 2.5rem; }
     .logo { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
+    .nav-logo-img { height: 50px; width: auto; transition: height 0.4s ease; }
     nav.scrolled .logo { color: #F7F3EE; }
-    nav.scrolled .logo img { height: 40px !important; }
+    nav.scrolled .nav-logo-img { height: 36px; }
     .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
     nav.scrolled .nav-link { color: rgba(247,243,238,0.7); }
     .nav-link:hover { color: #C9A84C; }
@@ -301,8 +302,8 @@
 <!-- ═══ NAV ═══ -->
 <nav id="navbar">
   <div class="flex items-center justify-between">
-    <a href="#" class="logo" id="logo-link" style="display:flex;align-items:center;gap:0.6rem;">
-      <img src="brand-assets/logo-antiqora.png" alt="Antiqora Travel" style="height:350px;width:auto;transition:height 0.4s ease;" />
+    <a href="#" class="logo" id="logo-link">
+      <img src="brand-assets/logo-antiqora.png" alt="Antiqora Travel" class="nav-logo-img" />
     </a>
     <div class="hidden md:flex items-center gap-8">
       <a href="#destinazioni" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
@@ -336,6 +337,10 @@
     </video>
   </div>
   <div class="hero-bg"></div>
+  <!-- Logo grande centrato nella hero -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);z-index:2;text-align:center;">
+    <img src="brand-assets/logo-antiqora.png" alt="Antiqora Travel" style="height:280px;width:auto;opacity:0.9;" id="hero-logo-big" />
+  </div>
   <div class="hero-content">
     <p class="hero-label" id="hero-label" style="opacity:0;" data-it="Viaggi Archeologici di Lusso · Gruppi Esclusivi" data-en="Luxury Archaeological Journeys · Exclusive Groups" data-tr="Lüks Arkeolojik Seyahatler · Özel Gruplar">Viaggi Archeologici di Lusso · Gruppi Esclusivi</p>
     <h1 class="hero-title" id="hero-title">
