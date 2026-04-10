@@ -75,7 +75,7 @@
     .nav-cta:hover { background: #C9A84C; color: #0F0E0C; }
 
     /* Lang buttons */
-    .lang-btn { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,238,0.5); background: transparent; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
+    .lang-btn { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.5rem; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,238,0.75); background: transparent; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; border-radius: 1px; }
     nav.scrolled .lang-btn { color: #7A7068; border-color: rgba(0,0,0,0.15); }
     .lang-btn.active, .lang-btn:hover { border-color: #C9A84C; color: #C9A84C; }
 
@@ -108,7 +108,7 @@
     .tour-card { transform-style: preserve-3d; transition: border-color 0.3s, background 0.3s, transform 0.15s ease-out; }
 
     /* 3D Artifact section */
-    .artifact-section { position: relative; height: 50vh; min-height: 400px; background: #1A1510; overflow: hidden; }
+    .artifact-section { position: relative; height: 50vh; min-height: 400px; background: #2A2218; overflow: hidden; }
     .artifact-section canvas { display: block; width: 100%; height: 100%; }
     .artifact-label { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; pointer-events: none; }
     .artifact-label p { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; font-family: 'DM Sans', sans-serif; }
@@ -144,7 +144,7 @@
     .step { display: flex; gap: 2rem; align-items: flex-start; }
     .step-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(201,168,76,0.3); line-height: 1; flex-shrink: 0; width: 60px; }
     .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.5rem; color: #F7F3EE; }
-    .step-desc { font-size: 0.82rem; line-height: 1.8; color: rgba(247,243,238,0.55); font-weight: 300; }
+    .step-desc { font-size: 0.82rem; line-height: 1.8; color: rgba(247,243,238,0.8); font-weight: 300; }
 
     /* Buttons */
     .btn-primary { display: inline-block; padding: 1rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.3s; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
@@ -158,8 +158,8 @@
     .form-input { width: 100%; background: rgba(247,243,238,0.06); border: 1px solid rgba(201,168,76,0.2); padding: 1rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #F7F3EE; outline: none; transition: border-color 0.3s; }
     .form-input:focus { border-color: rgba(201,168,76,0.6); }
     .form-input::placeholder { color: rgba(247,243,238,0.3); }
-    .form-input option { background: #1A1510; }
-    .form-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.5); margin-bottom: 0.5rem; display: block; }
+    .form-input option { background: #2A2218; }
+    .form-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); margin-bottom: 0.5rem; display: block; }
 
     /* Newsletter */
     .nl-input { background: rgba(247,243,238,0.08); border: 1px solid rgba(201,168,76,0.2); padding: 0.875rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: #F7F3EE; outline: none; transition: border-color 0.3s; width: 100%; }
@@ -173,7 +173,7 @@
     /* Exit popup */
     .exit-popup-backdrop { position: fixed; inset: 0; background: rgba(15,14,12,0.8); backdrop-filter: blur(8px); z-index: 700; opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
     .exit-popup-backdrop.open { opacity: 1; pointer-events: all; }
-    .exit-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%) scale(0.96); z-index: 701; width: 92%; max-width: 500px; background: #1A1510; border: 1px solid rgba(201,168,76,0.2); padding: 3rem 2.5rem; text-align: center; transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), opacity 0.3s ease; opacity: 0; pointer-events: none; }
+    .exit-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%) scale(0.96); z-index: 701; width: 92%; max-width: 500px; background: #2A2218; border: 1px solid rgba(201,168,76,0.2); padding: 3rem 2.5rem; text-align: center; transition: transform 0.35s cubic-bezier(0.34,1.4,0.64,1), opacity 0.3s ease; opacity: 0; pointer-events: none; }
     .exit-popup.open { transform: translate(-50%, -50%) scale(1); opacity: 1; pointer-events: all; }
     .exit-popup-close { position: absolute; top: 1rem; right: 1rem; width: 30px; height: 30px; background: transparent; border: 1px solid rgba(201,168,76,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #7A7068; transition: all 0.2s; }
     .exit-popup-close:hover { border-color: #C9A84C; color: #C9A84C; }
@@ -216,12 +216,7 @@
       .preloader-door img { object-position: center; }
     }
 
-    /* ═══ CURSOR CUSTOM ═══ */
-    body.cursor-active, body.cursor-active * { cursor: none !important; }
-    #cursor-dot { position: fixed; width: 6px; height: 6px; background: #C9A84C; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: opacity 0.3s; mix-blend-mode: difference; opacity: 0; }
-    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; pointer-events: none; z-index: 9997; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s; opacity: 0; }
-    body.cursor-active:has(a:hover) #cursor-ring, body.cursor-active:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: rgba(201,168,76,0.9); }
-    @media (max-width: 768px) { #cursor-dot, #cursor-ring { display: none; } }
+    /* Cursore custom rimosso */
 
     /* ═══ VIDEO HERO ═══ */
     .hero-video { position: absolute; inset: 0; overflow: hidden; }
@@ -246,7 +241,7 @@
 
     /* ═══ PINNED STORY SECTION ═══ */
     /* ═══ BRAND STATEMENT SECTION ═══ */
-    .brand-statement { position: relative; min-height: 70vh; background: #1A1510; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .brand-statement { position: relative; min-height: 70vh; background: #2A2218; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .brand-statement-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.15) 0%, transparent 60%); }
     .brand-statement-bg::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px); }
     .brand-statement-content { position: relative; z-index: 2; text-align: center; padding: 4rem 2rem; }
@@ -256,7 +251,7 @@
     /* Preloader rimosso */
 
     /* ═══ MARQUEE ═══ */
-    .marquee-section { background: #1A1510; border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 1.1rem 0; overflow: hidden; }
+    .marquee-section { background: #2A2218; border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 1.1rem 0; overflow: hidden; }
     .marquee-track { display: flex; gap: 0; width: max-content; animation: marquee 28s linear infinite; }
     .marquee-track:hover { animation-play-state: paused; }
     .marquee-item { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; padding: 0 2.5rem; white-space: nowrap; font-family: 'DM Sans', sans-serif; font-weight: 400; opacity: 0.7; }
@@ -283,8 +278,6 @@
 <div class="scroll-progress" id="scroll-progress"></div>
 
 <!-- ═══ CURSOR CUSTOM ═══ -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
 
 <!-- ═══ EXIT-INTENT POPUP ═══ -->
 <div id="exit-popup-backdrop" class="exit-popup-backdrop"></div>
@@ -292,12 +285,12 @@
   <button class="exit-popup-close" onclick="closeExitPopup()">&times;</button>
   <p class="section-label" data-it="Prima di andare" data-en="Before you leave" data-tr="Ayrılmadan önce">Prima di andare</p>
   <h3 class="font-display font-light mb-3" style="font-size:1.8rem; color:#F7F3EE; line-height:1.2;" data-it="I posti sono limitati. I viaggi no." data-en="Seats are limited. The journeys are not." data-tr="Yerler sınırlı. Yolculuklar değil.">I posti sono limitati. I viaggi no.</h3>
-  <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.55); line-height:1.8;" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati." data-en="Subscribe to receive new itineraries and available spots in advance — before they are assigned." data-tr="Yeni güzergahları ve müsait yerleri önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati.</p>
+  <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.8); line-height:1.8;" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati." data-en="Subscribe to receive new itineraries and available spots in advance — before they are assigned." data-tr="Yeni güzergahları ve müsait yerleri önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati.</p>
   <form onsubmit="handleExitNewsletter(event)" class="flex flex-col gap-3">
     <input type="email" name="email" placeholder="La tua email" class="nl-input" style="text-align:center;" required />
     <button type="submit" class="btn-primary" style="width:100%; text-align:center;" data-it="Voglio sapere in anticipo" data-en="I want to know in advance" data-tr="Önceden bilmek istiyorum">Voglio sapere in anticipo</button>
   </form>
-  <p class="text-xs mt-4 font-light" style="color:rgba(247,243,238,0.3); letter-spacing:0.05em;" data-it="Nessuno spam. Solo itinerari." data-en="No spam. Only itineraries." data-tr="Spam yok. Sadece güzergahlar.">Nessuno spam. Solo itinerari.</p>
+  <p class="text-xs mt-4 font-light" style="color:rgba(247,243,238,0.65); letter-spacing:0.05em;" data-it="Nessuno spam. Solo itinerari." data-en="No spam. Only itineraries." data-tr="Spam yok. Sadece güzergahlar.">Nessuno spam. Solo itinerari.</p>
 </div>
 
 <!-- ═══ NAV ═══ -->
@@ -472,13 +465,13 @@
 </section>
 
 <!-- ═══ TOUR ═══ -->
-<section id="tour" class="py-24 px-6" style="background:#151210;">
+<section id="tour" class="py-24 px-6" style="background:#2A2218;">
   <div class="max-w-6xl mx-auto">
     <div class="reveal mb-4">
       <p class="section-label" data-it="Itinerari selezionati" data-en="Curated itineraries" data-tr="Seçili güzergahlar">Itinerari selezionati</p>
       <h2 class="section-title light" data-it="I nostri viaggi." data-en="Our journeys." data-tr="Yolculuklarımız.">I nostri viaggi.</h2>
     </div>
-    <p class="text-sm mb-16 reveal" style="color:rgba(247,243,238,0.5); max-width:500px; line-height:1.9; font-weight:300;" data-it="Ogni itinerario è una traccia di partenza. Il viaggio reale nasce dalla conversazione." data-en="Every itinerary is a starting point. The real journey begins from conversation." data-tr="Her güzergah bir başlangıç noktasıdır. Gerçek yolculuk sohbetle başlar.">Ogni itinerario è una traccia di partenza. Il viaggio reale nasce dalla conversazione.</p>
+    <p class="text-sm mb-16 reveal" style="color:rgba(247,243,238,0.75); max-width:500px; line-height:1.9; font-weight:300;" data-it="Ogni itinerario è una traccia di partenza. Il viaggio reale nasce dalla conversazione." data-en="Every itinerary is a starting point. The real journey begins from conversation." data-tr="Her güzergah bir başlangıç noktasıdır. Gerçek yolculuk sohbetle başlar.">Ogni itinerario è una traccia di partenza. Il viaggio reale nasce dalla conversazione.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -487,15 +480,15 @@
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</span>
-          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="10 giorni" data-en="10 days" data-tr="10 gün">10 giorni</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); font-weight:300;" data-it="10 giorni" data-en="10 days" data-tr="10 gün">10 giorni</span>
         </div>
         <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="I Faraoni del Nilo" data-en="The Pharaohs of the Nile" data-tr="Nil'in Firavunları">I Faraoni del Nilo</h3>
-        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto antico con accesso a siti normalmente chiusi al pubblico, visite al tramonto e incontri con egittologi locali." data-en="Cairo, Saqqara, Luxor, Valley of the Kings, Abu Simbel. Ten days in ancient Egypt with access to sites normally closed to the public, sunset visits and meetings with local Egyptologists." data-tr="Kahire, Sakkara, Luksor, Krallar Vadisi, Ebu Simbel. Kamuya kapalı alanlara erişim, gün batımı ziyaretleri ve yerel Mısırbilimcilerle buluşmalarla eski Mısır'da on gün.">Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto antico con accesso a siti normalmente chiusi al pubblico, visite al tramonto e incontri con egittologi locali.</p>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.75); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto antico con accesso a siti normalmente chiusi al pubblico, visite al tramonto e incontri con egittologi locali." data-en="Cairo, Saqqara, Luxor, Valley of the Kings, Abu Simbel. Ten days in ancient Egypt with access to sites normally closed to the public, sunset visits and meetings with local Egyptologists." data-tr="Kahire, Sakkara, Luksor, Krallar Vadisi, Ebu Simbel. Kamuya kapalı alanlara erişim, gün batımı ziyaretleri ve yerel Mısırbilimcilerle buluşmalarla eski Mısır'da on gün.">Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Dieci giorni nell'Egitto antico con accesso a siti normalmente chiusi al pubblico, visite al tramonto e incontri con egittologi locali.</p>
         <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
           <div>
-            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
             <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 4.800</span>
-            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.65); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
           </div>
           <a href="tour-faraoni-del-nilo.html" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
         </div>
@@ -506,15 +499,15 @@
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</span>
-          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="8 giorni" data-en="8 days" data-tr="8 gün">8 giorni</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); font-weight:300;" data-it="8 giorni" data-en="8 days" data-tr="8 gün">8 giorni</span>
         </div>
         <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="Le Città dell'Egeo" data-en="Cities of the Aegean" data-tr="Ege'nin Şehirleri">Le Città dell'Egeo</h3>
-        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Efeso, Pergamo, Afrodisia, Mileto. Il grande arco delle città greche sull'Egeo, con accesso alle aree di scavo attive e sessioni private con gli archeologi sul campo." data-en="Ephesus, Pergamon, Aphrodisias, Miletus. The great arc of Greek cities on the Aegean, with access to active excavation areas and private sessions with archaeologists in the field." data-tr="Efes, Bergama, Afrodisias, Milet. Ege kıyısındaki Yunan şehirlerinin büyük yayı, aktif kazı alanlarına erişim ve sahada arkeologlarla özel oturumlar.">Efeso, Pergamo, Afrodisia, Mileto. Il grande arco delle città greche sull'Egeo, con accesso alle aree di scavo attive e sessioni private con gli archeologi sul campo.</p>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.75); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Efeso, Pergamo, Afrodisia, Mileto. Il grande arco delle città greche sull'Egeo, con accesso alle aree di scavo attive e sessioni private con gli archeologi sul campo." data-en="Ephesus, Pergamon, Aphrodisias, Miletus. The great arc of Greek cities on the Aegean, with access to active excavation areas and private sessions with archaeologists in the field." data-tr="Efes, Bergama, Afrodisias, Milet. Ege kıyısındaki Yunan şehirlerinin büyük yayı, aktif kazı alanlarına erişim ve sahada arkeologlarla özel oturumlar.">Efeso, Pergamo, Afrodisia, Mileto. Il grande arco delle città greche sull'Egeo, con accesso alle aree di scavo attive e sessioni private con gli archeologi sul campo.</p>
         <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
           <div>
-            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
             <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 3.600</span>
-            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.65); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
           </div>
           <a href="tour-citta-egeo.html" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
         </div>
@@ -525,15 +518,15 @@
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Italia · Sicilia" data-en="Italy · Sicily" data-tr="İtalya · Sicilya">Italia · Sicilia</span>
-          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="8 giorni" data-en="8 days" data-tr="8 gün">8 giorni</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); font-weight:300;" data-it="8 giorni" data-en="8 days" data-tr="8 gün">8 giorni</span>
         </div>
         <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="Magna Graecia" data-en="Magna Graecia" data-tr="Magna Graecia">Magna Graecia</h3>
-        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Agrigento, Selinunte, Siracusa, Segesta. La Sicilia greca prima dell'alba dei turisti, tra templi intatti e musei con aperture esclusive al mattino presto." data-en="Agrigento, Selinunte, Syracuse, Segesta. Greek Sicily before the tourists arrive, among intact temples and museums with exclusive early-morning openings." data-tr="Agrigento, Selinunte, Sirakuza, Segesta. Turistler gelmeden önce Yunan Sicilya'sı; bozulmamış tapınaklar ve sabah erken saatlere özel müze açılışları.">Agrigento, Selinunte, Siracusa, Segesta. La Sicilia greca prima dell'alba dei turisti, tra templi intatti e musei con aperture esclusive al mattino presto.</p>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.75); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Agrigento, Selinunte, Siracusa, Segesta. La Sicilia greca prima dell'alba dei turisti, tra templi intatti e musei con aperture esclusive al mattino presto." data-en="Agrigento, Selinunte, Syracuse, Segesta. Greek Sicily before the tourists arrive, among intact temples and museums with exclusive early-morning openings." data-tr="Agrigento, Selinunte, Sirakuza, Segesta. Turistler gelmeden önce Yunan Sicilya'sı; bozulmamış tapınaklar ve sabah erken saatlere özel müze açılışları.">Agrigento, Selinunte, Siracusa, Segesta. La Sicilia greca prima dell'alba dei turisti, tra templi intatti e musei con aperture esclusive al mattino presto.</p>
         <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
           <div>
-            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
             <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 3.200</span>
-            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.65); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
           </div>
           <a href="tour-magna-graecia.html" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
         </div>
@@ -544,15 +537,15 @@
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Turchia · Anatolia" data-en="Turkey · Anatolia" data-tr="Türkiye · Anadolu">Turchia · Anatolia</span>
-          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); font-weight:300;" data-it="10 giorni" data-en="10 days" data-tr="10 gün">10 giorni</span>
+          <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); font-weight:300;" data-it="10 giorni" data-en="10 days" data-tr="10 gün">10 giorni</span>
         </div>
         <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:#F7F3EE; line-height:1.1; margin-bottom:1rem;" data-it="Anatolia Sacra" data-en="Sacred Anatolia" data-tr="Kutsal Anadolu">Anatolia Sacra</h3>
-        <p style="font-size:0.82rem; color:rgba(247,243,238,0.5); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Göbekli Tepe, Çatalhöyük, Konya, Capadocia. Dalle origini della civiltà alle civiltà anatoliche medievali — un viaggio attraverso diecimila anni di storia ininterrotta." data-en="Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. From the origins of civilization to medieval Anatolian cultures — a journey through ten thousand years of uninterrupted history." data-tr="Göbekli Tepe, Çatalhöyük, Konya, Kapadokya. Uygarlığın başlangıcından Orta Çağ Anadolu kültürlerine — on bin yıllık kesintisiz tarihin içinde bir yolculuk.">Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. Dalle origini della civiltà alle civiltà anatoliche medievali — un viaggio attraverso diecimila anni di storia ininterrotta.</p>
+        <p style="font-size:0.82rem; color:rgba(247,243,238,0.75); line-height:1.85; font-weight:300; margin-bottom:2rem;" data-it="Göbekli Tepe, Çatalhöyük, Konya, Capadocia. Dalle origini della civiltà alle civiltà anatoliche medievali — un viaggio attraverso diecimila anni di storia ininterrotta." data-en="Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. From the origins of civilization to medieval Anatolian cultures — a journey through ten thousand years of uninterrupted history." data-tr="Göbekli Tepe, Çatalhöyük, Konya, Kapadokya. Uygarlığın başlangıcından Orta Çağ Anadolu kültürlerine — on bin yıllık kesintisiz tarihin içinde bir yolculuk.">Göbekli Tepe, Çatalhöyük, Konya, Cappadocia. Dalle origini della civiltà alle civiltà anatoliche medievali — un viaggio attraverso diecimila anni di storia ininterrotta.</p>
         <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.12);">
           <div>
-            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.3); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
+            <span style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(247,243,238,0.65); display:block; margin-bottom:0.25rem;" data-it="A partire da" data-en="Starting from" data-tr="Başlangıç fiyatı">A partire da</span>
             <span style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:#C9A84C;">€ 4.500</span>
-            <span style="font-size:0.65rem; color:rgba(247,243,238,0.3); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
+            <span style="font-size:0.65rem; color:rgba(247,243,238,0.65); margin-left:0.25rem;" data-it="/ persona" data-en="/ person" data-tr="/ kişi">/ persona</span>
           </div>
           <a href="tour-anatolia-sacra.html" style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#C9A84C; text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:2px; transition:border-color 0.2s;" data-it="Scopri l'itinerario →" data-en="Explore itinerary →" data-tr="Güzergahı keşfet →">Scopri l'itinerario →</a>
         </div>
@@ -562,7 +555,7 @@
 
     <!-- Nota gruppi -->
     <div class="reveal mt-12 text-center">
-      <p style="font-size:0.72rem; color:rgba(247,243,238,0.3); letter-spacing:0.1em; font-weight:300;" data-it="Tutti i viaggi sono progettati per gruppi esclusivi di massimo 10 persone. I prezzi variano in base alla composizione del gruppo e alla personalizzazione del percorso." data-en="All journeys are designed for exclusive groups of up to 10 people. Prices vary based on group size and itinerary customisation." data-tr="Tüm yolculuklar en fazla 10 kişilik özel gruplar için tasarlanmıştır. Fiyatlar grup büyüklüğüne ve güzergah kişiselleştirmesine göre değişir.">Tutti i viaggi sono progettati per gruppi esclusivi di massimo 10 persone. I prezzi variano in base alla composizione del gruppo e alla personalizzazione del percorso.</p>
+      <p style="font-size:0.72rem; color:rgba(247,243,238,0.65); letter-spacing:0.1em; font-weight:300;" data-it="Tutti i viaggi sono progettati per gruppi esclusivi di massimo 10 persone. I prezzi variano in base alla composizione del gruppo e alla personalizzazione del percorso." data-en="All journeys are designed for exclusive groups of up to 10 people. Prices vary based on group size and itinerary customisation." data-tr="Tüm yolculuklar en fazla 10 kişilik özel gruplar için tasarlanmıştır. Fiyatlar grup büyüklüğüne ve güzergah kişiselleştirmesine göre değişir.">Tutti i viaggi sono progettati per gruppi esclusivi di massimo 10 persone. I prezzi variano in base alla composizione del gruppo e alla personalizzazione del percorso.</p>
     </div>
   </div>
 </section>
@@ -713,7 +706,7 @@
     </form>
     <div id="request-success" style="display:none;" class="text-center py-8">
       <p class="font-display font-light text-2xl mb-3" style="color:#C9A84C;" data-it="Grazie. Ti risponderemo presto." data-en="Thank you. We'll be in touch shortly." data-tr="Teşekkürler. Yakında yanıt vereceğiz.">Grazie. Ti risponderemo presto.</p>
-      <p class="text-sm font-light" style="color:rgba(247,243,238,0.5);" data-it="Controlla la tua email nelle prossime 24 ore." data-en="Check your email within the next 24 hours." data-tr="Önümüzdeki 24 saat içinde e-postanızı kontrol edin.">Controlla la tua email nelle prossime 24 ore.</p>
+      <p class="text-sm font-light" style="color:rgba(247,243,238,0.75);" data-it="Controlla la tua email nelle prossime 24 ore." data-en="Check your email within the next 24 hours." data-tr="Önümüzdeki 24 saat içinde e-postanızı kontrol edin.">Controlla la tua email nelle prossime 24 ore.</p>
     </div>
   </div>
 </section>
@@ -997,28 +990,7 @@
   gsap.registerPlugin(ScrollTrigger);
   if (typeof SplitText !== 'undefined') gsap.registerPlugin(SplitText);
 
-  // ─── 1. Cursore custom con lag elastico ───
-  const dot = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  let mX = 0, mY = 0, rX = 0, rY = 0;
-  document.addEventListener('mousemove', e => {
-    mX = e.clientX; mY = e.clientY;
-    gsap.set(dot, { x: mX, y: mY });
-    dot.style.opacity = '1';
-    ring.style.opacity = '1';
-    document.body.classList.add('cursor-active');
-  });
-  document.addEventListener('mouseleave', () => {
-    dot.style.opacity = '0';
-    ring.style.opacity = '0';
-    document.body.classList.remove('cursor-active');
-  });
-  (function ringLoop() {
-    rX += (mX - rX) * 0.09;
-    rY += (mY - rY) * 0.09;
-    gsap.set(ring, { x: rX, y: rY });
-    requestAnimationFrame(ringLoop);
-  })();
+  // Cursore custom rimosso
 
   // ─── 2. Scroll progress bar ───
   gsap.to('#scroll-progress', {
