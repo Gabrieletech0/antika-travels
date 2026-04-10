@@ -253,35 +253,7 @@
     .brand-statement-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; color: #C9A84C; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
     .brand-statement-line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); margin: 0 auto 2rem; }
     .brand-statement-tagline { font-size: 0.95rem; color: rgba(247,243,238,0.75); line-height: 2; font-weight: 300; max-width: 500px; margin: 0 auto; letter-spacing: 0.03em; }
-    /* ═══ PRELOADER — TRE ATTI CON PORTE FOTOGRAFICHE ═══ */
-    .preloader { position: fixed; inset: 0; z-index: 10000; perspective: 1200px; background: #0A0908; }
-    /* Atto 1: sfondo nero con logo */
-    .preloader-intro { position: absolute; inset: 0; background: #0A0908; z-index: 5; display: flex; align-items: center; justify-content: center; }
-    .preloader-intro-content { text-align: center; opacity: 0; }
-    .preloader-intro-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: #C9A84C; margin-top: 1rem; }
-    .preloader-intro-line { width: 0; height: 1px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); margin: 0.75rem auto 0; }
-    .preloader-intro-sub { font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(201,168,76,0.4); margin-top: 0.75rem; opacity: 0; }
-    /* Atto 2-3: porte fotografiche con 3D */
-    .preloader-doors { position: absolute; inset: 0; z-index: 3; display: flex; opacity: 0; will-change: transform, opacity; }
-    .preloader-door { width: 50%; height: 100%; transform-style: preserve-3d; position: relative; overflow: hidden; }
-    .preloader-door--left { transform-origin: left center; }
-    .preloader-door--right { transform-origin: right center; }
-    /* Immagine della porta — copre l'intera anta */
-    .preloader-door img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    /* SPESSORE 3D — fianco pietra visibile alla rotazione */
-    .door-side { position: absolute; top: 0; width: 50px; height: 100%; background: linear-gradient(180deg, #3D3529 0%, #2A2218 30%, #1E1A14 60%, #2A2218 100%); }
-    .preloader-door--left .door-side { right: -50px; transform: rotateY(90deg); transform-origin: left center;
-      box-shadow: inset 4px 0 12px rgba(0,0,0,0.5); }
-    .preloader-door--right .door-side { left: -50px; transform: rotateY(-90deg); transform-origin: right center;
-      box-shadow: inset -4px 0 12px rgba(0,0,0,0.5); }
-    /* Texture pietra sul fianco */
-    .door-side::after { content: ''; position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      opacity: 0.15; mix-blend-mode: overlay; }
-    /* Luce dalla fessura */
-    .preloader-glow { position: absolute; top: 0; left: 50%; width: 3px; height: 100%; transform: translateX(-50%);
-      background: linear-gradient(to bottom, transparent 5%, rgba(255,240,200,0.5) 25%, rgba(255,240,200,0.8) 50%, rgba(255,240,200,0.5) 75%, transparent 95%);
-      z-index: 4; filter: blur(5px); opacity: 0; }
+    /* Preloader rimosso */
 
     /* ═══ MARQUEE ═══ */
     .marquee-section { background: #1A1510; border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 1.1rem 0; overflow: hidden; }
@@ -306,86 +278,6 @@
 <!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- ═══ PRELOADER — TRE ATTI ═══ -->
-<div class="preloader" id="preloader">
-  <!-- ATTO 1: Schermo nero con logo -->
-  <div class="preloader-intro" id="preloader-intro">
-    <div class="preloader-intro-content" id="intro-content">
-      <svg width="56" height="56" viewBox="0 0 60 60">
-        <circle cx="30" cy="30" r="22" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
-        <circle cx="30" cy="30" r="1.5" fill="#C9A84C" opacity="0.5"/>
-        <path d="M30 8 L33 25 L30 22 L27 25 Z" fill="#C9A84C" opacity="0.75"/>
-        <path d="M30 52 L33 35 L30 38 L27 35 Z" fill="#C9A84C" opacity="0.18"/>
-        <path d="M52 30 L35 27 L38 30 L35 33 Z" fill="#C9A84C" opacity="0.18"/>
-        <path d="M8 30 L25 27 L22 30 L25 33 Z" fill="#C9A84C" opacity="0.18"/>
-      </svg>
-      <div class="preloader-intro-text">Antika Travels</div>
-      <div class="preloader-intro-line" id="intro-line"></div>
-      <div class="preloader-intro-sub" id="intro-sub">Archaeological Journeys</div>
-    </div>
-  </div>
-  <!-- ATTO 2-3: Porte dorate -->
-  <div class="preloader-doors" id="preloader-doors">
-    <div class="preloader-door preloader-door--left" id="door-left">
-      <div class="door-side"></div>
-      <img src="brand-assets/door-left.jpg" alt="" />
-    </div>
-    <div class="preloader-door preloader-door--right" id="door-right">
-      <div class="door-side"></div>
-      <img src="brand-assets/door-right.jpg" alt="" />
-    </div>
-    <div class="preloader-glow" id="preloader-glow"></div>
-  </div>
-</div>
-
-<!-- Preloader — sincronizzazione perfetta v3 -->
-<script>
-  var preloaderEl = document.getElementById('preloader');
-
-  if (sessionStorage.getItem('antika-visited')) {
-    // Visite successive: rimuovi preloader, avvia video quando DOM pronto
-    preloaderEl.remove();
-    document.addEventListener('DOMContentLoaded', function() {
-      var v = document.getElementById('hero-vid');
-      if (v) v.play();
-    });
-  } else {
-    sessionStorage.setItem('antika-visited', '1');
-
-    var ptl = gsap.timeline();
-
-    // ─── ATTO 1: 0–0.8s Schermo nero → logo (veloce) ───
-    ptl.to('#intro-content', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.0);
-    ptl.to('#intro-line', { width: '40px', duration: 0.4, ease: 'power2.out' }, 0.2);
-    ptl.to('#intro-sub', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.4);
-
-    // ─── ATTO 2: 1.3–2.3s Logo sfuma → porte appaiono ───
-    ptl.to('#intro-content', { opacity: 0, scale: 0.95, duration: 0.4, ease: 'power2.in' }, 1.3);
-    ptl.to('#preloader-doors', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 1.5);
-    ptl.to('#preloader-intro', { opacity: 0, duration: 0.2 }, 1.6);
-    ptl.to('#preloader-glow', { opacity: 1, width: '6px', duration: 0.4 }, 1.8);
-    ptl.to('#preloader-glow', { width: '10px', opacity: 0.7, duration: 0.2, yoyo: true, repeat: 1, ease: 'sine.inOut' }, 2.0);
-
-    // ─── ATTO 3: 2.3s+ Attraversamento porte (fade + scale) ───
-    ptl.to('#preloader-glow', { width: '120px', filter: 'blur(30px)', opacity: 1, duration: 0.8, ease: 'power2.in' }, 2.3);
-    ptl.to('#preloader-doors', {
-      scale: 3, opacity: 0, duration: 3, ease: 'power2.in',
-      transformOrigin: '50% 50%'
-    }, 2.7);
-    ptl.to('#preloader-glow', {
-      width: '250vw', height: '250vh', filter: 'blur(80px)', opacity: 0.7,
-      duration: 1.5, ease: 'power2.out'
-    }, 4.0);
-    ptl.to(preloaderEl, { background: 'transparent', duration: 1.5, ease: 'power1.out' }, 4.0);
-    ptl.to('#preloader-glow', { opacity: 0, duration: 1.5, ease: 'power2.in' }, 5.0);
-    // Rimuovi preloader e avvia video — parte SOLO quando preloader finisce
-    ptl.add(function() {
-      if (preloaderEl) preloaderEl.remove();
-      var v = document.getElementById('hero-vid');
-      if (v) { v.currentTime = 0; v.play(); }
-    });
-  }
-</script>
 
 <!-- ═══ SCROLL PROGRESS ═══ -->
 <div class="scroll-progress" id="scroll-progress"></div>
