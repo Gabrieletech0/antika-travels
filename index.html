@@ -239,7 +239,7 @@
     .preloader-intro-line { width: 0; height: 1px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); margin: 0.75rem auto 0; }
     .preloader-intro-sub { font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(201,168,76,0.4); margin-top: 0.75rem; opacity: 0; }
     /* Atto 2-3: porte fotografiche con 3D */
-    .preloader-doors { position: absolute; inset: 0; z-index: 3; display: flex; opacity: 0; }
+    .preloader-doors { position: absolute; inset: 0; z-index: 3; display: flex; opacity: 0; will-change: transform, opacity; }
     .preloader-door { width: 50%; height: 100%; transform-style: preserve-3d; position: relative; overflow: hidden; }
     .preloader-door--left { transform-origin: left center; }
     .preloader-door--right { transform-origin: right center; }
@@ -341,135 +341,29 @@
     ptl.to('#preloader-glow', { opacity: 1, width: '6px', duration: 0.5 }, 2.8);
     ptl.to('#preloader-glow', { width: '10px', opacity: 0.7, duration: 0.3, yoyo: true, repeat: 1, ease: 'sine.inOut' }, 3.0);
 
-    // ─── ATTO 3: 3.8s Sgretolamento ───
-    ptl.to('#preloader-glow', { width: '100px', filter: 'blur(30px)', opacity: 1, duration: 0.6, ease: 'power2.in' }, 3.6);
-    ptl.add(function() { startSandDissolve(); }, 3.8);
-
-    // ─── 8.5s: Avvia video ───
+    // ─── ATTO 3: Attraversamento porte (fade + scale) ───
+    // Luce dalla fessura si intensifica
+    ptl.to('#preloader-glow', { width: '120px', filter: 'blur(30px)', opacity: 1, duration: 1, ease: 'power2.in' }, 3.6);
+    // Le porte scalano verso di te — effetto "attraversamento"
+    ptl.to('#preloader-doors', {
+      scale: 3, opacity: 0, duration: 3.5, ease: 'power2.in',
+      transformOrigin: '50% 50%'
+    }, 4.2);
+    // Luce esplode e riempie lo schermo
+    ptl.to('#preloader-glow', {
+      width: '250vw', height: '250vh', filter: 'blur(80px)', opacity: 0.7,
+      duration: 2, ease: 'power2.out'
+    }, 5.5);
+    // Sfondo nero diventa trasparente — il sito appare dietro la luce
+    ptl.to(preloaderEl, { background: 'transparent', duration: 2, ease: 'power1.out' }, 5.5);
+    // Luce sfuma lentamente
+    ptl.to('#preloader-glow', { opacity: 0, duration: 2, ease: 'power2.in' }, 7.0);
+    // Rimuovi preloader
+    ptl.add(function() { if (preloaderEl) preloaderEl.remove(); }, 9.0);
+    // Avvia video — 3 secondi dopo rispetto a prima
     ptl.add(function() {
       if (heroVideo) { heroVideo.currentTime = 0; heroVideo.play(); }
-    }, 8.5);
-
-    function startSandDissolve() {
-      var canvas = document.createElement('canvas');
-      canvas.style.cssText = 'position:fixed;inset:0;z-index:10001;pointer-events:none;';
-      var dpr = Math.min(window.devicePixelRatio, 2);
-      var W = window.innerWidth * dpr, H = window.innerHeight * dpr;
-      var cx = W / 2, cy = H / 2;
-      canvas.width = W; canvas.height = H;
-      canvas.style.width = '100%'; canvas.style.height = '100%';
-      document.body.appendChild(canvas);
-      var ctx = canvas.getContext('2d');
-
-      // Porte: mask circolare che cresce dal centro (le sgretola visivamente)
-      var doorLeft = document.getElementById('door-left');
-      var doorRight = document.getElementById('door-right');
-      var maskSize = 0;
-
-      var sandColors = ['#C9A84C','#D4B87A','#A07D28','#8B7355','#E8D5B7','#BFA055','#9C8A6A','#6B5B3E'];
-      var sunColor = '#FFF8E0';
-      var particles = [];
-      var maxDist = Math.sqrt(cx * cx + cy * cy);
-
-      // 8000 particelle — più dense e grandi
-      for (var i = 0; i < 8000; i++) {
-        var isLeft = Math.random() < 0.5;
-        var sx = isLeft ? Math.random() * W * 0.5 : W * 0.5 + Math.random() * W * 0.5;
-        var sy = Math.random() * H;
-        var distC = Math.sqrt((sx - cx) * (sx - cx) + (sy - cy) * (sy - cy));
-        particles.push({
-          x: sx, y: sy,
-          vx: (Math.random() - 0.5) * 2.5,
-          vy: (Math.random() - 0.5) * 2,
-          size: 2 + Math.random() * 5,
-          color: sandColors[Math.floor(Math.random() * sandColors.length)],
-          alpha: 0,
-          maxAlpha: 0.75 + Math.random() * 0.25,
-          delay: (distC / maxDist) * 60, // più lento dal centro
-          distC: distC
-        });
-      }
-
-      // ~60fps timing:
-      // Fase 1 sgretolamento: 0–120 frame (0–2s) = porte si sgretolano visibilmente
-      // Fase 2 sabbia piena:  120–240 frame (2–4s) = schermo coperto di sabbia
-      // Fase 3 dissolve sole: 240–360 frame (4–6s) = luce dissolve sabbia
-      var P1 = 120, P2 = 240, P3 = 360;
-      var frame = 0;
-
-      function render() {
-        ctx.clearRect(0, 0, W, H);
-        frame++;
-
-        // ── PORTE: mask circolare che cresce — le porte si vedono sgretolarsi
-        if (frame < P1 + 30) {
-          maskSize = Math.min((frame / P1) * 120, 120);
-          var maskVal = 'radial-gradient(circle at 50% 50%, transparent ' + maskSize + '%, black ' + (maskSize + 3) + '%)';
-          if (doorLeft) doorLeft.style.webkitMaskImage = maskVal;
-          if (doorLeft) doorLeft.style.maskImage = maskVal;
-          if (doorRight) doorRight.style.webkitMaskImage = maskVal;
-          if (doorRight) doorRight.style.maskImage = maskVal;
-        }
-        // Sfondo preloader: diventa trasparente gradualmente
-        if (frame === 60) {
-          gsap.to('#preloader-glow', { opacity: 0, duration: 1 });
-          gsap.to(preloaderEl, { background: 'transparent', duration: 2 });
-        }
-        if (frame === P1) {
-          // Porte completamente mascherate
-          if (doorLeft) doorLeft.style.opacity = '0';
-          if (doorRight) doorRight.style.opacity = '0';
-        }
-
-        var alive = 0;
-        for (var i = 0; i < particles.length; i++) {
-          var p = particles[i];
-          if (frame < p.delay) continue;
-
-          if (frame < P1) {
-            // FASE 1: Sgretolamento — particelle escono dalla zona delle porte
-            p.alpha = Math.min(p.alpha + 0.03, p.maxAlpha);
-            p.x += p.vx;
-            p.y += p.vy;
-            p.vx *= 0.99;
-            p.vy *= 0.99;
-          } else if (frame < P2) {
-            // FASE 2: Sabbia densa — fluttua, riempie tutto lo schermo
-            p.x += (Math.random() - 0.5) * 1.5;
-            p.y += (Math.random() - 0.5) * 1.5;
-            if (p.alpha < p.maxAlpha) p.alpha += 0.015;
-          } else if (frame < P3) {
-            // FASE 3: Dissolve solare — luce dal centro brucia le particelle
-            var progress = (frame - P2) / (P3 - P2);
-            var sunRadius = progress * maxDist * 1.2;
-            if (p.distC < sunRadius) {
-              p.color = sunColor;
-              p.alpha -= 0.015;
-            }
-            p.x += (Math.random() - 0.5) * 0.4;
-            p.y += (Math.random() - 0.5) * 0.4;
-          } else {
-            p.alpha -= 0.04;
-          }
-
-          if (p.alpha <= 0) continue;
-          alive++;
-
-          ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha));
-          ctx.fillStyle = p.color;
-          ctx.fillRect(Math.round(p.x - p.size / 2), Math.round(p.y - p.size / 2), p.size, p.size);
-        }
-
-        if (alive > 0 && frame < P3 + 40) {
-          requestAnimationFrame(render);
-        } else {
-          canvas.remove();
-          if (preloaderEl) preloaderEl.remove();
-        }
-      }
-
-      requestAnimationFrame(render);
-    }
+    }, 9.0);
   }
 </script>
 
