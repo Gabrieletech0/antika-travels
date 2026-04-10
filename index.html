@@ -231,6 +231,13 @@
       .preloader-door img { object-position: center; }
     }
 
+    /* Mobile menu */
+    .mobile-menu-link { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: rgba(247,243,238,0.8); text-decoration: none; letter-spacing: 0.08em; transition: color 0.3s; }
+    .mobile-menu-link:hover { color: #C9A84C; }
+    #hamburger.open .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    #hamburger.open .hamburger-line:nth-child(2) { opacity: 0; }
+    #hamburger.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); width: 22px; }
+
     /* Cursore custom rimosso */
 
     /* ═══ VIDEO HERO ═══ */
@@ -326,17 +333,29 @@
       </div>
       <a href="#richiedi" class="nav-cta" data-it="Richiedi un viaggio" data-en="Request a journey" data-tr="Seyahat talep et">Richiedi un viaggio</a>
     </div>
-    <!-- Mobile menu -->
-    <div class="flex md:hidden items-center gap-3">
-      <div class="flex items-center gap-1">
-        <button class="lang-btn active" id="btn-it-m" onclick="setLang('it')">IT</button>
-        <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="btn-tr-m" onclick="setLang('tr')">TR</button>
-      </div>
-      <a href="#richiedi" class="nav-cta text-xs" data-it="Richiedi" data-en="Request" data-tr="Talep et">Richiedi</a>
-    </div>
+    <!-- Mobile hamburger -->
+    <button class="flex md:hidden flex-col gap-1.5 p-2" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span class="hamburger-line" style="display:block; width:22px; height:1.5px; background:#C9A84C; transition: all 0.3s;"></span>
+      <span class="hamburger-line" style="display:block; width:22px; height:1.5px; background:#C9A84C; transition: all 0.3s;"></span>
+      <span class="hamburger-line" style="display:block; width:16px; height:1.5px; background:#C9A84C; transition: all 0.3s;"></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile dropdown menu -->
+<div id="mobile-menu" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:199; background:rgba(15,14,12,0.97); backdrop-filter:blur(20px); padding:6rem 2rem 3rem; flex-direction:column; align-items:center; justify-content:center; gap:2rem;">
+  <a href="#destinazioni" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+  <a href="#tour" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
+  <a href="#come-funziona" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Come funziona" data-en="How it works" data-tr="Nasıl çalışır">Come funziona</a>
+  <a href="#ipek" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
+  <div style="width:60px; height:1px; background:linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent); margin:0.5rem 0;"></div>
+  <div class="flex items-center gap-2">
+    <button class="lang-btn active" id="btn-it-m" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" id="btn-en-m" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-tr-m" onclick="setLang('tr')">TR</button>
+  </div>
+  <a href="#richiedi" class="nav-cta" onclick="closeMobileMenu()" style="margin-top:1rem;" data-it="Richiedi un viaggio" data-en="Request a journey" data-tr="Seyahat talep et">Richiedi un viaggio</a>
+</div>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
@@ -389,7 +408,7 @@
     </div>
     <p class="brand-curator" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: rgba(247,243,238,0.65); font-weight: 400; letter-spacing: 0.12em; margin-bottom: 1.5rem;">Ipek Tarakçı</p>
     <div class="brand-statement-line"></div>
-    <p class="brand-statement-tagline" data-it="Non organizziamo viaggi. Riportiamo in vita i luoghi che il mondo ha dimenticato." data-en="We don't organize trips. We bring back to life the places the world has forgotten." data-tr="Seyahat düzenlemiyoruz. Dünyanın unuttuğu yerleri hayata döndürüyoruz.">Non organizziamo viaggi. Riportiamo in vita i luoghi che il mondo ha dimenticato.</p>
+    <p class="brand-statement-tagline" data-it="Non organizziamo viaggi. Diamo vita ai luoghi dimenticati." data-en="We don't organize trips. We bring forgotten places back to life." data-tr="Seyahat düzenlemiyoruz. Unutulmuş yerlere hayat veriyoruz.">Non organizziamo viaggi. Diamo vita ai luoghi dimenticati.</p>
     <p class="brand-motto" style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(247,243,238,0.5); font-style: italic; font-weight: 300; margin-top: 1.5rem; letter-spacing: 0.05em;" data-it="Geçmişin ruhunu bugüne taşıyan" data-en="Carrying the spirit of the past into the present" data-tr="Geçmişin ruhunu bugüne taşıyan">Geçmişin ruhunu bugüne taşıyan</p>
   </div>
 </section>
@@ -757,6 +776,21 @@
 <div id="toast" class="toast"></div>
 
 <script>
+  // ═══ MOBILE MENU ═══
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    const isOpen = menu.style.display === 'flex';
+    menu.style.display = isOpen ? 'none' : 'flex';
+    btn.classList.toggle('open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobile-menu').style.display = 'none';
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   // ═══ TRACKING ═══
   function trackEvent(name, params) {
     params = params || {};
