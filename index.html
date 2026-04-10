@@ -145,47 +145,108 @@
     .value-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.75rem; color: #0F0E0C; }
     .value-desc { font-size: 0.82rem; line-height: 1.8; color: #7A7068; font-weight: 300; }
 
+    /* Section divider ornament */
+    .section-divider {
+      position: relative;
+      height: 80px;
+      background: linear-gradient(to bottom, #1E1B18, #1A1714);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25) 30%, rgba(201,168,76,0.25) 70%, transparent);
+    }
+    .section-divider-ornament {
+      position: relative;
+      z-index: 1;
+      background: #1A1714;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-divider-ornament span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: rgba(201,168,76,0.5);
+      line-height: 1;
+    }
+    .section-divider-ornament::before,
+    .section-divider-ornament::after {
+      content: '◆';
+      font-size: 0.4rem;
+      color: rgba(201,168,76,0.35);
+    }
+
     /* How it works */
-    #come-funziona { position: relative; overflow: hidden; }
+    #come-funziona {
+      position: relative;
+      overflow: hidden;
+      background: #15120F;
+    }
+    /* Topographic lines background */
     #come-funziona::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image:
-        radial-gradient(circle at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 50%),
-        radial-gradient(circle at 15% 80%, rgba(201,168,76,0.04) 0%, transparent 40%);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Cpath d='M0,300 Q100,250 200,300 T400,300 T600,300 T800,300' fill='none' stroke='rgba(201,168,76,0.035)' stroke-width='1.5'/%3E%3Cpath d='M0,260 Q120,200 240,260 T480,260 T720,260 T800,260' fill='none' stroke='rgba(201,168,76,0.025)' stroke-width='1'/%3E%3Cpath d='M0,340 Q80,300 160,340 T320,340 T480,340 T640,340 T800,340' fill='none' stroke='rgba(201,168,76,0.025)' stroke-width='1'/%3E%3Cpath d='M0,220 Q140,150 280,220 T560,220 T800,220' fill='none' stroke='rgba(201,168,76,0.018)' stroke-width='1'/%3E%3Cpath d='M0,380 Q60,340 120,380 T240,380 T360,380 T480,380 T600,380 T720,380 T800,380' fill='none' stroke='rgba(201,168,76,0.018)' stroke-width='1'/%3E%3Cpath d='M0,180 Q160,100 320,180 T640,180 T800,180' fill='none' stroke='rgba(201,168,76,0.012)' stroke-width='1'/%3E%3Cpath d='M0,420 Q40,390 80,420 T160,420 T240,420 T320,420 T400,420 T480,420 T560,420 T640,420 T720,420 T800,420' fill='none' stroke='rgba(201,168,76,0.012)' stroke-width='1'/%3E%3Ccircle cx='650' cy='180' r='2' fill='rgba(201,168,76,0.2)'/%3E%3Ccircle cx='690' cy='140' r='1.5' fill='rgba(201,168,76,0.15)'/%3E%3Ccircle cx='720' cy='200' r='1' fill='rgba(201,168,76,0.12)'/%3E%3Ccircle cx='660' cy='220' r='1.5' fill='rgba(201,168,76,0.1)'/%3E%3Ccircle cx='700' cy='160' r='1' fill='rgba(201,168,76,0.12)'/%3E%3Cline x1='650' y1='180' x2='690' y2='140' stroke='rgba(201,168,76,0.08)' stroke-width='0.5'/%3E%3Cline x1='690' y1='140' x2='720' y2='200' stroke='rgba(201,168,76,0.06)' stroke-width='0.5'/%3E%3Cline x1='650' y1='180' x2='660' y2='220' stroke='rgba(201,168,76,0.06)' stroke-width='0.5'/%3E%3Cline x1='700' y1='160' x2='720' y2='200' stroke='rgba(201,168,76,0.06)' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='400' r='1.5' fill='rgba(201,168,76,0.1)'/%3E%3Ccircle cx='130' cy='370' r='1' fill='rgba(201,168,76,0.08)'/%3E%3Ccircle cx='80' cy='430' r='1' fill='rgba(201,168,76,0.08)'/%3E%3Cline x1='100' y1='400' x2='130' y2='370' stroke='rgba(201,168,76,0.05)' stroke-width='0.5'/%3E%3Cline x1='100' y1='400' x2='80' y2='430' stroke='rgba(201,168,76,0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       pointer-events: none;
     }
-    /* SVG map pattern overlay */
+    /* Golden glow accents */
     #come-funziona::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cellipse cx='300' cy='300' rx='250' ry='180' fill='none' stroke='rgba(201,168,76,0.04)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='200' ry='140' fill='none' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='150' ry='100' fill='none' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3Cellipse cx='300' cy='300' rx='100' ry='60' fill='none' stroke='rgba(201,168,76,0.02)' stroke-width='1'/%3E%3Cline x1='50' y1='300' x2='550' y2='300' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3Cline x1='300' y1='120' x2='300' y2='480' stroke='rgba(201,168,76,0.03)' stroke-width='1'/%3E%3C/svg%3E");
-      background-size: 500px 500px;
-      background-position: right -100px center;
-      background-repeat: no-repeat;
-      opacity: 0.6;
+      background-image:
+        radial-gradient(ellipse at 85% 15%, rgba(201,168,76,0.07) 0%, transparent 45%),
+        radial-gradient(ellipse at 10% 85%, rgba(201,168,76,0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.02) 0%, transparent 60%);
       pointer-events: none;
     }
+    /* Timeline */
     .process-timeline { position: relative; display: flex; flex-direction: column; gap: 0; }
     .process-timeline::before {
       content: '';
       position: absolute;
-      left: 29px;
-      top: 8px;
-      bottom: 8px;
+      left: 23px;
+      top: 50px;
+      bottom: 50px;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4) 15%, rgba(201,168,76,0.4) 85%, transparent);
+      background: linear-gradient(to bottom,
+        transparent,
+        rgba(201,168,76,0.3) 10%,
+        rgba(201,168,76,0.3) 90%,
+        transparent);
+      z-index: 0;
     }
     .step { display: flex; gap: 2.5rem; align-items: flex-start; padding: 2.5rem 0; position: relative; }
-    .step:not(:last-child) { border-bottom: none; }
-    .step-marker { position: relative; flex-shrink: 0; width: 60px; display: flex; flex-direction: column; align-items: center; }
-    .step-dot { width: 12px; height: 12px; border-radius: 50%; background: #C9A84C; margin-top: 8px; box-shadow: 0 0 12px rgba(201,168,76,0.4); flex-shrink: 0; }
-    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 0.6rem; font-weight: 400; color: rgba(201,168,76,0.5); letter-spacing: 0.2em; margin-top: 0.4rem; text-transform: uppercase; }
-    .step-body { padding-top: 0; }
-    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 0.6rem; color: #F7F3EE; letter-spacing: 0.01em; }
-    .step-desc { font-size: 0.82rem; line-height: 1.9; color: rgba(247,243,238,0.7); font-weight: 300; max-width: 520px; }
+    .step-marker { position: relative; flex-shrink: 0; width: 48px; display: flex; flex-direction: column; align-items: center; z-index: 1; }
+    .step-circle {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.45);
+      background: rgba(21,18,15,1);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 16px rgba(201,168,76,0.12), inset 0 0 12px rgba(201,168,76,0.04);
+      position: relative; z-index: 2;
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 400;
+      color: #C9A84C; letter-spacing: 0.05em; line-height: 1;
+    }
+    .step-body { padding-top: 0.25rem; }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 400; margin-bottom: 0.6rem; color: #F7F3EE; letter-spacing: 0.01em; }
+    .step-desc { font-size: 0.82rem; line-height: 1.9; color: rgba(247,243,238,0.68); font-weight: 300; max-width: 520px; }
 
     /* Buttons */
     .btn-primary { display: inline-block; padding: 1rem 2.5rem; background: #C9A84C; color: #0F0E0C; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 500; transition: all 0.3s; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
@@ -243,9 +304,12 @@
       .brand-statement-tagline { font-size: 0.8rem; padding: 0 1rem; }
       .tour-card { padding: 1.5rem !important; }
       .dest-name { font-size: 1.5rem; }
-      .step { flex-direction: row; gap: 1.5rem; }
-      .step-num { width: auto; }
-      .process-timeline::before { left: 23px; }
+      .step { flex-direction: row; gap: 1.25rem; padding: 1.75rem 0; }
+      .step-circle { width: 40px; height: 40px; }
+      .step-num { font-size: 0.85rem; }
+      .step-title { font-size: 1.3rem; }
+      .process-timeline::before { left: 19px; top: 40px; bottom: 40px; }
+      .section-divider { height: 60px; }
       .form-input, .nl-input { font-size: 16px; } /* previene zoom iOS */
       .btn-primary, .btn-outline { font-size: 0.65rem; padding: 0.875rem 1.5rem; white-space: nowrap; }
       .btn-wa { font-size: 0.65rem; padding: 0.875rem 1.25rem; }
@@ -623,8 +687,15 @@
   </div>
 </section>
 
+<!-- ═══ SECTION DIVIDER ═══ -->
+<div class="section-divider">
+  <div class="section-divider-ornament">
+    <span>✦</span>
+  </div>
+</div>
+
 <!-- ═══ COME FUNZIONA ═══ -->
-<section id="come-funziona" class="py-24 px-6 dark-textured">
+<section id="come-funziona" class="py-24 px-6">
   <div class="max-w-4xl mx-auto">
     <div class="reveal mb-16">
       <p class="section-label" data-it="Il processo" data-en="The process" data-tr="Süreç">Il processo</p>
@@ -633,8 +704,7 @@
     <div class="process-timeline">
       <div class="step reveal">
         <div class="step-marker">
-          <div class="step-dot"></div>
-          <div class="step-num">I</div>
+          <div class="step-circle"><span class="step-num">I</span></div>
         </div>
         <div class="step-body">
           <h3 class="step-title" data-it="La conversazione" data-en="The conversation" data-tr="Konuşma">La conversazione</h3>
@@ -643,8 +713,7 @@
       </div>
       <div class="step reveal">
         <div class="step-marker">
-          <div class="step-dot"></div>
-          <div class="step-num">II</div>
+          <div class="step-circle"><span class="step-num">II</span></div>
         </div>
         <div class="step-body">
           <h3 class="step-title" data-it="L'itinerario su misura" data-en="The bespoke itinerary" data-tr="Özel güzergah">L'itinerario su misura</h3>
@@ -653,8 +722,7 @@
       </div>
       <div class="step reveal">
         <div class="step-marker">
-          <div class="step-dot"></div>
-          <div class="step-num">III</div>
+          <div class="step-circle"><span class="step-num">III</span></div>
         </div>
         <div class="step-body">
           <h3 class="step-title" data-it="Il viaggio" data-en="The journey" data-tr="Yolculuk">Il viaggio</h3>
