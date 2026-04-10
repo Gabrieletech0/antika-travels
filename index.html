@@ -327,7 +327,7 @@
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
   <div class="hero-video">
-    <video autoplay muted loop playsinline preload="auto" id="hero-vid">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" id="hero-vid" disableRemotePlayback>
       <source src="brand-assets/video antika travel.mp4" type="video/mp4">
     </video>
   </div>
@@ -1024,20 +1024,35 @@
   heroTl.to('.hero-bg', { opacity: 0.9, ease: 'none' }, 0);
   heroTl.to('.hero-content', { yPercent: -25, opacity: 0, ease: 'power1.in' }, 0);
 
-  // ─── 5. Video fallback — se autoplay fallisce, riprova al primo touch ───
+  // ─── 5. Video autoplay forzato — retry aggressivo per tutti i dispositivi ───
   (function() {
     var v = document.getElementById('hero-vid');
     if (!v) return;
-    var played = false;
-    function tryPlay() {
-      if (played) return;
-      v.play().then(function() { played = true; }).catch(function() {});
+    // Forza muted (alcuni browser lo richiedono via JS, non solo attributo)
+    v.muted = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    // Retry ogni secondo per 10 secondi
+    var attempts = 0;
+    var retryInterval = setInterval(function() {
+      attempts++;
+      if (!v.paused || attempts > 10) { clearInterval(retryInterval); return; }
+      v.play().catch(function() {});
+    }, 1000);
+    // Prova subito
+    v.play().catch(function() {});
+    // Al primo tocco/scroll/click — fallback definitivo
+    function forcePlay() {
+      v.muted = true;
+      v.play().catch(function() {});
     }
-    // Riprova dopo 2s se non sta andando
-    setTimeout(function() { if (v.paused) tryPlay(); }, 2000);
-    // Al primo touch/click dell'utente
-    document.addEventListener('touchstart', tryPlay, { once: true });
-    document.addEventListener('click', tryPlay, { once: true });
+    document.addEventListener('touchstart', forcePlay, { once: true });
+    document.addEventListener('click', forcePlay, { once: true });
+    document.addEventListener('scroll', forcePlay, { once: true });
+    // Quando il video ha abbastanza dati per partire
+    v.addEventListener('canplay', function() {
+      if (v.paused) v.play().catch(function() {});
+    });
   })();
 
   // ─── 6. IntersectionObserver — REVEAL ROBUSTO per tutti gli elementi ───
