@@ -898,13 +898,21 @@
     .catch(err => console.warn('[Brevo] Network:', err));
   }
 
+  // ═══ SICUREZZA: sanitizzazione + validazione ═══
+  function sanitize(str) {
+    var d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML.trim().slice(0, 500);
+  }
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length < 254;
+  }
+
   // ═══ NEWSLETTER ═══
   function handleNewsletter(e) {
     e.preventDefault();
     const email = e.target.email.value;
-    const subs = JSON.parse(localStorage.getItem('at_subs') || '[]');
-    subs.push({ email, date: new Date().toISOString(), source: 'newsletter-form' });
-    localStorage.setItem('at_subs', JSON.stringify(subs));
+    if (!isValidEmail(email)) { showToast('Email non valida'); return; }
     localStorage.setItem('at_subscribed', '1');
     sendToBrevo('', email, 'newsletter-form');
     trackEvent('Lead', { content_name: 'Newsletter', currency: 'EUR', value: 0 });
@@ -917,16 +925,14 @@
   function handleRequest(e) {
     e.preventDefault();
     const f = e.target;
-    const nome = f.nome.value;
+    const nome = sanitize(f.nome.value);
     const email = f.email.value;
-    const dest = f.destinazione.value;
-    const persone = f.persone.value;
-    const periodo = f.periodo.value;
-    const msg = f.messaggio.value;
-    // Salva localmente
-    const reqs = JSON.parse(localStorage.getItem('at_requests') || '[]');
-    reqs.push({ nome, email, dest, persone, periodo, msg, date: new Date().toISOString() });
-    localStorage.setItem('at_requests', JSON.stringify(reqs));
+    const dest = sanitize(f.destinazione.value);
+    const persone = sanitize(f.persone.value);
+    const periodo = sanitize(f.periodo.value);
+    const msg = sanitize(f.messaggio.value);
+    if (!isValidEmail(email)) { showToast('Email non valida'); return; }
+    if (!nome || nome.length < 2) { showToast('Inserisci il tuo nome'); return; }
     // Track
     trackEvent('Lead', { content_name: 'Journey Request', content_category: dest, currency: 'EUR', value: 0 });
     trackEvent('InitiateCheckout', { content_name: dest, currency: 'EUR', value: 0, num_items: parseInt(persone) });
@@ -971,9 +977,7 @@
   function handleExitNewsletter(e) {
     e.preventDefault();
     const email = e.target.email.value;
-    const subs = JSON.parse(localStorage.getItem('at_subs') || '[]');
-    subs.push({ email, date: new Date().toISOString(), source: 'exit-popup' });
-    localStorage.setItem('at_subs', JSON.stringify(subs));
+    if (!isValidEmail(email)) { showToast('Email non valida'); return; }
     localStorage.setItem('at_subscribed', '1');
     sendToBrevo('', email, 'exit-popup');
     trackEvent('Lead', { content_name: 'Exit Popup', currency: 'EUR', value: 0 });
@@ -1256,7 +1260,7 @@
     });
     document.querySelectorAll(`[data-${lang}]`).forEach(el => {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = el.getAttribute(`data-${lang}`) || el.placeholder;
-      else el.innerHTML = el.getAttribute(`data-${lang}`);
+      else el.textContent = el.getAttribute(`data-${lang}`);
     });
   }
 </script>
