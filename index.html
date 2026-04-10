@@ -358,12 +358,11 @@
     ptl.to(preloaderEl, { background: 'transparent', duration: 2, ease: 'power1.out' }, 5.5);
     // Luce sfuma lentamente
     ptl.to('#preloader-glow', { opacity: 0, duration: 2, ease: 'power2.in' }, 7.0);
-    // Rimuovi preloader
-    ptl.add(function() { if (preloaderEl) preloaderEl.remove(); }, 9.0);
-    // Avvia video — 3 secondi dopo rispetto a prima
+    // Rimuovi preloader e avvia video — sincronizzato: parte SOLO quando preloader finisce
     ptl.add(function() {
+      if (preloaderEl) preloaderEl.remove();
       if (heroVideo) { heroVideo.currentTime = 0; heroVideo.play(); }
-    }, 9.0);
+    });
   }
 </script>
 
