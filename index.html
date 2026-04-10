@@ -26,6 +26,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?v=3"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
+  <link rel="preload" as="video" href="brand-assets/video antika travel.mp4" />
 
   <script>
     tailwind.config = {
@@ -174,9 +178,11 @@
     .exit-popup-close { position: absolute; top: 1rem; right: 1rem; width: 30px; height: 30px; background: transparent; border: 1px solid rgba(201,168,76,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #7A7068; transition: all 0.2s; }
     .exit-popup-close:hover { border-color: #C9A84C; color: #C9A84C; }
 
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    /* Reveal — IntersectionObserver (robusto) */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible.delay-1 { transition-delay: 0.1s; }
+    .reveal.visible.delay-2 { transition-delay: 0.2s; }
 
     /* Blockquote testimoniale */
     blockquote { border-left: 2px solid #C9A84C; padding-left: 1.5rem; }
@@ -186,12 +192,235 @@
       nav { padding: 1.25rem 1.5rem; }
       nav.scrolled { padding: 0.875rem 1.5rem; }
     }
+
+    /* ═══ CURSOR CUSTOM ═══ */
+    body.cursor-active, body.cursor-active * { cursor: none !important; }
+    #cursor-dot { position: fixed; width: 6px; height: 6px; background: #C9A84C; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: opacity 0.3s; mix-blend-mode: difference; opacity: 0; }
+    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; pointer-events: none; z-index: 9997; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s; opacity: 0; }
+    body.cursor-active:has(a:hover) #cursor-ring, body.cursor-active:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: rgba(201,168,76,0.9); }
+    @media (max-width: 768px) { #cursor-dot, #cursor-ring { display: none; } }
+
+    /* ═══ VIDEO HERO ═══ */
+    .hero-video { position: absolute; inset: 0; overflow: hidden; }
+    .hero-video video { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%; width: auto; min-width: 100%; object-fit: cover; }
+
+    /* ═══ SCROLL PROGRESS BAR ═══ */
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, #C9A84C, #E8D5B7); z-index: 9999; width: 0%; will-change: width; }
+
+    /* ═══ SECTION TITLE SPLIT — gestito da GSAP SplitText ═══ */
+
+    /* ═══ DEST CARD CLIP REVEAL — gestito da GSAP ═══ */
+
+    /* ═══ TOUR CARD 3D ═══ */
+    .tour-card { transform-style: preserve-3d; perspective: 1200px; }
+    .tour-card-inner { transform-style: preserve-3d; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+
+    /* (hscroll-quote rimosso — sostituito da brand-statement) */
+
+    /* ═══ VALUE CARD BORDER DRAW ═══ */
+    .value-card { position: relative; border-top: none !important; }
+    .value-card::before { content: ''; position: absolute; top: 0; left: 0; width: var(--border-w, 0%); height: 1px; background: linear-gradient(90deg, #C9A84C, rgba(201,168,76,0.3)); }
+
+    /* ═══ PINNED STORY SECTION ═══ */
+    /* ═══ BRAND STATEMENT SECTION ═══ */
+    .brand-statement { position: relative; min-height: 70vh; background: #0A0908; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .brand-statement-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 60%); }
+    .brand-statement-bg::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,168,76,0.015) 80px, rgba(201,168,76,0.015) 81px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,168,76,0.015) 80px, rgba(201,168,76,0.015) 81px); }
+    .brand-statement-content { position: relative; z-index: 2; text-align: center; padding: 4rem 2rem; }
+    .brand-statement-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; color: #F7F3EE; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .brand-statement-line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); margin: 0 auto 2rem; }
+    .brand-statement-tagline { font-size: 0.9rem; color: rgba(247,243,238,0.5); line-height: 2; font-weight: 300; max-width: 500px; margin: 0 auto; letter-spacing: 0.03em; }
+    /* ═══ PRELOADER — TRE ATTI CON PORTE FOTOGRAFICHE ═══ */
+    .preloader { position: fixed; inset: 0; z-index: 10000; perspective: 1200px; background: #0A0908; }
+    /* Atto 1: sfondo nero con logo */
+    .preloader-intro { position: absolute; inset: 0; background: #0A0908; z-index: 5; display: flex; align-items: center; justify-content: center; }
+    .preloader-intro-content { text-align: center; opacity: 0; }
+    .preloader-intro-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: #C9A84C; margin-top: 1rem; }
+    .preloader-intro-line { width: 0; height: 1px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); margin: 0.75rem auto 0; }
+    .preloader-intro-sub { font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(201,168,76,0.4); margin-top: 0.75rem; opacity: 0; }
+    /* Atto 2-3: porte fotografiche con 3D */
+    .preloader-doors { position: absolute; inset: 0; z-index: 3; display: flex; opacity: 0; }
+    .preloader-door { width: 50%; height: 100%; transform-style: preserve-3d; position: relative; overflow: hidden; }
+    .preloader-door--left { transform-origin: left center; }
+    .preloader-door--right { transform-origin: right center; }
+    /* Immagine della porta — copre l'intera anta */
+    .preloader-door img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* SPESSORE 3D — fianco pietra visibile alla rotazione */
+    .door-side { position: absolute; top: 0; width: 50px; height: 100%; background: linear-gradient(180deg, #3D3529 0%, #2A2218 30%, #1E1A14 60%, #2A2218 100%); }
+    .preloader-door--left .door-side { right: -50px; transform: rotateY(90deg); transform-origin: left center;
+      box-shadow: inset 4px 0 12px rgba(0,0,0,0.5); }
+    .preloader-door--right .door-side { left: -50px; transform: rotateY(-90deg); transform-origin: right center;
+      box-shadow: inset -4px 0 12px rgba(0,0,0,0.5); }
+    /* Texture pietra sul fianco */
+    .door-side::after { content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.15; mix-blend-mode: overlay; }
+    /* Luce dalla fessura */
+    .preloader-glow { position: absolute; top: 0; left: 50%; width: 3px; height: 100%; transform: translateX(-50%);
+      background: linear-gradient(to bottom, transparent 5%, rgba(255,240,200,0.5) 25%, rgba(255,240,200,0.8) 50%, rgba(255,240,200,0.5) 75%, transparent 95%);
+      z-index: 4; filter: blur(5px); opacity: 0; }
+
+    /* ═══ MARQUEE ═══ */
+    .marquee-section { background: #0F0E0C; border-top: 1px solid rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.08); padding: 1.1rem 0; overflow: hidden; }
+    .marquee-track { display: flex; gap: 0; width: max-content; animation: marquee 28s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.4); padding: 0 2.5rem; white-space: nowrap; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+    .marquee-item span { color: rgba(201,168,76,0.15); margin-left: 2.5rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ═══ MAGNETIC BTN ═══ */
+    .btn-primary, .btn-outline { transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94), background 0.3s, color 0.3s; will-change: transform; }
+
+    /* ═══ DEST CARD PARALLAX ═══ */
+    .dest-card { overflow: hidden; }
+    .dest-img { will-change: transform; }
+
+    /* ═══ GSAP gestisce reveal — nessun CSS hiding ═══ */
   </style>
 </head>
 <body>
 
 <!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ═══ PRELOADER — TRE ATTI ═══ -->
+<div class="preloader" id="preloader">
+  <!-- ATTO 1: Schermo nero con logo -->
+  <div class="preloader-intro" id="preloader-intro">
+    <div class="preloader-intro-content" id="intro-content">
+      <svg width="56" height="56" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="22" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+        <circle cx="30" cy="30" r="1.5" fill="#C9A84C" opacity="0.5"/>
+        <path d="M30 8 L33 25 L30 22 L27 25 Z" fill="#C9A84C" opacity="0.75"/>
+        <path d="M30 52 L33 35 L30 38 L27 35 Z" fill="#C9A84C" opacity="0.18"/>
+        <path d="M52 30 L35 27 L38 30 L35 33 Z" fill="#C9A84C" opacity="0.18"/>
+        <path d="M8 30 L25 27 L22 30 L25 33 Z" fill="#C9A84C" opacity="0.18"/>
+      </svg>
+      <div class="preloader-intro-text">Antika Travels</div>
+      <div class="preloader-intro-line" id="intro-line"></div>
+      <div class="preloader-intro-sub" id="intro-sub">Archaeological Journeys</div>
+    </div>
+  </div>
+  <!-- ATTO 2-3: Porte dorate -->
+  <div class="preloader-doors" id="preloader-doors">
+    <div class="preloader-door preloader-door--left" id="door-left">
+      <div class="door-side"></div>
+      <img src="brand-assets/door-left.jpg" alt="" />
+    </div>
+    <div class="preloader-door preloader-door--right" id="door-right">
+      <div class="door-side"></div>
+      <img src="brand-assets/door-right.jpg" alt="" />
+    </div>
+    <div class="preloader-glow" id="preloader-glow"></div>
+  </div>
+</div>
+
+<!-- Preloader animation — tre atti + dissolve sabbia -->
+<script>
+  // Pausa il video hero fino a fine preloader
+  var heroVideo = document.querySelector('.hero-video video');
+  if (heroVideo) { heroVideo.pause(); heroVideo.currentTime = 0; }
+
+  var ptl = gsap.timeline();
+  // ═══ ATTO 1: Schermo nero — logo appare ═══
+  ptl.to('#intro-content', { opacity: 1, duration: 0.8, ease: 'power2.out' }, 0.3);
+  ptl.to('#intro-line', { width: '40px', duration: 0.6, ease: 'power2.out' }, 0.7);
+  ptl.to('#intro-sub', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 1.0);
+  // ═══ ATTO 2: Logo sfuma — porte si rivelano ═══
+  ptl.to('#intro-content', { opacity: 0, scale: 0.95, duration: 0.6, ease: 'power2.in' }, 2.0);
+  ptl.to('#preloader-doors', { opacity: 1, duration: 0.5, ease: 'power2.out' }, 2.4);
+  ptl.to('#preloader-intro', { opacity: 0, duration: 0.3 }, 2.6);
+  ptl.to('#preloader-glow', { opacity: 1, width: '6px', duration: 0.4 }, 2.8);
+  // ═══ ATTO 3: Porte si dissolvono in sabbia ═══
+  ptl.to('#preloader-glow', { width: '60px', filter: 'blur(20px)', opacity: 0.9, duration: 0.6, ease: 'power2.in' }, 3.2);
+  ptl.add(function() {
+    // Avvia dissolve particelle
+    dissolveDoors();
+  }, 3.6);
+  ptl.to('#preloader-glow', { opacity: 0, width: '400px', filter: 'blur(60px)', duration: 1.5 }, 4.0);
+  ptl.to('#preloader', { autoAlpha: 0, duration: 0.5, onComplete: function() {
+    document.getElementById('preloader').style.display = 'none';
+    // Avvia il video hero
+    if (heroVideo) { heroVideo.currentTime = 0; heroVideo.play(); }
+  }}, 5.8);
+
+  // ═══ DISSOLVE SABBIA — particelle canvas ═══
+  function dissolveDoors() {
+    var doors = document.getElementById('preloader-doors');
+    var canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;inset:0;z-index:10;pointer-events:none;';
+    canvas.width = window.innerWidth * 2;
+    canvas.height = window.innerHeight * 2;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    doors.parentElement.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+
+    // Colori sabbia/pietra estratti dalle porte
+    var colors = ['#C9A84C','#A07D28','#8B7355','#6B5B3E','#4A4035','#3D3529','#D4B87A','#BFA055'];
+    var particles = [];
+    var W = canvas.width, H = canvas.height;
+
+    // Genera particelle distribuite sulla superficie delle porte
+    for (var i = 0; i < 3000; i++) {
+      var isLeft = Math.random() < 0.5;
+      particles.push({
+        x: isLeft ? Math.random() * W * 0.5 : W * 0.5 + Math.random() * W * 0.5,
+        y: Math.random() * H,
+        size: 1 + Math.random() * 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 8 + (isLeft ? -3 : 3),
+        vy: -1 - Math.random() * 5,
+        gravity: 0.06 + Math.random() * 0.04,
+        alpha: 0.8 + Math.random() * 0.2,
+        decay: 0.008 + Math.random() * 0.008,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.1
+      });
+    }
+
+    // Fade out le porte originali
+    gsap.to('#door-left', { opacity: 0, duration: 1.5, ease: 'power2.in' });
+    gsap.to('#door-right', { opacity: 0, duration: 1.5, ease: 'power2.in' });
+
+    var frame = 0;
+    function animateParticles() {
+      ctx.clearRect(0, 0, W, H);
+      var alive = false;
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (p.alpha <= 0) continue;
+        alive = true;
+        // Delay: particelle partono in onde dal centro verso l'esterno
+        if (frame < (Math.abs(p.x - W/2) / W) * 40) continue;
+        p.vy += p.gravity;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rotation += p.rotSpeed;
+        p.alpha -= p.decay;
+        if (p.alpha <= 0) continue;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+        ctx.restore();
+      }
+      frame++;
+      if (alive && frame < 200) requestAnimationFrame(animateParticles);
+      else canvas.remove();
+    }
+    requestAnimationFrame(animateParticles);
+  }
+</script>
+
+<!-- ═══ SCROLL PROGRESS ═══ -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- ═══ CURSOR CUSTOM ═══ -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
 
 <!-- ═══ EXIT-INTENT POPUP ═══ -->
 <div id="exit-popup-backdrop" class="exit-popup-backdrop"></div>
@@ -240,16 +469,60 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="hero">
-  <div class="hero-img-placeholder"></div>
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="brand-assets/video antika travel.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <p class="hero-label" data-it="Viaggi Archeologici di Lusso · Gruppi Esclusivi" data-en="Luxury Archaeological Journeys · Exclusive Groups" data-tr="Lüks Arkeolojik Seyahatler · Özel Gruplar">Viaggi Archeologici di Lusso · Gruppi Esclusivi</p>
-    <h1 class="hero-title">
+    <p class="hero-label" id="hero-label" style="opacity:0;" data-it="Viaggi Archeologici di Lusso · Gruppi Esclusivi" data-en="Luxury Archaeological Journeys · Exclusive Groups" data-tr="Lüks Arkeolojik Seyahatler · Özel Gruplar">Viaggi Archeologici di Lusso · Gruppi Esclusivi</p>
+    <h1 class="hero-title" id="hero-title">
       <span data-it="Dove la storia" data-en="Where history" data-tr="Tarihin">Dove la storia</span><br>
       <em data-it="ti appartiene." data-en="belongs to you." data-tr="sana ait olduğu yer.">ti appartiene.</em>
     </h1>
-    <p class="hero-sub" data-it="Itinerari su misura in Egitto, Turchia e Italia. Guidati da un'archeologa. Per chi non si accontenta di guardare." data-en="Bespoke itineraries in Egypt, Turkey and Italy. Led by an archaeologist. For those who refuse to merely observe." data-tr="Mısır, Türkiye ve İtalya'da özel güzergahlar. Bir arkeolog tarafından yönetilir. Sadece bakmakla yetinmeyenler için.">Itinerari su misura in Egitto, Turchia e Italia. Guidati da un'archeologa. Per chi non si accontenta di guardare.</p>
-    <div class="hero-scroll" data-it="Scopri i viaggi" data-en="Discover the journeys" data-tr="Seyahatleri keşfet">Scopri i viaggi</div>
+    <p class="hero-sub" id="hero-sub" style="opacity:0;" data-it="Itinerari su misura in Egitto, Turchia e Italia. Guidati da un'archeologa. Per chi non si accontenta di guardare." data-en="Bespoke itineraries in Egypt, Turkey and Italy. Led by an archaeologist. For those who refuse to merely observe." data-tr="Mısır, Türkiye ve İtalya'da özel güzergahlar. Bir arkeolog tarafından yönetilir. Sadece bakmakla yetinmeyenler için.">Itinerari su misura in Egitto, Turchia e Italia. Guidati da un'archeologa. Per chi non si accontenta di guardare.</p>
+    <div class="hero-scroll" id="hero-scroll" style="opacity:0;" data-it="Scopri i viaggi" data-en="Discover the journeys" data-tr="Seyahatleri keşfet">Scopri i viaggi</div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee-track">
+    <span class="marquee-item">Egitto<span>·</span></span>
+    <span class="marquee-item">Turchia<span>·</span></span>
+    <span class="marquee-item">Italia<span>·</span></span>
+    <span class="marquee-item">Anatolia<span>·</span></span>
+    <span class="marquee-item">Viaggi Esclusivi<span>·</span></span>
+    <span class="marquee-item">Gruppi di 10<span>·</span></span>
+    <span class="marquee-item">Guidati da un'Archeologa<span>·</span></span>
+    <span class="marquee-item">Egitto<span>·</span></span>
+    <span class="marquee-item">Turchia<span>·</span></span>
+    <span class="marquee-item">Italia<span>·</span></span>
+    <span class="marquee-item">Anatolia<span>·</span></span>
+    <span class="marquee-item">Viaggi Esclusivi<span>·</span></span>
+    <span class="marquee-item">Gruppi di 10<span>·</span></span>
+    <span class="marquee-item">Guidati da un'Archeologa<span>·</span></span>
+  </div>
+</div>
+
+<!-- ═══ BRAND STATEMENT ═══ -->
+<section class="brand-statement" id="brand-statement">
+  <div class="brand-statement-bg"></div>
+  <div class="brand-statement-content reveal">
+    <svg width="72" height="72" viewBox="0 0 60 60" style="opacity:0.45; margin-bottom:2rem;">
+      <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.4"/>
+      <circle cx="30" cy="30" r="22" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+      <circle cx="30" cy="30" r="17" fill="none" stroke="#C9A84C" stroke-width="0.3" opacity="0.3"/>
+      <circle cx="30" cy="30" r="1.5" fill="#C9A84C" opacity="0.5"/>
+      <path d="M30 2 L33 25 L30 22 L27 25 Z" fill="#C9A84C" opacity="0.75"/>
+      <path d="M30 58 L33 35 L30 38 L27 35 Z" fill="#C9A84C" opacity="0.18"/>
+      <path d="M58 30 L35 27 L38 30 L35 33 Z" fill="#C9A84C" opacity="0.18"/>
+      <path d="M2 30 L25 27 L22 30 L25 33 Z" fill="#C9A84C" opacity="0.18"/>
+    </svg>
+    <h2 class="brand-statement-title" data-it="Antika Travels" data-en="Antika Travels" data-tr="Antika Travels">Antika Travels</h2>
+    <div class="brand-statement-line"></div>
+    <p class="brand-statement-tagline" data-it="Non organizziamo viaggi. Riportiamo in vita i luoghi che il mondo ha dimenticato." data-en="We don't organize trips. We bring back to life the places the world has forgotten." data-tr="Seyahat düzenlemiyoruz. Dünyanın unuttuğu yerleri hayata döndürüyoruz.">Non organizziamo viaggi. Riportiamo in vita i luoghi che il mondo ha dimenticato.</p>
   </div>
 </section>
 
@@ -841,6 +1114,155 @@
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)';
     });
+  });
+
+  // ═══ GSAP SISTEMA AVANZATO ═══
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // ─── 1. Cursore custom con lag elastico ───
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  let mX = 0, mY = 0, rX = 0, rY = 0;
+  document.addEventListener('mousemove', e => {
+    mX = e.clientX; mY = e.clientY;
+    gsap.set(dot, { x: mX, y: mY });
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
+    document.body.classList.add('cursor-active');
+  });
+  document.addEventListener('mouseleave', () => {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+    document.body.classList.remove('cursor-active');
+  });
+  (function ringLoop() {
+    rX += (mX - rX) * 0.09;
+    rY += (mY - rY) * 0.09;
+    gsap.set(ring, { x: rX, y: rY });
+    requestAnimationFrame(ringLoop);
+  })();
+
+  // ─── 2. Scroll progress bar ───
+  gsap.to('#scroll-progress', {
+    width: '100%',
+    ease: 'none',
+    scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: 0.3 }
+  });
+
+  // ─── 3. Hero entrance — SplitText chars + stagger ───
+  window.addEventListener('load', () => {
+    const title = document.getElementById('hero-title');
+    if (title && typeof SplitText !== 'undefined') {
+      const split = new SplitText(title, { type: 'words,chars' });
+      gsap.from(split.chars, {
+        opacity: 0, y: 60, rotateX: -45, transformOrigin: 'bottom center',
+        stagger: 0.018, duration: 1.3, ease: 'power4.out', delay: 0.2,
+        onComplete: () => split.revert()
+      });
+    }
+    gsap.fromTo('#hero-label', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.9, delay: 0.7, ease: 'power2.out' });
+    gsap.fromTo('#hero-sub', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.9, delay: 1.0, ease: 'power2.out' });
+    gsap.fromTo('#hero-scroll', { opacity: 0 }, { opacity: 1, duration: 0.8, delay: 1.4, ease: 'power2.out' });
+  });
+
+  // ─── 4. Hero scale + parallax cinematografico su scroll exit ───
+  const heroTl = gsap.timeline({
+    scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+  heroTl.to('.hero-video', { scale: 1.12, ease: 'none' }, 0);
+  heroTl.to('.hero-video video', { yPercent: 15, ease: 'none' }, 0);
+  heroTl.to('.hero-bg', { opacity: 0.9, ease: 'none' }, 0);
+  heroTl.to('.hero-content', { yPercent: -25, opacity: 0, ease: 'power1.in' }, 0);
+
+  // ─── 5. (preloader spostato in script separato sopra) ───
+
+  // ─── 6. IntersectionObserver — REVEAL ROBUSTO per tutti gli elementi ───
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ─── 7. SplitText reveal su TUTTI i titoli di sezione ───
+  if (typeof SplitText !== 'undefined') {
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const title = entry.target;
+          const split = new SplitText(title, { type: 'words,chars' });
+          gsap.from(split.chars, {
+            opacity: 0, y: 40, rotateX: -40, transformOrigin: 'bottom center',
+            stagger: 0.015, duration: 0.9, ease: 'power3.out',
+            onComplete: () => split.revert()
+          });
+          titleObserver.unobserve(title);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.section-title').forEach(t => titleObserver.observe(t));
+  }
+
+  // ─── 8. Destination images parallax (solo GSAP scrub — non tocca opacity) ───
+  document.querySelectorAll('.dest-img').forEach(img => {
+    gsap.to(img, {
+      yPercent: -15, ease: 'none',
+      scrollTrigger: { trigger: img.closest('.dest-card'), start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  });
+
+  // ─── 9. Value cards — border draw con IntersectionObserver ───
+  const borderObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        gsap.to(entry.target, { '--border-w': '100%', duration: 1, ease: 'power2.out' });
+        borderObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.value-card').forEach(card => borderObserver.observe(card));
+
+  // ─── 10. Counter animati value props ───
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.textContent);
+        gsap.from({ val: 0 }, {
+          val: target, duration: 1.5, ease: 'power2.out',
+          onUpdate: function() { el.textContent = String(Math.round(this.targets()[0].val)).padStart(2, '0'); }
+        });
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.value-num').forEach(el => counterObserver.observe(el));
+
+  // ─── 11. (rimosso) ───
+
+  // ─── 14. Magnetic buttons ───
+  document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const dx = e.clientX - (rect.left + rect.width / 2);
+      const dy = e.clientY - (rect.top + rect.height / 2);
+      gsap.to(btn, { x: dx * 0.28, y: dy * 0.22, duration: 0.35, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, 0.4)' });
+    });
+  });
+
+  // ─── 15. Nav parallax opacity su hero ───
+  ScrollTrigger.create({
+    trigger: '#hero',
+    start: 'top top',
+    end: '70% top',
+    onLeave: () => gsap.to('.logo-icon', { rotation: 360, duration: 1.2, ease: 'power2.inOut' }),
+    onEnterBack: () => gsap.to('.logo-icon', { rotation: 0, duration: 0.8, ease: 'power2.out' })
   });
 
   // ═══ LINGUA ═══
