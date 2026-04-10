@@ -23,7 +23,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?v=3"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
@@ -65,7 +65,7 @@
     /* Nav */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
     nav.scrolled { background: rgba(247,243,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 2.5rem; }
-    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
+    .logo { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #F7F3EE; text-decoration: none; transition: color 0.4s; }
     nav.scrolled .logo { color: #0F0E0C; }
     .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
     nav.scrolled .nav-link { color: #7A7068; }
@@ -108,11 +108,11 @@
     .tour-card { transform-style: preserve-3d; transition: border-color 0.3s, background 0.3s, transform 0.15s ease-out; }
 
     /* 3D Artifact section */
-    .artifact-section { position: relative; height: 50vh; min-height: 400px; background: #2A2218; overflow: hidden; }
+    .artifact-section { position: relative; height: 50vh; min-height: 400px; background: #342C22; overflow: hidden; }
     .artifact-section canvas { display: block; width: 100%; height: 100%; }
-    .artifact-label { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; pointer-events: none; }
-    .artifact-label p { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; font-family: 'DM Sans', sans-serif; }
-    .artifact-label h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; color: rgba(247,243,238,0.7); margin-top: 0.5rem; font-style: italic; }
+    .artifact-label { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; pointer-events: none; background: rgba(52,44,34,0.7); padding: 1rem 2rem; backdrop-filter: blur(4px); }
+    .artifact-label p { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; font-family: 'DM Sans', sans-serif; }
+    .artifact-label h3 { font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; color: #F7F3EE; margin-top: 0.5rem; }
     .dest-card { position: relative; overflow: hidden; cursor: pointer; }
     .dest-card .dest-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; transition: transform 0.7s ease; display: block; }
     .dest-card:hover .dest-img { transform: scale(1.04); }
@@ -195,7 +195,7 @@
       .hero-sub { font-size: 0.8rem; max-width: 100%; }
       nav { padding: 1rem 1rem; }
       nav.scrolled { padding: 0.75rem 1rem; }
-      .logo { font-size: 1rem; letter-spacing: 0.15em; }
+      .logo { font-size: 0.85rem; letter-spacing: 0.12em; }
       .nav-cta { font-size: 0.55rem; padding: 0.4rem 0.8rem; white-space: nowrap; }
       .section-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
       .brand-statement-title { font-size: clamp(2rem, 8vw, 3.5rem); letter-spacing: 0.08em; }
@@ -245,7 +245,7 @@
     .brand-statement-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.15) 0%, transparent 60%); }
     .brand-statement-bg::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px); }
     .brand-statement-content { position: relative; z-index: 2; text-align: center; padding: 4rem 2rem; }
-    .brand-statement-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; color: #C9A84C; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .brand-statement-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; color: #C9A84C; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
     .brand-statement-line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); margin: 0 auto 2rem; }
     .brand-statement-tagline { font-size: 0.95rem; color: rgba(247,243,238,0.75); line-height: 2; font-weight: 300; max-width: 500px; margin: 0 auto; letter-spacing: 0.03em; }
     /* Preloader rimosso */
