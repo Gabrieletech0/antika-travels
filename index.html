@@ -638,8 +638,7 @@
       .gallery-header { padding: 1.2rem 1.5rem; }
     }
 
-    /* ═══ GSAP initial states per dest-card e tour-card ═══ */
-    .dest-card { clip-path: inset(0 100% 0 0); }
+    /* ═══ GSAP initial states ═══ */
     .tour-card { opacity: 0; transform: translateY(35px); }
   </style>
 </head>
@@ -691,7 +690,7 @@
       <img src="brand-assets/logo-antiqora-v2.png" alt="Antiqora Travel" class="nav-logo-img" />
     </a>
     <div class="hidden md:flex items-center gap-8">
-      <a href="#destinazioni" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="#gallery-reel" class="nav-link" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
       <a href="#tour" class="nav-link" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
       <a href="#come-funziona" class="nav-link" data-it="Come funziona" data-en="How it works" data-tr="Nasıl çalışır">Come funziona</a>
       <a href="#ipek" class="nav-link" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
@@ -713,7 +712,7 @@
 
 <!-- Mobile dropdown menu -->
 <div id="mobile-menu" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:199; background:rgba(15,14,12,0.97); backdrop-filter:blur(20px); padding:6rem 2rem 3rem; flex-direction:column; align-items:center; justify-content:center; gap:2rem;">
-  <a href="#destinazioni" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+  <a href="#gallery-reel" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
   <a href="#tour" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Tour" data-en="Tours" data-tr="Turlar">Tour</a>
   <a href="#come-funziona" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Come funziona" data-en="How it works" data-tr="Nasıl çalışır">Come funziona</a>
   <a href="#ipek" class="mobile-menu-link" onclick="closeMobileMenu()" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
@@ -791,7 +790,7 @@
 
   <!-- Header -->
   <div class="gallery-header">
-    <span class="gallery-section-tag" data-it="Le nostre destinazioni" data-en="Our destinations" data-tr="Destinasyonlarımız">Le nostre destinazioni</span>
+    <span class="gallery-section-tag" data-it="Quattro mondi. Un'unica guida." data-en="Four worlds. One guide." data-tr="Dört dünya. Tek rehber.">Quattro mondi. Un'unica guida.</span>
     <div class="gallery-counter">
       <span class="g-curr" id="gallery-curr">01</span>
       <span class="g-sep">/</span>
@@ -904,49 +903,6 @@
 </section>
 
 <!-- ═══ DESTINAZIONI ═══ -->
-<section id="destinazioni" class="py-24 px-6 bg-ivory">
-  <div class="max-w-6xl mx-auto">
-    <div class="reveal mb-14">
-      <p class="section-label" data-it="Le nostre destinazioni" data-en="Our destinations" data-tr="Destinasyonlarımız">Le nostre destinazioni</p>
-      <h2 class="section-title" data-it="Tre civiltà. Un unico filo." data-en="Three civilisations. One thread." data-tr="Üç medeniyet. Tek bir iplik.">Tre civiltà. Un unico filo.</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-4">
-      <!-- EGITTO -->
-      <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Egitto',content_type:'destination'})">
-        <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici — Egitto" class="dest-img" style="object-position:center 20%;" loading="lazy" decoding="async" />
-        <div class="dest-overlay"></div>
-        <div class="dest-content">
-          <div class="dest-tag mb-2" data-it="Valle dei Re · Luxor · Il Cairo" data-en="Valley of the Kings · Luxor · Cairo" data-tr="Krallar Vadisi · Luksor · Kahire">Valle dei Re · Luxor · Il Cairo</div>
-          <div class="dest-name" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</div>
-          <p class="text-xs font-light mt-2" style="color:rgba(247,243,238,0.6);" data-it="Dove le pietre parlano ancora." data-en="Where the stones still speak." data-tr="Taşların hâlâ konuştuğu yer.">Dove le pietre parlano ancora.</p>
-        </div>
-      </div>
-      <!-- TURCHIA -->
-      <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Turchia',content_type:'destination'})">
-        <img src="brand-assets/turkey-ephesus.jpg" alt="Biblioteca di Celso — Efeso, Turchia" class="dest-img" style="object-position:center 30%;" loading="lazy" decoding="async" />
-        <div class="dest-overlay"></div>
-        <div class="dest-content">
-          <div class="dest-tag mb-2" data-it="Efeso · Cappadocia · Istanbul" data-en="Ephesus · Cappadocia · Istanbul" data-tr="Efes · Kapadokya · İstanbul">Efeso · Cappadocia · Istanbul</div>
-          <div class="dest-name" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</div>
-          <p class="text-xs font-light mt-2" style="color:rgba(247,243,238,0.6);" data-it="Dove Oriente e Occidente si sono incontrati." data-en="Where East and West have met." data-tr="Doğu ile Batı'nın buluştuğu yer.">Dove Oriente e Occidente si sono incontrati.</p>
-        </div>
-      </div>
-      <!-- ITALIA/ROMA -->
-      <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Italia',content_type:'destination'})">
-        <img src="brand-assets/italy-rome.jpg" alt="Colosseo — Roma, Italia" class="dest-img" style="object-position:center 40%;" loading="lazy" decoding="async" />
-        <div class="dest-overlay"></div>
-        <div class="dest-content">
-          <div class="dest-tag mb-2" data-it="Roma · Pompei · Paestum" data-en="Rome · Pompeii · Paestum" data-tr="Roma · Pompei · Paestum">Roma · Pompei · Paestum</div>
-          <div class="dest-name" data-it="Italia" data-en="Italy" data-tr="İtalya">Italia</div>
-          <p class="text-xs font-light mt-2" style="color:rgba(247,243,238,0.6);" data-it="Dove l'antico è ancora vivo sotto i tuoi piedi." data-en="Where the ancient is still alive beneath your feet." data-tr="Kadimin ayaklarının altında hâlâ yaşadığı yer.">Dove l'antico è ancora vivo sotto i tuoi piedi.</p>
-        </div>
-      </div>
-    </div>
-    <div class="reveal text-center mt-12">
-      <a href="#richiedi" class="btn-outline" data-it="Progetta il tuo itinerario" data-en="Design your itinerary" data-tr="Güzergahınızı tasarlayın">Progetta il tuo itinerario</a>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ TOUR ═══ -->
 <section id="tour" class="py-24 px-6 dark-textured" style="content-visibility:auto;contain-intrinsic-size:0 800px;">
@@ -1236,7 +1192,7 @@
       <p class="text-xs font-light" style="color:#5A5248; letter-spacing:0.05em;" data-it="Viaggi Archeologici su Misura" data-en="Bespoke Archaeological Journeys" data-tr="Özel Arkeolojik Seyahatler">Viaggi Archeologici su Misura</p>
     </div>
     <div class="flex flex-col sm:flex-row gap-6 text-xs" style="color:#5A5248; letter-spacing:0.1em; text-transform:uppercase;">
-      <a href="#destinazioni" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
+      <a href="#gallery-reel" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Destinazioni" data-en="Destinations" data-tr="Destinasyonlar">Destinazioni</a>
       <a href="#ipek" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Chi siamo" data-en="About" data-tr="Hakkımızda">Chi siamo</a>
       <a href="#richiedi" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors" data-it="Contatti" data-en="Contact" data-tr="İletişim">Contatti</a>
       <a href="https://www.instagram.com/ipekinrome/" target="_blank" style="color:#5A5248; text-decoration:none;" class="hover:text-gold transition-colors">Instagram</a>
@@ -1856,26 +1812,6 @@
 
   })();
 
-  // ─── B. DEST-CARD clip-path reveal (da sinistra) ───
-  (function() {
-    var cards = document.querySelectorAll('.dest-card');
-    if (!cards.length) return;
-    ScrollTrigger.create({
-      trigger: '#destinazioni',
-      start: 'top 72%',
-      once: true,
-      onEnter: function() {
-        cards.forEach(function(card, i) {
-          gsap.to(card, {
-            clipPath: 'inset(0 0% 0 0)',
-            duration: 1.25,
-            ease: 'power3.inOut',
-            delay: i * 0.18,
-          });
-        });
-      }
-    });
-  })();
 
   // ─── C. TOUR-CARD stagger reveal ───
   (function() {
