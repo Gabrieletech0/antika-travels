@@ -422,13 +422,15 @@
     /* ═══ GALLERY REEL — art gallery slider ═══ */
     .gallery-reel {
       position: relative;
-      height: 92vh;
-      min-height: 600px;
+      min-height: 92vh;
       overflow: hidden;
       background: #0F0E0C;
       user-select: none;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
     .gallery-ambient {
       position: absolute;
@@ -518,23 +520,23 @@
     }
     /* Header */
     .gallery-header {
-      position: absolute;
-      top: 0; left: 0; right: 0;
+      position: relative;
       z-index: 10;
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
-      padding: 1.8rem 2.5rem;
+      padding: 0 2.5rem 2rem;
       pointer-events: none;
+      flex-shrink: 0;
     }
     .gallery-section-tag {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 2.4vw, 2rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 300;
       font-style: italic;
-      color: rgba(247,243,238,0.72);
-      letter-spacing: 0.01em;
-      line-height: 1.2;
+      color: rgba(247,243,238,0.85);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
     }
     .gallery-counter {
       display: flex;
@@ -628,7 +630,7 @@
       font-size: 0.6rem;
     }
     @media (max-width: 768px) {
-      .gallery-reel { height: 85vh; min-height: 520px; }
+      .gallery-reel { min-height: 85vh; padding-top: 2rem; padding-bottom: 2rem; }
       .gallery-card { width: 290px; }
       .gallery-card img, .gallery-card video { height: 400px; }
       .gallery-track {
@@ -637,7 +639,7 @@
         gap: 18px;
       }
       .gallery-arrow { display: none; }
-      .gallery-header { padding: 1.2rem 1.5rem; }
+      .gallery-header { padding: 0 1.5rem 1.5rem; }
     }
 
     /* ═══ GSAP initial states ═══ */
@@ -792,7 +794,7 @@
 
   <!-- Header -->
   <div class="gallery-header">
-    <span class="gallery-section-tag" data-it="Il passato non è lontano. È ovunque." data-en="The past is not far. It's everywhere." data-tr="Geçmiş uzakta değil. Her yerde.">Il passato non è lontano. È ovunque.</span>
+    <span class="gallery-section-tag" data-it="Non si va. Si ritorna." data-en="You don't travel. You return." data-tr="Gidilmez. Geri dönülür.">Non si va. Si ritorna.</span>
     <div class="gallery-counter">
       <span class="g-curr" id="gallery-curr">01</span>
       <span class="g-sep">/</span>
