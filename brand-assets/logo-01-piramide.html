@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo 01 — Piramide | Antika Travels</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+
+    .section { width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5rem 2rem; }
+    .dark { background: #0F0E0C; }
+    .light { background: #F7F3EE; }
+
+    .label { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 3rem; }
+    .label-gold { color: #C9A84C; }
+    .label-mist { color: #7A7068; }
+
+    .variants { display: flex; flex-wrap: wrap; gap: 4rem; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ VERSIONE SCURA — PRINCIPALE ═══ -->
+<div class="section dark">
+  <p class="label label-gold">01 — Piramide · Sfondo scuro</p>
+
+  <div class="variants">
+    <!-- Grande -->
+    <svg width="400" height="240" viewBox="0 0 400 240">
+      <!-- Piramide -->
+      <path d="M200 30 L260 120 L140 120 Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <!-- Secondo livello piramide (profondità) -->
+      <path d="M200 50 L240 110 L160 110 Z" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+      <!-- Cerchio sole -->
+      <circle cx="200" cy="65" r="12" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+      <circle cx="200" cy="65" r="3" fill="#C9A84C" opacity="0.2"/>
+      <!-- Raggi sole -->
+      <line x1="200" y1="50" x2="200" y2="45" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="212" y1="57" x2="215" y2="53" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="188" y1="57" x2="185" y2="53" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <!-- Linea base sabbia -->
+      <line x1="120" y1="122" x2="280" y2="122" stroke="#C9A84C" stroke-width="0.4" opacity="0.15"/>
+      <!-- Nome -->
+      <text x="200" y="162" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="30" fill="#F7F3EE" letter-spacing="10">ANTIKA</text>
+      <!-- Linee ai lati di TRAVELS -->
+      <line x1="100" y1="178" x2="155" y2="178" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+      <text x="200" y="182" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="300" font-size="10" fill="#C9A84C" letter-spacing="8">TRAVELS</text>
+      <line x1="245" y1="178" x2="300" y2="178" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+      <!-- Tagline -->
+      <text x="200" y="215" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="300" font-size="10" fill="rgba(247,243,238,0.2)">Bespoke Archaeological Journeys</text>
+    </svg>
+
+    <!-- Medio -->
+    <svg width="200" height="130" viewBox="0 0 200 130">
+      <path d="M100 12 L135 62 L65 62 Z" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="100" cy="32" r="7" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.5"/>
+      <text x="100" y="88" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="18" fill="#F7F3EE" letter-spacing="7">ANTIKA</text>
+      <line x1="40" y1="99" x2="73" y2="99" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+      <text x="100" y="103" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="300" font-size="6.5" fill="#C9A84C" letter-spacing="5">TRAVELS</text>
+      <line x1="127" y1="99" x2="160" y2="99" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+    </svg>
+
+    <!-- Piccolo / Favicon -->
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <path d="M30 8 L48 42 L12 42 Z" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="30" cy="22" r="5" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.5"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══ VERSIONE CHIARA ═══ -->
+<div class="section light">
+  <p class="label label-mist">01 — Piramide · Sfondo chiaro</p>
+
+  <div class="variants">
+    <!-- Grande -->
+    <svg width="400" height="240" viewBox="0 0 400 240">
+      <path d="M200 30 L260 120 L140 120 Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <path d="M200 50 L240 110 L160 110 Z" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+      <circle cx="200" cy="65" r="12" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+      <circle cx="200" cy="65" r="3" fill="#C9A84C" opacity="0.2"/>
+      <line x1="200" y1="50" x2="200" y2="45" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="212" y1="57" x2="215" y2="53" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="188" y1="57" x2="185" y2="53" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="120" y1="122" x2="280" y2="122" stroke="#C9A84C" stroke-width="0.4" opacity="0.15"/>
+      <text x="200" y="162" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="30" fill="#0F0E0C" letter-spacing="10">ANTIKA</text>
+      <line x1="100" y1="178" x2="155" y2="178" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+      <text x="200" y="182" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="300" font-size="10" fill="#8B6914" letter-spacing="8">TRAVELS</text>
+      <line x1="245" y1="178" x2="300" y2="178" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+      <text x="200" y="215" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="300" font-size="10" fill="rgba(122,112,104,0.35)">Bespoke Archaeological Journeys</text>
+    </svg>
+
+    <!-- Medio -->
+    <svg width="200" height="130" viewBox="0 0 200 130">
+      <path d="M100 12 L135 62 L65 62 Z" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="100" cy="32" r="7" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.5"/>
+      <text x="100" y="88" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="18" fill="#0F0E0C" letter-spacing="7">ANTIKA</text>
+      <line x1="40" y1="99" x2="73" y2="99" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+      <text x="100" y="103" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="300" font-size="6.5" fill="#8B6914" letter-spacing="5">TRAVELS</text>
+      <line x1="127" y1="99" x2="160" y2="99" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+    </svg>
+
+    <!-- Piccolo / Favicon -->
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <path d="M30 8 L48 42 L12 42 Z" fill="none" stroke="#8B6914" stroke-width="1.2"/>
+      <circle cx="30" cy="22" r="5" fill="none" stroke="#8B6914" stroke-width="0.8" opacity="0.5"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══ VERSIONE SOLO ORO SU NERO ═══ -->
+<div class="section dark">
+  <p class="label label-gold">01 — Piramide · Versione gold monocromatica</p>
+
+  <div class="variants">
+    <svg width="400" height="240" viewBox="0 0 400 240">
+      <path d="M200 30 L260 120 L140 120 Z" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <path d="M200 50 L240 110 L160 110 Z" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.25"/>
+      <circle cx="200" cy="65" r="12" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+      <circle cx="200" cy="65" r="3" fill="#C9A84C" opacity="0.2"/>
+      <line x1="200" y1="50" x2="200" y2="45" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="212" y1="57" x2="215" y2="53" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="188" y1="57" x2="185" y2="53" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+      <line x1="120" y1="122" x2="280" y2="122" stroke="#C9A84C" stroke-width="0.4" opacity="0.15"/>
+      <text x="200" y="162" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="30" fill="#C9A84C" letter-spacing="10">ANTIKA</text>
+      <line x1="100" y1="178" x2="155" y2="178" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+      <text x="200" y="182" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="300" font-size="10" fill="#C9A84C" letter-spacing="8" opacity="0.6">TRAVELS</text>
+      <line x1="245" y1="178" x2="300" y2="178" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══ VERSIONE ORIZZONTALE ═══ -->
+<div class="section dark">
+  <p class="label label-gold">01 — Piramide · Layout orizzontale</p>
+
+  <div class="variants">
+    <svg width="500" height="80" viewBox="0 0 500 80">
+      <!-- Piramide piccola a sinistra -->
+      <path d="M40 10 L60 50 L20 50 Z" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="40" cy="26" r="6" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity="0.5"/>
+      <!-- Separatore -->
+      <line x1="80" y1="15" x2="80" y2="55" stroke="#C9A84C" stroke-width="0.4" opacity="0.2"/>
+      <!-- Testo -->
+      <text x="100" y="38" font-family="Cinzel, serif" font-weight="500" font-size="22" fill="#F7F3EE" letter-spacing="8">ANTIKA</text>
+      <text x="100" y="55" font-family="DM Sans, sans-serif" font-weight="300" font-size="7" fill="#C9A84C" letter-spacing="5">TRAVELS</text>
+    </svg>
+
+    <!-- Orizzontale chiaro -->
+    <svg width="500" height="80" viewBox="0 0 500 80" style="background:#F7F3EE; border-radius:2px;">
+      <path d="M40 10 L60 50 L20 50 Z" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="40" cy="26" r="6" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity="0.5"/>
+      <line x1="80" y1="15" x2="80" y2="55" stroke="#C9A84C" stroke-width="0.4" opacity="0.2"/>
+      <text x="100" y="38" font-family="Cinzel, serif" font-weight="500" font-size="22" fill="#0F0E0C" letter-spacing="8">ANTIKA</text>
+      <text x="100" y="55" font-family="DM Sans, sans-serif" font-weight="300" font-size="7" fill="#8B6914" letter-spacing="5">TRAVELS</text>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
