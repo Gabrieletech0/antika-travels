@@ -427,8 +427,8 @@
     /* ═══ GALLERY REEL — art gallery slider ═══ */
     .gallery-reel {
       position: relative;
-      height: 80vh;
-      min-height: 520px;
+      height: 92vh;
+      min-height: 600px;
       overflow: hidden;
       background: #0F0E0C;
       user-select: none;
@@ -464,17 +464,17 @@
     .gallery-track {
       display: flex;
       align-items: center;
-      gap: 28px;
-      padding-left: calc(50vw - 330px);
-      padding-right: calc(50vw - 330px);
+      gap: 24px;
+      padding-left: calc(50vw - 210px);
+      padding-right: calc(50vw - 210px);
       will-change: transform;
       transform: translateZ(0);
     }
     .gallery-card {
       position: relative;
       flex-shrink: 0;
-      width: 660px;
-      border-radius: 16px;
+      width: 420px;
+      border-radius: 20px;
       overflow: visible;
       will-change: transform, opacity;
       transform: translateZ(0);
@@ -499,12 +499,27 @@
     .gallery-card img,
     .gallery-card video {
       width: 100%;
-      height: 420px;
+      height: 540px;
       object-fit: cover;
       display: block;
-      border-radius: 8px;
+      border-radius: 10px;
       will-change: transform;
       pointer-events: none;
+    }
+    /* Label sotto la card */
+    .gallery-card-label {
+      text-align: center;
+      margin-top: 0.9rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.25);
+      transition: color 0.4s ease;
+    }
+    .gallery-card.gallery-active .gallery-card-label {
+      color: #C9A84C;
     }
     /* Header */
     .gallery-header {
@@ -616,13 +631,13 @@
       font-size: 0.6rem;
     }
     @media (max-width: 768px) {
-      .gallery-reel { height: 60vh; min-height: 320px; }
-      .gallery-card { width: 300px; }
-      .gallery-card img, .gallery-card video { height: 200px; }
+      .gallery-reel { height: 85vh; min-height: 520px; }
+      .gallery-card { width: 290px; }
+      .gallery-card img, .gallery-card video { height: 400px; }
       .gallery-track {
-        padding-left: calc(50vw - 150px);
-        padding-right: calc(50vw - 150px);
-        gap: 16px;
+        padding-left: calc(50vw - 145px);
+        padding-right: calc(50vw - 145px);
+        gap: 18px;
       }
       .gallery-arrow { display: none; }
       .gallery-header { padding: 1.2rem 1.5rem; }
@@ -800,6 +815,7 @@
             <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Valle dei Re — Egitto" style="object-position:center 20%;" />
           </div>
         </div>
+        <div class="gallery-card-label" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</div>
       </div>
 
       <!-- Card 2 — Turchia -->
@@ -809,15 +825,17 @@
             <img src="brand-assets/turkey-ephesus.jpg" alt="Efeso — Turchia" style="object-position:center 30%;" />
           </div>
         </div>
+        <div class="gallery-card-label" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</div>
       </div>
 
-      <!-- Card 3 — Anatolia -->
+      <!-- Card 3 — Giordania -->
       <div class="gallery-card" data-index="2">
         <div class="gallery-card-frame">
           <div class="gallery-card-inner">
-            <img src="brand-assets/ipek-desert.JPG" alt="Göbekli Tepe — Anatolia" style="object-position:center top;" />
+            <img src="brand-assets/ipek-desert.JPG" alt="Giordania" style="object-position:center top;" />
           </div>
         </div>
+        <div class="gallery-card-label" data-it="Giordania" data-en="Jordan" data-tr="Ürdün">Giordania</div>
       </div>
 
       <!-- Card 4 — Italia -->
@@ -827,6 +845,7 @@
             <img src="brand-assets/italy-rome.jpg" alt="Magna Graecia — Italia" style="object-position:center 40%;" />
           </div>
         </div>
+        <div class="gallery-card-label" data-it="Italia" data-en="Italy" data-tr="İtalya">Italia</div>
       </div>
 
     </div>
@@ -1669,7 +1688,7 @@
 
     // Step = card width + gap (aggiornato al resize)
     function getStep() {
-      return window.innerWidth > 768 ? (660 + 28) : (300 + 16);
+      return window.innerWidth > 768 ? (420 + 24) : (290 + 18);
     }
 
     // Ambient gradient per ciascuna destinazione
