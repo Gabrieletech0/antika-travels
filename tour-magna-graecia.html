@@ -60,8 +60,10 @@
     /* Nav */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.5rem 2.5rem; transition: all 0.4s; }
     nav.scrolled { background: rgba(247,243,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem 2.5rem; }
-    .logo { position: relative; display: flex; align-items: center; text-decoration: none; height: 40px; }
-    .nav-logo-img { height: 140px; width: auto; max-width: none; position: absolute; top: 3px; left: 6px; transition: height 0.4s ease, top 0.4s ease; pointer-events: none; }
+    .logo { position: relative; display: flex; align-items: center; text-decoration: none; height: 40px; min-width: 130px; z-index: 10; cursor: pointer; }
+    .logo::after { content: ''; position: absolute; top: 0; left: 0; width: 140px; height: 160px; z-index: 5; transition: height 0.4s ease; }
+    nav.scrolled .logo::after { height: 50px; }
+    .nav-logo-img { height: 140px; width: auto; max-width: none; position: absolute; top: 3px; left: 6px; transition: height 0.4s ease, top 0.4s ease; }
     nav.scrolled .nav-logo-img { height: 40px; top: -1px; }
     .nav-link { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,243,238,0.75); text-decoration: none; transition: color 0.3s; font-weight: 400; }
     nav.scrolled .nav-link { color: #7A7068; }
