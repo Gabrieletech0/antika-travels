@@ -468,6 +468,7 @@
       padding-left: calc(50vw - 220px);
       padding-right: calc(50vw - 220px);
       will-change: transform;
+      transform: translateZ(0);
     }
     .gallery-card {
       position: relative;
@@ -475,6 +476,8 @@
       width: 440px;
       border-radius: 20px;
       overflow: visible;
+      will-change: transform, opacity;
+      transform: translateZ(0);
     }
     /* Glass frame ring */
     .gallery-card-frame {
@@ -573,7 +576,6 @@
       border: 1px solid rgba(255,255,255,0.07);
       background: rgba(255,255,255,0.04);
       border-radius: 100px;
-      backdrop-filter: blur(8px);
     }
     .gallery-counter .g-curr {
       font-family: 'Cormorant Garamond', serif;
@@ -627,7 +629,6 @@
       justify-content: center;
       cursor: pointer;
       transition: all 0.25s ease;
-      backdrop-filter: blur(10px);
       font-size: 1rem;
     }
     .gallery-arrow:hover {
@@ -966,7 +967,7 @@
     <div class="grid md:grid-cols-3 gap-4">
       <!-- EGITTO -->
       <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Egitto',content_type:'destination'})">
-        <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici — Egitto" class="dest-img" style="object-position:center 20%;" />
+        <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici — Egitto" class="dest-img" style="object-position:center 20%;" loading="lazy" decoding="async" />
         <div class="dest-overlay"></div>
         <div class="dest-content">
           <div class="dest-tag mb-2" data-it="Valle dei Re · Luxor · Il Cairo" data-en="Valley of the Kings · Luxor · Cairo" data-tr="Krallar Vadisi · Luksor · Kahire">Valle dei Re · Luxor · Il Cairo</div>
@@ -976,7 +977,7 @@
       </div>
       <!-- TURCHIA -->
       <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Turchia',content_type:'destination'})">
-        <img src="brand-assets/turkey-ephesus.jpg" alt="Biblioteca di Celso — Efeso, Turchia" class="dest-img" style="object-position:center 30%;" />
+        <img src="brand-assets/turkey-ephesus.jpg" alt="Biblioteca di Celso — Efeso, Turchia" class="dest-img" style="object-position:center 30%;" loading="lazy" decoding="async" />
         <div class="dest-overlay"></div>
         <div class="dest-content">
           <div class="dest-tag mb-2" data-it="Efeso · Cappadocia · Istanbul" data-en="Ephesus · Cappadocia · Istanbul" data-tr="Efes · Kapadokya · İstanbul">Efeso · Cappadocia · Istanbul</div>
@@ -986,7 +987,7 @@
       </div>
       <!-- ITALIA/ROMA -->
       <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Italia',content_type:'destination'})">
-        <img src="brand-assets/italy-rome.jpg" alt="Colosseo — Roma, Italia" class="dest-img" style="object-position:center 40%;" />
+        <img src="brand-assets/italy-rome.jpg" alt="Colosseo — Roma, Italia" class="dest-img" style="object-position:center 40%;" loading="lazy" decoding="async" />
         <div class="dest-overlay"></div>
         <div class="dest-content">
           <div class="dest-tag mb-2" data-it="Roma · Pompei · Paestum" data-en="Rome · Pompeii · Paestum" data-tr="Roma · Pompei · Paestum">Roma · Pompei · Paestum</div>
@@ -1002,7 +1003,7 @@
 </section>
 
 <!-- ═══ TOUR ═══ -->
-<section id="tour" class="py-24 px-6 dark-textured">
+<section id="tour" class="py-24 px-6 dark-textured" style="content-visibility:auto;contain-intrinsic-size:0 800px;">
   <div class="max-w-6xl mx-auto">
     <div class="reveal mb-4">
       <p class="section-label" data-it="Itinerari selezionati" data-en="Curated itineraries" data-tr="Seçili güzergahlar">Itinerari selezionati</p>
@@ -1144,21 +1145,21 @@
 </section>
 
 <!-- ═══ CHI È IPEK ═══ -->
-<section id="ipek" class="py-24 px-6 bg-ivory">
+<section id="ipek" class="py-24 px-6 bg-ivory" style="content-visibility:auto;contain-intrinsic-size:0 600px;">
   <div class="max-w-5xl mx-auto">
     <div class="grid md:grid-cols-5 gap-10 items-center">
       <!-- Foto colonna sinistra: 2 immagini impilate -->
       <div class="md:col-span-2 reveal">
         <div class="grid grid-cols-2 gap-3">
           <div class="ipek-photo" style="grid-row:1/3;">
-            <img src="brand-assets/ipek-desert.JPG" alt="Ipek Tarakçı nel deserto" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+            <img src="brand-assets/ipek-desert.JPG" alt="Ipek Tarakçı nel deserto" style="width:100%;height:100%;object-fit:cover;object-position:center top;" loading="lazy" decoding="async" />
           </div>
           <div class="flex flex-col gap-3">
             <div class="ipek-photo">
-              <img src="brand-assets/ipek-pyramid.JPG" alt="Ipek alle Piramidi di Giza" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 40%;" />
+              <img src="brand-assets/ipek-pyramid.JPG" alt="Ipek alle Piramidi di Giza" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 40%;" loading="lazy" decoding="async" />
             </div>
             <div class="ipek-photo">
-              <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;" />
+              <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%;" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -1561,6 +1562,8 @@
   // ═══ GSAP SISTEMA AVANZATO ═══
   gsap.registerPlugin(ScrollTrigger);
   if (typeof SplitText !== 'undefined') gsap.registerPlugin(SplitText);
+  gsap.ticker.lagSmoothing(0);           // niente catch-up frames dopo tab inattivo
+  gsap.defaults({ force3D: true });      // sempre GPU per tutte le animazioni
 
   // Cursore custom rimosso
 
@@ -1879,19 +1882,17 @@
       gsap.to(track, { x: -current * getStep(), duration: 0.35, ease: 'power2.out' });
     }, { passive: true });
 
-    // ── Wheel (orizzontale) ──
+    // ── Wheel — solo scroll orizzontale (trackpad), mai blocca lo scroll verticale ──
     var wheelTimer = null;
     wrap.addEventListener('wheel', function(e) {
-      var delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      if ((delta > 0 && current < total - 1) || (delta < 0 && current > 0)) {
-        e.preventDefault();
-        clearTimeout(wheelTimer);
-        wheelTimer = setTimeout(function() {
-          if (delta > 30)  goTo(current + 1);
-          if (delta < -30) goTo(current - 1);
-        }, 40);
-      }
-    }, { passive: false });
+      var isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+      if (!isHorizontal) return; // scroll verticale: lascia passare libero
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(function() {
+        if (e.deltaX > 30)  goTo(current + 1);
+        if (e.deltaX < -30) goTo(current - 1);
+      }, 40);
+    }, { passive: true });
 
     // ── Resize: ricalcola posizione ──
     window.addEventListener('resize', function() {
