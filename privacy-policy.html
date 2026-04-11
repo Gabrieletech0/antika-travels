@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy & Cookie Policy — Antiqora Travel</title>
+  <link rel="icon" type="image/svg+xml" href="brand-assets/logo-bussola-favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-border: rgba(201,168,76,0.2);
+      --ink: #0F0E0C;
+      --ink-mid: #3A3530;
+      --ivory: #F7F3EE;
+      --ivory-soft: rgba(247,243,238,0.75);
+      --bg-dark: #15120F;
+      --serif: 'Cormorant Garamond', serif;
+      --cinzel: 'Cinzel', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--ivory); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.8; overflow-x: hidden; font-size: 0.9rem; }
+
+    /* NAV */
+    nav { background: rgba(15,14,12,0.97); border-bottom: 1px solid var(--gold-border); padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: var(--cinzel); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+    .nav-back { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ivory-soft); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+    .nav-back::before { content: '← '; }
+
+    /* HEADER */
+    .page-header { background: var(--bg-dark); padding: 4rem 2.5rem 3rem; text-align: center; border-bottom: 1px solid var(--gold-border); }
+    .page-eyebrow { font-family: var(--cinzel); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+    .page-title { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 300; color: var(--ivory); line-height: 1.1; margin-bottom: 1rem; }
+    .page-title em { font-style: italic; color: var(--gold); }
+    .page-meta { font-size: 0.72rem; color: rgba(247,243,238,0.35); letter-spacing: 0.08em; }
+
+    /* LANG TABS */
+    .lang-tabs { display: flex; justify-content: center; gap: 0; border-bottom: 1px solid var(--gold-border); background: var(--bg-dark); }
+    .lang-tab { font-family: var(--cinzel); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 0.85rem 2rem; cursor: pointer; color: rgba(247,243,238,0.35); border: none; background: transparent; transition: color 0.2s; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+    .lang-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .lang-tab:hover { color: var(--ivory-soft); }
+
+    /* CONTENT */
+    .content { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
+    h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--ink); margin: 2.5rem 0 0.75rem; padding-top: 2.5rem; border-top: 1px solid rgba(201,168,76,0.15); line-height: 1.2; }
+    h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    h3 { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin: 1.75rem 0 0.5rem; }
+    p { margin-bottom: 1em; color: var(--ink-mid); }
+    ul { padding-left: 1.5rem; margin-bottom: 1em; }
+    li { margin-bottom: 0.4em; color: var(--ink-mid); }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: 500; color: var(--ink); }
+
+    /* TABLE */
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.82rem; }
+    .cookie-table th { background: var(--bg-dark); color: var(--ivory-soft); font-family: var(--cinzel); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+    .cookie-table td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(201,168,76,0.08); color: var(--ink-mid); vertical-align: top; }
+    .cookie-table tr:last-child td { border-bottom: none; }
+
+    /* HIGHLIGHT BOX */
+    .info-box { background: rgba(201,168,76,0.05); border-left: 2px solid var(--gold); padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 0 2px 2px 0; }
+    .info-box p { margin: 0; color: var(--ink-mid); font-size: 0.85rem; }
+
+    /* FOOTER */
+    footer { background: var(--bg-dark); border-top: 1px solid var(--gold-border); padding: 2rem 2.5rem; text-align: center; }
+    footer p { font-size: 0.7rem; color: rgba(247,243,238,0.3); letter-spacing: 0.05em; }
+    footer a { color: rgba(201,168,76,0.6); }
+
+    @media (max-width: 600px) { .content { padding: 2rem 1.25rem 4rem; } nav { padding: 1rem 1.25rem; } .page-header { padding: 3rem 1.25rem 2rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Antiqora Travel</a>
+  <a href="index.html" class="nav-back">Torna al sito</a>
+</nav>
+
+<div class="page-header">
+  <span class="page-eyebrow">Documento legale</span>
+  <h1 class="page-title">Privacy &amp; <em>Cookie Policy</em></h1>
+  <p class="page-meta">Ultimo aggiornamento: aprile 2026 &nbsp;·&nbsp; Last updated: April 2026</p>
+</div>
+
+<div class="lang-tabs">
+  <button class="lang-tab active" onclick="switchLang('it')">Italiano</button>
+  <button class="lang-tab" onclick="switchLang('en')">English</button>
+</div>
+
+<div class="content">
+
+  <!-- ═══ ITALIANO ═══ -->
+  <div class="lang-section active" id="section-it">
+
+    <h2>1. Titolare del Trattamento</h2>
+    <p>Il titolare del trattamento dei dati personali raccolti tramite il sito <strong>antika-travels.vercel.app</strong> è:</p>
+    <div class="info-box">
+      <p><strong>Ipek Tarakçı</strong><br>
+      Antiqora Travel<br>
+      Email: <a href="mailto:info@antiqoratravel.com">info@antiqoratravel.com</a><br>
+      <!-- SOSTITUISCI: aggiungi indirizzo fisico e P.IVA/CF quando disponibili -->
+      </p>
+    </div>
+
+    <h2>2. Dati Raccolti e Finalità</h2>
+
+    <h3>2.1 — Form di richiesta viaggio</h3>
+    <p>Quando compili il form "Richiedi un viaggio", raccogliamo: nome, indirizzo email, destinazione di interesse, numero di persone, periodo preferito, messaggio libero.</p>
+    <p><strong>Finalità:</strong> rispondere alla tua richiesta e organizzare il viaggio personalizzato.</p>
+    <p><strong>Base giuridica:</strong> esecuzione di misure precontrattuali su richiesta dell'interessato (art. 6 par. 1 lett. b GDPR).</p>
+    <p><strong>Conservazione:</strong> i dati vengono conservati per il tempo necessario a gestire la richiesta e, in caso di rapporto contrattuale, per il periodo previsto dalla normativa fiscale (10 anni).</p>
+
+    <h3>2.2 — Form newsletter</h3>
+    <p>Se ti iscrivi alla newsletter, raccogliamo il tuo indirizzo email.</p>
+    <p><strong>Finalità:</strong> inviarti aggiornamenti su nuovi itinerari, disponibilità e contenuti editoriali sul mondo dell'archeologia.</p>
+    <p><strong>Base giuridica:</strong> consenso esplicito (art. 6 par. 1 lett. a GDPR). Puoi revocare il consenso in qualsiasi momento cliccando "Disiscriviti" in fondo a ogni email.</p>
+    <p><strong>Conservazione:</strong> fino alla cancellazione dell'iscrizione.</p>
+
+    <h3>2.3 — Dati di navigazione</h3>
+    <p>Come tutti i siti web, i server raccolgono automaticamente indirizzo IP, tipo di browser, pagine visitate, data e ora dell'accesso. Questi dati vengono utilizzati esclusivamente per finalità di sicurezza e non vengono associati a persone fisiche identificabili.</p>
+
+    <h2>3. Cookie Policy</h2>
+    <p>Questo sito utilizza cookie e tecnologie simili. Puoi gestire le tue preferenze tramite il banner che appare alla prima visita o cancellando i cookie dal tuo browser.</p>
+
+    <h3>Cookie tecnici (sempre attivi)</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Nome</th><th>Scopo</th><th>Durata</th></tr></thead>
+      <tbody>
+        <tr><td><code>antiqora_lang</code></td><td>Memorizza la lingua preferita (IT/EN/TR)</td><td>Persistente (localStorage)</td></tr>
+        <tr><td><code>antiqora_consent</code></td><td>Memorizza la scelta sui cookie (sì/no)</td><td>Persistente (localStorage)</td></tr>
+        <tr><td><code>at_subscribed</code></td><td>Evita di mostrare popup a chi si è già iscritto</td><td>Persistente (localStorage)</td></tr>
+        <tr><td><code>at_exit_closed</code></td><td>Evita di mostrare l'exit popup nella stessa sessione</td><td>Sessione (sessionStorage)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cookie analytics (solo con consenso)</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Servizio</th><th>Scopo</th><th>Fornitore</th></tr></thead>
+      <tbody>
+        <tr><td>Google Analytics 4</td><td>Statistiche anonime di utilizzo del sito</td><td>Google Ireland Ltd</td></tr>
+        <tr><td>Google Tag Manager</td><td>Gestione centralizzata dei tag di tracciamento</td><td>Google Ireland Ltd</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cookie marketing (solo con consenso)</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Servizio</th><th>Scopo</th><th>Fornitore</th></tr></thead>
+      <tbody>
+        <tr><td>Facebook Pixel</td><td>Misurazione efficacia campagne pubblicitarie su Meta</td><td>Meta Platforms Ireland Ltd</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Terze Parti e Trasferimento Dati Extra-UE</h2>
+    <p>I dati possono essere trattati dai seguenti fornitori terzi, alcuni dei quali con sede extra-UE. Tutti dispongono di garanzie adeguate ai sensi del GDPR (Clausole Contrattuali Standard o decisioni di adeguatezza).</p>
+    <ul>
+      <li><strong>Brevo SAS</strong> (Francia) — invio email e gestione lista newsletter. <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">Privacy Policy Brevo</a></li>
+      <li><strong>Google LLC</strong> (USA) — Google Analytics 4, Google Tag Manager. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy Google</a></li>
+      <li><strong>Meta Platforms Inc.</strong> (USA) — Facebook Pixel. <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Privacy Policy Meta</a></li>
+      <li><strong>Cloudinary Inc.</strong> (USA) — hosting video hero. <a href="https://cloudinary.com/privacy" target="_blank" rel="noopener">Privacy Policy Cloudinary</a></li>
+      <li><strong>Vercel Inc.</strong> (USA) — hosting del sito web. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy Vercel</a></li>
+    </ul>
+
+    <h2>5. Diritti degli Interessati</h2>
+    <p>Ai sensi degli artt. 15–22 GDPR, hai il diritto di:</p>
+    <ul>
+      <li><strong>Accesso:</strong> ottenere conferma che stiamo trattando i tuoi dati e riceverne copia</li>
+      <li><strong>Rettifica:</strong> correggere dati inesatti o incompleti</li>
+      <li><strong>Cancellazione ("diritto all'oblio"):</strong> richiedere la cancellazione dei tuoi dati</li>
+      <li><strong>Limitazione:</strong> richiedere la limitazione del trattamento in determinati casi</li>
+      <li><strong>Portabilità:</strong> ricevere i tuoi dati in formato strutturato e leggibile da macchina</li>
+      <li><strong>Opposizione:</strong> opporti al trattamento basato su legittimo interesse</li>
+      <li><strong>Revoca del consenso:</strong> revocare in qualsiasi momento i consensi prestati, senza effetto retroattivo</li>
+    </ul>
+    <p>Per esercitare i tuoi diritti scrivi a: <a href="mailto:info@antiqoratravel.com">info@antiqoratravel.com</a></p>
+
+    <h2>6. Reclamo al Garante</h2>
+    <p>Se ritieni che il trattamento dei tuoi dati violi il GDPR, hai il diritto di presentare reclamo all'Autorità Garante per la Protezione dei Dati Personali:</p>
+    <p><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a> — Piazza Venezia 11, 00187 Roma</p>
+
+    <h2>7. Modifiche a questa Policy</h2>
+    <p>Ci riserviamo il diritto di aggiornare questa Privacy Policy. In caso di modifiche sostanziali, ti informeremo tramite un avviso sul sito o via email (se sei iscritto alla newsletter). La data di ultimo aggiornamento è indicata in cima a questo documento.</p>
+
+  </div><!-- /section-it -->
+
+  <!-- ═══ ENGLISH ═══ -->
+  <div class="lang-section" id="section-en">
+
+    <h2>1. Data Controller</h2>
+    <p>The data controller for personal data collected through <strong>antika-travels.vercel.app</strong> is:</p>
+    <div class="info-box">
+      <p><strong>Ipek Tarakçı</strong><br>
+      Antiqora Travel<br>
+      Email: <a href="mailto:info@antiqoratravel.com">info@antiqoratravel.com</a>
+      </p>
+    </div>
+
+    <h2>2. Data Collected and Purposes</h2>
+
+    <h3>2.1 — Journey request form</h3>
+    <p>When you submit the "Request a journey" form, we collect: name, email address, destination of interest, number of travellers, preferred period, free-text message.</p>
+    <p><strong>Purpose:</strong> to respond to your inquiry and organise your bespoke journey.</p>
+    <p><strong>Legal basis:</strong> pre-contractual measures at the data subject's request (Art. 6(1)(b) GDPR).</p>
+    <p><strong>Retention:</strong> data is kept as long as necessary to handle the request and, if a contract follows, for the period required by applicable tax law (10 years in Italy).</p>
+
+    <h3>2.2 — Newsletter form</h3>
+    <p>If you subscribe to our newsletter, we collect your email address.</p>
+    <p><strong>Purpose:</strong> to send you updates about new itineraries, availability, and editorial content about archaeology.</p>
+    <p><strong>Legal basis:</strong> explicit consent (Art. 6(1)(a) GDPR). You may withdraw consent at any time by clicking "Unsubscribe" at the bottom of any email.</p>
+    <p><strong>Retention:</strong> until you unsubscribe.</p>
+
+    <h3>2.3 — Navigation data</h3>
+    <p>Like all websites, servers automatically collect IP address, browser type, pages visited, and access timestamps. This data is used solely for security purposes and is not linked to identifiable individuals.</p>
+
+    <h2>3. Cookie Policy</h2>
+    <p>This site uses cookies and similar technologies. You can manage your preferences via the banner displayed on your first visit, or by deleting cookies from your browser.</p>
+
+    <h3>Technical cookies (always active)</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Name</th><th>Purpose</th><th>Duration</th></tr></thead>
+      <tbody>
+        <tr><td><code>antiqora_lang</code></td><td>Stores preferred language (IT/EN/TR)</td><td>Persistent (localStorage)</td></tr>
+        <tr><td><code>antiqora_consent</code></td><td>Stores cookie choice (yes/no)</td><td>Persistent (localStorage)</td></tr>
+        <tr><td><code>at_subscribed</code></td><td>Prevents showing popup to already-subscribed users</td><td>Persistent (localStorage)</td></tr>
+        <tr><td><code>at_exit_closed</code></td><td>Prevents exit popup from showing twice in same session</td><td>Session (sessionStorage)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Analytics cookies (consent required)</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Service</th><th>Purpose</th><th>Provider</th></tr></thead>
+      <tbody>
+        <tr><td>Google Analytics 4</td><td>Anonymous site usage statistics</td><td>Google Ireland Ltd</td></tr>
+        <tr><td>Google Tag Manager</td><td>Centralised tag management</td><td>Google Ireland Ltd</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Marketing cookies (consent required)</h3>
+    <table class="cookie-table">
+      <thead><tr><th>Service</th><th>Purpose</th><th>Provider</th></tr></thead>
+      <tbody>
+        <tr><td>Facebook Pixel</td><td>Measuring effectiveness of Meta advertising campaigns</td><td>Meta Platforms Ireland Ltd</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Third Parties and International Data Transfers</h2>
+    <p>Data may be processed by the following third-party providers, some of which are located outside the EU/EEA. All provide adequate guarantees under GDPR (Standard Contractual Clauses or adequacy decisions).</p>
+    <ul>
+      <li><strong>Brevo SAS</strong> (France) — email delivery and newsletter list management. <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">Brevo Privacy Policy</a></li>
+      <li><strong>Google LLC</strong> (USA) — Google Analytics 4, Google Tag Manager. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+      <li><strong>Meta Platforms Inc.</strong> (USA) — Facebook Pixel. <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Privacy Policy</a></li>
+      <li><strong>Cloudinary Inc.</strong> (USA) — hero video hosting. <a href="https://cloudinary.com/privacy" target="_blank" rel="noopener">Cloudinary Privacy Policy</a></li>
+      <li><strong>Vercel Inc.</strong> (USA) — website hosting. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel Privacy Policy</a></li>
+    </ul>
+
+    <h2>5. Your Rights</h2>
+    <p>Under Arts. 15–22 GDPR, you have the right to:</p>
+    <ul>
+      <li><strong>Access:</strong> obtain confirmation that we process your data and receive a copy</li>
+      <li><strong>Rectification:</strong> correct inaccurate or incomplete data</li>
+      <li><strong>Erasure ("right to be forgotten"):</strong> request deletion of your data</li>
+      <li><strong>Restriction:</strong> request restriction of processing in certain circumstances</li>
+      <li><strong>Portability:</strong> receive your data in a structured, machine-readable format</li>
+      <li><strong>Objection:</strong> object to processing based on legitimate interest</li>
+      <li><strong>Withdraw consent:</strong> withdraw any consent given at any time, without retroactive effect</li>
+    </ul>
+    <p>To exercise your rights, write to: <a href="mailto:info@antiqoratravel.com">info@antiqoratravel.com</a></p>
+
+    <h2>6. Right to Lodge a Complaint</h2>
+    <p>If you believe that the processing of your data violates the GDPR, you have the right to lodge a complaint with the Italian supervisory authority:</p>
+    <p><strong>Garante per la Protezione dei Dati Personali</strong><br>
+    <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a> — Piazza Venezia 11, 00187 Rome, Italy</p>
+
+    <h2>7. Changes to this Policy</h2>
+    <p>We reserve the right to update this Privacy Policy. In the event of material changes, we will notify you via a notice on the site or by email (if you are subscribed to the newsletter). The date of last update is shown at the top of this document.</p>
+
+  </div><!-- /section-en -->
+
+</div><!-- /content -->
+
+<footer>
+  <p>© 2026 Antiqora Travel · Ipek Tarakçı &nbsp;·&nbsp; <a href="index.html">antika-travels.vercel.app</a></p>
+</footer>
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.lang-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('section-' + lang).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
