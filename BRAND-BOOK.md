@@ -177,34 +177,6 @@ Silenzio · Pietra · Tempo · Memoria · Scoperta · Polvere · Profondità · 
 
 ## 10. Manifesti
 
-### Manifesto principale (IT)
-Non organizziamo viaggi.
-Diamo vita ai luoghi dimenticati.
-
-La storia non è nel passato — è nei luoghi che esistono ancora, nell'intelligenza di chi li sa leggere, nel silenzio che si sente quando si capisce davvero dove si è.
-
-Antiqora Travel nasce da questa convinzione.
-
-Ogni viaggio è guidato da Ipek Tarakçı, archeologa, in gruppi di massimo 10 persone. Accediamo a siti normalmente chiusi al pubblico. Costruiamo ogni itinerario attorno a chi viaggia con noi.
-
-Non vieni a guardare.
-Vieni a capire.
-
-Dove la storia ti appartiene.
-
-### Manifesto (TR)
-Seyahat düzenlemiyoruz.
-Unutulmuş yerlere hayat veriyoruz.
-
-Tarih geçmişte değil — hâlâ ayakta duran yerlerde, onları okuyabilenlerin zekâsında, gerçekten nerede olduğunuzu anladığınızda hissedilen sessizlikte yaşıyor.
-
-Her yolculuk Ipek Tarakçı tarafından, en fazla 10 kişilik gruplarla yönetilir. Kamuya kapalı alanlara erişiyoruz. Her güzergahı bizimle seyahat edenlerin etrafında inşa ediyoruz.
-
-Bakmak için gelmiyorsunuz.
-Anlamak için geliyorsunuz.
-
-Tarihin size ait olduğu yer.
-
 ### Manifesto (EN) — Ultra-Luxury
 There are places in the world where time does not move the way it does elsewhere.
 Where a wall of stone carries the weight of three thousand years, and the silence around it is not emptiness — it is density.
@@ -221,6 +193,40 @@ Not the surface. The depth.
 Not the monument. The meaning.
 
 Where history belongs to you.
+
+### Manifesto (IT) — Ultra-Luxury
+Ci sono luoghi nel mondo dove il tempo non scorre come altrove.
+Dove un muro di pietra porta il peso di tremila anni, e il silenzio che lo circonda non è vuoto — è densità.
+
+La maggior parte delle persone attraversa questi luoghi. Li fotografa. Va avanti.
+
+Antiqora Travel è nata per un tipo diverso di persona.
+
+Ipek Tarakçı è un'archeologa. Ha trascorso la sua vita professionale in questi siti — non come visitatrice, ma come qualcuno che li sa leggere. Conosce le camere che non vengono mai aperte, i colleghi che ne custodiscono le chiavi, le storie che non esistono in nessuna guida.
+
+In gruppi di dieci, ti porta dentro.
+
+Non la superficie. La profondità.
+Non il monumento. Il significato.
+
+Dove la storia ti appartiene.
+
+### Manifesto (TR) — Ultra-Luxury
+Dünyada zamanın başka yerlerdeki gibi akmadığı yerler vardır.
+Taştan bir duvarın üç bin yıllık ağırlığı taşıdığı ve etrafındaki sessizliğin boşluk değil — yoğunluk olduğu yerler.
+
+Çoğu insan bu yerlerden geçer. Fotoğraflarını çeker. Devam eder.
+
+Antiqora Travel farklı bir insan için kuruldu.
+
+Ipek Tarakçı bir arkeologdur. Profesyonel hayatını bu alanlarda geçirdi — bir ziyaretçi olarak değil, onları okuyabilen biri olarak. Hiç açılmayan odaları, anahtarları elinde tutan meslektaşları, hiçbir rehber kitapta yer almayan hikayeleri biliyor.
+
+On kişilik gruplarla, sizi içeri götürüyor.
+
+Yüzeyi değil. Derinliği.
+Anıtı değil. Anlamı.
+
+Tarihin size ait olduğu yer.
 
 ---
 
