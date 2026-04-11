@@ -192,19 +192,6 @@ Vieni a capire.
 
 Dove la storia ti appartiene.
 
-### Manifesto principale (EN)
-We don't organize trips.
-We bring forgotten places back to life.
-
-History is not in the past — it lives in the sites that still stand, in the intelligence of those who know how to read them, in the silence that fills you when you truly understand where you are.
-
-Every journey is led by Ipek Tarakçı, archaeologist, in groups of maximum 10. We access sites rarely open to the public. We build every itinerary around the people who travel with us.
-
-You don't come to look.
-You come to understand.
-
-Where history belongs to you.
-
 ### Manifesto (TR)
 Seyahat düzenlemiyoruz.
 Unutulmuş yerlere hayat veriyoruz.
@@ -218,7 +205,7 @@ Anlamak için geliyorsunuz.
 
 Tarihin size ait olduğu yer.
 
-### Manifesto ultra-luxury (EN)
+### Manifesto (EN) — Ultra-Luxury
 There are places in the world where time does not move the way it does elsewhere.
 Where a wall of stone carries the weight of three thousand years, and the silence around it is not emptiness — it is density.
 
