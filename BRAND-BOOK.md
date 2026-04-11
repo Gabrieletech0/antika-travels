@@ -87,8 +87,19 @@ Diventare il punto di riferimento per chi vuole vivere il mondo antico con la st
 **01 — Guidata da un'Archeologa**
 Ipek Tarakçı è laureata in archeologia. Non legge le didascalie — conosce le storie che non sono scritte da nessuna parte. Ogni sito diventa un racconto vivo. Non è una guida turistica: è la differenza tra guardare e capire.
 
-**02 — Gruppi di Massimo 10 Persone**
-Il lusso vero è lo spazio. Nessuna folla, nessun megafono, nessuna fretta. Solo il gruppo giusto, nel posto giusto, nel momento giusto. 10 è il numero massimo, non il target: spesso si è in 6, in 8.
+**02 — Gruppi Piccoli, Sempre**
+Il lusso vero è lo spazio. Nessuna folla, nessun megafono, nessuna fretta. Solo il gruppo giusto, nel posto giusto, nel momento giusto. Non si supera mai la decina — spesso si è in sei, in otto.
+
+**Come dirlo nella comunicazione — variare sempre:**
+- "un gruppo ristretto"
+- "pochi, scelti"
+- "non più di dieci"
+- "una cerchia ristretta"
+- "pochissime persone"
+- "il gruppo giusto"
+- "chi viaggia con noi"
+- "un piccolo gruppo"
+- evitare di ripetere sempre "10 persone" o "massimo 10" — usarlo raramente, come dato concreto, non come slogan fisso
 
 **03 — Itinerari su Misura**
 Ogni viaggio nasce da una conversazione. Interessi, ritmi, preferenze — costruiamo l'itinerario attorno al gruppo, non il contrario. Non esistono due viaggi Antiqora uguali.
