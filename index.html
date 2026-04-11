@@ -423,6 +423,52 @@
     .gdpr-label input[type=checkbox] { margin-top:2px; accent-color:#C9A84C; flex-shrink:0; cursor:pointer; }
     .gdpr-label a { color:#C9A84C; text-decoration:none; }
     @media (max-width:600px) { #cookie-banner { flex-direction:column; align-items:flex-start; padding:1.25rem 1.5rem; } .cc-actions { width:100%; } .cc-btn-reject, .cc-btn-accept { flex:1; text-align:center; } }
+
+    /* ═══ MANIFESTO CINEMATICO (pinned) ═══ */
+    .manifesto-cinematic {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: #0C0B09;
+    }
+    .manifesto-cinematic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .manifesto-inner {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .manifesto-phrase {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, calc(-50% + 20px));
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.8rem);
+      font-weight: 300;
+      color: #F7F3EE;
+      line-height: 1.2;
+      text-align: center;
+      opacity: 0;
+      width: 100%;
+      max-width: 88vw;
+      will-change: opacity, transform;
+      letter-spacing: -0.01em;
+      pointer-events: none;
+    }
+    .manifesto-phrase em { font-style: italic; color: #C9A84C; }
+    .manifesto-phrase.manifesto-last { font-size: clamp(1.7rem, 3.8vw, 3rem); }
+
+    /* ═══ GSAP initial states per dest-card e tour-card ═══ */
+    .dest-card { clip-path: inset(0 100% 0 0); }
+    .tour-card { opacity: 0; transform: translateY(35px); }
   </style>
 </head>
 <body>
@@ -561,6 +607,32 @@
   </div>
 </section>
 
+<!-- ═══ MANIFESTO CINEMATICO ═══ -->
+<section id="manifesto-pin" class="manifesto-cinematic">
+  <div class="manifesto-inner">
+    <p class="manifesto-phrase"
+       data-it="Non la superficie."
+       data-en="Not the surface."
+       data-tr="Yüzeyi değil.">Non la superficie.</p>
+    <p class="manifesto-phrase"
+       data-it="La profondità."
+       data-en="The depth."
+       data-tr="Derinliği.">La profondità.</p>
+    <p class="manifesto-phrase"
+       data-it="Non il monumento."
+       data-en="Not the monument."
+       data-tr="Anıtı değil.">Non il monumento.</p>
+    <p class="manifesto-phrase"
+       data-it="Il significato."
+       data-en="The meaning."
+       data-tr="Anlamı.">Il significato.</p>
+    <p class="manifesto-phrase manifesto-last"
+       data-it="Dove la storia <em>ti appartiene.</em>"
+       data-en="Where history <em>belongs to you.</em>"
+       data-tr="Tarihin <em>sana ait olduğu yer.</em>">Dove la storia <em>ti appartiene.</em></p>
+  </div>
+</section>
+
 <!-- ═══ VALUE PROPS ═══ -->
 <section class="py-24 px-6 bg-ivory">
   <div class="max-w-5xl mx-auto">
@@ -606,7 +678,7 @@
     </div>
     <div class="grid md:grid-cols-3 gap-4">
       <!-- EGITTO -->
-      <div class="dest-card reveal" onclick="trackEvent('ViewContent',{content_name:'Egitto',content_type:'destination'})">
+      <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Egitto',content_type:'destination'})">
         <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Ipek tra i geroglifici — Egitto" class="dest-img" style="object-position:center 20%;" />
         <div class="dest-overlay"></div>
         <div class="dest-content">
@@ -616,7 +688,7 @@
         </div>
       </div>
       <!-- TURCHIA -->
-      <div class="dest-card reveal" onclick="trackEvent('ViewContent',{content_name:'Turchia',content_type:'destination'})">
+      <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Turchia',content_type:'destination'})">
         <img src="brand-assets/turkey-ephesus.jpg" alt="Biblioteca di Celso — Efeso, Turchia" class="dest-img" style="object-position:center 30%;" />
         <div class="dest-overlay"></div>
         <div class="dest-content">
@@ -626,7 +698,7 @@
         </div>
       </div>
       <!-- ITALIA/ROMA -->
-      <div class="dest-card reveal" onclick="trackEvent('ViewContent',{content_name:'Italia',content_type:'destination'})">
+      <div class="dest-card" onclick="trackEvent('ViewContent',{content_name:'Italia',content_type:'destination'})">
         <img src="brand-assets/italy-rome.jpg" alt="Colosseo — Roma, Italia" class="dest-img" style="object-position:center 40%;" />
         <div class="dest-overlay"></div>
         <div class="dest-content">
@@ -654,7 +726,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
       <!-- Tour 1: Egitto -->
-      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+      <div class="tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</span>
@@ -673,7 +745,7 @@
       </div>
 
       <!-- Tour 2: Turchia Egea -->
-      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+      <div class="tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</span>
@@ -692,7 +764,7 @@
       </div>
 
       <!-- Tour 3: Sicilia Magna Grecia -->
-      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+      <div class="tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Italia · Sicilia" data-en="Italy · Sicily" data-tr="İtalya · Sicilya">Italia · Sicilia</span>
@@ -711,7 +783,7 @@
       </div>
 
       <!-- Tour 4: Anatolia -->
-      <div class="reveal tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
+      <div class="tour-card" style="background:rgba(247,243,238,0.04); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:border-color 0.3s, background 0.3s; cursor:default;">
         <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
           <span style="font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:#C9A84C; font-weight:400;" data-it="Turchia · Anatolia" data-en="Turkey · Anatolia" data-tr="Türkiye · Anadolu">Turchia · Anatolia</span>
@@ -1354,6 +1426,171 @@
     const saved = localStorage.getItem('antiqora_lang');
     if (saved && saved !== 'it') setLang(saved);
   })();
+
+  // ════════════════════════════════════════════════════
+  // ═══ UPGRADE ANIMAZIONI — scroll reveal + cinematico
+  // ════════════════════════════════════════════════════
+
+  // ─── A. MANIFESTO CINEMATICO PINNED ───
+  (function() {
+    var pin = document.getElementById('manifesto-pin');
+    if (!pin || !window.ScrollTrigger) return;
+    var phrases = pin.querySelectorAll('.manifesto-phrase');
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: pin,
+        start: 'top top',
+        end: '+=480%',
+        pin: true,
+        scrub: 1.8,
+        anticipatePin: 1,
+      }
+    });
+    phrases.forEach(function(phrase, i) {
+      var pos = i * 1.25;
+      var isLast = i === phrases.length - 1;
+      tl.fromTo(phrase,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' },
+        pos
+      );
+      if (!isLast) {
+        tl.to(phrase, { opacity: 0.1, y: -18, duration: 0.38 }, pos + 0.8);
+      }
+    });
+  })();
+
+  // ─── B. DEST-CARD clip-path reveal (da sinistra) ───
+  (function() {
+    var cards = document.querySelectorAll('.dest-card');
+    if (!cards.length) return;
+    ScrollTrigger.create({
+      trigger: '#destinazioni',
+      start: 'top 72%',
+      once: true,
+      onEnter: function() {
+        cards.forEach(function(card, i) {
+          gsap.to(card, {
+            clipPath: 'inset(0 0% 0 0)',
+            duration: 1.25,
+            ease: 'power3.inOut',
+            delay: i * 0.18,
+          });
+        });
+      }
+    });
+  })();
+
+  // ─── C. TOUR-CARD stagger reveal ───
+  (function() {
+    var tCards = document.querySelectorAll('.tour-card');
+    if (!tCards.length) return;
+    ScrollTrigger.create({
+      trigger: '#tour',
+      start: 'top 75%',
+      once: true,
+      onEnter: function() {
+        gsap.to(tCards, {
+          opacity: 1,
+          y: 0,
+          stagger: { each: 0.15, from: 'start' },
+          duration: 1.0,
+          ease: 'power3.out',
+        });
+      }
+    });
+  })();
+
+  // ─── D. IPEK PHOTOS — clip-path reveal dal basso ───
+  (function() {
+    var photos = document.querySelectorAll('.ipek-photo');
+    if (!photos.length) return;
+    // Rimuovi reveal dalla colonna foto — GSAP gestisce
+    var ipekCol = document.querySelector('#ipek .md\\:col-span-2');
+    if (ipekCol) { ipekCol.classList.remove('reveal'); ipekCol.style.opacity = '1'; ipekCol.style.transform = 'none'; }
+    gsap.set(photos, { clipPath: 'inset(100% 0 0 0)', opacity: 0 });
+    ScrollTrigger.create({
+      trigger: '#ipek',
+      start: 'top 75%',
+      once: true,
+      onEnter: function() {
+        photos.forEach(function(photo, i) {
+          gsap.to(photo, {
+            clipPath: 'inset(0% 0 0 0)',
+            opacity: 1,
+            duration: 1.15,
+            ease: 'power3.out',
+            delay: i * 0.14,
+          });
+        });
+      }
+    });
+  })();
+
+  // ─── E. SECTION-LABEL — fade + slide da sinistra ───
+  (function() {
+    document.querySelectorAll('.section-label').forEach(function(label) {
+      gsap.fromTo(label,
+        { opacity: 0, x: -12 },
+        {
+          opacity: 1, x: 0, duration: 0.75, ease: 'power2.out',
+          scrollTrigger: { trigger: label, start: 'top 90%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+  })();
+
+  // ─── F. PROCESS STEPS — slide da sinistra con stagger ───
+  (function() {
+    var steps = document.querySelectorAll('.step');
+    if (!steps.length) return;
+    steps.forEach(function(s) { s.classList.remove('reveal'); });
+    gsap.set(steps, { opacity: 0, x: -28 });
+    ScrollTrigger.create({
+      trigger: '#come-funziona',
+      start: 'top 72%',
+      once: true,
+      onEnter: function() {
+        gsap.to(steps, {
+          opacity: 1, x: 0,
+          stagger: 0.2,
+          duration: 0.9,
+          ease: 'power2.out',
+        });
+      }
+    });
+  })();
+
+  // ─── G. TESTIMONIAL — SplitText parola per parola ───
+  (function() {
+    if (typeof SplitText === 'undefined') return;
+    document.querySelectorAll('blockquote p.font-display').forEach(function(q) {
+      var split = new SplitText(q, { type: 'words' });
+      gsap.from(split.words, {
+        opacity: 0, y: 14,
+        stagger: 0.042,
+        duration: 0.72,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: q, start: 'top 88%', toggleActions: 'play none none none' },
+        onComplete: function() { split.revert(); }
+      });
+    });
+  })();
+
+  // ─── Fallback per elementi GSAP-controlled ───
+  setTimeout(function() {
+    document.querySelectorAll('.dest-card').forEach(function(el) {
+      if (el.style.clipPath && el.style.clipPath !== 'inset(0 0% 0 0)') {
+        el.style.clipPath = 'none'; el.style.opacity = '1';
+      }
+    });
+    document.querySelectorAll('.tour-card').forEach(function(el) {
+      if (parseFloat(el.style.opacity) < 1) {
+        el.style.opacity = '1'; el.style.transform = 'none';
+      }
+    });
+  }, 4000);
+
 </script>
 </body>
 </html>
