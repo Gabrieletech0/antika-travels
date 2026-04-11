@@ -424,47 +424,147 @@
     .gdpr-label a { color:#C9A84C; text-decoration:none; }
     @media (max-width:600px) { #cookie-banner { flex-direction:column; align-items:flex-start; padding:1.25rem 1.5rem; } .cc-actions { width:100%; } .cc-btn-reject, .cc-btn-accept { flex:1; text-align:center; } }
 
-    /* ═══ MANIFESTO CINEMATICO (pinned) ═══ */
-    .manifesto-cinematic {
+    /* ═══ CINEMATIC REEL — fullscreen slideshow ═══ */
+    .cinematic-reel {
       position: relative;
       height: 100vh;
       overflow: hidden;
-      background: #0C0B09;
+      background: #0F0E0C;
+      user-select: none;
     }
-    .manifesto-cinematic::before {
-      content: '';
+    .reel-slide {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.09) 0%, transparent 65%);
-      pointer-events: none;
+      display: none;
+      overflow: hidden;
     }
-    .manifesto-inner {
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .manifesto-phrase {
+    .reel-slide.reel-active { display: block; }
+    .reel-slide img,
+    .reel-slide video {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, calc(-50% + 20px));
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+    }
+    .reel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,14,12,0.82) 0%, rgba(15,14,12,0.15) 50%, rgba(15,14,12,0.25) 100%);
+      z-index: 1;
+    }
+    .reel-caption {
+      position: absolute;
+      bottom: 4rem;
+      left: 3rem;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(18px);
+      max-width: 600px;
+    }
+    .reel-caption-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-bottom: 0.6rem;
+      font-family: 'DM Sans', sans-serif;
+      display: block;
+    }
+    .reel-caption-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4.5vw, 3.8rem);
+      font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 300;
       color: #F7F3EE;
-      line-height: 1.2;
-      text-align: center;
-      opacity: 0;
-      width: 100%;
-      max-width: 88vw;
-      will-change: opacity, transform;
+      line-height: 0.95;
       letter-spacing: -0.01em;
-      pointer-events: none;
+      margin: 0 0 0.75rem;
     }
-    .manifesto-phrase em { font-style: italic; color: #C9A84C; }
-    .manifesto-phrase.manifesto-last { font-size: clamp(1.7rem, 3.8vw, 3rem); }
+    .reel-caption-title em { font-style: italic; color: #C9A84C; }
+    .reel-caption-sub {
+      font-size: 0.82rem;
+      color: rgba(247,243,238,0.5);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+    /* Dots */
+    .reel-dots {
+      position: absolute;
+      right: 2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      z-index: 3;
+    }
+    .reel-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(247,243,238,0.25);
+      cursor: pointer;
+      transition: all 0.35s;
+      border: none;
+      padding: 0;
+    }
+    .reel-dot.active {
+      background: #C9A84C;
+      transform: scale(1.6);
+    }
+    /* Counter */
+    .reel-counter {
+      position: absolute;
+      bottom: 4rem;
+      right: 3rem;
+      z-index: 3;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      color: rgba(247,243,238,0.3);
+      letter-spacing: 0.08em;
+    }
+    .reel-counter .reel-curr { color: #C9A84C; font-size: 1.15rem; }
+    /* Scroll hint */
+    .reel-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      text-align: center;
+    }
+    .reel-hint span {
+      display: block;
+      font-size: 0.52rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.3);
+      font-family: 'DM Sans', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+    .reel-hint-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+      margin: 0 auto;
+      animation: reelPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes reelPulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
+    /* Wipe overlay */
+    .reel-wipe {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      clip-path: inset(0 100% 0 0);
+    }
+    @media (max-width: 768px) {
+      .reel-caption { left: 1.5rem; bottom: 3.5rem; }
+      .reel-dots { right: 1rem; }
+      .reel-counter { right: 1.5rem; bottom: 3.5rem; }
+    }
 
     /* ═══ GSAP initial states per dest-card e tour-card ═══ */
     .dest-card { clip-path: inset(0 100% 0 0); }
@@ -607,30 +707,70 @@
   </div>
 </section>
 
-<!-- ═══ MANIFESTO CINEMATICO ═══ -->
-<section id="manifesto-pin" class="manifesto-cinematic">
-  <div class="manifesto-inner">
-    <p class="manifesto-phrase"
-       data-it="Non la superficie."
-       data-en="Not the surface."
-       data-tr="Yüzeyi değil.">Non la superficie.</p>
-    <p class="manifesto-phrase"
-       data-it="La profondità."
-       data-en="The depth."
-       data-tr="Derinliği.">La profondità.</p>
-    <p class="manifesto-phrase"
-       data-it="Non il monumento."
-       data-en="Not the monument."
-       data-tr="Anıtı değil.">Non il monumento.</p>
-    <p class="manifesto-phrase"
-       data-it="Il significato."
-       data-en="The meaning."
-       data-tr="Anlamı.">Il significato.</p>
-    <p class="manifesto-phrase manifesto-last"
-       data-it="Dove la storia <em>ti appartiene.</em>"
-       data-en="Where history <em>belongs to you.</em>"
-       data-tr="Tarihin <em>sana ait olduğu yer.</em>">Dove la storia <em>ti appartiene.</em></p>
+<!-- ═══ CINEMATIC REEL ═══
+  Per aggiungere slide: duplica un .reel-slide, cambia src e dati.
+  Per slide video: sostituisci <img> con <video muted loop playsinline><source src="..."></video>
+  Aggiorna anche .reel-dot e il totale in .reel-counter
+-->
+<section id="cinematic-reel" class="cinematic-reel">
+
+  <!-- Slide 1 — Egitto (foto) -->
+  <div class="reel-slide reel-active" data-index="0">
+    <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Valle dei Re — Egitto" style="object-position:center 20%;" />
+    <div class="reel-overlay"></div>
+    <div class="reel-caption">
+      <span class="reel-caption-label" data-it="Valle dei Re · Luxor · Il Cairo" data-en="Valley of the Kings · Luxor · Cairo" data-tr="Krallar Vadisi · Luksor · Kahire">Valle dei Re · Luxor · Il Cairo</span>
+      <h2 class="reel-caption-title" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</h2>
+      <p class="reel-caption-sub" data-it="Dove le pietre parlano ancora." data-en="Where the stones still speak." data-tr="Taşların hâlâ konuştuğu yer.">Dove le pietre parlano ancora.</p>
+    </div>
   </div>
+
+  <!-- Slide 2 — Turchia Egea (foto) -->
+  <div class="reel-slide" data-index="1">
+    <img src="brand-assets/turkey-ephesus.jpg" alt="Efeso — Turchia" style="object-position:center 30%;" />
+    <div class="reel-overlay"></div>
+    <div class="reel-caption">
+      <span class="reel-caption-label" data-it="Efeso · Afrodisia · Mileto" data-en="Ephesus · Aphrodisias · Miletus" data-tr="Efes · Afrodisias · Milet">Efeso · Afrodisia · Mileto</span>
+      <h2 class="reel-caption-title" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</h2>
+      <p class="reel-caption-sub" data-it="Dove Oriente e Occidente si sono incontrati." data-en="Where East and West have met." data-tr="Doğu ile Batı'nın buluştuğu yer.">Dove Oriente e Occidente si sono incontrati.</p>
+    </div>
+  </div>
+
+  <!-- Slide 3 — Anatolia (foto) -->
+  <div class="reel-slide" data-index="2">
+    <img src="brand-assets/ipek-desert.JPG" alt="Göbekli Tepe — Anatolia" style="object-position:center top;" />
+    <div class="reel-overlay"></div>
+    <div class="reel-caption">
+      <span class="reel-caption-label" data-it="Göbekli Tepe · Cappadocia · Konya" data-en="Göbekli Tepe · Cappadocia · Konya" data-tr="Göbekli Tepe · Kapadokya · Konya">Göbekli Tepe · Cappadocia · Konya</span>
+      <h2 class="reel-caption-title" data-it="Anatolia" data-en="Anatolia" data-tr="Anadolu">Anatolia</h2>
+      <p class="reel-caption-sub" data-it="12.000 anni di storia ininterrotta." data-en="12,000 years of uninterrupted history." data-tr="12.000 yıllık kesintisiz tarih.">12.000 anni di storia ininterrotta.</p>
+    </div>
+  </div>
+
+  <!-- Slide 4 — Italia (foto) -->
+  <div class="reel-slide" data-index="3">
+    <img src="brand-assets/italy-rome.jpg" alt="Magna Graecia — Italia" style="object-position:center 40%;" />
+    <div class="reel-overlay"></div>
+    <div class="reel-caption">
+      <span class="reel-caption-label" data-it="Agrigento · Paestum · Siracusa" data-en="Agrigento · Paestum · Syracuse" data-tr="Agrigento · Paestum · Sirakuza">Agrigento · Paestum · Siracusa</span>
+      <h2 class="reel-caption-title" data-it="Italia" data-en="<em>Magna</em> Graecia" data-tr="İtalya">Italia</h2>
+      <p class="reel-caption-sub" data-it="Dove l'antico è ancora vivo sotto i tuoi piedi." data-en="Where the ancient is still alive beneath your feet." data-tr="Antik dönemin ayaklarının altında yaşadığı yer.">Dove l'antico è ancora vivo sotto i tuoi piedi.</p>
+    </div>
+  </div>
+
+  <!-- UI -->
+  <div class="reel-dots" id="reel-dots">
+    <button class="reel-dot active" onclick="reelGoTo(0)" aria-label="Slide 1"></button>
+    <button class="reel-dot" onclick="reelGoTo(1)" aria-label="Slide 2"></button>
+    <button class="reel-dot" onclick="reelGoTo(2)" aria-label="Slide 3"></button>
+    <button class="reel-dot" onclick="reelGoTo(3)" aria-label="Slide 4"></button>
+  </div>
+  <div class="reel-counter"><span class="reel-curr" id="reel-curr">01</span> / 04</div>
+  <div class="reel-hint">
+    <span data-it="scorri" data-en="scroll" data-tr="kaydır">scorri</span>
+    <div class="reel-hint-line"></div>
+  </div>
+
 </section>
 
 <!-- ═══ VALUE PROPS ═══ -->
@@ -1431,33 +1571,110 @@
   // ═══ UPGRADE ANIMAZIONI — scroll reveal + cinematico
   // ════════════════════════════════════════════════════
 
-  // ─── A. MANIFESTO CINEMATICO PINNED ───
+  // ─── A. CINEMATIC REEL — fullscreen slideshow con wipe ───
   (function() {
-    var pin = document.getElementById('manifesto-pin');
-    if (!pin || !window.ScrollTrigger) return;
-    var phrases = pin.querySelectorAll('.manifesto-phrase');
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: pin,
-        start: 'top top',
-        end: '+=480%',
-        pin: true,
-        scrub: 1.8,
-        anticipatePin: 1,
+    var reel = document.getElementById('cinematic-reel');
+    if (!reel) return;
+
+    var slides   = reel.querySelectorAll('.reel-slide');
+    var dots     = reel.querySelectorAll('.reel-dot');
+    var currEl   = document.getElementById('reel-curr');
+    var total    = slides.length;
+    var current  = 0;
+    var animating = false;
+    var DURATION  = 0.85; // secondi transizione
+
+    // Mostra caption iniziale
+    var firstCaption = slides[0].querySelector('.reel-caption');
+    if (firstCaption) gsap.to(firstCaption, { opacity: 1, y: 0, duration: 0.9, delay: 0.4, ease: 'power2.out' });
+
+    function updateUI(i) {
+      dots.forEach(function(d, j) { d.classList.toggle('active', j === i); });
+      if (currEl) currEl.textContent = String(i + 1).padStart(2, '0');
+    }
+
+    function goTo(index, dir) {
+      if (animating || index === current || index < 0 || index >= total) return;
+      animating = true;
+
+      var from    = slides[current];
+      var to      = slides[index];
+      var fromMed = from.querySelector('img, video');
+      var toMed   = to.querySelector('img, video');
+      var toCap   = to.querySelector('.reel-caption');
+
+      // Determina direzione wipe
+      // dir > 0 = avanti → nuova slide entra da destra (inset sx 100% → 0)
+      // dir < 0 = indietro → nuova slide entra da sinistra (inset dx 100% → 0)
+      var insetStart = dir > 0 ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)';
+
+      // Setup slide entrante
+      gsap.set(to, { clipPath: insetStart, display: 'block', zIndex: 2 });
+      gsap.set(from, { zIndex: 1 });
+      if (toCap) gsap.set(toCap, { opacity: 0, y: 18 });
+
+      // Media entrante: scala da 1.07 a 1
+      if (toMed) gsap.fromTo(toMed, { scale: 1.07 }, { scale: 1, duration: DURATION + 0.45, ease: 'power2.out' });
+      // Media uscente: lieve zoom out
+      if (fromMed) gsap.to(fromMed, { scale: 1.04, duration: DURATION, ease: 'power2.in' });
+
+      // Wipe
+      gsap.to(to, {
+        clipPath: 'inset(0 0 0 0)',
+        duration: DURATION,
+        ease: 'power3.inOut',
+        onComplete: function() {
+          gsap.set(from, { display: 'none', zIndex: 0 });
+          if (fromMed) gsap.set(fromMed, { scale: 1 });
+          current = index;
+          animating = false;
+          updateUI(current);
+          // Attiva video se slide video
+          var vid = to.querySelector('video');
+          if (vid) vid.play().catch(function(){});
+          // Pausa video slide uscente
+          var oldVid = from.querySelector('video');
+          if (oldVid) oldVid.pause();
+          // Caption entra
+          if (toCap) gsap.to(toCap, { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', delay: 0.08 });
+        }
+      });
+    }
+
+    // Esponi globalmente per i dot
+    window.reelGoTo = function(i) { goTo(i, i > current ? 1 : -1); };
+
+    // Scroll wheel
+    var wheelTimeout = null;
+    reel.addEventListener('wheel', function(e) {
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(function() {
+        if (e.deltaY > 0 && current < total - 1) {
+          e.preventDefault();
+          goTo(current + 1, 1);
+        } else if (e.deltaY < 0 && current > 0) {
+          e.preventDefault();
+          goTo(current - 1, -1);
+        }
+      }, 30);
+      // Previene scroll pagina solo se ci sono slide da mostrare
+      if ((e.deltaY > 0 && current < total - 1) || (e.deltaY < 0 && current > 0)) {
+        e.preventDefault();
       }
-    });
-    phrases.forEach(function(phrase, i) {
-      var pos = i * 1.25;
-      var isLast = i === phrases.length - 1;
-      tl.fromTo(phrase,
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' },
-        pos
-      );
-      if (!isLast) {
-        tl.to(phrase, { opacity: 0.1, y: -18, duration: 0.38 }, pos + 0.8);
-      }
-    });
+    }, { passive: false });
+
+    // Touch swipe
+    var touchY = 0;
+    reel.addEventListener('touchstart', function(e) {
+      touchY = e.touches[0].clientY;
+    }, { passive: true });
+    reel.addEventListener('touchend', function(e) {
+      var diff = touchY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) < 40) return;
+      if (diff > 0) goTo(current + 1, 1);
+      else          goTo(current - 1, -1);
+    }, { passive: true });
+
   })();
 
   // ─── B. DEST-CARD clip-path reveal (da sinistra) ───
