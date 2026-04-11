@@ -1544,6 +1544,42 @@
     scrollTrigger: { trigger: 'body', start: 'top top', end: 'bottom bottom', scrub: 0.3 }
   });
 
+  // ─── 2b. bfcache fix — hero tagliata e invisibile al ritorno da altra pagina ───
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+      // Pagina ripristinata dal bfcache — forza reset
+      window.scrollTo(0, 0);
+
+      // Forza visibilità elementi hero (hanno opacity:0 inline)
+      var heroEls = ['#hero-label', '#hero-sub', '#hero-scroll'];
+      heroEls.forEach(function(sel) {
+        var el = document.querySelector(sel);
+        if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
+      });
+
+      // Reset hero-title
+      var heroTitle = document.getElementById('hero-title');
+      if (heroTitle) { heroTitle.style.opacity = '1'; heroTitle.style.transform = 'none'; }
+
+      // Reset hero-content (ScrollTrigger potrebbe averlo spostato)
+      var heroContent = document.querySelector('.hero-content');
+      if (heroContent) { heroContent.style.transform = 'none'; heroContent.style.opacity = '1'; }
+
+      // Reset hero-video scale
+      var heroVideo = document.querySelector('.hero-video');
+      if (heroVideo) { heroVideo.style.transform = 'none'; }
+
+      // Rilancia video
+      var vid = document.getElementById('hero-vid');
+      if (vid) { vid.currentTime = 0; vid.play().catch(function(){}); }
+
+      // Forza refresh ScrollTrigger
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    }
+  });
+
   // ─── 3. Hero entrance — SplitText chars + stagger ───
   window.addEventListener('load', () => {
     const title = document.getElementById('hero-title');
