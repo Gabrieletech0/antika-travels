@@ -424,146 +424,251 @@
     .gdpr-label a { color:#C9A84C; text-decoration:none; }
     @media (max-width:600px) { #cookie-banner { flex-direction:column; align-items:flex-start; padding:1.25rem 1.5rem; } .cc-actions { width:100%; } .cc-btn-reject, .cc-btn-accept { flex:1; text-align:center; } }
 
-    /* ═══ CINEMATIC REEL — fullscreen slideshow ═══ */
-    .cinematic-reel {
+    /* ═══ GALLERY REEL — art gallery slider ═══ */
+    .gallery-reel {
       position: relative;
-      height: 100vh;
+      height: 88vh;
+      min-height: 580px;
       overflow: hidden;
       background: #0F0E0C;
       user-select: none;
+      display: flex;
+      align-items: center;
     }
-    .reel-slide {
+    .gallery-ambient {
       position: absolute;
       inset: 0;
-      display: none;
-      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
     }
-    .reel-slide.reel-active { display: block; }
-    .reel-slide img,
-    .reel-slide video {
+    /* Grain texture overlay per la sezione gallery */
+    .gallery-reel::after {
+      content: '';
       position: absolute;
       inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity: 0.35;
+    }
+    .gallery-track-wrap {
+      position: relative;
+      z-index: 2;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      overflow: hidden;
+      cursor: grab;
+    }
+    .gallery-track-wrap:active { cursor: grabbing; }
+    .gallery-track {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding-left: calc(50vw - 220px);
+      padding-right: calc(50vw - 220px);
       will-change: transform;
     }
-    .reel-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15,14,12,0.82) 0%, rgba(15,14,12,0.15) 50%, rgba(15,14,12,0.25) 100%);
-      z-index: 1;
+    .gallery-card {
+      position: relative;
+      flex-shrink: 0;
+      width: 440px;
+      border-radius: 20px;
+      overflow: visible;
     }
-    .reel-caption {
-      position: absolute;
-      bottom: 4rem;
-      left: 3rem;
-      z-index: 2;
-      opacity: 0;
-      transform: translateY(18px);
-      max-width: 600px;
+    /* Glass frame ring */
+    .gallery-card-frame {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.12);
+      box-shadow: 0 20px 50px -12px rgba(0,0,0,0.6);
+      transition: box-shadow 0.35s ease;
     }
-    .reel-caption-label {
-      font-size: 0.58rem;
-      letter-spacing: 0.28em;
+    .gallery-card.gallery-active .gallery-card-frame {
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.85);
+      border-color: rgba(201,168,76,0.22);
+    }
+    .gallery-card-inner {
+      padding: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+    .gallery-card img,
+    .gallery-card video {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+      will-change: transform;
+      pointer-events: none;
+    }
+    /* Gradient overlay for caption */
+    .gallery-card-overlay {
+      position: absolute;
+      inset: 10px;
+      border-radius: 10px;
+      background: linear-gradient(to top, rgba(15,14,12,0.92) 0%, rgba(15,14,12,0.35) 42%, transparent 68%);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      padding: 1.4rem 1.6rem;
+      z-index: 4;
+      border-radius: 0 0 10px 10px;
+    }
+    .gallery-caption-label {
+      display: block;
+      font-size: 0.53rem;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: #C9A84C;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.45rem;
       font-family: 'DM Sans', sans-serif;
-      display: block;
     }
-    .reel-caption-title {
+    .gallery-caption-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
       font-weight: 300;
       color: #F7F3EE;
       line-height: 0.95;
       letter-spacing: -0.01em;
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.45rem;
     }
-    .reel-caption-title em { font-style: italic; color: #C9A84C; }
-    .reel-caption-sub {
-      font-size: 0.82rem;
-      color: rgba(247,243,238,0.5);
+    .gallery-caption-title em { font-style: italic; color: #C9A84C; }
+    .gallery-caption-sub {
+      font-size: 0.76rem;
+      color: rgba(247,243,238,0.45);
       font-weight: 300;
-      letter-spacing: 0.04em;
-      line-height: 1.6;
+      letter-spacing: 0.03em;
+      line-height: 1.55;
     }
-    /* Dots */
-    .reel-dots {
+    /* Header */
+    .gallery-header {
       position: absolute;
-      right: 2.5rem;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0; left: 0; right: 0;
+      z-index: 10;
       display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      z-index: 3;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 2.5rem;
+      pointer-events: none;
     }
-    .reel-dot {
+    .gallery-section-tag {
+      font-size: 0.53rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.55);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .gallery-counter {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.04);
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+    }
+    .gallery-counter .g-curr {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: #C9A84C;
+    }
+    .gallery-counter .g-sep { font-size: 0.7rem; color: rgba(255,255,255,0.15); }
+    .gallery-counter .g-tot {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      color: rgba(247,243,238,0.25);
+    }
+    /* Navigation dots */
+    .gallery-dots {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 0.55rem;
+    }
+    .gallery-dot {
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: rgba(247,243,238,0.25);
+      background: rgba(247,243,238,0.2);
       cursor: pointer;
-      transition: all 0.35s;
+      transition: all 0.35s ease;
       border: none;
       padding: 0;
     }
-    .reel-dot.active {
+    .gallery-dot.active {
       background: #C9A84C;
-      transform: scale(1.6);
+      transform: scale(1.8);
     }
-    /* Counter */
-    .reel-counter {
+    /* Arrow buttons */
+    .gallery-arrow {
       position: absolute;
-      bottom: 4rem;
-      right: 3rem;
-      z-index: 3;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem;
-      color: rgba(247,243,238,0.3);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(15,14,12,0.65);
+      color: #C9A84C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(10px);
+      font-size: 1rem;
+    }
+    .gallery-arrow:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.45);
+    }
+    .gallery-arrow-prev { left: 1.5rem; }
+    .gallery-arrow-next { right: 1.5rem; }
+    /* Keyboard hint */
+    .gallery-kbd-hint {
+      position: absolute;
+      bottom: 1.8rem;
+      right: 2rem;
+      z-index: 10;
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(247,243,238,0.18);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
       letter-spacing: 0.08em;
     }
-    .reel-counter .reel-curr { color: #C9A84C; font-size: 1.15rem; }
-    /* Scroll hint */
-    .reel-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      text-align: center;
-    }
-    .reel-hint span {
-      display: block;
-      font-size: 0.52rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(247,243,238,0.3);
-      font-family: 'DM Sans', sans-serif;
-      margin-bottom: 0.5rem;
-    }
-    .reel-hint-line {
-      width: 1px;
-      height: 32px;
-      background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
-      margin: 0 auto;
-      animation: reelPulse 1.8s ease-in-out infinite;
-    }
-    @keyframes reelPulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
-    /* Wipe overlay */
-    .reel-wipe {
-      position: absolute;
-      inset: 0;
-      z-index: 4;
-      pointer-events: none;
-      clip-path: inset(0 100% 0 0);
+    @media (min-width: 768px) { .gallery-kbd-hint { display: flex; } }
+    .gallery-kbd {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.6rem;
     }
     @media (max-width: 768px) {
-      .reel-caption { left: 1.5rem; bottom: 3.5rem; }
-      .reel-dots { right: 1rem; }
-      .reel-counter { right: 1.5rem; bottom: 3.5rem; }
+      .gallery-reel { height: 82vh; min-height: 500px; }
+      .gallery-card { width: 300px; }
+      .gallery-card img, .gallery-card video { height: 400px; }
+      .gallery-track {
+        padding-left: calc(50vw - 150px);
+        padding-right: calc(50vw - 150px);
+        gap: 18px;
+      }
+      .gallery-arrow { display: none; }
+      .gallery-header { padding: 1.2rem 1.5rem; }
     }
 
     /* ═══ GSAP initial states per dest-card e tour-card ═══ */
@@ -707,68 +812,110 @@
   </div>
 </section>
 
-<!-- ═══ CINEMATIC REEL ═══
-  Per aggiungere slide: duplica un .reel-slide, cambia src e dati.
+<!-- ═══ GALLERY REEL ═══
+  Art gallery slider — card centrata con side cards visibili.
+  Per aggiungere slide: duplica un .gallery-card, aggiorna dati e .gallery-dot.
   Per slide video: sostituisci <img> con <video muted loop playsinline><source src="..."></video>
-  Aggiorna anche .reel-dot e il totale in .reel-counter
 -->
-<section id="cinematic-reel" class="cinematic-reel">
+<section id="gallery-reel" class="gallery-reel">
 
-  <!-- Slide 1 — Egitto (foto) -->
-  <div class="reel-slide reel-active" data-index="0">
-    <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Valle dei Re — Egitto" style="object-position:center 20%;" />
-    <div class="reel-overlay"></div>
-    <div class="reel-caption">
-      <span class="reel-caption-label" data-it="Valle dei Re · Luxor · Il Cairo" data-en="Valley of the Kings · Luxor · Cairo" data-tr="Krallar Vadisi · Luksor · Kahire">Valle dei Re · Luxor · Il Cairo</span>
-      <h2 class="reel-caption-title" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</h2>
-      <p class="reel-caption-sub" data-it="Dove le pietre parlano ancora." data-en="Where the stones still speak." data-tr="Taşların hâlâ konuştuğu yer.">Dove le pietre parlano ancora.</p>
+  <!-- Ambient background animato -->
+  <div class="gallery-ambient" id="gallery-ambient"></div>
+
+  <!-- Header -->
+  <div class="gallery-header">
+    <span class="gallery-section-tag" data-it="Le nostre destinazioni" data-en="Our destinations" data-tr="Destinasyonlarımız">Le nostre destinazioni</span>
+    <div class="gallery-counter">
+      <span class="g-curr" id="gallery-curr">01</span>
+      <span class="g-sep">/</span>
+      <span class="g-tot">04</span>
     </div>
   </div>
 
-  <!-- Slide 2 — Turchia Egea (foto) -->
-  <div class="reel-slide" data-index="1">
-    <img src="brand-assets/turkey-ephesus.jpg" alt="Efeso — Turchia" style="object-position:center 30%;" />
-    <div class="reel-overlay"></div>
-    <div class="reel-caption">
-      <span class="reel-caption-label" data-it="Efeso · Afrodisia · Mileto" data-en="Ephesus · Aphrodisias · Miletus" data-tr="Efes · Afrodisias · Milet">Efeso · Afrodisia · Mileto</span>
-      <h2 class="reel-caption-title" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</h2>
-      <p class="reel-caption-sub" data-it="Dove Oriente e Occidente si sono incontrati." data-en="Where East and West have met." data-tr="Doğu ile Batı'nın buluştuğu yer.">Dove Oriente e Occidente si sono incontrati.</p>
+  <!-- Track -->
+  <div class="gallery-track-wrap" id="gallery-track-wrap">
+    <div class="gallery-track" id="gallery-track">
+
+      <!-- Card 1 — Egitto -->
+      <div class="gallery-card gallery-active" data-index="0">
+        <div class="gallery-card-frame">
+          <div class="gallery-card-inner">
+            <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Valle dei Re — Egitto" style="object-position:center 20%;" />
+          </div>
+          <div class="gallery-card-overlay"></div>
+          <div class="gallery-caption">
+            <span class="gallery-caption-label" data-it="Valle dei Re · Luxor · Il Cairo" data-en="Valley of the Kings · Luxor · Cairo" data-tr="Krallar Vadisi · Luksor · Kahire">Valle dei Re · Luxor · Il Cairo</span>
+            <h2 class="gallery-caption-title" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</h2>
+            <p class="gallery-caption-sub" data-it="Dove le pietre parlano ancora." data-en="Where the stones still speak." data-tr="Taşların hâlâ konuştuğu yer.">Dove le pietre parlano ancora.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 — Turchia -->
+      <div class="gallery-card" data-index="1">
+        <div class="gallery-card-frame">
+          <div class="gallery-card-inner">
+            <img src="brand-assets/turkey-ephesus.jpg" alt="Efeso — Turchia" style="object-position:center 30%;" />
+          </div>
+          <div class="gallery-card-overlay"></div>
+          <div class="gallery-caption">
+            <span class="gallery-caption-label" data-it="Efeso · Cappadocia · Istanbul" data-en="Ephesus · Cappadocia · Istanbul" data-tr="Efes · Kapadokya · İstanbul">Efeso · Cappadocia · Istanbul</span>
+            <h2 class="gallery-caption-title" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</h2>
+            <p class="gallery-caption-sub" data-it="Dove Oriente e Occidente si sono incontrati." data-en="Where East and West have met." data-tr="Doğu ile Batı'nın buluştuğu yer.">Dove Oriente e Occidente si sono incontrati.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 — Anatolia -->
+      <div class="gallery-card" data-index="2">
+        <div class="gallery-card-frame">
+          <div class="gallery-card-inner">
+            <img src="brand-assets/ipek-desert.JPG" alt="Göbekli Tepe — Anatolia" style="object-position:center top;" />
+          </div>
+          <div class="gallery-card-overlay"></div>
+          <div class="gallery-caption">
+            <span class="gallery-caption-label" data-it="Göbekli Tepe · Cappadocia · Konya" data-en="Göbekli Tepe · Cappadocia · Konya" data-tr="Göbekli Tepe · Kapadokya · Konya">Göbekli Tepe · Cappadocia · Konya</span>
+            <h2 class="gallery-caption-title" data-it="Anatolia" data-en="Anatolia" data-tr="Anadolu">Anatolia</h2>
+            <p class="gallery-caption-sub" data-it="12.000 anni di storia ininterrotta." data-en="12,000 years of uninterrupted history." data-tr="12.000 yıllık kesintisiz tarih.">12.000 anni di storia ininterrotta.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 — Italia -->
+      <div class="gallery-card" data-index="3">
+        <div class="gallery-card-frame">
+          <div class="gallery-card-inner">
+            <img src="brand-assets/italy-rome.jpg" alt="Magna Graecia — Italia" style="object-position:center 40%;" />
+          </div>
+          <div class="gallery-card-overlay"></div>
+          <div class="gallery-caption">
+            <span class="gallery-caption-label" data-it="Agrigento · Paestum · Siracusa" data-en="Agrigento · Paestum · Syracuse" data-tr="Agrigento · Paestum · Sirakuza">Agrigento · Paestum · Siracusa</span>
+            <h2 class="gallery-caption-title" data-it="<em>Magna</em> Graecia" data-en="<em>Magna</em> Graecia" data-tr="İtalya"><em>Magna</em> Graecia</h2>
+            <p class="gallery-caption-sub" data-it="Dove l'antico è ancora vivo sotto i tuoi piedi." data-en="Where the ancient is still alive beneath your feet." data-tr="Antik dönemin ayaklarının altında yaşadığı yer.">Dove l'antico è ancora vivo sotto i tuoi piedi.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Slide 3 — Anatolia (foto) -->
-  <div class="reel-slide" data-index="2">
-    <img src="brand-assets/ipek-desert.JPG" alt="Göbekli Tepe — Anatolia" style="object-position:center top;" />
-    <div class="reel-overlay"></div>
-    <div class="reel-caption">
-      <span class="reel-caption-label" data-it="Göbekli Tepe · Cappadocia · Konya" data-en="Göbekli Tepe · Cappadocia · Konya" data-tr="Göbekli Tepe · Kapadokya · Konya">Göbekli Tepe · Cappadocia · Konya</span>
-      <h2 class="reel-caption-title" data-it="Anatolia" data-en="Anatolia" data-tr="Anadolu">Anatolia</h2>
-      <p class="reel-caption-sub" data-it="12.000 anni di storia ininterrotta." data-en="12,000 years of uninterrupted history." data-tr="12.000 yıllık kesintisiz tarih.">12.000 anni di storia ininterrotta.</p>
-    </div>
+  <!-- Frecce navigazione -->
+  <button class="gallery-arrow gallery-arrow-prev" id="gallery-prev" aria-label="Precedente">&#8592;</button>
+  <button class="gallery-arrow gallery-arrow-next" id="gallery-next" aria-label="Successivo">&#8594;</button>
+
+  <!-- Dots -->
+  <div class="gallery-dots" id="gallery-dots">
+    <button class="gallery-dot active" data-i="0" aria-label="Egitto"></button>
+    <button class="gallery-dot" data-i="1" aria-label="Turchia"></button>
+    <button class="gallery-dot" data-i="2" aria-label="Anatolia"></button>
+    <button class="gallery-dot" data-i="3" aria-label="Italia"></button>
   </div>
 
-  <!-- Slide 4 — Italia (foto) -->
-  <div class="reel-slide" data-index="3">
-    <img src="brand-assets/italy-rome.jpg" alt="Magna Graecia — Italia" style="object-position:center 40%;" />
-    <div class="reel-overlay"></div>
-    <div class="reel-caption">
-      <span class="reel-caption-label" data-it="Agrigento · Paestum · Siracusa" data-en="Agrigento · Paestum · Syracuse" data-tr="Agrigento · Paestum · Sirakuza">Agrigento · Paestum · Siracusa</span>
-      <h2 class="reel-caption-title" data-it="Italia" data-en="<em>Magna</em> Graecia" data-tr="İtalya">Italia</h2>
-      <p class="reel-caption-sub" data-it="Dove l'antico è ancora vivo sotto i tuoi piedi." data-en="Where the ancient is still alive beneath your feet." data-tr="Antik dönemin ayaklarının altında yaşadığı yer.">Dove l'antico è ancora vivo sotto i tuoi piedi.</p>
-    </div>
-  </div>
-
-  <!-- UI -->
-  <div class="reel-dots" id="reel-dots">
-    <button class="reel-dot active" onclick="reelGoTo(0)" aria-label="Slide 1"></button>
-    <button class="reel-dot" onclick="reelGoTo(1)" aria-label="Slide 2"></button>
-    <button class="reel-dot" onclick="reelGoTo(2)" aria-label="Slide 3"></button>
-    <button class="reel-dot" onclick="reelGoTo(3)" aria-label="Slide 4"></button>
-  </div>
-  <div class="reel-counter"><span class="reel-curr" id="reel-curr">01</span> / 04</div>
-  <div class="reel-hint">
-    <span data-it="scorri" data-en="scroll" data-tr="kaydır">scorri</span>
-    <div class="reel-hint-line"></div>
+  <!-- Keyboard hint (desktop only) -->
+  <div class="gallery-kbd-hint">
+    <span class="gallery-kbd">&#8592;</span>
+    <span class="gallery-kbd">&#8594;</span>
+    <span>naviga</span>
   </div>
 
 </section>
@@ -1571,109 +1718,188 @@
   // ═══ UPGRADE ANIMAZIONI — scroll reveal + cinematico
   // ════════════════════════════════════════════════════
 
-  // ─── A. CINEMATIC REEL — fullscreen slideshow con wipe ───
+  // ─── A. GALLERY REEL — art gallery slider ───
   (function() {
-    var reel = document.getElementById('cinematic-reel');
-    if (!reel) return;
+    var wrap    = document.getElementById('gallery-track-wrap');
+    var track   = document.getElementById('gallery-track');
+    var ambient = document.getElementById('gallery-ambient');
+    var currEl  = document.getElementById('gallery-curr');
+    if (!wrap || !track) return;
 
-    var slides   = reel.querySelectorAll('.reel-slide');
-    var dots     = reel.querySelectorAll('.reel-dot');
-    var currEl   = document.getElementById('reel-curr');
-    var total    = slides.length;
-    var current  = 0;
+    var cards   = Array.from(track.querySelectorAll('.gallery-card'));
+    var dots    = Array.from(document.querySelectorAll('.gallery-dot'));
+    var total   = cards.length;
+    var current = 0;
     var animating = false;
-    var DURATION  = 0.85; // secondi transizione
 
-    // Mostra caption iniziale
-    var firstCaption = slides[0].querySelector('.reel-caption');
-    if (firstCaption) gsap.to(firstCaption, { opacity: 1, y: 0, duration: 0.9, delay: 0.4, ease: 'power2.out' });
-
-    function updateUI(i) {
-      dots.forEach(function(d, j) { d.classList.toggle('active', j === i); });
-      if (currEl) currEl.textContent = String(i + 1).padStart(2, '0');
+    // Step = card width + gap (aggiornato al resize)
+    function getStep() {
+      return window.innerWidth > 768 ? (440 + 24) : (300 + 18);
     }
 
-    function goTo(index, dir) {
-      if (animating || index === current || index < 0 || index >= total) return;
-      animating = true;
+    // Ambient gradient per ciascuna destinazione
+    var ambients = [
+      'radial-gradient(ellipse at 28% 25%, rgba(185,120,38,0.28) 0%, transparent 55%), radial-gradient(ellipse at 72% 75%, rgba(150,88,28,0.22) 0%, transparent 55%)',
+      'radial-gradient(ellipse at 30% 30%, rgba(160,88,48,0.26) 0%, transparent 55%), radial-gradient(ellipse at 68% 70%, rgba(120,58,38,0.2) 0%, transparent 55%)',
+      'radial-gradient(ellipse at 35% 28%, rgba(135,98,55,0.26) 0%, transparent 55%), radial-gradient(ellipse at 65% 72%, rgba(100,72,48,0.2) 0%, transparent 55%)',
+      'radial-gradient(ellipse at 30% 30%, rgba(195,155,65,0.24) 0%, transparent 55%), radial-gradient(ellipse at 70% 68%, rgba(160,118,48,0.18) 0%, transparent 55%)'
+    ];
 
-      var from    = slides[current];
-      var to      = slides[index];
-      var fromMed = from.querySelector('img, video');
-      var toMed   = to.querySelector('img, video');
-      var toCap   = to.querySelector('.reel-caption');
-
-      // Determina direzione wipe
-      // dir > 0 = avanti → nuova slide entra da destra (inset sx 100% → 0)
-      // dir < 0 = indietro → nuova slide entra da sinistra (inset dx 100% → 0)
-      var insetStart = dir > 0 ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)';
-
-      // Setup slide entrante
-      gsap.set(to, { clipPath: insetStart, display: 'block', zIndex: 2 });
-      gsap.set(from, { zIndex: 1 });
-      if (toCap) gsap.set(toCap, { opacity: 0, y: 18 });
-
-      // Media entrante: scala da 1.07 a 1
-      if (toMed) gsap.fromTo(toMed, { scale: 1.07 }, { scale: 1, duration: DURATION + 0.45, ease: 'power2.out' });
-      // Media uscente: lieve zoom out
-      if (fromMed) gsap.to(fromMed, { scale: 1.04, duration: DURATION, ease: 'power2.in' });
-
-      // Wipe
-      gsap.to(to, {
-        clipPath: 'inset(0 0 0 0)',
-        duration: DURATION,
-        ease: 'power3.inOut',
+    function updateAmbient(i) {
+      if (!ambient) return;
+      gsap.to(ambient, {
+        opacity: 0, duration: 0.3,
         onComplete: function() {
-          gsap.set(from, { display: 'none', zIndex: 0 });
-          if (fromMed) gsap.set(fromMed, { scale: 1 });
-          current = index;
-          animating = false;
-          updateUI(current);
-          // Attiva video se slide video
-          var vid = to.querySelector('video');
-          if (vid) vid.play().catch(function(){});
-          // Pausa video slide uscente
-          var oldVid = from.querySelector('video');
-          if (oldVid) oldVid.pause();
-          // Caption entra
-          if (toCap) gsap.to(toCap, { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', delay: 0.08 });
+          ambient.style.background = ambients[i] || '';
+          gsap.to(ambient, { opacity: 1, duration: 0.6 });
         }
       });
     }
 
-    // Esponi globalmente per i dot
-    window.reelGoTo = function(i) { goTo(i, i > current ? 1 : -1); };
+    function goTo(index) {
+      if (animating || index === current || index < 0 || index >= total) return;
+      animating = true;
+      var prev = current;
+      current = index;
 
-    // Scroll wheel
-    var wheelTimeout = null;
-    reel.addEventListener('wheel', function(e) {
-      clearTimeout(wheelTimeout);
-      wheelTimeout = setTimeout(function() {
-        if (e.deltaY > 0 && current < total - 1) {
-          e.preventDefault();
-          goTo(current + 1, 1);
-        } else if (e.deltaY < 0 && current > 0) {
-          e.preventDefault();
-          goTo(current - 1, -1);
+      // Muovi il track
+      gsap.to(track, {
+        x: -current * getStep(),
+        duration: 0.68,
+        ease: 'power3.inOut',
+        onComplete: function() { animating = false; }
+      });
+
+      // Scale + opacity su ogni card
+      cards.forEach(function(card, i) {
+        var active = (i === current);
+        card.classList.toggle('gallery-active', active);
+        gsap.to(card, {
+          scale: active ? 1 : 0.82,
+          opacity: active ? 1 : 0.45,
+          duration: 0.6,
+          ease: 'power2.out'
+        });
+        var cap = card.querySelector('.gallery-caption');
+        if (cap) {
+          if (active) {
+            gsap.to(cap, { opacity: 1, y: 0, duration: 0.5, delay: 0.22, ease: 'power2.out' });
+          } else {
+            gsap.to(cap, { opacity: 0, y: 14, duration: 0.28, ease: 'power2.in' });
+          }
         }
-      }, 30);
-      // Previene scroll pagina solo se ci sono slide da mostrare
-      if ((e.deltaY > 0 && current < total - 1) || (e.deltaY < 0 && current > 0)) {
+      });
+
+      // Dots + counter
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      if (currEl) currEl.textContent = String(current + 1).padStart(2, '0');
+
+      // Ambient
+      updateAmbient(current);
+
+      // Video gestione
+      var prevVid = cards[prev] && cards[prev].querySelector('video');
+      var currVid = cards[current].querySelector('video');
+      if (prevVid) prevVid.pause();
+      if (currVid) currVid.play().catch(function(){});
+    }
+
+    // ── Init ──
+    gsap.set(track, { x: 0 });
+    cards.forEach(function(card, i) {
+      gsap.set(card, { scale: i === 0 ? 1 : 0.82, opacity: i === 0 ? 1 : 0.45 });
+    });
+    // Prima caption entra con delay
+    var firstCap = cards[0] && cards[0].querySelector('.gallery-caption');
+    if (firstCap) {
+      gsap.set(firstCap, { opacity: 0, y: 14 });
+      gsap.to(firstCap, { opacity: 1, y: 0, duration: 0.8, delay: 0.6, ease: 'power2.out' });
+    }
+    updateAmbient(0);
+
+    // ── Dots ──
+    dots.forEach(function(d) {
+      d.addEventListener('click', function() {
+        goTo(parseInt(d.getAttribute('data-i'), 10));
+      });
+    });
+
+    // ── Frecce ──
+    var prevBtn = document.getElementById('gallery-prev');
+    var nextBtn = document.getElementById('gallery-next');
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    // ── Tastiera ──
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft')  goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    // ── Drag (mouse) ──
+    var dragStartX = null;
+    var isDragging = false;
+
+    wrap.addEventListener('mousedown', function(e) {
+      if (animating) return;
+      dragStartX = e.clientX;
+      isDragging = true;
+    });
+    window.addEventListener('mousemove', function(e) {
+      if (!isDragging || dragStartX === null) return;
+      var dx = e.clientX - dragStartX;
+      gsap.set(track, { x: -current * getStep() + dx * 0.4 });
+    });
+    window.addEventListener('mouseup', function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      var diff = e.clientX - dragStartX;
+      dragStartX = null;
+      if (diff < -55 && current < total - 1) { goTo(current + 1); return; }
+      if (diff >  55 && current > 0)         { goTo(current - 1); return; }
+      gsap.to(track, { x: -current * getStep(), duration: 0.35, ease: 'power2.out' });
+    });
+
+    // ── Swipe (touch) ──
+    var touchStartX = null;
+    wrap.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    wrap.addEventListener('touchmove', function(e) {
+      if (touchStartX === null) return;
+      var dx = e.touches[0].clientX - touchStartX;
+      gsap.set(track, { x: -current * getStep() + dx * 0.4 });
+    }, { passive: true });
+    wrap.addEventListener('touchend', function(e) {
+      if (touchStartX === null) return;
+      var diff = e.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (diff < -50 && current < total - 1) { goTo(current + 1); return; }
+      if (diff >  50 && current > 0)         { goTo(current - 1); return; }
+      gsap.to(track, { x: -current * getStep(), duration: 0.35, ease: 'power2.out' });
+    }, { passive: true });
+
+    // ── Wheel (orizzontale) ──
+    var wheelTimer = null;
+    wrap.addEventListener('wheel', function(e) {
+      var delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if ((delta > 0 && current < total - 1) || (delta < 0 && current > 0)) {
         e.preventDefault();
+        clearTimeout(wheelTimer);
+        wheelTimer = setTimeout(function() {
+          if (delta > 30)  goTo(current + 1);
+          if (delta < -30) goTo(current - 1);
+        }, 40);
       }
     }, { passive: false });
 
-    // Touch swipe
-    var touchY = 0;
-    reel.addEventListener('touchstart', function(e) {
-      touchY = e.touches[0].clientY;
-    }, { passive: true });
-    reel.addEventListener('touchend', function(e) {
-      var diff = touchY - e.changedTouches[0].clientY;
-      if (Math.abs(diff) < 40) return;
-      if (diff > 0) goTo(current + 1, 1);
-      else          goTo(current - 1, -1);
-    }, { passive: true });
+    // ── Resize: ricalcola posizione ──
+    window.addEventListener('resize', function() {
+      gsap.set(track, { x: -current * getStep() });
+    });
+
+    // Esponi globalmente se serve
+    window.galleryGoTo = goTo;
 
   })();
 
