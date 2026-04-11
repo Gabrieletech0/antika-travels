@@ -365,8 +365,36 @@
     /* ═══ DEST CARD CLIP REVEAL — gestito da GSAP ═══ */
 
     /* ═══ TOUR CARD 3D ═══ */
-    .tour-card { transform-style: preserve-3d; perspective: 1200px; }
+    .tour-card { transform-style: preserve-3d; perspective: 1200px; --cone-spread: 25; }
     .tour-card-inner { transform-style: preserve-3d; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+
+    /* ═══ BORDER GLOW ═══ */
+    .tour-card .edge-light {
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: inherit;
+      background: conic-gradient(
+        from calc(var(--cursor-angle, 0deg) - calc(var(--cone-spread) * 1deg)) at 50% 50%,
+        transparent 0deg,
+        rgba(201,168,76,1) calc(var(--cone-spread) * 1deg),
+        rgba(201,168,76,0.35) calc(var(--cone-spread) * 1.7deg),
+        transparent calc(var(--cone-spread) * 2.2deg),
+        transparent 360deg
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      opacity: calc(var(--edge-proximity, 0) / 100);
+      transition: opacity 0s;
+    }
+    .tour-card:not(:hover) .edge-light {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
 
     /* (hscroll-quote rimosso — sostituito da brand-statement) */
 
@@ -1458,16 +1486,42 @@
     });
   })();
 
-  // ═══ 3D TILT — TOUR CARDS ═══
+  // ═══ 3D TILT + BORDER GLOW — TOUR CARDS ═══
   document.querySelectorAll('.tour-card').forEach(card => {
+    // Inject edge-light span
+    const light = document.createElement('span');
+    light.className = 'edge-light';
+    card.prepend(light);
+
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 6}deg) scale(1.02)`;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // 3D tilt
+      const nx = x / rect.width - 0.5;
+      const ny = y / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${nx * 8}deg) rotateX(${-ny * 6}deg) scale(1.02)`;
+
+      // Border glow — edge proximity
+      const cx = rect.width / 2, cy = rect.height / 2;
+      const dx = x - cx, dy = y - cy;
+      let kx = Infinity, ky = Infinity;
+      if (dx !== 0) kx = cx / Math.abs(dx);
+      if (dy !== 0) ky = cy / Math.abs(dy);
+      const proximity = Math.min(Math.max(1 / Math.min(kx, ky), 0), 1);
+
+      // Angle: 0 = top, clockwise
+      let angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      if (angle < 0) angle += 360;
+
+      card.style.setProperty('--edge-proximity', (proximity * 100).toFixed(2));
+      card.style.setProperty('--cursor-angle', angle.toFixed(2) + 'deg');
     });
+
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)';
+      card.style.setProperty('--edge-proximity', '0');
     });
   });
 
