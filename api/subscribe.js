@@ -42,8 +42,11 @@ export default async function handler(req, res) {
       body: JSON.stringify({ email, attributes: { NOME: cleanNome, SOURCE: source || 'sito' }, listIds: [2], updateEnabled: true })
     });
     if (response.ok || response.status === 204) return res.status(200).json({ success: true });
-    const err = await response.json();
-    return res.status(response.status).json({ error: err });
+    const err = await response.json().catch(() => ({}));
+    // Già iscritto → non è un errore
+    if (err.code === 'duplicate_parameter') return res.status(200).json({ success: true });
+    console.error('[subscribe] Brevo error:', response.status, err);
+    return res.status(502).json({ error: 'Upstream error' });
   } catch (error) {
     return res.status(500).json({ error: 'Errore di rete' });
   }

@@ -7,28 +7,46 @@
   <link rel="icon" type="image/svg+xml" href="brand-assets/logo-bussola-favicon.svg" />
   <meta name="description" content="Viaggi archeologici su misura in Egitto, Turchia e Italia. Gruppi esclusivi guidati da un'archeologa. Tour di lusso per chi vuole scoprire la storia dall'interno." />
 
-  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
-  <!-- SOSTITUISCI: GTM-XXXXXXX con il tuo ID da https://tagmanager.google.com -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-
-  <!-- ═══ FACEBOOK PIXEL ═══ -->
-  <!-- SOSTITUISCI: PIXEL_ID con il tuo Pixel ID da Meta Business Suite -->
-  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-
-  <!-- ═══ GOOGLE ANALYTICS 4 ═══ -->
-  <!-- SOSTITUISCI: G-XXXXXXXXXX con il tuo Measurement ID da https://analytics.google.com -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <!-- ═══ TRACKING — caricato solo dopo consenso cookie (GDPR) ═══ -->
+  <!-- SOSTITUISCI i placeholder: GTM-XXXXXXX, G-XXXXXXXXXX, PIXEL_ID -->
+  <script>
+    var _trackingLoaded = false;
+    function loadTracking() {
+      if (_trackingLoaded) return; _trackingLoaded = true;
+      // GTM
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');
+      // GA4
+      var ga=document.createElement('script');ga.async=true;ga.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';document.head.appendChild(ga);
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+      // FB Pixel
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');
+    }
+    function cookieConsent(accepted) {
+      localStorage.setItem('antiqora_consent', accepted ? 'yes' : 'no');
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.style.display = 'none';
+      if (accepted) loadTracking();
+    }
+    (function() {
+      var c = localStorage.getItem('antiqora_consent');
+      if (c === 'yes') { loadTracking(); }
+      else if (!c) {
+        document.addEventListener('DOMContentLoaded', function() {
+          var b = document.getElementById('cookie-banner');
+          if (b) b.style.display = 'flex';
+        });
+      }
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?v=3"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
   <link rel="preload" as="video" href="https://res.cloudinary.com/droimfs41/video/upload/v1775850206/antiqora-hero_sfkcmw.mp4" />
 
   <script>
@@ -388,6 +406,23 @@
     .dest-img { will-change: transform; }
 
     /* ═══ GSAP gestisce reveal — nessun CSS hiding ═══ */
+
+    /* ─── COOKIE CONSENT BANNER ─── */
+    #cookie-banner { position:fixed; bottom:0; left:0; right:0; z-index:9998; background:#13110E; border-top:1px solid rgba(201,168,76,0.2); padding:1.25rem 2.5rem; display:none; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
+    .cc-text { flex:1; min-width:200px; }
+    .cc-title { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:400; color:#F7F3EE; margin-bottom:0.3rem; }
+    .cc-body { font-size:0.72rem; color:rgba(247,243,238,0.45); line-height:1.6; }
+    .cc-body a { color:#C9A84C; text-decoration:none; }
+    .cc-actions { display:flex; gap:0.75rem; flex-shrink:0; }
+    .cc-btn-reject { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.5rem 1.25rem; border:1px solid rgba(201,168,76,0.3); color:rgba(247,243,238,0.55); background:transparent; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; border-radius:1px; }
+    .cc-btn-reject:hover { border-color:rgba(201,168,76,0.7); color:#F7F3EE; }
+    .cc-btn-accept { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.5rem 1.5rem; background:#C9A84C; color:#0F0E0C; border:1px solid #C9A84C; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; border-radius:1px; font-weight:500; }
+    .cc-btn-accept:hover { background:#D4B05A; border-color:#D4B05A; }
+    /* GDPR checkbox nei form */
+    .gdpr-label { display:flex; align-items:flex-start; gap:0.5rem; font-size:0.7rem; color:rgba(247,243,238,0.4); cursor:pointer; text-align:left; line-height:1.6; }
+    .gdpr-label input[type=checkbox] { margin-top:2px; accent-color:#C9A84C; flex-shrink:0; cursor:pointer; }
+    .gdpr-label a { color:#C9A84C; text-decoration:none; }
+    @media (max-width:600px) { #cookie-banner { flex-direction:column; align-items:flex-start; padding:1.25rem 1.5rem; } .cc-actions { width:100%; } .cc-btn-reject, .cc-btn-accept { flex:1; text-align:center; } }
   </style>
 </head>
 <body>
@@ -398,6 +433,18 @@
 
 <!-- ═══ SCROLL PROGRESS ═══ -->
 <div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- ═══ COOKIE CONSENT BANNER ═══ -->
+<div id="cookie-banner">
+  <div class="cc-text">
+    <p class="cc-title" data-it="Rispettiamo la tua privacy" data-en="We respect your privacy" data-tr="Gizliliğinize saygı duyuyoruz">Rispettiamo la tua privacy</p>
+    <p class="cc-body">Usiamo cookie di analytics (Google Analytics, GTM) e marketing (Facebook Pixel) per misurare le performance. Nessun dato viene trasferito senza consenso. <a href="#" onclick="return false;">Privacy Policy</a>.</p>
+  </div>
+  <div class="cc-actions">
+    <button class="cc-btn-reject" onclick="cookieConsent(false)" data-it="Rifiuta" data-en="Decline" data-tr="Reddet">Rifiuta</button>
+    <button class="cc-btn-accept" onclick="cookieConsent(true)" data-it="Accetta tutto" data-en="Accept all" data-tr="Tümünü kabul et">Accetta tutto</button>
+  </div>
+</div>
 
 <!-- ═══ CURSOR CUSTOM ═══ -->
 
@@ -410,6 +457,10 @@
   <p class="text-sm mb-6 font-light" style="color:rgba(247,243,238,0.8); line-height:1.8;" data-it="Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati." data-en="Subscribe to receive new itineraries and available spots in advance — before they are assigned." data-tr="Yeni güzergahları ve müsait yerleri önceden almak için abone olun.">Iscriviti per ricevere in anteprima i nuovi itinerari e i posti disponibili — prima che vengano assegnati.</p>
   <form onsubmit="handleExitNewsletter(event)" class="flex flex-col gap-3">
     <input type="email" name="email" placeholder="La tua email" class="nl-input" style="text-align:center;" required />
+    <label class="gdpr-label" style="justify-content:center;">
+      <input type="checkbox" name="gdpr" required />
+      <span data-it="Acconsento al trattamento dei miei dati per la newsletter." data-en="I consent to processing my data for the newsletter." data-tr="Bülten için verilerimin işlenmesine onay veriyorum.">Acconsento al trattamento dei miei dati per la newsletter.</span>
+    </label>
     <button type="submit" class="btn-primary" style="width:100%; text-align:center;" data-it="Voglio sapere in anticipo" data-en="I want to know in advance" data-tr="Önceden bilmek istiyorum">Voglio sapere in anticipo</button>
   </form>
   <p class="text-xs mt-4 font-light" style="color:rgba(247,243,238,0.65); letter-spacing:0.05em;" data-it="Nessuno spam. Solo itinerari." data-en="No spam. Only itineraries." data-tr="Spam yok. Sadece güzergahlar.">Nessuno spam. Solo itinerari.</p>
@@ -857,9 +908,15 @@
     <p class="section-label" data-it="Rimani aggiornato" data-en="Stay informed" data-tr="Güncel kalın">Rimani aggiornato</p>
     <h2 class="font-display font-light mb-4" style="font-size:2rem; color:#F7F3EE;" data-it="I nuovi itinerari. Prima di tutti." data-en="New itineraries. Before anyone else." data-tr="Yeni güzergahlar. Herkesten önce.">I nuovi itinerari. Prima di tutti.</h2>
     <p class="text-sm font-light mb-8" style="color:rgba(247,243,238,0.45);" data-it="Nessuno spam. Solo i nuovi viaggi, i posti disponibili e qualche storia dall'archeologia." data-en="No spam. Only new journeys, available spots and a few stories from archaeology." data-tr="Spam yok. Sadece yeni yolculuklar, müsait yerler ve arkeolojiden bazı hikayeler.">Nessuno spam. Solo i nuovi viaggi, i posti disponibili e qualche storia dall'archeologia.</p>
-    <form id="nl-form" onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3">
-      <input type="email" name="email" placeholder="La tua email" class="nl-input" required />
-      <button type="submit" class="btn-primary whitespace-nowrap" data-it="Iscriviti" data-en="Subscribe" data-tr="Abone ol">Iscriviti</button>
+    <form id="nl-form" onsubmit="handleNewsletter(event)" class="flex flex-col gap-3">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input type="email" name="email" placeholder="La tua email" class="nl-input" required />
+        <button type="submit" class="btn-primary whitespace-nowrap" data-it="Iscriviti" data-en="Subscribe" data-tr="Abone ol">Iscriviti</button>
+      </div>
+      <label class="gdpr-label" style="justify-content:center;">
+        <input type="checkbox" name="gdpr" required />
+        <span data-it="Acconsento al trattamento dei miei dati per l'invio della newsletter. Leggi la Privacy Policy." data-en="I consent to the processing of my data for newsletter delivery. Read the Privacy Policy." data-tr="Bülten gönderimi için verilerimin işlenmesine onay veriyorum.">Acconsento al trattamento dei miei dati per l'invio della newsletter. Leggi la <a href="#" onclick="return false;">Privacy Policy</a>.</span>
+      </label>
     </form>
     <div id="nl-success" style="display:none; color:#C9A84C; font-size:0.9rem; margin-top:1rem;" data-it="✓ Perfetto. Ti teniamo aggiornato." data-en="✓ Perfect. We'll keep you informed." data-tr="✓ Mükemmel. Sizi bilgilendireceğiz.">✓ Perfetto. Ti teniamo aggiornato.</div>
   </div>
