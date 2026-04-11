@@ -427,8 +427,8 @@
     /* ═══ GALLERY REEL — art gallery slider ═══ */
     .gallery-reel {
       position: relative;
-      height: 88vh;
-      min-height: 580px;
+      height: 80vh;
+      min-height: 520px;
       overflow: hidden;
       background: #0F0E0C;
       user-select: none;
@@ -464,17 +464,17 @@
     .gallery-track {
       display: flex;
       align-items: center;
-      gap: 24px;
-      padding-left: calc(50vw - 220px);
-      padding-right: calc(50vw - 220px);
+      gap: 28px;
+      padding-left: calc(50vw - 330px);
+      padding-right: calc(50vw - 330px);
       will-change: transform;
       transform: translateZ(0);
     }
     .gallery-card {
       position: relative;
       flex-shrink: 0;
-      width: 440px;
-      border-radius: 20px;
+      width: 660px;
+      border-radius: 16px;
       overflow: visible;
       will-change: transform, opacity;
       transform: translateZ(0);
@@ -499,56 +499,12 @@
     .gallery-card img,
     .gallery-card video {
       width: 100%;
-      height: 540px;
+      height: 420px;
       object-fit: cover;
       display: block;
-      border-radius: 10px;
+      border-radius: 8px;
       will-change: transform;
       pointer-events: none;
-    }
-    /* Gradient overlay for caption */
-    .gallery-card-overlay {
-      position: absolute;
-      inset: 10px;
-      border-radius: 10px;
-      background: linear-gradient(to top, rgba(15,14,12,0.92) 0%, rgba(15,14,12,0.35) 42%, transparent 68%);
-      z-index: 3;
-      pointer-events: none;
-    }
-    .gallery-caption {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
-      padding: 1.4rem 1.6rem;
-      z-index: 4;
-      border-radius: 0 0 10px 10px;
-    }
-    .gallery-caption-label {
-      display: block;
-      font-size: 0.53rem;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: #C9A84C;
-      margin-bottom: 0.45rem;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .gallery-caption-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      color: #F7F3EE;
-      line-height: 0.95;
-      letter-spacing: -0.01em;
-      margin: 0 0 0.45rem;
-    }
-    .gallery-caption-title em { font-style: italic; color: #C9A84C; }
-    .gallery-caption-sub {
-      font-size: 0.76rem;
-      color: rgba(247,243,238,0.45);
-      font-weight: 300;
-      letter-spacing: 0.03em;
-      line-height: 1.55;
     }
     /* Header */
     .gallery-header {
@@ -660,13 +616,13 @@
       font-size: 0.6rem;
     }
     @media (max-width: 768px) {
-      .gallery-reel { height: 82vh; min-height: 500px; }
+      .gallery-reel { height: 60vh; min-height: 320px; }
       .gallery-card { width: 300px; }
-      .gallery-card img, .gallery-card video { height: 400px; }
+      .gallery-card img, .gallery-card video { height: 200px; }
       .gallery-track {
         padding-left: calc(50vw - 150px);
         padding-right: calc(50vw - 150px);
-        gap: 18px;
+        gap: 16px;
       }
       .gallery-arrow { display: none; }
       .gallery-header { padding: 1.2rem 1.5rem; }
@@ -843,12 +799,6 @@
           <div class="gallery-card-inner">
             <img src="brand-assets/ipek-egypt-tomb.JPG" alt="Valle dei Re — Egitto" style="object-position:center 20%;" />
           </div>
-          <div class="gallery-card-overlay"></div>
-          <div class="gallery-caption">
-            <span class="gallery-caption-label" data-it="Valle dei Re · Luxor · Il Cairo" data-en="Valley of the Kings · Luxor · Cairo" data-tr="Krallar Vadisi · Luksor · Kahire">Valle dei Re · Luxor · Il Cairo</span>
-            <h2 class="gallery-caption-title" data-it="Egitto" data-en="Egypt" data-tr="Mısır">Egitto</h2>
-            <p class="gallery-caption-sub" data-it="Dove le pietre parlano ancora." data-en="Where the stones still speak." data-tr="Taşların hâlâ konuştuğu yer.">Dove le pietre parlano ancora.</p>
-          </div>
         </div>
       </div>
 
@@ -857,12 +807,6 @@
         <div class="gallery-card-frame">
           <div class="gallery-card-inner">
             <img src="brand-assets/turkey-ephesus.jpg" alt="Efeso — Turchia" style="object-position:center 30%;" />
-          </div>
-          <div class="gallery-card-overlay"></div>
-          <div class="gallery-caption">
-            <span class="gallery-caption-label" data-it="Efeso · Cappadocia · Istanbul" data-en="Ephesus · Cappadocia · Istanbul" data-tr="Efes · Kapadokya · İstanbul">Efeso · Cappadocia · Istanbul</span>
-            <h2 class="gallery-caption-title" data-it="Turchia" data-en="Turkey" data-tr="Türkiye">Turchia</h2>
-            <p class="gallery-caption-sub" data-it="Dove Oriente e Occidente si sono incontrati." data-en="Where East and West have met." data-tr="Doğu ile Batı'nın buluştuğu yer.">Dove Oriente e Occidente si sono incontrati.</p>
           </div>
         </div>
       </div>
@@ -873,12 +817,6 @@
           <div class="gallery-card-inner">
             <img src="brand-assets/ipek-desert.JPG" alt="Göbekli Tepe — Anatolia" style="object-position:center top;" />
           </div>
-          <div class="gallery-card-overlay"></div>
-          <div class="gallery-caption">
-            <span class="gallery-caption-label" data-it="Göbekli Tepe · Cappadocia · Konya" data-en="Göbekli Tepe · Cappadocia · Konya" data-tr="Göbekli Tepe · Kapadokya · Konya">Göbekli Tepe · Cappadocia · Konya</span>
-            <h2 class="gallery-caption-title" data-it="Anatolia" data-en="Anatolia" data-tr="Anadolu">Anatolia</h2>
-            <p class="gallery-caption-sub" data-it="12.000 anni di storia ininterrotta." data-en="12,000 years of uninterrupted history." data-tr="12.000 yıllık kesintisiz tarih.">12.000 anni di storia ininterrotta.</p>
-          </div>
         </div>
       </div>
 
@@ -887,12 +825,6 @@
         <div class="gallery-card-frame">
           <div class="gallery-card-inner">
             <img src="brand-assets/italy-rome.jpg" alt="Magna Graecia — Italia" style="object-position:center 40%;" />
-          </div>
-          <div class="gallery-card-overlay"></div>
-          <div class="gallery-caption">
-            <span class="gallery-caption-label" data-it="Agrigento · Paestum · Siracusa" data-en="Agrigento · Paestum · Syracuse" data-tr="Agrigento · Paestum · Sirakuza">Agrigento · Paestum · Siracusa</span>
-            <h2 class="gallery-caption-title" data-it="<em>Magna</em> Graecia" data-en="<em>Magna</em> Graecia" data-tr="İtalya"><em>Magna</em> Graecia</h2>
-            <p class="gallery-caption-sub" data-it="Dove l'antico è ancora vivo sotto i tuoi piedi." data-en="Where the ancient is still alive beneath your feet." data-tr="Antik dönemin ayaklarının altında yaşadığı yer.">Dove l'antico è ancora vivo sotto i tuoi piedi.</p>
           </div>
         </div>
       </div>
@@ -1737,7 +1669,7 @@
 
     // Step = card width + gap (aggiornato al resize)
     function getStep() {
-      return window.innerWidth > 768 ? (440 + 24) : (300 + 18);
+      return window.innerWidth > 768 ? (660 + 28) : (300 + 16);
     }
 
     // Ambient gradient per ciascuna destinazione
