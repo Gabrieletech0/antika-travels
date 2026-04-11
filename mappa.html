@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mappa — Antiqora Travel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #070605; }
+
+    #globe-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+    }
+    #globe-canvas:active { cursor: grabbing; }
+
+    /* ── Navigation ── */
+    .map-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2.5rem;
+      background: linear-gradient(to bottom, rgba(7,6,5,0.95) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .map-nav a { pointer-events: auto; }
+
+    .map-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .map-nav-logo img {
+      height: 32px;
+      width: auto;
+      filter: brightness(1.1);
+    }
+    .map-nav-wordmark {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: #C9A84C;
+      text-transform: uppercase;
+    }
+
+    .map-nav-back {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.45);
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .map-nav-back:hover { color: #C9A84C; }
+
+    /* ── Destination labels ── */
+    .dest-label {
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, calc(-100% - 16px));
+      z-index: 50;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .dest-label.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .dest-label-inner {
+      background: rgba(7,6,5,0.82);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 0.65rem 1.1rem 0.55rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: border-color 0.25s, background 0.25s;
+      position: relative;
+    }
+    .dest-label-inner::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid rgba(201,168,76,0.25);
+    }
+    .dest-label-inner:hover {
+      border-color: rgba(201,168,76,0.65);
+      background: rgba(12,10,8,0.9);
+    }
+    .dest-label-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #F7F3EE;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+    .dest-label-cta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.48rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C9A84C;
+      margin-top: 0.25rem;
+    }
+
+    /* ── Bottom hint ── */
+    .map-hint {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(247,243,238,0.25);
+      z-index: 50;
+      text-align: center;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* ── Page title ── */
+    .map-title {
+      position: fixed;
+      bottom: 4rem;
+      left: 2.5rem;
+      z-index: 50;
+      pointer-events: none;
+    }
+    .map-title-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.6);
+      margin-bottom: 0.4rem;
+    }
+    .map-title-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: rgba(247,243,238,0.75);
+      font-style: italic;
+      line-height: 1.1;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="globe-canvas"></canvas>
+
+<nav class="map-nav">
+  <a href="index.html" class="map-nav-logo">
+    <img src="brand-assets/antiqora-logo-gold.png" alt="Antiqora Travel" onerror="this.style.display='none'">
+    <span class="map-nav-wordmark">Antiqora Travel</span>
+  </a>
+  <a href="index.html" class="map-nav-back">← Torna al sito</a>
+</nav>
+
+<div class="map-title">
+  <p class="map-title-label">Le nostre destinazioni</p>
+  <h1 class="map-title-heading">Il Mediterraneo antico</h1>
+</div>
+
+<!-- Destination labels (positioned by JS) -->
+<div class="dest-label" id="label-0">
+  <div class="dest-label-inner" onclick="window.location.href='tour-faraoni-del-nilo.html'">
+    <div class="dest-label-name">Egitto</div>
+    <div class="dest-label-cta">Scopri il viaggio →</div>
+  </div>
+</div>
+<div class="dest-label" id="label-1">
+  <div class="dest-label-inner" onclick="window.location.href='tour-citta-egeo.html'">
+    <div class="dest-label-name">Turchia</div>
+    <div class="dest-label-cta">Scopri il viaggio →</div>
+  </div>
+</div>
+<div class="dest-label" id="label-2">
+  <div class="dest-label-inner" onclick="window.location.href='index.html#richiedi'">
+    <div class="dest-label-name">Giordania</div>
+    <div class="dest-label-cta">Richiedi un viaggio →</div>
+  </div>
+</div>
+<div class="dest-label" id="label-3">
+  <div class="dest-label-inner" onclick="window.location.href='tour-magna-graecia.html'">
+    <div class="dest-label-name">Italia</div>
+    <div class="dest-label-cta">Scopri il viaggio →</div>
+  </div>
+</div>
+
+<p class="map-hint">Trascina per ruotare · Clicca una destinazione</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+<script>
+(function () {
+  const canvas = document.getElementById('globe-canvas');
+  let W = window.innerWidth, H = window.innerHeight;
+
+  // ── Renderer
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x070605, 1);
+
+  // ── Scene / Camera
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 200);
+  camera.position.z = 4.8; // più vicino per focus Mediterraneo
+
+  const R = 2.0; // globe radius
+
+  // ── Helpers
+  function ll2v(lat, lon, r) {
+    const phi   = (90 - lat) * Math.PI / 180;
+    const theta = (lon + 180) * Math.PI / 180;
+    return new THREE.Vector3(
+      -r * Math.sin(phi) * Math.cos(theta),
+       r * Math.cos(phi),
+       r * Math.sin(phi) * Math.sin(theta)
+    );
+  }
+
+  function makeLatLine(lat, r, segs) {
+    segs = segs || 128;
+    const phi = (90 - lat) * Math.PI / 180;
+    const pts = [];
+    for (let i = 0; i <= segs; i++) {
+      const t = (i / segs) * Math.PI * 2;
+      pts.push(new THREE.Vector3(
+        -r * Math.sin(phi) * Math.cos(t),
+         r * Math.cos(phi),
+         r * Math.sin(phi) * Math.sin(t)
+      ));
+    }
+    return new THREE.BufferGeometry().setFromPoints(pts);
+  }
+
+  function makeLonLine(lon, r, segs) {
+    segs = segs || 128;
+    const theta = (lon + 180) * Math.PI / 180;
+    const pts = [];
+    for (let i = 0; i <= segs; i++) {
+      const phi = (i / segs) * Math.PI;
+      pts.push(new THREE.Vector3(
+        -r * Math.sin(phi) * Math.cos(theta),
+         r * Math.cos(phi),
+         r * Math.sin(phi) * Math.sin(theta)
+      ));
+    }
+    return new THREE.BufferGeometry().setFromPoints(pts);
+  }
+
+  // ── Lights
+  scene.add(new THREE.AmbientLight(0xbbbbbb, 0.6));
+  const sun = new THREE.DirectionalLight(0xffffff, 1.0);
+  sun.position.set(3, 2, 5);
+  scene.add(sun);
+
+  // ── Globe group
+  const globe = new THREE.Group();
+  scene.add(globe);
+
+  // Sphere body — Earth texture
+  const loader = new THREE.TextureLoader();
+  const bodyGeo = new THREE.SphereGeometry(R, 64, 64);
+  const bodyMat = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    roughness: 1.0,
+    metalness: 0.0,
+  });
+  const earthMesh = new THREE.Mesh(bodyGeo, bodyMat);
+  globe.add(earthMesh);
+
+  // Load texture async
+  loader.load(
+    'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
+    function (tex) { bodyMat.map = tex; bodyMat.needsUpdate = true; },
+    undefined,
+    function () { bodyMat.color.set(0x0B1522); } // fallback: dark sphere
+  );
+
+  // Outer atmosphere (BackSide, larger)
+  const atmosGeo = new THREE.SphereGeometry(R * 1.04, 32, 32);
+  const atmosMat = new THREE.MeshBasicMaterial({
+    color: 0x4488cc, transparent: true, opacity: 0.12, side: THREE.BackSide
+  });
+  globe.add(new THREE.Mesh(atmosGeo, atmosMat));
+
+  // Second atmosphere halo
+  const haloGeo = new THREE.SphereGeometry(R * 1.09, 32, 32);
+  const haloMat = new THREE.MeshBasicMaterial({
+    color: 0x2255aa, transparent: true, opacity: 0.06, side: THREE.BackSide
+  });
+  globe.add(new THREE.Mesh(haloGeo, haloMat));
+
+  // ── Stars
+  const starCount = 1800;
+  const sBuf = new Float32Array(starCount * 3);
+  for (let i = 0; i < starCount; i++) {
+    const r   = 60 + Math.random() * 30;
+    const th  = Math.random() * Math.PI * 2;
+    const ph  = Math.acos(2 * Math.random() - 1);
+    sBuf[i*3]   = r * Math.sin(ph) * Math.cos(th);
+    sBuf[i*3+1] = r * Math.sin(ph) * Math.sin(th);
+    sBuf[i*3+2] = r * Math.cos(ph);
+  }
+  const starGeo = new THREE.BufferGeometry();
+  starGeo.setAttribute('position', new THREE.BufferAttribute(sBuf, 3));
+  scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({
+    color: 0xF7F0E8, size: 0.05, transparent: true, opacity: 0.55
+  })));
+
+  // ── Destinations
+  const DESTS = [
+    { name: 'Egitto',    lat: 26.5, lon: 30.5, url: 'tour-faraoni-del-nilo.html' },
+    { name: 'Turchia',   lat: 38.2, lon: 27.5, url: 'tour-citta-egeo.html' },
+    { name: 'Giordania', lat: 30.5, lon: 35.5, url: 'index.html#richiedi' },
+    { name: 'Italia',    lat: 41.9, lon: 12.5, url: 'tour-magna-graecia.html' },
+  ];
+
+  const markerMeshes = [];
+  const markerData   = [];
+
+  DESTS.forEach(function (dest, i) {
+    const pos = ll2v(dest.lat, dest.lon, R + 0.012);
+
+    // Outer ring (pulse)
+    const ringGeo = new THREE.RingGeometry(0.042, 0.075, 40);
+    const ringMat = new THREE.MeshBasicMaterial({
+      color: 0xC9A84C, transparent: true, opacity: 0.55, side: THREE.DoubleSide
+    });
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.position.copy(pos);
+    ring.lookAt(new THREE.Vector3(0, 0, 0));
+    globe.add(ring);
+
+    // Second outer ring
+    const ring2Geo = new THREE.RingGeometry(0.075, 0.10, 40);
+    const ring2Mat = new THREE.MeshBasicMaterial({
+      color: 0xC9A84C, transparent: true, opacity: 0.15, side: THREE.DoubleSide
+    });
+    const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+    ring2.position.copy(pos);
+    ring2.lookAt(new THREE.Vector3(0, 0, 0));
+    globe.add(ring2);
+
+    // Center dot (clickable)
+    const dotGeo = new THREE.CircleGeometry(0.038, 32);
+    const dotMat = new THREE.MeshBasicMaterial({
+      color: 0xFFE49A, side: THREE.DoubleSide
+    });
+    const dot = new THREE.Mesh(dotGeo, dotMat);
+    dot.position.copy(pos);
+    dot.lookAt(new THREE.Vector3(0, 0, 0));
+    dot.userData = { destIndex: i, url: dest.url };
+    globe.add(dot);
+
+    markerMeshes.push(dot);
+    markerData.push({ ring, ring2, dot, phase: i * Math.PI * 0.5 });
+  });
+
+  // ── Arc routes: Roma → Egitto / Turchia / Giordania
+  const ROMA = { lat: 41.9, lon: 12.5 };
+  const arcRoutes = [DESTS[0], DESTS[1], DESTS[2]]; // skip Italia
+
+  const arcs = [];
+
+  arcRoutes.forEach(function (dest, i) {
+    const fromVec = ll2v(ROMA.lat, ROMA.lon, R);
+    const toVec   = ll2v(dest.lat, dest.lon, R);
+
+    // Elevated midpoint for great-circle arc
+    const mid = fromVec.clone().add(toVec).normalize().multiplyScalar(R + 0.55);
+    const curve = new THREE.QuadraticBezierCurve3(fromVec, mid, toVec);
+    const allPts = curve.getPoints(120);
+
+    // Dynamic line geometry (snake trail)
+    const posArr  = new Float32Array(121 * 3);
+    const lineGeo = new THREE.BufferGeometry();
+    const posAttr = new THREE.BufferAttribute(posArr, 3);
+    lineGeo.setAttribute('position', posAttr);
+    lineGeo.setDrawRange(0, 0);
+
+    const lineMat = new THREE.LineBasicMaterial({
+      color: 0xC9A84C, transparent: true, opacity: 0.5
+    });
+    const line = new THREE.Line(lineGeo, lineMat);
+    globe.add(line);
+
+    // Airplane dot
+    const planeMat = new THREE.MeshBasicMaterial({ color: 0xFFEEAA });
+    const plane    = new THREE.Mesh(new THREE.SphereGeometry(0.03, 8, 8), planeMat);
+    globe.add(plane);
+
+    // Small glow around plane
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: 0xC9A84C, transparent: true, opacity: 0.25
+    });
+    const glow = new THREE.Mesh(new THREE.SphereGeometry(0.055, 8, 8), glowMat);
+    globe.add(glow);
+
+    arcs.push({
+      curve,
+      allPts,
+      posAttr,
+      lineGeo,
+      plane,
+      glow,
+      progress: i * 0.33,       // stagger starts
+      speed:    0.0022 + i * 0.0004,
+      trailLen: 35               // number of visible trail segments
+    });
+  });
+
+  // ── Initial rotation: center Mediterranean (lon≈20°, lat≈35°)
+  // lon=20 → need rotation.y so this faces camera (+Z direction)
+  globe.rotation.y = -1.92; // ≈ -110° (centra Mediterraneo in longitudine)
+  globe.rotation.x =  0.55; // tilt per centrare Europa/Med nel viewport
+
+  // ── Mouse / touch drag
+  let isDragging = false;
+  let prev = { x: 0, y: 0 };
+  let vel  = { x: 0, y: 0 };
+
+  canvas.addEventListener('mousedown', function (e) {
+    isDragging = true;
+    prev = { x: e.clientX, y: e.clientY };
+    vel  = { x: 0, y: 0 };
+  });
+  window.addEventListener('mouseup',   function () { isDragging = false; });
+  window.addEventListener('mousemove', function (e) {
+    if (!isDragging) return;
+    vel.x = (e.clientY - prev.y) * 0.006;
+    vel.y = (e.clientX - prev.x) * 0.006;
+    globe.rotation.x += vel.x;
+    globe.rotation.y += vel.y;
+    prev = { x: e.clientX, y: e.clientY };
+  });
+
+  canvas.addEventListener('touchstart', function (e) {
+    isDragging = true;
+    prev = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    vel  = { x: 0, y: 0 };
+  }, { passive: true });
+  canvas.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+    if (!isDragging) return;
+    vel.x = (e.touches[0].clientY - prev.y) * 0.006;
+    vel.y = (e.touches[0].clientX - prev.x) * 0.006;
+    globe.rotation.x += vel.x;
+    globe.rotation.y += vel.y;
+    prev = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }, { passive: false });
+  canvas.addEventListener('touchend', function () { isDragging = false; });
+
+  // ── Raycasting (hover + click markers)
+  const raycaster   = new THREE.Raycaster();
+  const mouse2D     = new THREE.Vector2();
+  let hoveredIndex  = -1;
+
+  function castMouse(e) {
+    const rect = canvas.getBoundingClientRect();
+    mouse2D.x =  ((e.clientX - rect.left) / rect.width)  * 2 - 1;
+    mouse2D.y = -((e.clientY - rect.top)  / rect.height) * 2 + 1;
+    raycaster.setFromCamera(mouse2D, camera);
+    return raycaster.intersectObjects(markerMeshes);
+  }
+
+  canvas.addEventListener('mousemove', function (e) {
+    if (isDragging) { hoveredIndex = -1; return; }
+    const hits = castMouse(e);
+    hoveredIndex = hits.length > 0 ? hits[0].object.userData.destIndex : -1;
+    canvas.style.cursor = hoveredIndex >= 0 ? 'pointer' : 'grab';
+  });
+
+  canvas.addEventListener('click', function (e) {
+    const hits = castMouse(e);
+    if (hits.length > 0) {
+      window.location.href = hits[0].object.userData.url;
+    }
+  });
+
+  // ── HTML label projection
+  const labels = document.querySelectorAll('.dest-label');
+
+  function projectToScreen(worldPos) {
+    const v = worldPos.clone().project(camera);
+    return {
+      x: ( v.x + 1) / 2 * W,
+      y: (-v.y + 1) / 2 * H,
+      behind: v.z >= 1
+    };
+  }
+
+  // ── Animation loop
+  let t = 0;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    t += 0.012;
+
+    // Inertia only (no auto-rotate)
+    if (!isDragging) {
+      vel.x *= 0.92;
+      vel.y *= 0.92;
+      globe.rotation.x += vel.x;
+      globe.rotation.y += vel.y;
+    }
+
+    // Pulse markers
+    markerData.forEach(function (m) {
+      const s = 1 + Math.sin(t * 1.8 + m.phase) * 0.28;
+      m.ring.scale.setScalar(s);
+      m.ring.material.opacity = 0.3 + Math.sin(t * 1.8 + m.phase) * 0.28;
+      m.ring2.scale.setScalar(1 + Math.sin(t * 1.4 + m.phase + 1) * 0.18);
+      m.ring2.material.opacity = 0.08 + Math.sin(t * 1.4 + m.phase + 1) * 0.08;
+    });
+
+    // Animate arc trails
+    arcs.forEach(function (arc) {
+      arc.progress += arc.speed;
+      if (arc.progress > 1) arc.progress = 0;
+
+      const head = Math.floor(arc.progress * 120);
+      const tail = Math.max(0, head - arc.trailLen);
+
+      // Write trail points into buffer
+      for (let i = tail; i <= head; i++) {
+        const p = arc.allPts[Math.min(i, 120)];
+        arc.posAttr.setXYZ(i - tail, p.x, p.y, p.z);
+      }
+      arc.posAttr.needsUpdate = true;
+      arc.lineGeo.setDrawRange(0, head - tail + 1);
+
+      // Move plane dot to head
+      const headPt = arc.allPts[Math.min(head, 120)];
+      arc.plane.position.copy(headPt);
+      arc.glow.position.copy(headPt);
+
+      // Fade glow at start/end of route
+      const fade = Math.sin(arc.progress * Math.PI);
+      arc.glow.material.opacity = 0.2 * fade;
+      arc.plane.material.opacity = 0.6 + 0.4 * fade;
+
+    });
+
+    // Update HTML labels — show only hovered marker
+    globe.updateMatrixWorld();
+    const globeCenter = globe.getWorldPosition(new THREE.Vector3());
+    DESTS.forEach(function (dest, i) {
+      const localPos = ll2v(dest.lat, dest.lon, R + 0.08);
+      const worldPos = localPos.clone().applyMatrix4(globe.matrixWorld);
+      const screen   = projectToScreen(worldPos);
+
+      const worldNorm = worldPos.clone().sub(globeCenter).normalize();
+      const toCam     = camera.position.clone().normalize();
+      const facing    = worldNorm.dot(toCam) > 0.1;
+      const isHovered = hoveredIndex === i;
+
+      if (facing && !screen.behind && isHovered) {
+        labels[i].style.left = screen.x + 'px';
+        labels[i].style.top  = screen.y + 'px';
+        labels[i].classList.add('visible');
+      } else {
+        labels[i].classList.remove('visible');
+      }
+    });
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // ── Resize
+  window.addEventListener('resize', function () {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    camera.aspect = W / H;
+    camera.updateProjectionMatrix();
+    renderer.setSize(W, H);
+  });
+
+})();
+</script>
+</body>
+</html>
