@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antiqora Travel — Brand Book</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-soft: rgba(201,168,76,0.15);
+      --gold-border: rgba(201,168,76,0.2);
+      --ink: #0F0E0C;
+      --ink-soft: #1A1917;
+      --ivory: #F7F3EE;
+      --ivory-soft: rgba(247,243,238,0.75);
+      --ivory-faint: rgba(247,243,238,0.08);
+      --serif: 'Cormorant Garamond', serif;
+      --cinzel: 'Cinzel', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--ivory);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── GRAIN TEXTURE ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── LAYOUT ─── */
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid var(--gold-border);
+      padding: 2.5rem 0;
+      background: rgba(15,14,12,0.95);
+      scrollbar-width: none;
+    }
+    .sidebar::-webkit-scrollbar { display: none; }
+
+    .sidebar-logo {
+      padding: 0 2rem 2rem;
+      border-bottom: 1px solid var(--gold-border);
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-logo img {
+      height: 110px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .sidebar-label {
+      font-family: var(--cinzel);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    .nav-section {
+      padding: 0 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .nav-section-title {
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.5);
+      padding: 0.75rem 0.5rem 0.4rem;
+      display: block;
+    }
+    .nav-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ivory-soft);
+      text-decoration: none;
+      border-radius: 2px;
+      transition: color 0.2s, background 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .main {
+      padding: 0;
+      max-width: 860px;
+    }
+
+    /* ─── COVER ─── */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 6rem 5rem;
+      border-bottom: 1px solid var(--gold-border);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cover-eyebrow {
+      font-family: var(--cinzel);
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+    .cover-title {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+    }
+    .cover-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .cover-sub {
+      font-size: 0.8rem;
+      color: var(--ivory-soft);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gold-border);
+      width: 100%;
+    }
+    .cover-meta {
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      color: rgba(247,243,238,0.4);
+    }
+
+    /* ─── SECTIONS ─── */
+    .section {
+      padding: 5rem;
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .section-eyebrow {
+      font-family: var(--cinzel);
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold-border);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ivory);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-body {
+      font-size: 0.88rem;
+      color: var(--ivory-soft);
+      line-height: 1.9;
+      max-width: 620px;
+    }
+    .section-body p + p { margin-top: 1.2em; }
+    .section-body strong { color: var(--ivory); font-weight: 500; }
+
+    /* ─── DEFINIZIONE CARD ─── */
+    .def-card {
+      background: var(--ivory-faint);
+      border: 1px solid var(--gold-border);
+      padding: 2.5rem;
+      margin-top: 2.5rem;
+      position: relative;
+    }
+    .def-card::before {
+      content: '"';
+      font-family: var(--serif);
+      font-size: 6rem;
+      color: var(--gold);
+      opacity: 0.15;
+      position: absolute;
+      top: -1rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+    .def-card p {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ─── PILLARS ─── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .pillar {
+      border: 1px solid var(--gold-border);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .pillar:hover {
+      border-color: rgba(201,168,76,0.5);
+      background: var(--ivory-faint);
+    }
+    .pillar-num {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .pillar-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ivory);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .pillar-body {
+      font-size: 0.78rem;
+      color: var(--ivory-soft);
+      line-height: 1.8;
+    }
+
+    /* ─── PALETTE ─── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .swatch {
+      border: 1px solid var(--gold-border);
+      overflow: hidden;
+    }
+    .swatch-color {
+      height: 100px;
+    }
+    .swatch-info {
+      padding: 1rem 1.25rem;
+      background: rgba(247,243,238,0.03);
+    }
+    .swatch-name {
+      font-family: var(--cinzel);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .swatch-hex {
+      font-size: 0.72rem;
+      color: var(--gold);
+      font-family: 'Courier New', monospace;
+    }
+    .swatch-use {
+      font-size: 0.65rem;
+      color: rgba(247,243,238,0.45);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    .type-specimen {
+      border: 1px solid var(--gold-border);
+      padding: 2.5rem;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+    .type-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .type-sample-display {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .type-sample-display em { font-style: italic; color: var(--gold); }
+    .type-sample-cinzel {
+      font-family: var(--cinzel);
+      font-size: 1.2rem;
+      letter-spacing: 0.25em;
+      color: var(--ivory);
+      margin-bottom: 0.75rem;
+    }
+    .type-sample-body {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--ivory-soft);
+      line-height: 1.8;
+    }
+    .type-meta {
+      font-size: 0.65rem;
+      color: rgba(247,243,238,0.35);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gold-border);
+    }
+
+    /* ─── MANIFESTO ─── */
+    .manifesto-block {
+      border-left: 2px solid var(--gold);
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      background: var(--ivory-faint);
+    }
+    .manifesto-block p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+    .manifesto-lang {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* ─── TONE GRID ─── */
+    .tone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .tone-card {
+      border: 1px solid var(--gold-border);
+      padding: 2rem;
+    }
+    .tone-card-title {
+      font-family: var(--cinzel);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .tone-list {
+      list-style: none;
+    }
+    .tone-list li {
+      font-size: 0.8rem;
+      color: var(--ivory-soft);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(247,243,238,0.05);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    .tone-list li::before {
+      content: '·';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .tone-list.avoid li::before {
+      content: '×';
+      color: rgba(200,80,80,0.7);
+    }
+
+    /* ─── WORDS ─── */
+    .word-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .word-tag {
+      border: 1px solid var(--gold-border);
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      color: var(--ivory-soft);
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+    .word-tag:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-soft);
+    }
+    .word-tag.avoid {
+      border-color: rgba(200,80,80,0.2);
+      color: rgba(247,243,238,0.4);
+    }
+
+    /* ─── PERSONALITY ─── */
+    .personality-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .trait {
+      border: 1px solid var(--gold-border);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .trait:hover {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+    }
+    .trait-word {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--ivory);
+      display: block;
+    }
+
+    /* ─── CAPTION LIST ─── */
+    .caption-list {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .caption-item {
+      border: 1px solid var(--gold-border);
+      padding: 1.75rem 2rem;
+      transition: border-color 0.2s;
+    }
+    .caption-item:hover { border-color: rgba(201,168,76,0.4); }
+    .caption-num {
+      font-family: var(--cinzel);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .caption-text {
+      font-size: 0.85rem;
+      color: var(--ivory-soft);
+      line-height: 1.85;
+      white-space: pre-line;
+    }
+
+    /* ─── REEL LIST ─── */
+    .reel-list {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .reel-item {
+      border: 1px solid var(--gold-border);
+      padding: 2rem;
+    }
+    .reel-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--ivory);
+      margin-bottom: 0.75rem;
+    }
+    .reel-hook {
+      font-size: 0.75rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .reel-body {
+      font-size: 0.78rem;
+      color: var(--ivory-soft);
+      line-height: 1.8;
+    }
+
+    /* ─── TOURS ─── */
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .tour-card {
+      border: 1px solid var(--gold-border);
+      padding: 2rem;
+    }
+    .tour-country {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .tour-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .tour-desc {
+      font-size: 0.78rem;
+      color: var(--ivory-soft);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .tour-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gold-border);
+    }
+    .tour-days {
+      font-size: 0.65rem;
+      color: rgba(247,243,238,0.5);
+      letter-spacing: 0.1em;
+    }
+    .tour-price {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+
+    /* ─── CLAIM LIST ─── */
+    .claim-list {
+      margin-top: 2rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .claim-item {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--ivory);
+      padding: 1.25rem 1.75rem;
+      border-left: 2px solid var(--gold-border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .claim-item:hover {
+      border-left-color: var(--gold);
+      background: var(--ivory-faint);
+    }
+
+    /* ─── TARGET ─── */
+    .target-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .target-card {
+      border: 1px solid var(--gold-border);
+      padding: 2rem;
+    }
+    .target-label {
+      font-family: var(--cinzel);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .target-profile {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .target-desc {
+      font-size: 0.78rem;
+      color: var(--ivory-soft);
+      line-height: 1.8;
+    }
+
+    /* ─── LOGO USAGE ─── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .logo-sample {
+      border: 1px solid var(--gold-border);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .logo-sample.light { background: var(--ivory); }
+    .logo-sample img { height: 120px; width: auto; }
+    .logo-usage-note {
+      font-size: 0.65rem;
+      color: rgba(247,243,238,0.4);
+      text-align: center;
+    }
+    .logo-sample.light .logo-usage-note { color: rgba(15,14,12,0.4); }
+
+    /* ─── STORIES ─── */
+    .stories-list {
+      margin-top: 2rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .story-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--gold-border);
+      font-size: 0.8rem;
+      color: var(--ivory-soft);
+      line-height: 1.7;
+    }
+    .story-num {
+      font-family: var(--cinzel);
+      font-size: 0.6rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      min-width: 28px;
+    }
+
+    /* ─── PILLARS STRATEGY ─── */
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .strategy-card {
+      border: 1px solid var(--gold-border);
+      padding: 1.75rem;
+    }
+    .strategy-icon {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--gold);
+      opacity: 0.4;
+      margin-bottom: 0.75rem;
+    }
+    .strategy-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--ivory);
+      margin-bottom: 0.6rem;
+    }
+    .strategy-desc {
+      font-size: 0.75rem;
+      color: var(--ivory-soft);
+      line-height: 1.8;
+    }
+
+    /* ─── DO/DONT ─── */
+    .dodont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .dodont-card {
+      border: 1px solid var(--gold-border);
+      padding: 2rem;
+    }
+    .dodont-card.do { border-top: 2px solid rgba(100,180,100,0.4); }
+    .dodont-card.dont { border-top: 2px solid rgba(200,80,80,0.4); }
+    .dodont-title {
+      font-family: var(--cinzel);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      margin-bottom: 1.25rem;
+    }
+    .dodont-card.do .dodont-title { color: rgba(100,180,100,0.8); }
+    .dodont-card.dont .dodont-title { color: rgba(200,80,80,0.7); }
+    .dodont-list {
+      list-style: none;
+    }
+    .dodont-list li {
+      font-size: 0.78rem;
+      color: var(--ivory-soft);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(247,243,238,0.04);
+      line-height: 1.6;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+      margin: 3rem 0;
+    }
+
+    /* ─── FOOTER ─── */
+    .bb-footer {
+      padding: 4rem 5rem;
+      text-align: center;
+    }
+    .bb-footer img { height: 80px; width: auto; margin: 0 auto 1.5rem; display: block; }
+    .bb-footer p {
+      font-size: 0.7rem;
+      color: rgba(247,243,238,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 2px; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .section { padding: 3rem 2rem; }
+      .cover { padding: 4rem 2rem; min-height: auto; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .palette-grid { grid-template-columns: repeat(2,1fr); }
+      .personality-grid { grid-template-columns: repeat(3,1fr); }
+      .tone-grid, .dodont-grid, .target-grid, .tour-grid, .logo-grid, .strategy-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="brand-assets/logo-antiqora-v2.png" alt="Antiqora Travel" />
+      <span class="sidebar-label">Brand Book</span>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-section-title">Identità</span>
+      <a href="#cover" class="nav-link">Overview</a>
+      <a href="#identity" class="nav-link">Identità generale</a>
+      <a href="#storia" class="nav-link">Storia del brand</a>
+      <a href="#fondamenti" class="nav-link">Fondamenti</a>
+      <a href="#mission" class="nav-link">Mission · Vision · Valori</a>
+      <a href="#pillars" class="nav-link">I tre pillar</a>
+      <a href="#target" class="nav-link">Target</a>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-section-title">Personalità</span>
+      <a href="#personality" class="nav-link">Personalità</a>
+      <a href="#voice" class="nav-link">Tono di voce</a>
+      <a href="#lessico" class="nav-link">Lessico</a>
+      <a href="#manifesti" class="nav-link">Manifesti</a>
+      <a href="#claim" class="nav-link">Claim &amp; Tagline</a>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-section-title">Visual Identity</span>
+      <a href="#logo" class="nav-link">Logo</a>
+      <a href="#palette" class="nav-link">Palette colori</a>
+      <a href="#typography" class="nav-link">Tipografia</a>
+      <a href="#fotografia" class="nav-link">Fotografia</a>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-section-title">Tour</span>
+      <a href="#tours" class="nav-link">I nostri viaggi</a>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-section-title">Content</span>
+      <a href="#bio" class="nav-link">Bio Instagram</a>
+      <a href="#captions" class="nav-link">20 Caption</a>
+      <a href="#stories" class="nav-link">20 Stories</a>
+      <a href="#reels" class="nav-link">15 Script Reel</a>
+      <a href="#strategy" class="nav-link">Strategia IG</a>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-section-title">Regole</span>
+      <a href="#dodont" class="nav-link">Do &amp; Don't</a>
+    </div>
+  </aside>
+
+  <!-- ─── MAIN ─── -->
+  <main class="main">
+
+    <!-- COVER -->
+    <section class="cover" id="cover">
+      <div class="cover-eyebrow">Brand Book · 2026</div>
+      <div class="cover-title">
+        Antiqora<br><em>Travel</em>
+      </div>
+      <div class="cover-sub">
+        Documento Brand Completo — Uso interno e collaboratori
+      </div>
+      <div class="cover-meta">
+        Guidata da Ipek Tarakçı · Viaggi Archeologici di Lusso · Egitto · Turchia · Italia
+      </div>
+    </section>
+
+    <!-- IDENTITÀ -->
+    <section class="section" id="identity">
+      <div class="section-eyebrow">01 — Identità Generale</div>
+      <h2 class="section-title">Chi è <em>Antiqora Travel</em></h2>
+      <div class="section-body">
+        <p><strong>Categoria:</strong> Viaggi archeologici di lusso</p>
+        <p><strong>Guida fondatrice:</strong> Ipek Tarakçı — archeologa</p>
+        <p><strong>Lingue operative:</strong> Italiano · Inglese · Turco</p>
+        <p><strong>Destinazioni:</strong> Egitto · Turchia · Italia</p>
+        <p><strong>Dimensione gruppi:</strong> Massimo 10 persone</p>
+      </div>
+      <div class="def-card">
+        <p>Antiqora Travel è un'agenzia di viaggi archeologici di lusso che conduce gruppi esclusivi (massimo 10 persone) in Egitto, Turchia e Italia sotto la guida personale di un'archeologa professionista. Offre accesso a luoghi normalmente chiusi al pubblico, sessioni private con esperti locali e itinerari costruiti attorno agli interessi specifici del gruppo. Non è turismo: è immersione.</p>
+      </div>
+    </section>
+
+    <!-- STORIA -->
+    <section class="section" id="storia">
+      <div class="section-eyebrow">02 — Storia del Brand</div>
+      <h2 class="section-title">Come nasce <em>Antiqora</em></h2>
+      <div class="section-body">
+        <p>Ipek Tarakçı è un'archeologa che ha dedicato la sua formazione e la sua carriera allo studio del mondo antico. Ha lavorato sul campo in Turchia, Egitto e Italia — non come guida turistica, ma come studiosa che conosce i siti dall'interno: le aree non aperte al pubblico, gli accessi privilegiati, i colleghi sul campo, le storie che non compaiono in nessuna didascalia.</p>
+        <p>Da quella frustrazione nasce Antiqora Travel: la consapevolezza che la maggior parte dei visitatori dei grandi siti archeologici del mondo li attraversa senza capirli davvero. Code, guide generiche, soste di 20 minuti davanti a rovine millenarie. Ipek voleva costruire qualcosa di opposto.</p>
+        <p><strong>Il nome</strong> — Antiqora: dalla fusione di <em>antiquus</em> (latino, "antico") e <em>agorá</em> (greco, "piazza, luogo di incontro e di parola"). Un luogo dove il passato si incontra con chi è disposto ad ascoltarlo.</p>
+        <p><strong>Il modello</strong> — Gruppi di massimo 10 persone. Nessuna folla, nessun megafono, nessun programma standardizzato. Ogni viaggio nasce da una conversazione con i partecipanti e viene costruito su misura. Ipek guida ogni itinerario in prima persona.</p>
+      </div>
+    </section>
+
+    <!-- FONDAMENTI -->
+    <section class="section" id="fondamenti">
+      <div class="section-eyebrow">03 — Fondamenti</div>
+      <h2 class="section-title"><em>Idea centrale,</em> promessa, posizionamento</h2>
+      <div class="section-body">
+        <p><strong>Idea centrale:</strong> La storia si vive, non si guarda. I grandi siti del mondo antico hanno senso solo se qualcuno te li sa aprire. Antiqora Travel è quell'apertura.</p>
+        <p><strong>Promessa:</strong> Un'esperienza che cambia il modo in cui si capisce il mondo antico. Non una visita turistica, ma un'immersione guidata da chi ha dedicato la propria vita professionale a questi luoghi.</p>
+        <p><strong>Posizionamento:</strong> Viaggi archeologici luxury ultra-personalizzati, guidati da expertise autentica, per chi rifiuta il turismo di massa e cerca un'esperienza culturalmente trasformativa. Non un tour operator. Non un'agenzia di viaggi premium generica. Un'archeologa che apre i suoi luoghi alle persone giuste.</p>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="section" id="mission">
+      <div class="section-eyebrow">04 — Mission · Vision · Valori</div>
+      <h2 class="section-title">Perché <em>esistiamo</em></h2>
+      <div class="section-body">
+        <p><strong>Mission:</strong> Rendere accessibile la profondità della storia attraverso esperienze esclusive, guidate da competenza autentica, per chi non si accontenta di guardare.</p>
+        <p><strong>Vision:</strong> Diventare il punto di riferimento per chi vuole vivere il mondo antico con la stessa intensità degli studiosi — in Europa, nel Mediterraneo orientale, in Nord Africa.</p>
+      </div>
+      <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+        <span class="word-tag">Conoscenza autentica</span>
+        <span class="word-tag">Esclusività non ostentata</span>
+        <span class="word-tag">Accesso privilegiato</span>
+        <span class="word-tag">Intimità del gruppo piccolo</span>
+        <span class="word-tag">Rispetto per i luoghi</span>
+        <span class="word-tag">Cura del dettaglio</span>
+        <span class="word-tag">Profondità sopra la superficie</span>
+      </div>
+    </section>
+
+    <!-- PILLARS -->
+    <section class="section" id="pillars">
+      <div class="section-eyebrow">05 — I Tre Pillar</div>
+      <h2 class="section-title">Cosa ci <em>distingue</em></h2>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-title">Guidata da un'Archeologa</div>
+          <p class="pillar-body">Ipek Tarakçı è laureata in archeologia. Non legge le didascalie — conosce le storie che non sono scritte da nessuna parte. Ogni sito diventa un racconto vivo. Non è una guida turistica: è la differenza tra guardare e capire.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-title">Gruppi di Massimo 10 Persone</div>
+          <p class="pillar-body">Il lusso vero è lo spazio. Nessuna folla, nessun megafono, nessuna fretta. Solo il gruppo giusto, nel posto giusto, nel momento giusto. 10 è il numero massimo, non il target.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-title">Itinerari su Misura</div>
+          <p class="pillar-body">Ogni viaggio nasce da una conversazione. Interessi, ritmi, preferenze — costruiamo l'itinerario attorno al gruppo, non il contrario. Non esistono due viaggi Antiqora uguali.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARGET -->
+    <section class="section" id="target">
+      <div class="section-eyebrow">06 — Target</div>
+      <h2 class="section-title">Per <em>chi</em> siamo</h2>
+      <div class="target-grid">
+        <div class="target-card">
+          <div class="target-label">Target Primario</div>
+          <div class="target-profile">40–65 anni · Alta formazione culturale · Reddito elevato</div>
+          <p class="target-desc">Appassionato di storia, archeologia e cultura mediterranea. Stanco del turismo di massa. Cerca esperienze uniche con una componente educativa autentica. Ha già visto i grandi siti come turista e vuole viverli in modo diverso.</p>
+        </div>
+        <div class="target-card">
+          <div class="target-label">Target Secondario</div>
+          <div class="target-profile">35–55 anni · Coppie o piccoli gruppi · Professionisti</div>
+          <p class="target-desc">Vogliono un viaggio memorabile e significativo come alternativa alla vacanza classica. Spesso con poco tempo e alta disponibilità di spesa. Motivati dallo status culturale dell'esperienza esclusiva.</p>
+        </div>
+        <div class="target-card">
+          <div class="target-label">Target Internazionale</div>
+          <div class="target-profile">IT · EN · TR — Europa e Medio Oriente</div>
+          <p class="target-desc">Il sito trilingue riflette apertura verso viaggiatori anglofonti e turchi. Particolare attenzione al mercato turco per i tour in Anatolia.</p>
+        </div>
+        <div class="target-card">
+          <div class="target-label">Motivazioni di Acquisto</div>
+          <div class="target-profile">Perché scelgono Antiqora</div>
+          <p class="target-desc">Conoscenza autentica non superficiale · Accesso a luoghi normalmente chiusi · Esclusività del gruppo piccolo · Guida esperta non generica · Senso di scoperta vera · Status culturale dell'esperienza.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONALITY -->
+    <section class="section" id="personality">
+      <div class="section-eyebrow">07 — Personalità</div>
+      <h2 class="section-title">Come <em>siamo</em></h2>
+      <div class="section-body">
+        <p>Se Antiqora Travel fosse una persona, sarebbe Ipek stessa: una studiosa che sa raccontare, che ha la credibilità dell'esperto e la capacità di far sentire la storia a chi non l'ha studiata.</p>
+      </div>
+      <div class="personality-grid">
+        <div class="trait"><span class="trait-word">Colta</span></div>
+        <div class="trait"><span class="trait-word">Esclusiva</span></div>
+        <div class="trait"><span class="trait-word">Autentica</span></div>
+        <div class="trait"><span class="trait-word">Sobria</span></div>
+        <div class="trait"><span class="trait-word">Misteriosa</span></div>
+        <div class="trait"><span class="trait-word">Profonda</span></div>
+        <div class="trait"><span class="trait-word">Elegante</span></div>
+        <div class="trait"><span class="trait-word">Precisa</span></div>
+        <div class="trait"><span class="trait-word">Riservata</span></div>
+        <div class="trait"><span class="trait-word">Viva</span></div>
+      </div>
+    </section>
+
+    <!-- VOICE -->
+    <section class="section" id="voice">
+      <div class="section-eyebrow">08 — Tono di Voce</div>
+      <h2 class="section-title">Come <em>parliamo</em></h2>
+      <div class="section-body">
+        <p>Raffinato e colto ma mai accademico. Evocativo — fa sentire il peso del tempo, il silenzio dei siti, la polvere antica. Preciso — usa termini specifici. Sobrio — mai un aggettivo in più del necessario. Vivo — la storia non è un catalogo.</p>
+      </div>
+      <div class="tone-grid">
+        <div class="tone-card">
+          <div class="tone-card-title">Regole principali</div>
+          <ul class="tone-list">
+            <li>Scrivere poco, con parole che pesano</li>
+            <li>Mai linguaggio da catalogo turistico</li>
+            <li>Non usare "unico" o "indimenticabile" — mostrarlo</li>
+            <li>Usare termini specifici (non "rovine" ma il nome del sito)</li>
+            <li>CTA morbida: "Richiedi il tuo itinerario", non "Prenota ora"</li>
+            <li>Struttura: dettaglio evocativo → differenza Antiqora → CTA soft</li>
+          </ul>
+        </div>
+        <div class="tone-card">
+          <div class="tone-card-title">Parole da usare</div>
+          <div class="word-cloud">
+            <span class="word-tag">Sito</span>
+            <span class="word-tag">Scavo</span>
+            <span class="word-tag">Civiltà</span>
+            <span class="word-tag">Silenzio</span>
+            <span class="word-tag">Pietra</span>
+            <span class="word-tag">Tempo</span>
+            <span class="word-tag">Accesso</span>
+            <span class="word-tag">Profondità</span>
+            <span class="word-tag">Scoperta</span>
+            <span class="word-tag">Rarità</span>
+            <span class="word-tag">Memoria</span>
+            <span class="word-tag">Immersione</span>
+          </div>
+        </div>
+        <div class="tone-card" style="grid-column: 1 / -1;">
+          <div class="tone-card-title">Parole da evitare sempre</div>
+          <div class="word-cloud">
+            <span class="word-tag avoid">Tour guidato</span>
+            <span class="word-tag avoid">Escursione</span>
+            <span class="word-tag avoid">Attrazione</span>
+            <span class="word-tag avoid">Mozzafiato</span>
+            <span class="word-tag avoid">Indimenticabile</span>
+            <span class="word-tag avoid">Unico nel suo genere</span>
+            <span class="word-tag avoid">Must-see</span>
+            <span class="word-tag avoid">Prenota ora</span>
+            <span class="word-tag avoid">Pittoresco</span>
+            <span class="word-tag avoid">Offerta</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSICO -->
+    <section class="section" id="lessico">
+      <div class="section-eyebrow">09 — Lessico</div>
+      <h2 class="section-title">Le nostre <em>parole</em></h2>
+      <div class="section-body"><p><strong>Identitarie</strong></p></div>
+      <div class="word-cloud" style="margin-top:1rem;">
+        <span class="word-tag">Antiqora</span>
+        <span class="word-tag">Ipek Tarakçı</span>
+        <span class="word-tag">Archeologa</span>
+        <span class="word-tag">Egitto</span>
+        <span class="word-tag">Turchia</span>
+        <span class="word-tag">Italia</span>
+        <span class="word-tag">Valle dei Re</span>
+        <span class="word-tag">Efeso</span>
+        <span class="word-tag">Cappadocia</span>
+        <span class="word-tag">Magna Graecia</span>
+        <span class="word-tag">Gruppi di 10</span>
+        <span class="word-tag">Itinerario su misura</span>
+        <span class="word-tag">Siti chiusi al pubblico</span>
+      </div>
+      <div class="section-body" style="margin-top:2rem;"><p><strong>Emotive</strong></p></div>
+      <div class="word-cloud" style="margin-top:1rem;">
+        <span class="word-tag">Silenzio</span>
+        <span class="word-tag">Pietra</span>
+        <span class="word-tag">Tempo</span>
+        <span class="word-tag">Memoria</span>
+        <span class="word-tag">Scoperta</span>
+        <span class="word-tag">Polvere</span>
+        <span class="word-tag">Profondità</span>
+        <span class="word-tag">Rarità</span>
+        <span class="word-tag">Appartenenza</span>
+        <span class="word-tag">Comprensione</span>
+        <span class="word-tag">Millenni</span>
+      </div>
+    </section>
+
+    <!-- MANIFESTI -->
+    <section class="section" id="manifesti">
+      <div class="section-eyebrow">10 — Manifesti</div>
+      <h2 class="section-title">Le nostre <em>parole fondatrici</em></h2>
+
+      <div class="manifesto-block">
+        <span class="manifesto-lang">IT — Manifesto Principale</span>
+        <p>Non organizziamo viaggi.
+Diamo vita ai luoghi dimenticati.
+
+La storia non è nel passato — è nei luoghi che esistono ancora, nell'intelligenza di chi li sa leggere, nel silenzio che si sente quando si capisce davvero dove si è.
+
+Antiqora Travel nasce da questa convinzione.
+
+Ogni viaggio è guidato da Ipek Tarakçı, archeologa, in gruppi di massimo 10 persone. Accediamo a siti normalmente chiusi al pubblico. Costruiamo ogni itinerario attorno a chi viaggia con noi.
+
+Non vieni a guardare.
+Vieni a capire.
+
+Dove la storia ti appartiene.</p>
+      </div>
+
+      <div class="manifesto-block">
+        <span class="manifesto-lang">EN — Main Manifesto</span>
+        <p>We don't organize trips.
+We bring forgotten places back to life.
+
+History is not in the past — it lives in the sites that still stand, in the intelligence of those who know how to read them, in the silence that fills you when you truly understand where you are.
+
+Every journey is led by Ipek Tarakçı, archaeologist, in groups of maximum 10. We access sites rarely open to the public. We build every itinerary around the people who travel with us.
+
+You don't come to look.
+You come to understand.
+
+Where history belongs to you.</p>
+      </div>
+
+      <div class="manifesto-block">
+        <span class="manifesto-lang">EN — Ultra-Luxury Version</span>
+        <p>There are places in the world where time does not move the way it does elsewhere.
+Where a wall of stone carries the weight of three thousand years, and the silence around it is not emptiness — it is density.
+
+Most people pass through these places. They photograph them. They move on.
+
+Antiqora Travel was built for a different kind of person.
+
+Ipek Tarakçı is an archaeologist. She has spent her professional life in these sites — not as a visitor, but as someone who reads them. She knows the chambers that are never opened, the colleagues who hold the keys, the stories that exist in no guidebook.
+
+In groups of ten, she brings you inside.
+
+Not the surface. The depth.
+Not the monument. The meaning.
+
+Where history belongs to you.</p>
+      </div>
+
+      <div class="manifesto-block">
+        <span class="manifesto-lang">TR — Ana Manifesto</span>
+        <p>Seyahat düzenlemiyoruz.
+Unutulmuş yerlere hayat veriyoruz.
+
+Tarih geçmişte değil — hâlâ ayakta duran yerlerde, onları okuyabilenlerin zekâsında, gerçekten nerede olduğunuzu anladığınızda hissedilen sessizlikte yaşıyor.
+
+Her yolculuk Ipek Tarakçı tarafından, en fazla 10 kişilik gruplarla yönetilir.
+
+Bakmak için gelmiyorsunuz.
+Anlamak için geliyorsunuz.
+
+Tarihin size ait olduğu yer.</p>
+      </div>
+    </section>
+
+    <!-- CLAIM -->
+    <section class="section" id="claim">
+      <div class="section-eyebrow">11 — Claim &amp; Tagline</div>
+      <h2 class="section-title">Le nostre <em>frasi chiave</em></h2>
+      <div class="claim-list">
+        <div class="claim-item">Dove la storia ti appartiene — <em style="color:var(--gold); font-size:0.8rem;">IT · Tagline principale</em></div>
+        <div class="claim-item">Where history belongs to you — <em style="color:var(--gold); font-size:0.8rem;">EN · Main tagline</em></div>
+        <div class="claim-item">Tarihin sana ait olduğu yer — <em style="color:var(--gold); font-size:0.8rem;">TR · Ana slogan</em></div>
+        <div class="claim-item">Non è un tour. È un'immersione.</div>
+        <div class="claim-item">Non organizziamo viaggi. Diamo vita ai luoghi dimenticati.</div>
+        <div class="claim-item">La storia si vive, non si guarda.</div>
+        <div class="claim-item">Guidata da chi la storia la conosce dall'interno.</div>
+        <div class="claim-item">Il lusso vero è capire dove sei.</div>
+        <div class="claim-item">Tre civiltà. Un unico filo.</div>
+      </div>
+    </section>
+
+    <!-- LOGO -->
+    <section class="section" id="logo">
+      <div class="section-eyebrow">12 — Logo</div>
+      <h2 class="section-title">Identità <em>visiva</em></h2>
+      <div class="logo-grid">
+        <div class="logo-sample">
+          <img src="brand-assets/logo-antiqora-v2.png" alt="Logo Antiqora" />
+          <div class="logo-usage-note">Su sfondo scuro — uso principale</div>
+        </div>
+        <div class="logo-sample light">
+          <img src="brand-assets/logo-antiqora-v2.png" alt="Logo Antiqora" style="filter: invert(0.9) sepia(0.3) saturate(0.6) brightness(0.6);" />
+          <div class="logo-usage-note">Su sfondo chiaro — verificare leggibilità</div>
+        </div>
+      </div>
+      <div class="section-body" style="margin-top:2rem;">
+        <p><strong>Regole d'uso:</strong> Non distorcere le proporzioni. Non cambiare il colore. Non aggiungere ombre o effetti. Dimensione minima 30px di altezza. Usare sempre su sfondi neutri (nero, bianco, avorio). Spazio attorno al logo: almeno l'altezza della donna nel logo come margine su ogni lato.</p>
+        <p><strong>File disponibili:</strong> <code style="color:var(--gold); font-size:0.8rem;">brand-assets/logo-antiqora-v2.png</code> (uso principale) · <code style="color:var(--gold); font-size:0.8rem;">brand-assets/logo-bussola-favicon.svg</code> (favicon)</p>
+      </div>
+    </section>
+
+    <!-- PALETTE -->
+    <section class="section" id="palette">
+      <div class="section-eyebrow">13 — Palette Colori</div>
+      <h2 class="section-title">I nostri <em>colori</em></h2>
+      <div class="palette-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C9A84C;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Oro Antico</span>
+            <span class="swatch-hex">#C9A84C</span>
+            <span class="swatch-use">Accenti · CTA · Titoli · Bordi attivi</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0F0E0C;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Inchiostro</span>
+            <span class="swatch-hex">#0F0E0C</span>
+            <span class="swatch-use">Sfondi principali · Navbar · Sezioni dark</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F7F3EE; border:1px solid rgba(201,168,76,0.15);"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Avorio Caldo</span>
+            <span class="swatch-hex">#F7F3EE</span>
+            <span class="swatch-use">Sfondi chiari · Testo su dark · Sezioni light</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.2);"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Oro Soft</span>
+            <span class="swatch-hex">rgba(201,168,76, 0.12–0.4)</span>
+            <span class="swatch-use">Bordi · Separatori · Hover states · Glow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOGRAFIA -->
+    <section class="section" id="typography">
+      <div class="section-eyebrow">14 — Tipografia</div>
+      <h2 class="section-title">I nostri <em>font</em></h2>
+
+      <div class="type-specimen">
+        <span class="type-label">Display — Cormorant Garamond · weight 300 · Serif</span>
+        <div class="type-sample-display">Dove la storia <em>ti appartiene.</em></div>
+        <div class="type-meta">Usato per: titoli hero, sezione titoli, manifesti, nomi tour, prezzi. Font size range: clamp(2rem, 8vw, 7rem). Italic per le parole in evidenza.</div>
+      </div>
+
+      <div class="type-specimen" style="margin-top:1.5rem;">
+        <span class="type-label">Accent — Cinzel · weight 400–600 · Serif romano</span>
+        <div class="type-sample-cinzel">ANTIQORA TRAVEL · 2026</div>
+        <div class="type-meta">Usato per: label uppercase, section eyebrow, etichette. Letter-spacing 0.25–0.4em. Solo maiuscolo.</div>
+      </div>
+
+      <div class="type-specimen" style="margin-top:1.5rem;">
+        <span class="type-label">Body — DM Sans · weight 300–400 · Sans-serif</span>
+        <div class="type-sample-body">Ogni viaggio nasce da una conversazione. Interessi, ritmi, preferenze — costruiamo l'itinerario attorno a te, non il contrario. Il lusso vero è lo spazio.</div>
+        <div class="type-meta">Usato per: corpo del testo, navigazione, form, descrizioni. Font size: 0.78–0.9rem. Line-height: 1.8–1.9.</div>
+      </div>
+    </section>
+
+    <!-- FOTOGRAFIA -->
+    <section class="section" id="fotografia">
+      <div class="section-eyebrow">15 — Fotografia</div>
+      <h2 class="section-title">Il nostro <em>universo visivo</em></h2>
+      <div class="tone-grid">
+        <div class="tone-card">
+          <div class="tone-card-title">Soggetti preferiti</div>
+          <ul class="tone-list">
+            <li>Siti archeologici in luce calda</li>
+            <li>Dettagli di pietra, scultura, geroglifici</li>
+            <li>Ipek sul campo — autentica, non in posa</li>
+            <li>Piccoli gruppi in ascolto (mai masse)</li>
+            <li>Interni di tombe, teatri, templi vuoti</li>
+            <li>Paesaggi desertici o rocciosi al golden hour</li>
+          </ul>
+        </div>
+        <div class="tone-card">
+          <div class="tone-card-title">Luce e mood</div>
+          <ul class="tone-list">
+            <li>Golden hour — luce calda e radente</li>
+            <li>Tramonto su siti — ombre lunghe</li>
+            <li>Luce laterale su pietra scolpita</li>
+            <li>Interno buio illuminato da fascio di luce</li>
+            <li>Mood: intimo · silenzioso · esclusivo · editoriale</li>
+          </ul>
+        </div>
+        <div class="tone-card" style="grid-column:1/-1;">
+          <div class="tone-card-title">Da evitare</div>
+          <ul class="tone-list avoid">
+            <li>Foto stock generiche di siti turistici affollati</li>
+            <li>Luce dura in pieno giorno, saturazione eccessiva</li>
+            <li>Soggetti in posa artefatta davanti alle rovine</li>
+            <li>Immagini che sembrano da catalogo di agenzia viaggi</li>
+            <li>Filtri Instagram troppo marcati o colorazioni fredde</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOURS -->
+    <section class="section" id="tours">
+      <div class="section-eyebrow">16 — I Nostri Viaggi</div>
+      <h2 class="section-title">Gli <em>itinerari</em></h2>
+      <div class="tour-grid">
+        <div class="tour-card">
+          <div class="tour-country">Egitto</div>
+          <div class="tour-name">I Faraoni del Nilo</div>
+          <p class="tour-desc">Cairo, Saqqara, Luxor, Valle dei Re, Abu Simbel. Accesso a siti normalmente chiusi al pubblico, visite al tramonto, incontri con egittologi locali.</p>
+          <div class="tour-meta">
+            <span class="tour-days">10 giorni</span>
+            <span class="tour-price">da € 4.800 / persona</span>
+          </div>
+        </div>
+        <div class="tour-card">
+          <div class="tour-country">Turchia</div>
+          <div class="tour-name">Le Città dell'Egeo</div>
+          <p class="tour-desc">Efeso, Pergamo, Afrodisia, Mileto. Le città greche sull'Egeo con accesso alle aree di scavo attive e sessioni private con archeologi sul campo.</p>
+          <div class="tour-meta">
+            <span class="tour-days">8 giorni</span>
+            <span class="tour-price">da € 3.600 / persona</span>
+          </div>
+        </div>
+        <div class="tour-card">
+          <div class="tour-country">Turchia · Anatolia</div>
+          <div class="tour-name">Anatolia Sacra</div>
+          <p class="tour-desc">Göbekli Tepe, Karahantepe, Nemrut Dağı, Cappadocia, Çatalhöyük, Konya. 12.000 anni di civiltà — dove l'umanità ha imparato a costruire, adorare, seppellire i propri dei.</p>
+          <div class="tour-meta">
+            <span class="tour-days">10 giorni</span>
+            <span class="tour-price">da richiedere</span>
+          </div>
+        </div>
+        <div class="tour-card">
+          <div class="tour-country">Italia · Sicilia</div>
+          <div class="tour-name">Magna Graecia</div>
+          <p class="tour-desc">Paestum, Agrigento, Selinunte, Siracusa, Metaponto. L'eredità greca nel Mediterraneo occidentale, con il parco archeologico più grande d'Europa.</p>
+          <div class="tour-meta">
+            <span class="tour-days">8 giorni</span>
+            <span class="tour-price">da richiedere</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO INSTAGRAM -->
+    <section class="section" id="bio">
+      <div class="section-eyebrow">17 — Bio Instagram</div>
+      <h2 class="section-title">Come ci <em>presentiamo</em></h2>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div class="tone-card">
+          <div class="tone-card-title">IT — Italiano</div>
+          <p style="font-size:0.85rem; color:var(--ivory); line-height:1.9; white-space:pre-line;">Antiqora Travel
+Viaggi Archeologici di Lusso
+Guidati da un'Archeologa · Max 10 persone
+Egitto · Turchia · Italia</p>
+        </div>
+        <div class="tone-card">
+          <div class="tone-card-title">EN — English</div>
+          <p style="font-size:0.85rem; color:var(--ivory); line-height:1.9; white-space:pre-line;">Antiqora Travel
+Luxury Archaeological Journeys
+Led by an Archaeologist · Max 10 per group
+Egypt · Turkey · Italy</p>
+        </div>
+        <div class="tone-card">
+          <div class="tone-card-title">TR — Türkçe</div>
+          <p style="font-size:0.85rem; color:var(--ivory); line-height:1.9; white-space:pre-line;">Antiqora Travel
+Lüks Arkeolojik Seyahatler
+Bir Arkeolog Tarafından · Maks. 10 Kişi
+Mısır · Türkiye · İtalya</p>
+        </div>
+      </div>
+      <div class="section-body" style="margin-top:2rem;">
+        <p><strong>Highlight consigliati:</strong> Brand · Chi siamo · Egitto · Turchia · Italia · Tour · Come funziona · Contatti</p>
+      </div>
+    </section>
+
+    <!-- CAPTIONS -->
+    <section class="section" id="captions">
+      <div class="section-eyebrow">18 — Caption Instagram</div>
+      <h2 class="section-title">20 caption <em>pronte all'uso</em></h2>
+      <div class="caption-list">
+        <div class="caption-item"><span class="caption-num">01</span><span class="caption-text">Valle dei Re, tramonto.
+La luce entra in angolo retto in una camera che non vede il sole da tremila anni.
+Questo è quello che vedi quando non sei in coda.</span></div>
+        <div class="caption-item"><span class="caption-num">02</span><span class="caption-text">Non leggiamo le didascalie.
+Conosciamo le storie che non sono scritte da nessuna parte.</span></div>
+        <div class="caption-item"><span class="caption-num">03</span><span class="caption-text">Göbekli Tepe precede Stonehenge di 6.000 anni.
+Precede la scrittura. Precede la ceramica.
+Eppure qualcuno l'ha costruito, con intenzione e maestria.
+Vieni a chiederti perché.</span></div>
+        <div class="caption-item"><span class="caption-num">04</span><span class="caption-text">Il lusso vero è lo spazio.
+Nessuna folla, nessun megafono, nessuna fretta.
+Solo dieci persone e tremila anni di storia.</span></div>
+        <div class="caption-item"><span class="caption-num">05</span><span class="caption-text">Ogni viaggio nasce da una conversazione.
+Non da un catalogo.</span></div>
+        <div class="caption-item"><span class="caption-num">06</span><span class="caption-text">Afrodisia — città greca nel cuore dell'Anatolia.
+Teatro da 8.000 posti, ancora in piedi.
+Con noi: accesso privato al mattino, prima che arrivi chiunque altro.</span></div>
+        <div class="caption-item"><span class="caption-num">07</span><span class="caption-text">Non è un tour. È un'immersione.
+C'è una differenza.</span></div>
+        <div class="caption-item"><span class="caption-num">08</span><span class="caption-text">Ipek Tarakçı è un'archeologa.
+Non legge le pietre — le conosce.
+Questa è la differenza tra guardare e capire.</span></div>
+        <div class="caption-item"><span class="caption-num">09</span><span class="caption-text">Selinunte — il parco archeologico più grande d'Europa.
+La maggior parte dei visitatori non sa dove guardare.
+I nostri gruppi sì.</span></div>
+        <div class="caption-item"><span class="caption-num">10</span><span class="caption-text">Abu Simbel al tramonto, senza turisti.
+Questo è ciò che succede quando si pianifica con attenzione e si è in dieci.</span></div>
+        <div class="caption-item"><span class="caption-num">11</span><span class="caption-text">Tre civiltà.
+Un unico filo.
+Egitto · Turchia · Italia</span></div>
+        <div class="caption-item"><span class="caption-num">12</span><span class="caption-text">La storia non è nel passato.
+È nei luoghi che esistono ancora, e nell'intelligenza di chi li sa leggere.</span></div>
+        <div class="caption-item"><span class="caption-num">13</span><span class="caption-text">Massimo 10 persone.
+Non è un limite — è una scelta.</span></div>
+        <div class="caption-item"><span class="caption-num">14</span><span class="caption-text">"Ogni sito diventa un racconto vivo."
+— come ci descrivono i nostri viaggiatori, dopo.</span></div>
+        <div class="caption-item"><span class="caption-num">15</span><span class="caption-text">Pompei non è una rovina.
+È una città fermata nel tempo, con le sue botteghe, i suoi graffiti, i suoi segreti.
+Si capisce quando si ha il tempo di guardarla davvero.</span></div>
+        <div class="caption-item"><span class="caption-num">16</span><span class="caption-text">Cappadocia — chiese rupestri scavate nel tufo nell'VIII secolo.
+Non le vedi sulle guide. Non ci arriva nessun autobus.
+Ecco dove andiamo.</span></div>
+        <div class="caption-item"><span class="caption-num">17</span><span class="caption-text">Il viaggio inizia prima di partire.
+Con una conversazione su cosa vuoi capire, non solo cosa vuoi vedere.</span></div>
+        <div class="caption-item"><span class="caption-num">18</span><span class="caption-text">Dove la storia ti appartiene.</span></div>
+        <div class="caption-item"><span class="caption-num">19</span><span class="caption-text">Siti chiusi al pubblico.
+Accesso privato agli scavi attivi.
+Sessioni con archeologi locali.
+Non è un tour operator. È qualcosa di diverso.</span></div>
+        <div class="caption-item"><span class="caption-num">20</span><span class="caption-text">Non organizziamo viaggi.
+Diamo vita ai luoghi dimenticati.</span></div>
+      </div>
+    </section>
+
+    <!-- STORIES -->
+    <section class="section" id="stories">
+      <div class="section-eyebrow">19 — Idee Stories</div>
+      <h2 class="section-title">20 idee <em>pronte</em></h2>
+      <div class="stories-list">
+        <div class="story-item"><span class="story-num">01</span>Close-up di dettaglio su pietra scolpita — "Cosa vedi?" con risposta nella storia successiva</div>
+        <div class="story-item"><span class="story-num">02</span>Story a 3 frame: luogo → dettaglio → spiegazione breve di Ipek</div>
+        <div class="story-item"><span class="story-num">03</span>"Sapevi che —" con fact storico specifico sul sito del tour in evidenza</div>
+        <div class="story-item"><span class="story-num">04</span>Ipek sul campo — immagine autentica, niente di patinato, testo minimo</div>
+        <div class="story-item"><span class="story-num">05</span>Mappa animata che mostra le 3 destinazioni — "Dove andiamo quest'anno"</div>
+        <div class="story-item"><span class="story-num">06</span>Sondaggio: "Quale civiltà ti affascina di più?" con 3 opzioni</div>
+        <div class="story-item"><span class="story-num">07</span>Q&amp;A box: "Fai una domanda sulla prossima destinazione"</div>
+        <div class="story-item"><span class="story-num">08</span>Frame brand statement: "Non è un tour. È un'immersione."</div>
+        <div class="story-item"><span class="story-num">09</span>Countdown al prossimo viaggio disponibile</div>
+        <div class="story-item"><span class="story-num">10</span>"Prima vs dopo" — sito pieno di turisti / stessa location con gruppo Antiqora al mattino presto</div>
+        <div class="story-item"><span class="story-num">11</span>Mini-lezione su un elemento specifico (es. "Come leggere i geroglifici" in 3 stories)</div>
+        <div class="story-item"><span class="story-num">12</span>Tour spotlight: 1 tour, 1 dettaglio esclusivo, 1 frase d'impatto</div>
+        <div class="story-item"><span class="story-num">13</span>"Questo luogo si chiama ___" con storia in 2 righe — formato educativo breve</div>
+        <div class="story-item"><span class="story-num">14</span>Frame: "Massimo 10 persone — perché" con spiegazione</div>
+        <div class="story-item"><span class="story-num">15</span>Dietro le quinte: Ipek che prepara l'itinerario, ricerca sui siti</div>
+        <div class="story-item"><span class="story-num">16</span>Testimonial scritto — parole di un viaggiatore (anonimo se necessario)</div>
+        <div class="story-item"><span class="story-num">17</span>"3 cose che non sapevi su Efeso / Valle dei Re / Paestum"</div>
+        <div class="story-item"><span class="story-num">18</span>Frame con testo: "Ogni viaggio nasce da una conversazione." + link contatti</div>
+        <div class="story-item"><span class="story-num">19</span>Link in bio CTA morbida: "Inizia la conversazione per il tuo itinerario"</div>
+        <div class="story-item"><span class="story-num">20</span>Story finale settimana: citazione storica + logo Antiqora + tagline</div>
+      </div>
+    </section>
+
+    <!-- REELS -->
+    <section class="section" id="reels">
+      <div class="section-eyebrow">20 — Script Reel</div>
+      <h2 class="section-title">15 script <em>pronti</em></h2>
+      <div class="reel-list">
+        <div class="reel-item">
+          <div class="reel-title">Il contrario del turismo di massa</div>
+          <div class="reel-hook">Hook: "La maggior parte delle persone vede questo sito così."</div>
+          <p class="reel-body">Sc.1: folla turistica. Sc.2: stesso sito vuoto, golden hour. Sc.3: piccolo gruppo in ascolto. | Text: "Noi lo vediamo così."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Chi è Ipek</div>
+          <div class="reel-hook">Hook: "Non è una guida turistica."</div>
+          <p class="reel-body">Sc.1: Ipek in un sito. Sc.2: dettaglio di scavo. Sc.3: gruppo in ascolto. | Text: "È un'archeologa. C'è una differenza."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Tre civiltà</div>
+          <div class="reel-hook">Nessun testo iniziale — solo immagini</div>
+          <p class="reel-body">Sc.1: Valle dei Re. Sc.2: Efeso. Sc.3: Paestum. | Text finale: "Egitto. Turchia. Italia. Un unico filo."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Il silenzio di un sito</div>
+          <div class="reel-hook">Hook: "C'è un silenzio che si sente solo in certi posti."</div>
+          <p class="reel-body">Sc.1: camera funeraria vuota. Sc.2: teatro greco all'alba. Sc.3: tempio dorico al tramonto. | Text: "Dove la storia ti appartiene."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Massimo 10 persone</div>
+          <div class="reel-hook">Sc.1: folla al Colosseo. Sc.2: testo "mass tourism".</div>
+          <p class="reel-body">Sc.3: piccolo gruppo, sito deserto. | Text: "Il lusso vero è lo spazio."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Göbekli Tepe</div>
+          <div class="reel-hook">Hook: "12.000 anni fa, qualcuno ha costruito questo."</div>
+          <p class="reel-body">Sc.1: Göbekli Tepe. Sc.2: dettaglio pilastro. Sc.3: confronto con la piramide. | Text: "Prima di tutto ciò che conosci. Vieni a chiederti perché."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Valle dei Re al tramonto</div>
+          <div class="reel-hook">Nessun testo iniziale</div>
+          <p class="reel-body">Sc.1: ingresso alla valle. Sc.2: discesa nella tomba. Sc.3: dettaglio geroglifico illuminato. | Text: "Non una visita. Un'immersione."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Come nasce un viaggio</div>
+          <div class="reel-hook">Sc.1: conversazione scritta/chat.</div>
+          <p class="reel-body">Sc.2: mappa con percorso. Sc.3: gruppo in partenza. | Text: "Ogni viaggio nasce da una conversazione."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Accesso esclusivo</div>
+          <div class="reel-hook">Hook: "Ci sono siti che non aprono ai turisti."</div>
+          <p class="reel-body">Sc.1: cancello chiuso. Sc.2: Ipek con accesso. Sc.3: interno del sito. | Text: "Noi entriamo."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Magna Graecia</div>
+          <div class="reel-hook">Sc.1: templi di Agrigento.</div>
+          <p class="reel-body">Sc.2: Selinunte. Sc.3: mare di Paestum. | Text: "La Grecia non è solo in Grecia."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Cosa ricordi</div>
+          <div class="reel-hook">Hook: "Cosa ricordi di un luogo che hai visitato 5 anni fa?"</div>
+          <p class="reel-body">Sc.1: foto turistica sfocata. Sc.2: momento intimo in un sito. Sc.3: sguardo di meraviglia. | Text: "I viaggi Antiqora restano."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Archeologia vs turismo</div>
+          <div class="reel-hook">Sc.1: testo "vedere". Sc.2: testo "capire".</div>
+          <p class="reel-body">Sc.3: Ipek che spiega davanti a una scultura. | Text: "La differenza è chi ti porta."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Anatolia Sacra</div>
+          <div class="reel-hook">Hook: "10 giorni. 12.000 anni di storia."</div>
+          <p class="reel-body">Sc.1: Göbekli Tepe. Sc.2: Cappadocia. Sc.3: Nemrut Dağı. | Text: "Anatolia Sacra — prossimo itinerario disponibile."</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">Brand manifesto</div>
+          <div class="reel-hook">Solo testo su sfondo scuro</div>
+          <p class="reel-body">Sc.1: "Non organizziamo viaggi." Sc.2: "Diamo vita ai luoghi dimenticati." Sc.3: logo Antiqora. | Nessuna voiceover — solo musica ambient e testo.</p>
+        </div>
+        <div class="reel-item">
+          <div class="reel-title">CTA finale — Per chi non si accontenta</div>
+          <div class="reel-hook">Hook: "Non è per tutti."</div>
+          <p class="reel-body">Sc.1: sito deserto, golden hour. Sc.2: piccolo gruppo. Sc.3: logo. | Text: "Per chi non si accontenta di guardare. Richiedi il tuo itinerario."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRATEGIA -->
+    <section class="section" id="strategy">
+      <div class="section-eyebrow">21 — Strategia Instagram</div>
+      <h2 class="section-title">Come <em>comunicare</em></h2>
+      <div class="section-body">
+        <p>Instagram deve funzionare come <strong>canale di scoperta, desiderio culturale e raccolta di richieste di contatto</strong>, non come vetrina turistica generica.</p>
+      </div>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <div class="strategy-icon">01</div>
+          <div class="strategy-title">Expertise &amp; Credibilità</div>
+          <p class="strategy-desc">Ipek, archeologia, accesso esclusivo, competenza diretta. Far capire la differenza tra Antiqora e qualsiasi altra agenzia.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="strategy-icon">02</div>
+          <div class="strategy-title">Luoghi &amp; Meraviglia</div>
+          <p class="strategy-desc">Siti specifici, dettagli inediti, fatto storico preciso. Educare e affascinare. Mai "rovine generiche" ma sempre un luogo preciso con una storia precisa.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="strategy-icon">03</div>
+          <div class="strategy-title">Esclusività &amp; Intimità</div>
+          <p class="strategy-desc">Gruppi piccoli, accesso privilegiato, esperienza vs turismo di massa. Far desiderare quello che non si può avere altrove.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="strategy-icon">04</div>
+          <div class="strategy-title">Conversione Soft</div>
+          <p class="strategy-desc">Itinerari, richiesta di contatto, invito alla conversazione. Mai CTA aggressive. "Inizia la conversazione" non "Prenota subito".</p>
+        </div>
+      </div>
+      <div class="section-body" style="margin-top:2.5rem;">
+        <p><strong>Frequenza consigliata:</strong> 3 reel/settimana · 2 caroselli · Stories quotidiane · 1 contenuto orientato al contatto ogni 5–6 giorni</p>
+        <p><strong>Lingua:</strong> Post principali IT+EN (caption bilingue o alternata). Stories in IT. Reel con testo minimale comprensibile in tutte le lingue.</p>
+      </div>
+    </section>
+
+    <!-- DO & DON'T -->
+    <section class="section" id="dodont">
+      <div class="section-eyebrow">22 — Do &amp; Don't</div>
+      <h2 class="section-title">Regole <em>operative</em></h2>
+      <div class="dodont-grid">
+        <div class="dodont-card do">
+          <div class="dodont-title">✓ Fare sempre</div>
+          <ul class="dodont-list">
+            <li>Citare sempre la guida come "archeologa", non "guida"</li>
+            <li>Specificare "max 10 persone" o "gruppi di 10"</li>
+            <li>Usare termini specifici: nome del sito, civiltà, periodo storico</li>
+            <li>CTA morbida: "Richiedi il tuo itinerario", "Inizia la conversazione"</li>
+            <li>Fotografare siti senza folla o al momento giusto</li>
+            <li>Mantenere coerenza visiva: oro su scuro, sempre</li>
+            <li>Menzionare l'accesso a siti normalmente chiusi</li>
+            <li>Mostrare perché è diverso — non dirlo soltanto</li>
+          </ul>
+        </div>
+        <div class="dodont-card dont">
+          <div class="dodont-title">✗ Non fare mai</div>
+          <ul class="dodont-list">
+            <li>Usare "tour guidato", "escursione", "trasferimento incluso"</li>
+            <li>Aggettivi generici: indimenticabile, mozzafiato, unico nel suo genere</li>
+            <li>CTA aggressive: "Prenota ora!", "Posti limitati! Affrettati!"</li>
+            <li>Foto stock con folla di turisti o immagini patinate generiche</li>
+            <li>Comunicazione incoerente tra sito, IG ed email</li>
+            <li>Tono da catalogo turistico o agenzia di viaggi standard</li>
+            <li>Confrontarsi esplicitamente con competitor</li>
+            <li>Post senza cura visiva o copy approssimativo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="bb-footer">
+      <img src="brand-assets/logo-antiqora-v2.png" alt="Antiqora Travel" />
+      <p>Antiqora Travel — Brand Book 2026<br>Documento riservato ad uso interno e collaboratori</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id], div.bb-footer');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4, rootMargin: '-10% 0px -50% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
